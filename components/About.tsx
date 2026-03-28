@@ -1,12 +1,14 @@
 const instructors = [
   {
     name: 'Mick',
+    initial: 'M',
     title: 'Head Instructor',
     years: '20+ years experience',
     specialties: ['Learner drivers', 'Test preparation', 'Nervous drivers', 'Overseas conversion'],
   },
   {
     name: 'Sidra',
+    initial: 'S',
     title: 'Senior Instructor',
     years: 'Expert instructor',
     specialties: ['Learner drivers', 'Female students', 'Logbook hours', 'Overseas conversion'],
@@ -26,10 +28,9 @@ export default function About() {
           <div className="flex flex-col gap-6">
             {instructors.map((instructor) => (
               <div key={instructor.name} className="bg-[#1a2235] rounded-2xl p-6 flex flex-col sm:flex-row gap-5">
-                <div className="w-24 h-24 bg-[#0f1623] rounded-xl flex-shrink-0 flex items-center justify-center">
-                  <svg className="w-12 h-12 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
+                {/* Gold circle with initial */}
+                <div className="w-20 h-20 rounded-full bg-[#FFD700] flex-shrink-0 flex items-center justify-center shadow-lg">
+                  <span className="text-[#0f1623] font-extrabold text-3xl">{instructor.initial}</span>
                 </div>
                 <div className="flex flex-col gap-3">
                   <div>
@@ -61,7 +62,7 @@ export default function About() {
               L Plus P Driving School was founded in 1997 by Mick with a simple mission: to produce safe, confident drivers who pass their test first time. Over the past two decades we have helped more than 1,000 students across the Sydney region get their licence and take to the road with confidence.
             </p>
             <p className="text-gray-300 leading-relaxed">
-              Our experienced instructors combine patience, encouragement, and technical expertise to deliver a learning experience that is both enjoyable and effective. Whether you are a complete beginner, a nervous driver, or converting an overseas licence, we tailor every lesson to your individual needs. Our dual-control vehicles, free pick-up service, and 3-for-1 logbook scheme make us the smartest choice for learners across North Ryde and 23 surrounding suburbs.
+              All lessons are conducted in modern automatic dual-control vehicles. Whether you are a complete beginner, a nervous driver, or converting an overseas licence, we tailor every lesson to your individual needs. Our free pick-up service and 3-for-1 logbook scheme make us the smartest choice for learners across North Ryde and 23 surrounding suburbs.
             </p>
           </div>
         </div>

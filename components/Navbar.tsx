@@ -1,10 +1,11 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
 const navLinks = [
-  { href: '/#services', label: 'Services' },
+  { href: '/services', label: 'Services' },
   { href: '/#pricing', label: 'Pricing' },
   { href: '/about', label: 'About' },
   { href: '/#reviews', label: 'Reviews' },
@@ -19,16 +20,15 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 flex-shrink-0">
-            <div className="flex items-center gap-1">
-              <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded border-2 border-white">L</span>
-              <span className="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded border-2 border-white">P</span>
-            </div>
-            <div className="hidden sm:block">
-              <span className="text-white font-bold text-sm leading-tight">L Plus P</span>
-              <br />
-              <span className="text-[#FFD700] text-xs">Driving School</span>
-            </div>
+          <Link href="/" className="flex items-center flex-shrink-0">
+            <Image
+              src="/lplusp_logo.svg"
+              alt="L Plus P Driving School"
+              width={176}
+              height={48}
+              priority
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop nav links */}
@@ -93,10 +93,7 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <a
-              href="tel:0469370978"
-              className="text-[#FFD700] font-semibold text-sm"
-            >
+            <a href="tel:0469370978" className="text-[#FFD700] font-semibold text-sm">
               0469 370 978
             </a>
             <Link

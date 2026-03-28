@@ -1,23 +1,25 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import CTABanner from '@/components/CTABanner';
+import Sidebar from '@/components/Sidebar';
 
 export const metadata: Metadata = {
   title: 'Driving Lesson Services | L Plus P Driving School Sydney',
   description:
-    'Driving lesson services in Sydney: Learner driver lessons, driving test preparation, overseas licence conversion, logbook hour assistance. Book with L Plus P today.',
+    'Driving lesson services in Sydney: Learner driver lessons, driving test preparation, overseas licence conversion, logbook hours, EV familiarisation, senior refresher, P-plate confidence. All lessons in automatic dual-control vehicles.',
 };
 
 const servicesData = [
   {
     id: 'learner',
     title: 'Learner Driver Lessons',
+    badge: null,
     description:
-      'Our learner driver lessons are designed to build confidence and competence from the ground up. We follow a structured curriculum that takes you from the very basics — starting, stopping, steering — through to advanced manoeuvres, freeway driving, and complex intersections.',
+      'Our learner driver lessons are designed to build confidence and competence from the ground up. All lessons conducted in modern automatic dual-control vehicles. We follow a structured curriculum from the very basics through to advanced manoeuvres, freeway driving, and complex intersections.',
     includes: [
       'Structured lesson plans matched to your level',
       'Free pick-up and drop-off from home, school or work',
-      'Dual control vehicle for maximum safety',
+      'Modern automatic dual-control vehicle for maximum safety',
       '3-for-1 logbook hours for learners under 25',
       'Lessons tailored for nervous and anxious drivers',
       'Flexible scheduling including early mornings and Saturdays',
@@ -28,13 +30,14 @@ const servicesData = [
   {
     id: 'test-prep',
     title: 'Driving Test Preparation',
+    badge: null,
     description:
-      'Feeling ready is the key to passing first time. Our dedicated test preparation lessons target the exact skills the examiner will assess — from observation and signalling to reverse parking and giving way. We know all the local test routes at Ryde, Silverwater, Castle Hill, Hornsby, and Chatswood inside out.',
+      'Know exactly what to expect on test day. We cover all local test routes at Ryde, Silverwater, Castle Hill, Hornsby, and Chatswood. All test preparation conducted in our automatic dual-control vehicle, which you can also use on test day.',
     includes: [
       'Full mock driving test in real test conditions',
       'Detailed feedback on every manoeuvre',
       'Knowledge of all local test routes',
-      'Use of our dual-control car for the actual test',
+      'Use of our automatic dual-control car for the actual test',
       'Pick-up from your preferred location on test day',
       'Debrief after the test — pass or fail',
     ],
@@ -44,14 +47,15 @@ const servicesData = [
   {
     id: 'overseas',
     title: 'Overseas Licence Conversion',
+    badge: null,
     description:
-      'Driving in Australia is different in many ways — road rules, road signs, and driving culture all vary from country to country. Our overseas conversion lessons are tailored to your existing experience and help you quickly bridge the gap so you can pass the NSW practical driving test with confidence.',
+      'Hold a licence from another country? Our overseas conversion lessons are tailored to your existing experience. All lessons in automatic dual-control vehicles. We help you quickly adapt to Australian road rules and pass the NSW practical driving test with confidence.',
     includes: [
       'Assessment of your current driving skills',
       'Focus on Australian-specific road rules',
       'Practice on roads you will be tested on',
       'Guidance on NSW road signs and markings',
-      'Test day car provision',
+      'Automatic dual-control vehicle provided',
       'Lessons in English (other languages available on request)',
     ],
     price: 'From $60/hr',
@@ -60,8 +64,9 @@ const servicesData = [
   {
     id: 'logbook',
     title: 'Logbook Hour Assistance',
+    badge: null,
     description:
-      'NSW requires learner drivers under 25 to complete 120 supervised hours before sitting the driving test. Each hour of professional instruction with an accredited instructor counts as 3 logbook hours — dramatically reducing the time it takes to reach 120 hours.',
+      'NSW requires learner drivers under 25 to complete 120 supervised hours. Each hour of professional instruction with an accredited instructor counts as 3 logbook hours. All logbook lessons conducted in modern automatic dual-control vehicles.',
     includes: [
       '1 professional hour = 3 logbook hours',
       '10-hour pack = 30 logbook hours',
@@ -72,6 +77,59 @@ const servicesData = [
     ],
     price: 'From $60/hr',
     priceNote: '10-hour pack = 30 logbook hours toward your 120',
+  },
+  {
+    id: 'ev',
+    title: 'EV Familiarisation Course',
+    badge: 'NEW — Future-Ready Driving',
+    description:
+      "Australia's EV sales grew over 150% in 2024. Millions of Australians are buying their first electric vehicle and finding it unfamiliar. We offer a 1-hour EV orientation session to get you confident with regenerative braking, one-pedal driving, charging, and the digital dashboards in modern EVs like Tesla, BYD, MG and Hyundai. You do not need to be a learner driver — this course is for anyone who just bought or is considering buying an EV.",
+    includes: [
+      'Regenerative braking explained and practised',
+      'One-pedal driving technique',
+      'Understanding the EV dashboard and digital displays',
+      'Charging — AC vs DC, public vs home charging',
+      'Range management and trip planning',
+      'Differences from automatic petrol/hybrid driving',
+    ],
+    price: '$80',
+    priceNote: 'Per 1-hour session — no learner licence required',
+  },
+  {
+    id: 'senior',
+    title: 'Senior Driver Refresher Course',
+    badge: 'All Ages Welcome',
+    description:
+      'Keeping your independence on the road matters. Our Senior Driver Refresher Course is designed for drivers returning to the road after illness, injury or a long break, drivers wanting to update their road rule knowledge, and drivers 75+ preparing for their annual medical assessment or 85+ preparing for their on-road assessment required by NSW Transport. Our patient, professional instructors work at your pace in a relaxed, pressure-free environment. All lessons in automatic dual-control vehicles.',
+    includes: [
+      'Updated NSW road rules review',
+      'Defensive driving techniques',
+      'Hazard recognition and response',
+      'Adapting driving style to physical changes',
+      'Parking, reversing and intersection confidence',
+      'Preparation for NSW senior driver assessment (85+)',
+      'Free initial phone consultation to discuss your needs',
+    ],
+    price: 'From $60/hr',
+    priceNote: 'Tailored to your needs — flexible lesson lengths',
+  },
+  {
+    id: 'pplate',
+    title: 'P-Plate Confidence Course',
+    badge: 'For New P-Platers',
+    description:
+      'Just got your P-plates? The first 6 months of solo driving are statistically the most dangerous — P-platers are 8 times more likely to be involved in a crash than when supervised. Our P-Plate Confidence Course is designed specifically for new P-platers who want extra confidence, nervous P-platers who feel anxious driving alone, and drivers who have had a minor incident and want to rebuild their skills. All lessons in modern automatic dual-control vehicles.',
+    includes: [
+      'Motorway and freeway driving (M1, M2, Pacific Highway)',
+      'Night driving practice',
+      'Hazard perception in real Sydney traffic',
+      'Managing peer pressure and distractions',
+      'Advanced parking manoeuvres',
+      'Emergency braking and vehicle control',
+      'One-on-one personalised coaching',
+    ],
+    price: 'From $60/hr',
+    priceNote: 'Most students book 3–5 sessions',
   },
 ];
 
@@ -85,52 +143,68 @@ export default function ServicesPage() {
             Our <span className="text-[#FFD700]">Services</span>
           </h1>
           <p className="mt-4 text-gray-300 text-lg">
-            Comprehensive driving instruction for every stage of the learning journey
+            All lessons conducted in modern automatic dual-control vehicles
           </p>
         </div>
       </section>
 
-      {/* Service sections */}
-      <div className="bg-[#0f1623]">
-        {servicesData.map((service, idx) => (
-          <section
-            key={service.id}
-            id={service.id}
-            className={`py-16 sm:py-20 ${idx % 2 === 1 ? 'bg-[#1a2235]' : 'bg-[#0f1623]'}`}
-          >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-                <div className="flex flex-col gap-5">
-                  <h2 className="text-3xl font-extrabold text-white">{service.title}</h2>
-                  <p className="text-gray-300 leading-relaxed">{service.description}</p>
-                  <div className="flex flex-col gap-1">
-                    <div className="text-[#FFD700] text-3xl font-extrabold">{service.price}</div>
-                    <div className="text-gray-400 text-sm">{service.priceNote}</div>
+      {/* Content + Sidebar */}
+      <div className="bg-[#0f1623] py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex gap-10 items-start">
+          {/* Main content */}
+          <div className="flex-1 min-w-0 flex flex-col gap-0">
+            {servicesData.map((service, idx) => (
+              <section
+                key={service.id}
+                id={service.id}
+                className={`py-12 ${idx % 2 === 1 ? 'bg-[#1a2235]' : 'bg-[#0f1623]'} -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8`}
+              >
+                {service.badge && (
+                  <div className="mb-4">
+                    <span className="bg-[#FFD700] text-[#0f1623] text-xs font-bold px-3 py-1 rounded-full">
+                      {service.badge}
+                    </span>
                   </div>
-                  <Link
-                    href="/book"
-                    className="bg-[#FFD700] text-[#0f1623] font-bold px-6 py-3 rounded-lg text-center hover:bg-yellow-300 transition-colors w-fit"
+                )}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+                  <div className="flex flex-col gap-5">
+                    <h2 className="text-3xl font-extrabold text-white">{service.title}</h2>
+                    <p className="text-gray-300 leading-relaxed">{service.description}</p>
+                    <div className="flex flex-col gap-1">
+                      <div className="text-[#FFD700] text-3xl font-extrabold">{service.price}</div>
+                      <div className="text-gray-400 text-sm">{service.priceNote}</div>
+                    </div>
+                    <Link
+                      href="/book"
+                      className="bg-[#FFD700] text-[#0f1623] font-bold px-6 py-3 rounded-lg text-center hover:bg-yellow-300 transition-colors w-fit"
+                    >
+                      Book Now
+                    </Link>
+                  </div>
+                  <div
+                    className="rounded-2xl p-6"
+                    style={{ backgroundColor: idx % 2 === 1 ? '#0f1623' : '#1a2235' }}
                   >
-                    Book Now
-                  </Link>
+                    <h3 className="text-white font-bold mb-4">What&apos;s Included</h3>
+                    <ul className="flex flex-col gap-3">
+                      {service.includes.map((item) => (
+                        <li key={item} className="flex items-start gap-3 text-sm text-gray-300">
+                          <svg className="w-5 h-5 text-[#FFD700] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                <div className={`bg-[${idx % 2 === 1 ? '#0f1623' : '#1a2235'}] rounded-2xl p-6`} style={{ backgroundColor: idx % 2 === 1 ? '#0f1623' : '#1a2235' }}>
-                  <h3 className="text-white font-bold mb-4">What&apos;s Included</h3>
-                  <ul className="flex flex-col gap-3">
-                    {service.includes.map((item) => (
-                      <li key={item} className="flex items-start gap-3 text-sm text-gray-300">
-                        <svg className="w-5 h-5 text-[#FFD700] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
-        ))}
+              </section>
+            ))}
+          </div>
+
+          {/* Sidebar */}
+          <Sidebar />
+        </div>
       </div>
 
       <CTABanner />

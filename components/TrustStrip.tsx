@@ -14,7 +14,7 @@ const trustItems = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l2 2h10l2-2zM13 7h5l3 3v3h-2" />
       </svg>
     ),
-    label: 'Dual Control Cars',
+    label: 'Automatic Dual Control Cars',
   },
   {
     icon: (

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const suburbs = [
   'North Ryde', 'East Ryde', 'Ryde', 'West Ryde',
@@ -19,15 +20,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Left: Logo & tagline */}
           <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-1">
-                <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded border-2 border-white">L</span>
-                <span className="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded border-2 border-white">P</span>
-              </div>
-              <div>
-                <span className="text-white font-bold text-sm">L Plus P Driving School</span>
-              </div>
-            </div>
+            <Link href="/">
+              <Image
+                src="/lplusp_logo.svg"
+                alt="L Plus P Driving School"
+                width={160}
+                height={40}
+                className="h-10 w-auto"
+              />
+            </Link>
             <p className="text-[#FFD700] font-semibold text-lg">Learn. Practice. Pass.</p>
             <p className="text-gray-400 text-sm">Sydney&apos;s most trusted driving school since 1997</p>
           </div>
@@ -44,10 +45,7 @@ export default function Footer() {
                 <span className="text-gray-400">Sidra: </span>
                 <a href="tel:0451331140" className="text-[#FFD700] hover:text-yellow-300 font-semibold">0451 331 140</a>
               </div>
-              <a
-                href="mailto:lpluspdrivingschool44@gmail.com"
-                className="text-gray-300 hover:text-white break-all"
-              >
+              <a href="mailto:lpluspdrivingschool44@gmail.com" className="text-gray-300 hover:text-white break-all">
                 lpluspdrivingschool44@gmail.com
               </a>
               <a

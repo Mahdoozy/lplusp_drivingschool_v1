@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="52" viewBox="0 0 220 52">
+  <!-- L Plate -->
+  <rect x="0" y="8" width="28" height="28" rx="4" fill="#CC0000" stroke="white" stroke-width="2"/>
+  <text x="14" y="27" font-family="Arial Black, Arial" font-weight="900" font-size="16" fill="white" text-anchor="middle">L</text>
+  <!-- P Plate -->
+  <rect x="32" y="8" width="28" height="28" rx="4" fill="#006600" stroke="white" stroke-width="2"/>
+  <text x="46" y="27" font-family="Arial Black, Arial" font-weight="900" font-size="16" fill="white" text-anchor="middle">P</text>
+  <!-- Car icon -->
+  <g transform="translate(0, 36)" fill="#FFD700">
+    <path d="M8 8 L12 4 L20 4 L24 8 L28 8 L28 12 L6 12 L6 8 Z" opacity="0.8" transform="scale(0.9)"/>
+  </g>
+  <!-- Text: L Plus P -->
+  <text x="70" y="24" font-family="Arial Black, Arial" font-weight="900" font-size="18" fill="white" letter-spacing="0.5">L Plus P</text>
+  <!-- Text: DRIVING SCHOOL -->
+  <text x="70" y="40" font-family="Arial, sans-serif" font-weight="700" font-size="11" fill="#FFD700" letter-spacing="1.5">DRIVING SCHOOL</text>
+  <!-- Est badge -->
+  <text x="185" y="30" font-family="Arial, sans-serif" font-size="8" fill="#888" text-anchor="middle">Est.</text>
+  <text x="185" y="40" font-family="Arial, sans-serif" font-size="8" fill="#888" text-anchor="middle">1997</text>
+</svg>

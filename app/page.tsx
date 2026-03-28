@@ -7,43 +7,44 @@ import Reviews from '@/components/Reviews';
 import About from '@/components/About';
 import FAQ from '@/components/FAQ';
 import CTABanner from '@/components/CTABanner';
+import ImageSlideshow from '@/components/ImageSlideshow';
 
 export const metadata: Metadata = {
   title: 'L Plus P Driving School | Driving Lessons Sydney | Est. 1997',
   description:
-    "Sydney's most trusted driving school since 1997. Expert driving lessons in North Ryde, Ryde, Epping, Carlingford, Castle Hill and 20+ suburbs. Learner drivers welcome. Call Mick 0469 370 978.",
+    "Sydney's most trusted driving school since 1997. Expert driving lessons in North Ryde, Ryde, Epping, Carlingford, Castle Hill and 20+ suburbs. Automatic dual-control cars, 3-for-1 logbook hours. Call Mick 0469 370 978.",
 };
 
 const homepageFAQ = [
   {
     question: 'How many lessons do I need?',
     answer:
-      'It depends on your experience and how quickly you progress. Complete beginners typically need 10–20 hours. Those with some supervised driving experience usually need 5–10 hours. We assess your ability in the first lesson and recommend the right package for your situation.',
+      'It depends on your experience and how quickly you progress. Complete beginners typically need 10–20 hours. Those with some supervised driving experience usually need 5–10 hours. We assess your ability in the first lesson and recommend the right package.',
   },
   {
     question: 'Do you cover my suburb?',
     answer:
-      'We cover 24 suburbs across North Sydney and Ryde including North Ryde, Ryde, Epping, Carlingford, Castle Hill, Chatswood and many more. Contact us to confirm if your suburb is included.',
+      'We cover 24 suburbs across North Sydney and Ryde including North Ryde, Ryde, Epping, Carlingford, Castle Hill, Chatswood and many more. Contact us to confirm.',
   },
   {
     question: 'What is the 3-for-1 logbook scheme?',
     answer:
-      'For learner drivers under 25, every 1 hour of professional instruction counts as 3 logbook hours. A 10-hour package counts as 30 logbook hours toward your 120-hour requirement — saving you months of supervised driving.',
+      'For learner drivers under 25, every 1 hour of professional instruction counts as 3 logbook hours. A 10-hour package counts as 30 logbook hours toward your 120-hour requirement.',
   },
   {
     question: 'Can I use your car for the driving test?',
     answer:
-      'Yes. We provide a dual-control vehicle and pick you up from your preferred location. We know all local test routes at Ryde, Silverwater, Castle Hill, Hornsby and Chatswood, so you will be fully prepared.',
+      'Yes. We provide a modern automatic dual-control vehicle and pick you up from your preferred location. We know all local test routes at Ryde, Silverwater, Castle Hill, Hornsby and Chatswood.',
   },
   {
     question: 'Do you offer overseas licence conversion?',
     answer:
-      'Yes. We tailor lessons to help you understand Australian road rules, adapt to local road conditions, and pass the practical driving test with confidence.',
+      'Yes. We tailor lessons to help you understand Australian road rules and pass the practical test with confidence.',
   },
   {
     question: 'How do I book?',
     answer:
-      'Book online using the form on this site, WhatsApp us, or call Mick on 0469 370 978 or Sidra on 0451 331 140. We confirm within 1 hour.',
+      'Book online, WhatsApp us, or call Mick on 0469 370 978 or Sidra on 0451 331 140. We confirm within 1 hour.',
   },
 ];
 
@@ -90,17 +91,9 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Car image placeholder */}
+            {/* Image slideshow */}
             <div className="lg:w-1/2 w-full">
-              <div className="w-full h-72 sm:h-96 bg-[#1a2235] rounded-2xl flex items-center justify-center">
-                <div className="text-center">
-                  <svg className="w-24 h-24 mx-auto mb-3 text-gray-600 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l2 2h10l2-2zM13 7h5l3 3v3h-2" />
-                  </svg>
-                  <p className="text-gray-600 text-sm opacity-40">Car image</p>
-                </div>
-              </div>
+              <ImageSlideshow />
             </div>
           </div>
         </div>

@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import FAQ from '@/components/FAQ';
 import CTABanner from '@/components/CTABanner';
+import Sidebar from '@/components/Sidebar';
 
 export const metadata: Metadata = {
   title: 'Frequently Asked Questions | L Plus P Driving School',
   description:
-    'Answers to common questions about driving lessons, pricing, the 3-for-1 logbook scheme, test preparation, and booking with L Plus P Driving School in Sydney.',
+    'Answers to common questions about driving lessons, pricing, the 3-for-1 logbook scheme, test preparation, automatic vehicles, and booking with L Plus P Driving School in Sydney.',
 };
 
 const allFAQs = [
@@ -32,12 +33,12 @@ const allFAQs = [
   {
     question: 'Can I use your car for the driving test?',
     answer:
-      'Yes. We provide a fully inspected dual-control vehicle on test day and pick you up from your preferred location. We know all local test routes at Ryde, Silverwater, Castle Hill, Hornsby, and Chatswood, so you will arrive calm and prepared.',
+      'Yes. We provide a fully inspected automatic dual-control vehicle on test day and pick you up from your preferred location. We know all local test routes at Ryde, Silverwater, Castle Hill, Hornsby, and Chatswood, so you will arrive calm and prepared.',
   },
   {
     question: 'Do you offer overseas licence conversion?',
     answer:
-      'Yes. We tailor lessons to help you understand Australian road rules, adapt to local road conditions, and confidently pass the NSW practical driving test. The number of lessons needed depends on your existing skill level and which country you are converting from.',
+      'Yes. We tailor lessons to help you understand Australian road rules, adapt to local road conditions, and confidently pass the NSW practical driving test. All lessons conducted in automatic dual-control vehicles. The number of lessons needed depends on your existing skill level and which country you are converting from.',
   },
   {
     question: 'How much do lessons cost?',
@@ -62,7 +63,7 @@ const allFAQs = [
   {
     question: 'What should I bring to my lesson?',
     answer:
-      'All you need is your current NSW learner licence (green P1 or red L plate licence). No need to bring your own logbook for the first lesson — your instructor will advise on the correct logbook format.',
+      'All you need is your current NSW learner licence (L plate). No need to bring your own logbook for the first lesson — your instructor will advise on the correct logbook format after assessing your needs.',
   },
   {
     question: 'I am a very nervous driver — can you help?',
@@ -70,9 +71,9 @@ const allFAQs = [
       'Absolutely. Both Mick and Sidra have extensive experience with anxious and nervous drivers. We work at your pace, never rush you, and use calm, encouraging communication throughout every lesson. Many of our most successful students started out very nervous.',
   },
   {
-    question: 'Do you teach in automatic or manual?',
+    question: 'Do you teach automatic or manual?',
     answer:
-      'We currently teach in automatic vehicles. If you need manual transmission lessons, please contact us to discuss availability. Note that passing your test in an automatic means your licence will be restricted to automatic vehicles unless you later pass in a manual.',
+      'All our lessons are conducted in modern automatic dual-control vehicles. We teach exclusively in automatic cars. Note that passing your test in an automatic means your licence will be restricted to automatic vehicles unless you separately pass a test in a manual car.',
   },
   {
     question: 'What payment methods do you accept?',
@@ -98,7 +99,14 @@ export default function FAQPage() {
         </div>
       </section>
 
-      <FAQ items={allFAQs} showHeading={false} />
+      <div className="bg-[#0f1623] py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex gap-10 items-start">
+          <div className="flex-1 min-w-0">
+            <FAQ items={allFAQs} showHeading={false} />
+          </div>
+          <Sidebar />
+        </div>
+      </div>
 
       <CTABanner />
     </>

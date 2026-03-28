@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is the **L Plus P Driving School** website — Next.js 16 App Router, TypeScript, Tailwind CSS v4.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Stripe Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To enable online payments:
 
-## Learn More
+1. Create a Stripe account at [stripe.com](https://stripe.com)
+2. Get your publishable key and secret key from the Stripe dashboard
+3. Add to `.env.local`:
+   ```
+   STRIPE_PUBLIC_KEY=your_publishable_key
+   STRIPE_SECRET_KEY=your_secret_key
+   ```
+4. Run: `npm install stripe @stripe/stripe-js`
+5. The payment integration point is in `app/book/page.tsx` — replace the form submit handler with a Stripe checkout session
 
-To learn more about Next.js, take a look at the following resources:
+Example checkout session (add to an API route `app/api/checkout/route.ts`):
+```ts
+import Stripe from 'stripe';
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+export async function POST(req: Request) {
+  const { packageId } = await req.json();
+  const prices = { single: 6000, five: 27500, ten: 50000 }; // cents
+  const session = await stripe.checkout.sessions.create({
+    mode: 'payment',
+    line_items: [{ price_data: { currency: 'aud', unit_amount: prices[packageId as keyof typeof prices], product_data: { name: 'L Plus P Driving Lesson' } }, quantity: 1 }],
+    success_url: `${process.env.NEXT_PUBLIC_URL}/book?success=true`,
+    cancel_url: `${process.env.NEXT_PUBLIC_URL}/book`,
+  });
+  return Response.json({ url: session.url });
+}
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploying
 
-## Deploy on Vercel
+Push to GitHub then import to [Vercel](https://vercel.com). Vercel auto-detects Next.js.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Add environment variables in Vercel dashboard under Project → Settings → Environment Variables.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Adding Real Photos
+
+Replace Unsplash URLs in `components/ImageSlideshow.tsx` with real photos. Store photos in `public/` and use `/photo.jpg` paths. Update `next.config.ts` to remove the Unsplash remote pattern if no longer needed.
+
+## Project Structure
+
+```
+app/
+  layout.tsx          — Navbar, Footer, WhatsApp button on every page
+  page.tsx            — Homepage with slideshow, 7 services, pricing, reviews
+  book/page.tsx       — 5-step booking quiz
+  about/page.tsx      — About, timeline, instructor profiles
+  services/page.tsx   — 7 service sections
+  faq/page.tsx        — 15 FAQ accordion
+  contact/page.tsx    — Contact form + Google Maps
+  driving-lessons/[suburb]/page.tsx — 24 suburb pages (pre-rendered)
+components/
+  Navbar.tsx          — Sticky nav with hamburger mobile menu
+  Footer.tsx          — 3-col footer
+  WhatsAppButton.tsx  — Fixed WhatsApp button
+  Sidebar.tsx         — Sticky booking sidebar (inner pages, xl+ screens)
+  ImageSlideshow.tsx  — Auto-rotating hero slideshow
+  Services.tsx        — 7 service cards
+  Pricing.tsx         — 3-tier pricing
+  Reviews.tsx, About.tsx, FAQ.tsx, CTABanner.tsx, TrustStrip.tsx
+lib/
+  suburbs.ts          — 24 suburb data with slugs and test centres
+```

@@ -5,6 +5,7 @@ import { suburbs, getSuburbBySlug } from '@/lib/suburbs';
 import TrustStrip from '@/components/TrustStrip';
 import Pricing from '@/components/Pricing';
 import CTABanner from '@/components/CTABanner';
+import Sidebar from '@/components/Sidebar';
 
 type Props = {
   params: Promise<{ suburb: string }>;
@@ -21,11 +22,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `Driving Lessons in ${suburb.name} | L Plus P Driving School`,
-    description: `Expert driving lessons in ${suburb.name}, Sydney. Local instructors who know every ${suburb.name} test route. Free pick-up, 3-for-1 logbook hours, dual control cars. Book with L Plus P today.`,
+    description: `Expert driving lessons in ${suburb.name}, Sydney. Local instructors who know every ${suburb.name} test route at ${suburb.testCentre}. Modern automatic dual-control cars, free pick-up, 3-for-1 logbook hours. Book with L Plus P today — call 0469 370 978.`,
   };
 }
 
-const reviewPairs: { text: string; author: string }[] = [
+const reviewPairs = [
   {
     text: 'Mick is an excellent instructor and teaches the rules and tricks in an easy to understand manner. With his support I was able to get my full licence today.',
     author: 'Brian Joe A.',
@@ -53,7 +54,7 @@ export default async function SuburbPage({ params }: Props) {
               <span className="text-[#FFD700]">{suburb.name}</span>
             </h1>
             <p className="text-gray-300 text-lg sm:text-xl">
-              Expert local instruction — we know every {suburb.name} test route
+              Expert local instruction — we know every {suburb.name} test route at {suburb.testCentre}. All lessons in modern automatic dual-control vehicles.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -80,68 +81,74 @@ export default async function SuburbPage({ params }: Props) {
 
       <TrustStrip />
 
-      {/* Why Choose Us */}
-      <section className="py-16 sm:py-20 bg-[#0f1623]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-extrabold text-white">
-              Why Choose Us in <span className="text-[#FFD700]">{suburb.name}</span>
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                title: `Local ${suburb.name} Expertise`,
-                description: `Our instructors know every street, intersection, and hazard in ${suburb.name}. You will practice on the exact roads used in the ${suburb.testCentre} driving test.`,
-              },
-              {
-                title: 'Free Pick-up in ' + suburb.name,
-                description: `We pick you up from your home, school, or workplace anywhere in ${suburb.name} — no travel stress before your lesson.`,
-              },
-              {
-                title: `Pass First Time in ${suburb.name}`,
-                description: `Our students in ${suburb.name} consistently pass first time thanks to thorough test preparation and familiarity with the ${suburb.testCentre} test centre routes.`,
-              },
-            ].map((card) => (
-              <div key={card.title} className="bg-[#1a2235] rounded-2xl p-6 flex flex-col gap-3">
-                <div className="w-10 h-10 bg-[#FFD700] rounded-full flex items-center justify-center">
-                  <svg className="w-5 h-5 text-[#0f1623]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <h3 className="text-white font-bold text-lg">{card.title}</h3>
-                <p className="text-gray-400 text-sm">{card.description}</p>
+      {/* Why Choose Us + Sidebar */}
+      <div className="bg-[#0f1623] py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex gap-10 items-start">
+          <div className="flex-1 min-w-0 flex flex-col gap-16">
+            {/* Why Choose Us */}
+            <div>
+              <div className="text-center mb-10">
+                <h2 className="text-3xl font-extrabold text-white">
+                  Why Choose Us in <span className="text-[#FFD700]">{suburb.name}</span>
+                </h2>
               </div>
-            ))}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {[
+                  {
+                    title: `Local ${suburb.name} Expertise`,
+                    description: `Our instructors know every street, intersection, and hazard in ${suburb.name}. You will practise on the exact roads used in the ${suburb.testCentre} driving test.`,
+                  },
+                  {
+                    title: `Free Pick-up in ${suburb.name}`,
+                    description: `We pick you up from your home, school, or workplace anywhere in ${suburb.name} — no travel stress before your lesson. Modern automatic dual-control vehicles.`,
+                  },
+                  {
+                    title: `Pass First Time in ${suburb.name}`,
+                    description: `Our students in ${suburb.name} consistently pass first time thanks to thorough test preparation and familiarity with the ${suburb.testCentre} test centre routes.`,
+                  },
+                ].map((card) => (
+                  <div key={card.title} className="bg-[#1a2235] rounded-2xl p-6 flex flex-col gap-3">
+                    <div className="w-10 h-10 bg-[#FFD700] rounded-full flex items-center justify-center">
+                      <svg className="w-5 h-5 text-[#0f1623]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <h3 className="text-white font-bold text-lg">{card.title}</h3>
+                    <p className="text-gray-400 text-sm">{card.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Reviews */}
+            <div>
+              <h2 className="text-3xl font-extrabold text-white text-center mb-8">
+                What Students <span className="text-[#FFD700]">Say</span>
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {reviewPairs.map((review) => (
+                  <div key={review.author} className="bg-[#1a2235] rounded-2xl p-6 flex flex-col gap-4">
+                    <div className="flex gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} className="w-4 h-4 text-[#FFD700]" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                    <p className="text-gray-300 text-sm leading-relaxed flex-1">&ldquo;{review.text}&rdquo;</p>
+                    <p className="text-white font-semibold text-sm">{review.author}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
+
+          {/* Sidebar */}
+          <Sidebar />
         </div>
-      </section>
+      </div>
 
       <Pricing />
-
-      {/* Reviews */}
-      <section className="py-16 bg-[#1a2235]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-extrabold text-white text-center mb-10">
-            What Students <span className="text-[#FFD700]">Say</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            {reviewPairs.map((review) => (
-              <div key={review.author} className="bg-[#0f1623] rounded-2xl p-6 flex flex-col gap-4">
-                <div className="flex gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-4 h-4 text-[#FFD700]" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-gray-300 text-sm leading-relaxed flex-1">&ldquo;{review.text}&rdquo;</p>
-                <p className="text-white font-semibold text-sm">{review.author}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <CTABanner
         heading={`Ready to start your lessons in ${suburb.name}?`}
