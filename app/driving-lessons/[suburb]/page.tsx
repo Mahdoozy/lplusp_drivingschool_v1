@@ -150,6 +150,28 @@ export default async function SuburbPage({ params }: Props) {
 
       <Pricing />
 
+      {/* Other suburbs we cover */}
+      <section className="bg-[#1a2235] py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-xl font-extrabold text-white mb-6">
+            Other Areas We Cover
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {suburbs
+              .filter((s) => s.slug !== suburb.slug)
+              .map((s) => (
+                <Link
+                  key={s.slug}
+                  href={`/driving-lessons/${s.slug}`}
+                  className="bg-[#0f1623] text-gray-300 hover:text-[#FFD700] hover:border-[#FFD700] border border-gray-700 text-sm px-3 py-1.5 rounded-lg transition-colors"
+                >
+                  {s.name}
+                </Link>
+              ))}
+          </div>
+        </div>
+      </section>
+
       <CTABanner
         heading={`Ready to start your lessons in ${suburb.name}?`}
         subtext={`Join hundreds of ${suburb.name} students who passed first time with L Plus P.`}
