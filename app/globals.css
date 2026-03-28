@@ -1,19 +1,225 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-navy: #0f1623;
-  --color-navy-card: #1a2235;
-  --color-gold: #FFD700;
-  --color-whatsapp: #25D366;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Colour palette — navy + gold */
+  --color-primary:    #0a0f1e;
+  --color-navy:       #0f1829;
+  --color-card:       #141e30;
+  --color-elevated:   #1e2d4a;
+  --color-gold:       #F5C842;
+  --color-gold-dark:  #d4a91a;
+  --color-whatsapp:   #25D366;
+
+  /* Font stacks resolved from next/font CSS variables */
+  --font-serif: var(--font-playfair);
+  --font-sans:  var(--font-dm-sans);
+  --font-mono:  var(--font-dm-mono);
 }
 
-html {
-  scroll-behavior: smooth;
+/* ── CSS custom properties (direct use in CSS) ─────────────────────── */
+:root {
+  --gold:           #F5C842;
+  --gold-dark:      #d4a91a;
+  --gold-subtle:    rgba(245, 200, 66, 0.08);
+  --gold-border:    rgba(245, 200, 66, 0.2);
+  --gold-border-hi: rgba(245, 200, 66, 0.35);
+
+  --bg-primary:    #0a0f1e;
+  --bg-secondary:  #0f1829;
+  --bg-card:       #141e30;
+  --bg-card-hover: #1a2540;
+  --bg-elevated:   #1e2d4a;
+
+  --text-primary:   #f0f2f8;
+  --text-secondary: #8899bb;
+  --text-faint:     #4a5a7a;
+  --border-subtle:  rgba(30, 45, 74, 0.8);
 }
+
+/* ── Base ───────────────────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
 
 body {
-  background-color: #0f1623;
-  color: #ffffff;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(245, 200, 66, 0.04) 0%, transparent 60%),
+    #0f1829;
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Keyframes ──────────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  100% { transform: scale(1.7); opacity: 0;   }
+}
+
+@keyframes slideStepIn {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+
+/* ── Hero animation stagger ─────────────────────────────────────────── */
+.hero-tag      { animation: fadeUp 0.5s ease 0.10s both; }
+.hero-headline { animation: fadeUp 0.6s ease 0.20s both; }
+.hero-subtext  { animation: fadeUp 0.6s ease 0.35s both; }
+.hero-rule     { animation: fadeUp 0.6s ease 0.42s both; }
+.hero-rating   { animation: fadeUp 0.6s ease 0.50s both; }
+.hero-buttons  { animation: fadeUp 0.6s ease 0.60s both; }
+
+/* ── "Pass." shimmer word ───────────────────────────────────────────── */
+.hero-gold {
+  background: linear-gradient(90deg, #F5C842 0%, #fff8dc 30%, #F5C842 60%, #d4a91a 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+  display: block;
+}
+
+/* ── Hero diagonal texture (via ::before) ────────────────────────────── */
+.hero-texture {
+  position: relative;
+}
+.hero-texture::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 40px,
+    rgba(255, 255, 255, 0.015) 40px,
+    rgba(255, 255, 255, 0.015) 41px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-texture > * { position: relative; z-index: 1; }
+
+/* ── Section heading pattern ────────────────────────────────────────── */
+.section-label {
+  display: block;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.section-rule {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--gold);
+  margin: 14px auto 44px;
+}
+
+/* ── Card base ──────────────────────────────────────────────────────── */
+.brand-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+  transition:
+    transform      0.25s ease,
+    box-shadow     0.25s ease,
+    border-color   0.25s ease,
+    background     0.25s ease;
+}
+.brand-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--gold-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 40px rgba(245, 200, 66, 0.05);
+}
+
+/* ── Service card lift + bottom-line ────────────────────────────────── */
+.service-card { transition: transform 0.25s ease; }
+.service-card:hover { transform: translateY(-4px); }
+
+.service-card-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--gold);
+  border-radius: 0 0 2px 0;
+  transition: width 0.3s ease;
+}
+.service-card:hover .service-card-line { width: 100%; }
+
+/* ── Pricing featured — gradient border ─────────────────────────────── */
+.pricing-featured {
+  background:
+    linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+    linear-gradient(135deg, #F5C842, #d4a91a) border-box;
+  border: 1.5px solid transparent;
+}
+
+/* ── Navbar scroll-blur ─────────────────────────────────────────────── */
+.nav-scrolled {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background-color: rgba(10, 15, 30, 0.92) !important;
+  border-bottom-color: rgba(245, 200, 66, 0.1) !important;
+}
+
+/* ── Footer link hover underline ────────────────────────────────────── */
+.footer-link {
+  color: var(--text-secondary);
+  position: relative;
+  display: inline-block;
+  transition: color 0.2s ease;
+}
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.2s ease;
+}
+.footer-link:hover { color: var(--gold); }
+.footer-link:hover::after { width: 100%; }
+
+/* ── WhatsApp pulse ring ─────────────────────────────────────────────── */
+.wa-pulse { position: relative; }
+.wa-pulse::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.45);
+  animation: pulse-ring 2.5s ease-out infinite;
+  z-index: 0;
+}
+
+/* ── CTA diagonal texture ───────────────────────────────────────────── */
+.cta-texture {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 20px,
+    rgba(0, 0, 0, 0.04) 20px,
+    rgba(0, 0, 0, 0.04) 21px
+  );
+}
+
+/* ── Booking form step slide-in ─────────────────────────────────────── */
+.step-enter {
+  animation: slideStepIn 0.3s ease both;
 }

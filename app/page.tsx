@@ -52,39 +52,62 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-[#0f1623] py-16 sm:py-24">
+      <section className="hero-texture py-20 sm:py-28" style={{ backgroundColor: 'var(--bg-secondary)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-10">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
             {/* Text */}
-            <div className="flex flex-col gap-6 lg:w-1/2">
-              <h1 className="text-5xl sm:text-6xl font-extrabold text-white leading-tight">
-                Learn. Practice.{' '}
-                <span className="block text-[#FFD700]">Pass.</span>
+            <div className="flex flex-col gap-7 lg:w-1/2">
+              {/* Tag */}
+              <div className="hero-tag">
+                <span className="section-label">Est. 1997 &middot; Sydney, NSW</span>
+              </div>
+
+              {/* Headline */}
+              <h1
+                className="hero-headline font-serif font-black text-[#f0f2f8] leading-[1.05]"
+                style={{ fontSize: 'clamp(48px, 7vw, 84px)' }}
+              >
+                Learn. Practice.
+                <span className="hero-gold">Pass.</span>
               </h1>
-              <p className="text-gray-300 text-lg sm:text-xl">
-                Sydney&apos;s most trusted driving school — Est. 1997 &middot; North Ryde &amp; Surrounding Areas
+
+              {/* Tagline */}
+              <p className="hero-subtext font-sans text-[#8899bb] text-lg sm:text-xl leading-relaxed">
+                Sydney&apos;s most trusted driving school — Est. 1997 &middot; North Ryde &amp; surrounding areas
               </p>
-              <div className="flex items-center gap-2">
-                <div className="flex">
+
+              {/* Gold rule */}
+              <hr
+                className="hero-rule border-0 h-px w-2/5 self-start"
+                style={{ background: 'rgba(245, 200, 66, 0.35)' }}
+              />
+
+              {/* Star rating */}
+              <div className="hero-rating flex items-center gap-3">
+                <div className="flex gap-0.5">
                   {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-[#FFD700]" fill="currentColor" viewBox="0 0 20 20">
+                    <svg key={i} className="w-4 h-4 text-[#F5C842]" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
                 </div>
-                <span className="text-white font-semibold">5.0</span>
-                <span className="text-gray-400 text-sm">(80+ reviews)</span>
+                <span className="font-sans font-semibold text-[#f0f2f8] text-sm">5.0</span>
+                <span className="font-sans text-[#4a5a7a] text-sm">· 80+ Google reviews</span>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4">
+
+              {/* CTAs */}
+              <div className="hero-buttons flex flex-col sm:flex-row gap-3">
                 <Link
                   href="/book"
-                  className="bg-[#FFD700] text-[#0f1623] font-bold px-6 py-3 rounded-lg text-center hover:bg-yellow-300 transition-colors"
+                  className="font-serif font-bold text-[#0a0f1e] px-8 py-3.5 rounded text-base text-center hover:bg-[#d4a91a] hover:scale-[1.02] transition-all duration-200 inline-flex items-center justify-center gap-2"
+                  style={{ background: 'var(--gold)' }}
                 >
-                  Book a Lesson
+                  Book a Lesson →
                 </Link>
                 <Link
                   href="/#pricing"
-                  className="border-2 border-white text-white font-bold px-6 py-3 rounded-lg text-center hover:bg-white hover:text-[#0f1623] transition-colors"
+                  className="font-sans font-semibold text-[#F5C842] px-8 py-3.5 rounded text-base text-center hover:bg-[#F5C842] hover:text-[#0a0f1e] transition-all duration-200"
+                  style={{ border: '1.5px solid #F5C842' }}
                 >
                   View Packages
                 </Link>
@@ -104,12 +127,12 @@ export default function HomePage() {
       <Pricing />
 
       {/* Flexible pricing note */}
-      <section className="bg-[#0f1623] pb-10 -mt-4">
+      <section className="pb-12 -mt-4" style={{ backgroundColor: 'var(--bg-primary)' }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="border-l-4 border-[#FFD700] pl-4 py-2">
-            <p className="text-gray-300 text-sm">
-              <span className="text-white font-semibold">Need a custom package?</span> Pricing is flexible for block bookings, school groups, or special circumstances.{' '}
-              <a href="tel:0469370978" className="text-[#FFD700] hover:underline font-semibold">Call Mick on 0469 370 978</a> to discuss.
+          <div className="pl-4 py-2" style={{ borderLeft: '3px solid var(--gold)' }}>
+            <p className="font-sans text-[#8899bb] text-sm">
+              <span className="text-[#f0f2f8] font-semibold">Need a custom package?</span> Pricing is flexible for block bookings, school groups, or special circumstances.{' '}
+              <a href="tel:0469370978" className="text-[#F5C842] hover:text-[#d4a91a] underline underline-offset-2 font-semibold transition-colors">Call Mick on 0469 370 978</a> to discuss.
             </p>
           </div>
         </div>

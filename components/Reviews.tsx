@@ -80,7 +80,7 @@ function StarRating() {
   return (
     <div className="flex gap-0.5">
       {[...Array(5)].map((_, i) => (
-        <svg key={i} className="w-4 h-4 text-[#FFD700]" fill="currentColor" viewBox="0 0 20 20">
+        <svg key={i} className="w-3.5 h-3.5 text-[#F5C842]" fill="currentColor" viewBox="0 0 20 20">
           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
         </svg>
       ))}
@@ -90,18 +90,39 @@ function StarRating() {
 
 export function ReviewCard({ review }: { review: Review }) {
   return (
-    <div className="break-inside-avoid bg-[#1a2235] rounded-2xl p-5 flex flex-col gap-3 mb-5">
+    <div className="relative break-inside-avoid brand-card rounded-xl p-6 flex flex-col gap-4 mb-5">
+      {/* Decorative large quote mark */}
+      <div
+        className="font-serif absolute top-3 left-5 leading-none pointer-events-none select-none"
+        style={{ fontSize: '80px', color: 'rgba(245, 200, 66, 0.10)', lineHeight: '1' }}
+        aria-hidden
+      >
+        &ldquo;
+      </div>
+
       <StarRating />
-      <span className="text-[#FFD700] text-3xl font-serif leading-none">&ldquo;</span>
-      <p className="text-gray-300 text-sm leading-relaxed -mt-4">{review.text}</p>
+
+      <p
+        className="font-sans text-[#8899bb] text-[15px] italic relative z-10 pt-1"
+        style={{ lineHeight: '1.8' }}
+      >
+        &ldquo;{review.text}&rdquo;
+      </p>
+
       <div className="flex items-center justify-between mt-1">
         <div>
-          <p className="text-white font-semibold text-sm">{review.author}</p>
-          <p className="text-gray-500 text-xs">{review.suburb}, NSW</p>
+          <p className="font-sans font-semibold text-sm text-[#F5C842]">{review.author}</p>
+          <p className="font-mono text-[11px] text-[#4a5a7a] mt-0.5">{review.suburb}, NSW</p>
         </div>
-        <div className="flex items-center gap-1.5 bg-[#0f1623] rounded-lg px-2 py-1">
+        <div
+          className="flex items-center gap-1.5 px-2 py-1 rounded"
+          style={{
+            background: 'rgba(245, 200, 66, 0.05)',
+            border: '1px solid rgba(245, 200, 66, 0.1)',
+          }}
+        >
           <GoogleLogo />
-          <span className="text-gray-400 text-xs">Google</span>
+          <span className="font-sans text-[#4a5a7a] text-[11px]">Google</span>
         </div>
       </div>
     </div>
@@ -110,14 +131,14 @@ export function ReviewCard({ review }: { review: Review }) {
 
 export default function Reviews() {
   return (
-    <section id="reviews" className="py-16 sm:py-20 bg-[#1a2235]">
+    <section id="reviews" className="py-16 sm:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <p className="text-[#FFD700] text-sm font-semibold uppercase tracking-widest mb-2">Student Reviews</p>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
-            What&apos;s it like learning<br className="hidden sm:block" /> with L Plus P?
+        <div className="text-center">
+          <span className="section-label">Student Reviews</span>
+          <h2 className="font-serif font-bold text-3xl sm:text-4xl text-[#f0f2f8]">
+            What&apos;s it like learning with L Plus P?
           </h2>
-          <p className="text-gray-400 mt-3 text-base">Don&apos;t take our word for it — here&apos;s what our students say.</p>
+          <span className="section-rule" />
         </div>
 
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-5">
@@ -126,26 +147,26 @@ export default function Reviews() {
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-5">
           <div className="flex items-center gap-3">
             <div className="flex gap-0.5">
               {[...Array(5)].map((_, i) => (
-                <svg key={i} className="w-5 h-5 text-[#FFD700]" fill="currentColor" viewBox="0 0 20 20">
+                <svg key={i} className="w-4 h-4 text-[#F5C842]" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
               ))}
             </div>
             <div className="flex items-center gap-2">
               <GoogleLogo />
-              <span className="text-white font-bold">5.0</span>
-              <span className="text-gray-400 text-sm">· 80+ reviews</span>
+              <span className="font-sans font-semibold text-[#f0f2f8]">5.0</span>
+              <span className="font-sans text-[#8899bb] text-sm">· 80+ reviews</span>
             </div>
           </div>
           <a
             href="https://www.google.com.au/search?q=l+plus+p+driving+school"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#FFD700] hover:text-yellow-300 font-semibold text-sm underline underline-offset-4 transition-colors"
+            className="font-sans font-semibold text-sm text-[#F5C842] hover:text-[#d4a91a] underline underline-offset-4 transition-colors"
           >
             See all our reviews on Google →
           </a>
