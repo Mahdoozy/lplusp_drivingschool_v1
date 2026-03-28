@@ -1,14 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-
-const suburbs = [
-  'North Ryde', 'East Ryde', 'Ryde', 'West Ryde',
-  'Macquarie Park', 'Eastwood', 'Epping', 'Castle Hill',
-  'North Rocks', 'Carlingford', 'Beecroft', 'Telopea',
-  'Dundas', 'Ermington', 'Rydalmere', 'Melrose Park',
-  'Meadowbank', 'Rhodes', 'Gladesville', 'Putney',
-  'Silverwater', 'Newington', 'Auburn', 'Chatswood',
-];
+import { suburbs } from '@/lib/suburbs';
 
 const col1 = suburbs.slice(0, 12);
 const col2 = suburbs.slice(12);
@@ -65,15 +57,27 @@ export default function Footer() {
           {/* Right: Service Areas */}
           <div>
             <h3 className="text-white font-bold text-base mb-4">Service Areas</h3>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm text-gray-400">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
               <div className="flex flex-col gap-1">
-                {col1.map((suburb) => (
-                  <span key={suburb}>{suburb}</span>
+                {col1.map((s) => (
+                  <Link
+                    key={s.slug}
+                    href={`/driving-lessons/${s.slug}`}
+                    className="text-gray-400 hover:text-[#FFD700] transition-colors"
+                  >
+                    {s.name}
+                  </Link>
                 ))}
               </div>
               <div className="flex flex-col gap-1">
-                {col2.map((suburb) => (
-                  <span key={suburb}>{suburb}</span>
+                {col2.map((s) => (
+                  <Link
+                    key={s.slug}
+                    href={`/driving-lessons/${s.slug}`}
+                    className="text-gray-400 hover:text-[#FFD700] transition-colors"
+                  >
+                    {s.name}
+                  </Link>
                 ))}
               </div>
             </div>
