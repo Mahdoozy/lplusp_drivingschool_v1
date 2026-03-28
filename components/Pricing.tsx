@@ -10,7 +10,7 @@ const plans = [
     features: [
       '1-hour driving lesson',
       'Free pick-up & drop-off',
-      'Dual control vehicle',
+      'Late-model automatic car',
       'Flexible scheduling',
     ],
     cta: 'Book Now',
@@ -25,7 +25,7 @@ const plans = [
     features: [
       '5 hours of instruction',
       'Free pick-up & drop-off',
-      'Dual control vehicle',
+      'Late-model automatic car',
       'Save $25 vs single lessons',
       'Flexible scheduling',
     ],
@@ -41,7 +41,7 @@ const plans = [
     features: [
       '10 hours of instruction',
       'Free pick-up & drop-off',
-      'Dual control vehicle',
+      'Late-model automatic car',
       'Save $100 vs single lessons',
       '30 logbook hours (3-for-1)',
       'Pass Guarantee included',

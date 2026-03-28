@@ -12,7 +12,7 @@ import ImageSlideshow from '@/components/ImageSlideshow';
 export const metadata: Metadata = {
   title: 'L Plus P Driving School | Driving Lessons Sydney | Est. 1997',
   description:
-    "Sydney's most trusted driving school since 1997. Expert driving lessons in North Ryde, Ryde, Epping, Carlingford, Castle Hill and 20+ suburbs. Automatic dual-control cars, 3-for-1 logbook hours. Call Mick 0469 370 978.",
+    "Sydney's most trusted driving school since 1997. Expert driving lessons in North Ryde, Ryde, Epping, Carlingford, Castle Hill and 20+ suburbs. Late-model automatic cars, 3-for-1 logbook hours. Call Mick 0469 370 978.",
 };
 
 const homepageFAQ = [
@@ -34,7 +34,7 @@ const homepageFAQ = [
   {
     question: 'Can I use your car for the driving test?',
     answer:
-      'Yes. We provide a modern automatic dual-control vehicle and pick you up from your preferred location. We know all local test routes at Ryde, Silverwater, Castle Hill, Hornsby and Chatswood.',
+      'Yes. We provide our late-model automatic car and pick you up from your preferred location. We know all local test routes at Ryde, Silverwater, Castle Hill, Hornsby and Chatswood.',
   },
   {
     question: 'Do you offer overseas licence conversion?',
@@ -102,6 +102,19 @@ export default function HomePage() {
       <TrustStrip />
       <Services />
       <Pricing />
+
+      {/* Flexible pricing note */}
+      <section className="bg-[#0f1623] pb-10 -mt-4">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="border-l-4 border-[#FFD700] pl-4 py-2">
+            <p className="text-gray-300 text-sm">
+              <span className="text-white font-semibold">Need a custom package?</span> Pricing is flexible for block bookings, school groups, or special circumstances.{' '}
+              <a href="tel:0469370978" className="text-[#FFD700] hover:underline font-semibold">Call Mick on 0469 370 978</a> to discuss.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <Reviews />
       <About />
       <FAQ items={homepageFAQ} />

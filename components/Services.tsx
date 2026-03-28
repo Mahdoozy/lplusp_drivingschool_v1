@@ -8,8 +8,9 @@ const services = [
       </svg>
     ),
     title: 'Learner Driver Lessons',
-    description: 'Structured, patient instruction for new drivers. Build confidence from basics to complex road situations in modern automatic dual-control vehicles.',
+    description: 'Structured, patient instruction for new drivers. Build confidence from basics to complex road situations in our late-model automatic cars.',
     badge: null,
+    href: '/book',
   },
   {
     icon: (
@@ -18,8 +19,9 @@ const services = [
       </svg>
     ),
     title: 'Driving Test Preparation',
-    description: 'Know every local test route at Ryde, Silverwater, Castle Hill, Hornsby and Chatswood. Mock tests in our automatic dual-control car.',
+    description: 'Know every local test route at Ryde, Silverwater, Castle Hill, Hornsby and Chatswood. Mock tests in our automatic car.',
     badge: null,
+    href: '/book',
   },
   {
     icon: (
@@ -30,6 +32,7 @@ const services = [
     title: 'Overseas Licence Conversion',
     description: 'Holding a foreign licence? We help you adapt to Australian road rules and pass the NSW practical test with confidence.',
     badge: null,
+    href: '/book',
   },
   {
     icon: (
@@ -40,6 +43,7 @@ const services = [
     title: 'Logbook Hour Assistance',
     description: '1 professional hour = 3 logbook hours for learners under 25. A 10-hour pack earns 30 logbook hours toward your 120-hour requirement.',
     badge: null,
+    href: '/book',
   },
   {
     icon: (
@@ -50,6 +54,7 @@ const services = [
     title: 'EV Familiarisation Course',
     description: "Just bought a Tesla, BYD, MG or Hyundai EV? Get confident with regenerative braking, one-pedal driving, charging, and the digital dashboard in 1 session.",
     badge: 'NEW',
+    href: '/book',
   },
   {
     icon: (
@@ -60,6 +65,7 @@ const services = [
     title: 'Senior Driver Refresher',
     description: 'Returning to the road after a break? Preparing for your NSW 75+ or 85+ assessment? We work at your pace in a calm, pressure-free environment.',
     badge: null,
+    href: '/book',
   },
   {
     icon: (
@@ -71,6 +77,30 @@ const services = [
     title: 'P-Plate Confidence Course',
     description: 'New P-plater? The first 6 months are the most dangerous. Master motorway driving, night driving, hazard perception and emergency braking.',
     badge: null,
+    href: '/book',
+  },
+  {
+    icon: (
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+      </svg>
+    ),
+    title: 'Prefer a Female Instructor?',
+    description: 'Learn with Sidra — our experienced female instructor. Many students feel more comfortable learning with a female instructor. Sidra specialises in learner drivers, female students, and overseas conversions.',
+    badge: 'Ask for Sidra',
+    href: '/services/female-instructor',
+  },
+  {
+    icon: (
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3h14" />
+      </svg>
+    ),
+    title: 'Intensive Driving Course',
+    description: 'Test booked and need to prepare fast? Our intensive course packs multiple lessons into one week. Perfect for those who recently moved to Sydney, are converting an overseas licence, or have a test date approaching.',
+    badge: 'Fast-Track',
+    href: '/services/intensive-course',
   },
 ];
 
@@ -100,10 +130,10 @@ export default function Services() {
               <h3 className="text-white font-bold text-lg">{service.title}</h3>
               <p className="text-gray-400 text-sm flex-1">{service.description}</p>
               <Link
-                href="/book"
+                href={service.href}
                 className="mt-2 bg-[#FFD700] text-[#0f1623] font-bold text-sm px-4 py-2 rounded-lg text-center hover:bg-yellow-300 transition-colors"
               >
-                Book Now
+                {service.href === '/book' ? 'Book Now' : 'Learn More'}
               </Link>
             </div>
           ))}

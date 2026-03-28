@@ -6,7 +6,7 @@ import Sidebar from '@/components/Sidebar';
 export const metadata: Metadata = {
   title: 'Driving Lesson Services | L Plus P Driving School Sydney',
   description:
-    'Driving lesson services in Sydney: Learner driver lessons, driving test preparation, overseas licence conversion, logbook hours, EV familiarisation, senior refresher, P-plate confidence. All lessons in automatic dual-control vehicles.',
+    'Driving lesson services in Sydney: Learner driver lessons, driving test preparation, overseas licence conversion, logbook hours, EV familiarisation, senior refresher, P-plate confidence. All lessons in our automatic cars.',
 };
 
 const servicesData = [
@@ -15,11 +15,11 @@ const servicesData = [
     title: 'Learner Driver Lessons',
     badge: null,
     description:
-      'Our learner driver lessons are designed to build confidence and competence from the ground up. All lessons conducted in modern automatic dual-control vehicles. We follow a structured curriculum from the very basics through to advanced manoeuvres, freeway driving, and complex intersections.',
+      'Our learner driver lessons are designed to build confidence and competence from the ground up. All lessons conducted in our late-model automatic cars. We follow a structured curriculum from the very basics through to advanced manoeuvres, freeway driving, and complex intersections.',
     includes: [
       'Structured lesson plans matched to your level',
       'Free pick-up and drop-off from home, school or work',
-      'Modern automatic dual-control vehicle for maximum safety',
+      'Our late-model automatic car for maximum safety',
       '3-for-1 logbook hours for learners under 25',
       'Lessons tailored for nervous and anxious drivers',
       'Flexible scheduling including early mornings and Saturdays',
@@ -32,12 +32,12 @@ const servicesData = [
     title: 'Driving Test Preparation',
     badge: null,
     description:
-      'Know exactly what to expect on test day. We cover all local test routes at Ryde, Silverwater, Castle Hill, Hornsby, and Chatswood. All test preparation conducted in our automatic dual-control vehicle, which you can also use on test day.',
+      'Know exactly what to expect on test day. We cover all local test routes at Ryde, Silverwater, Castle Hill, Hornsby, and Chatswood. All test preparation conducted in our automatic car, which you can also use on test day.',
     includes: [
       'Full mock driving test in real test conditions',
       'Detailed feedback on every manoeuvre',
       'Knowledge of all local test routes',
-      'Use of our automatic dual-control car for the actual test',
+      'Use of our automatic car for the actual test',
       'Pick-up from your preferred location on test day',
       'Debrief after the test — pass or fail',
     ],
@@ -49,13 +49,13 @@ const servicesData = [
     title: 'Overseas Licence Conversion',
     badge: null,
     description:
-      'Hold a licence from another country? Our overseas conversion lessons are tailored to your existing experience. All lessons in automatic dual-control vehicles. We help you quickly adapt to Australian road rules and pass the NSW practical driving test with confidence.',
+      'Hold a licence from another country? Our overseas conversion lessons are tailored to your existing experience. All lessons in our automatic cars. We help you quickly adapt to Australian road rules and pass the NSW practical driving test with confidence.',
     includes: [
       'Assessment of your current driving skills',
       'Focus on Australian-specific road rules',
       'Practice on roads you will be tested on',
       'Guidance on NSW road signs and markings',
-      'Automatic dual-control vehicle provided',
+      'Late-model automatic car provided',
       'Lessons in English (other languages available on request)',
     ],
     price: 'From $60/hr',
@@ -66,7 +66,7 @@ const servicesData = [
     title: 'Logbook Hour Assistance',
     badge: null,
     description:
-      'NSW requires learner drivers under 25 to complete 120 supervised hours. Each hour of professional instruction with an accredited instructor counts as 3 logbook hours. All logbook lessons conducted in modern automatic dual-control vehicles.',
+      'NSW requires learner drivers under 25 to complete 120 supervised hours. Each hour of professional instruction with an accredited instructor counts as 3 logbook hours. All logbook lessons conducted in our late-model automatic cars.',
     includes: [
       '1 professional hour = 3 logbook hours',
       '10-hour pack = 30 logbook hours',
@@ -100,7 +100,7 @@ const servicesData = [
     title: 'Senior Driver Refresher Course',
     badge: 'All Ages Welcome',
     description:
-      'Keeping your independence on the road matters. Our Senior Driver Refresher Course is designed for drivers returning to the road after illness, injury or a long break, drivers wanting to update their road rule knowledge, and drivers 75+ preparing for their annual medical assessment or 85+ preparing for their on-road assessment required by NSW Transport. Our patient, professional instructors work at your pace in a relaxed, pressure-free environment. All lessons in automatic dual-control vehicles.',
+      'Keeping your independence on the road matters. Our Senior Driver Refresher Course is designed for drivers returning to the road after illness, injury or a long break, drivers wanting to update their road rule knowledge, and drivers 75+ preparing for their annual medical assessment or 85+ preparing for their on-road assessment required by NSW Transport. Our patient, professional instructors work at your pace in a relaxed, pressure-free environment. All lessons in our automatic cars.',
     includes: [
       'Updated NSW road rules review',
       'Defensive driving techniques',
@@ -114,11 +114,48 @@ const servicesData = [
     priceNote: 'Tailored to your needs — flexible lesson lengths',
   },
   {
+    id: 'female-instructor',
+    title: 'Prefer a Female Instructor?',
+    badge: 'Ask for Sidra',
+    description:
+      'Many students feel more comfortable learning with a female instructor. Sidra is our experienced senior instructor specialising in learner drivers, female students, logbook hours, and overseas licence conversion. She teaches in our late-model automatic car with the same free pick-up service across all 24 suburbs. Call Sidra directly on 0451 331 140.',
+    includes: [
+      'Learn with Sidra — experienced, calm, encouraging female instructor',
+      'Free pick-up and drop-off across all 24 suburbs',
+      'Late-model automatic car for all lessons',
+      '3-for-1 logbook hours for learners under 25',
+      'Learner driver, test prep, logbook, and overseas conversion all available',
+      'Flexible scheduling including early mornings and Saturdays',
+      'Call Sidra directly: 0451 331 140',
+    ],
+    price: 'From $60/hr',
+    priceNote: 'Same pricing as all lessons — single, 5-hour and 10-hour packages',
+  },
+  {
+    id: 'intensive',
+    title: 'Intensive Driving Course',
+    badge: 'Fast-Track',
+    description:
+      'Test date approaching? Need your licence fast? Our Intensive Driving Course packs multiple lessons into one week, building your skills quickly and consistently with the same instructor every time. Ideal for learners with a test date booked, people who recently moved to Sydney, and those converting an overseas licence who need to get road-ready fast.',
+    includes: [
+      'Multiple lessons scheduled across 1–2 weeks',
+      'Same instructor every lesson for consistency',
+      'All lessons in our late-model automatic car',
+      'Free pick-up and drop-off from home, work, or school',
+      'Test route practice at Ryde, Silverwater, Castle Hill, Hornsby, Chatswood',
+      'Full mock test included in longer packages',
+      '3-for-1 logbook hours for learners under 25',
+      'Custom schedule tailored to your test date — call to discuss',
+    ],
+    price: 'From $60/hr',
+    priceNote: 'Custom packages available — call 0469 370 978 to discuss',
+  },
+  {
     id: 'pplate',
     title: 'P-Plate Confidence Course',
     badge: 'For New P-Platers',
     description:
-      'Just got your P-plates? The first 6 months of solo driving are statistically the most dangerous — P-platers are 8 times more likely to be involved in a crash than when supervised. Our P-Plate Confidence Course is designed specifically for new P-platers who want extra confidence, nervous P-platers who feel anxious driving alone, and drivers who have had a minor incident and want to rebuild their skills. All lessons in modern automatic dual-control vehicles.',
+      'Just got your P-plates? The first 6 months of solo driving are statistically the most dangerous — P-platers are 8 times more likely to be involved in a crash than when supervised. Our P-Plate Confidence Course is designed specifically for new P-platers who want extra confidence, nervous P-platers who feel anxious driving alone, and drivers who have had a minor incident and want to rebuild their skills. All lessons in our late-model automatic cars.',
     includes: [
       'Motorway and freeway driving (M1, M2, Pacific Highway)',
       'Night driving practice',
@@ -143,7 +180,7 @@ export default function ServicesPage() {
             Our <span className="text-[#FFD700]">Services</span>
           </h1>
           <p className="mt-4 text-gray-300 text-lg">
-            All lessons conducted in modern automatic dual-control vehicles
+            All lessons conducted in our late-model automatic cars
           </p>
         </div>
       </section>

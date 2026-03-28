@@ -62,7 +62,7 @@ export default function About() {
               L Plus P Driving School was founded in 1997 by Mick with a simple mission: to produce safe, confident drivers who pass their test first time. Over the past two decades we have helped more than 1,000 students across the Sydney region get their licence and take to the road with confidence.
             </p>
             <p className="text-gray-300 leading-relaxed">
-              All lessons are conducted in modern automatic dual-control vehicles. Whether you are a complete beginner, a nervous driver, or converting an overseas licence, we tailor every lesson to your individual needs. Our free pick-up service and 3-for-1 logbook scheme make us the smartest choice for learners across North Ryde and 23 surrounding suburbs.
+              All lessons are conducted in our late-model automatic cars. Whether you are a complete beginner, a nervous driver, or converting an overseas licence, we tailor every lesson to your individual needs. Our free pick-up service and 3-for-1 logbook scheme make us the smartest choice for learners across North Ryde and 23 surrounding suburbs.
             </p>
           </div>
         </div>

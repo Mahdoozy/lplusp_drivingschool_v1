@@ -33,12 +33,12 @@ const allFAQs = [
   {
     question: 'Can I use your car for the driving test?',
     answer:
-      'Yes. We provide a fully inspected automatic dual-control vehicle on test day and pick you up from your preferred location. We know all local test routes at Ryde, Silverwater, Castle Hill, Hornsby, and Chatswood, so you will arrive calm and prepared.',
+      'Yes. We provide our fully inspected automatic car on test day and pick you up from your preferred location. We know all local test routes at Ryde, Silverwater, Castle Hill, Hornsby, and Chatswood, so you will arrive calm and prepared.',
   },
   {
     question: 'Do you offer overseas licence conversion?',
     answer:
-      'Yes. We tailor lessons to help you understand Australian road rules, adapt to local road conditions, and confidently pass the NSW practical driving test. All lessons conducted in automatic dual-control vehicles. The number of lessons needed depends on your existing skill level and which country you are converting from.',
+      'Yes. We tailor lessons to help you understand Australian road rules, adapt to local road conditions, and confidently pass the NSW practical driving test. All lessons conducted in our automatic cars. The number of lessons needed depends on your existing skill level and which country you are converting from.',
   },
   {
     question: 'How much do lessons cost?',
@@ -73,7 +73,7 @@ const allFAQs = [
   {
     question: 'Do you teach automatic or manual?',
     answer:
-      'All our lessons are conducted in modern automatic dual-control vehicles. We teach exclusively in automatic cars. Note that passing your test in an automatic means your licence will be restricted to automatic vehicles unless you separately pass a test in a manual car.',
+      'All our lessons are conducted in our late-model automatic cars. We teach exclusively in automatic cars. Note that passing your test in an automatic means your licence will be restricted to automatic vehicles unless you separately pass a test in a manual car.',
   },
   {
     question: 'What payment methods do you accept?',

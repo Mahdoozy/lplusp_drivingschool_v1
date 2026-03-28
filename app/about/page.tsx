@@ -5,7 +5,7 @@ import Sidebar from '@/components/Sidebar';
 export const metadata: Metadata = {
   title: 'About Us | L Plus P Driving School Sydney',
   description:
-    'Learn about L Plus P Driving School — founded in 1997 by Mick and Sidra. Sydney driving school serving North Ryde and 23 suburbs. All lessons in automatic dual-control vehicles. RMS accredited, WWCC cleared.',
+    'Learn about L Plus P Driving School — founded in 1997 by Mick and Sidra. Sydney driving school serving North Ryde and 23 suburbs. All lessons in our automatic cars. RMS accredited, WWCC cleared.',
 };
 
 const stats = [
@@ -43,7 +43,7 @@ const instructors = [
 
 const accreditations = [
   { label: 'NSW Transport Accredited' },
-  { label: 'Dual Control Vehicles' },
+  { label: 'Automatic Vehicles Only' },
   { label: 'Working With Children Check' },
   { label: 'ADTA Member' },
 ];
@@ -109,7 +109,7 @@ export default function AboutPage() {
                   L Plus P Driving School was founded with a clear mission: to produce safe, confident drivers who pass their test first time. We believe that great driving instruction is about more than passing a test — it is about developing lifelong safe driving habits.
                 </p>
                 <p className="text-gray-300 leading-relaxed">
-                  All lessons are conducted in modern automatic dual-control vehicles. Every lesson is tailored to the individual student. Whether you are a nervous beginner, an experienced driver who failed the test, or converting from an overseas licence, we meet you where you are and get you where you need to be.
+                  All lessons are conducted in our late-model automatic cars. Every lesson is tailored to the individual student. Whether you are a nervous beginner, an experienced driver who failed the test, or converting from an overseas licence, we meet you where you are and get you where you need to be.
                 </p>
                 <p className="text-gray-300 leading-relaxed">
                   We serve 24 suburbs across North Sydney and Ryde, offering free pick-up and drop-off. Our 3-for-1 logbook scheme means students log 30 hours from a single 10-hour pack — accelerating the path to a full licence.

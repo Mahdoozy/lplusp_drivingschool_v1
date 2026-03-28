@@ -18,7 +18,7 @@ const slides = [
   },
   {
     src: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800',
-    alt: 'Modern automatic dual-control vehicle interior',
+    alt: 'Our late-model automatic car interior',
   },
 ];
 
