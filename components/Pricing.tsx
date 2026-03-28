@@ -1,128 +1,359 @@
 import Link from 'next/link';
 
-const plans = [
+/* ── Helpers ─────────────────────────────────────────────────────────── */
+
+function SectionRow({
+  heading,
+  subtext,
+}: {
+  heading: string;
+  subtext: string;
+}) {
+  return (
+    <div className="mb-7">
+      <h3 className="font-serif font-bold text-xl sm:text-2xl text-[#f0f2f8]">{heading}</h3>
+      <p className="font-sans text-sm text-[#4a5a7a] mt-1">{subtext}</p>
+    </div>
+  );
+}
+
+function PriceDisplay({
+  from,
+  price,
+  unit,
+}: {
+  from?: boolean;
+  price: string;
+  unit?: string;
+}) {
+  return (
+    <div className="flex flex-col gap-0.5">
+      {from && (
+        <span className="font-sans text-[11px] font-medium text-[#4a5a7a] uppercase tracking-widest">
+          from
+        </span>
+      )}
+      <div className="flex items-baseline gap-1">
+        <span
+          className="font-serif font-bold text-[#F5C842] leading-none"
+          style={{ fontSize: '48px' }}
+        >
+          {price}
+        </span>
+        {unit && (
+          <span className="font-sans text-[#8899bb] text-sm ml-0.5">{unit}</span>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/* ── Data ────────────────────────────────────────────────────────────── */
+
+const casualLessons = [
   {
-    name: 'Single Lesson',
+    name: '1 Hour',
+    tag: 'Most Flexible',
     price: '$60',
     unit: '/hr',
-    badge: null,
-    featured: false,
+    from: true,
     features: [
-      '1-hour driving lesson',
-      'Free pick-up & drop-off',
-      'Late-model automatic car',
-      'Flexible scheduling',
+      'Perfect for a quick skills assessment',
+      'No upfront payment required',
+      'Automatic vehicle',
+      'Free pick-up and drop-off',
     ],
-    cta: 'Book Now',
-    ctaStyle: 'secondary',
   },
   {
-    name: '5-Hour Pack',
-    price: '$275',
+    name: '1.5 Hours',
+    tag: 'Great for Beginners',
+    price: '$70',
     unit: '',
-    badge: null,
-    featured: false,
+    from: true,
     features: [
-      '5 hours of instruction',
-      'Free pick-up & drop-off',
-      'Late-model automatic car',
-      'Save $25 vs single lessons',
-      'Flexible scheduling',
+      'More time to build confidence',
+      'Covers more ground in one session',
+      'Automatic vehicle',
+      'Free pick-up and drop-off',
     ],
-    cta: 'Book Now',
-    ctaStyle: 'primary',
   },
   {
-    name: '10-Hour Pack',
-    price: '$500',
+    name: '2 Hours',
+    tag: 'Deep Practice',
+    price: '$110',
     unit: '',
-    badge: 'Most Popular',
-    featured: true,
+    from: true,
     features: [
-      '10 hours of instruction',
-      'Free pick-up & drop-off',
-      'Late-model automatic car',
-      'Save $100 vs single lessons',
-      '30 logbook hours (3-for-1)',
-      'Pass Guarantee included',
+      'Best for complex manoeuvres',
+      'Mock test walkthrough available',
+      'Automatic vehicle',
+      'Free pick-up and drop-off',
     ],
-    cta: 'Book Now',
-    ctaStyle: 'primary',
   },
 ];
+
+const packages = [
+  {
+    name: '5 Hour Package',
+    badge: 'Save $25',
+    badgeFeatured: false,
+    price: '$275',
+    from: false,
+    featured: false,
+    features: [
+      '5 hours of focused instruction',
+      'Flexible scheduling across multiple days',
+      'Automatic vehicle',
+      'Free pick-up and drop-off',
+      'Valid for 3 months from purchase',
+    ],
+  },
+  {
+    name: '10 Hour Package',
+    badge: 'Most Popular',
+    badgeFeatured: true,
+    price: '$550',
+    from: false,
+    featured: true,
+    saveBadge: 'Save $50',
+    features: [
+      '10 hours of structured instruction',
+      'Priority scheduling',
+      'Automatic vehicle',
+      'Free pick-up and drop-off',
+      'Valid for 6 months from purchase',
+      '30 logbook hours (3-for-1 scheme)',
+    ],
+  },
+];
+
+const testPrep = [
+  {
+    name: 'Mock Test',
+    tag: 'Know the Routes',
+    price: '$65',
+    from: false,
+    features: [
+      'Full practice run on actual test routes',
+      'Detailed feedback on every manoeuvre',
+      'Covers Ryde, Silverwater, Castle Hill, Chatswood, Hornsby',
+      'Automatic vehicle provided',
+      'Free pick-up and drop-off',
+    ],
+  },
+  {
+    name: 'Test Day Package',
+    tag: 'Test Day Ready',
+    price: '$170',
+    from: false,
+    features: [
+      '1 hour pre-test warm-up lesson',
+      'Use of our automatic car for the test',
+      'Pick-up from home, drop-off after result',
+      'Instructor accompanies you to the test centre',
+      'Available at all local test centres',
+    ],
+  },
+  {
+    name: '5 Hours + Test Day',
+    tag: 'Best Value for Test Prep',
+    saveBadge: 'Save $35 vs buying separately',
+    price: '$390',
+    from: false,
+    features: [
+      '5 hours of focused pre-test instruction',
+      'Full test day package included',
+      'We target your weak points before test day',
+      'Automatic vehicle throughout',
+      'Free pick-up and drop-off',
+    ],
+  },
+];
+
+/* ── Card Components ─────────────────────────────────────────────────── */
+
+function PricingCard({
+  name,
+  tag,
+  price,
+  unit,
+  from,
+  features,
+  saveBadge,
+  featured,
+}: {
+  name: string;
+  tag?: string;
+  price: string;
+  unit?: string;
+  from?: boolean;
+  features: string[];
+  saveBadge?: string;
+  featured?: boolean;
+}) {
+  return (
+    <div
+      className={`relative rounded-xl flex flex-col gap-5 p-7 ${
+        featured
+          ? 'pricing-featured shadow-[0_16px_48px_rgba(0,0,0,0.4)]'
+          : 'brand-card'
+      }`}
+    >
+      {saveBadge && (
+        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+          <span
+            className="font-sans text-[#0a0f1e] text-[10px] font-semibold px-3 py-1 rounded-full uppercase tracking-[0.08em] whitespace-nowrap"
+            style={{ background: 'linear-gradient(90deg, #F5C842, #d4a91a)' }}
+          >
+            {saveBadge}
+          </span>
+        </div>
+      )}
+
+      <div>
+        {tag && (
+          <span
+            className="font-sans text-[10px] font-semibold uppercase tracking-[0.1em] px-2 py-0.5 rounded mb-3 inline-block"
+            style={{
+              background: 'rgba(245, 200, 66, 0.1)',
+              color: '#F5C842',
+              border: '1px solid rgba(245, 200, 66, 0.2)',
+            }}
+          >
+            {tag}
+          </span>
+        )}
+        <h4 className="font-sans font-semibold text-xs text-[#8899bb] uppercase tracking-[0.08em] mb-2">
+          {name}
+        </h4>
+        <PriceDisplay from={from} price={price} unit={unit} />
+      </div>
+
+      <ul className="flex flex-col gap-2.5 flex-1">
+        {features.map((f) => (
+          <li key={f} className="flex items-start gap-2.5 text-sm text-[#8899bb]">
+            <span className="text-[#F5C842] font-bold text-base leading-tight flex-shrink-0 mt-0.5">›</span>
+            {f}
+          </li>
+        ))}
+      </ul>
+
+      <Link
+        href="/book"
+        className="mt-2 font-sans font-semibold text-sm px-4 py-3 rounded text-center transition-all duration-200 bg-[#F5C842] text-[#0a0f1e] hover:bg-[#d4a91a]"
+      >
+        Book Now
+      </Link>
+    </div>
+  );
+}
+
+/* ── Main Export ─────────────────────────────────────────────────────── */
 
 export default function Pricing() {
   return (
     <section id="pricing" className="py-16 sm:py-24" style={{ backgroundColor: 'var(--bg-primary)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Section heading */}
         <div className="text-center">
-          <span className="section-label">Packages</span>
+          <span className="section-label">Pricing</span>
           <h2 className="font-serif font-bold text-3xl sm:text-4xl text-[#f0f2f8]">
-            Affordable, transparent pricing
+            Transparent Pricing
           </h2>
+          <p className="font-sans text-[#8899bb] text-lg mt-2">
+            Simple, honest pricing — no hidden fees
+          </p>
           <span className="section-rule" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl mx-auto">
-          {plans.map((plan) => (
-            <div
-              key={plan.name}
-              className={`relative rounded-xl flex flex-col gap-5 p-7 ${
-                plan.featured
-                  ? 'pricing-featured md:scale-[1.03] md:-translate-y-1 shadow-[0_16px_48px_rgba(0,0,0,0.4)]'
-                  : 'brand-card'
-              }`}
-            >
-              {plan.badge && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                  <span
-                    className="text-[#0a0f1e] text-[10px] font-semibold px-3 py-1 rounded-full uppercase tracking-[0.08em] whitespace-nowrap"
-                    style={{ background: 'linear-gradient(90deg, #F5C842, #d4a91a)' }}
-                  >
-                    {plan.badge}
-                  </span>
-                </div>
-              )}
-
-              <div>
-                <h3 className="font-sans font-semibold text-base text-[#8899bb] uppercase tracking-[0.08em] text-xs mb-3">
-                  {plan.name}
-                </h3>
-                <div className="flex items-baseline gap-1">
-                  <span
-                    className="font-serif font-bold text-[#F5C842] leading-none"
-                    style={{ fontSize: '56px' }}
-                  >
-                    {plan.price}
-                  </span>
-                  {plan.unit && (
-                    <span className="font-sans text-[#8899bb] text-base ml-1">{plan.unit}</span>
-                  )}
-                </div>
-              </div>
-
-              <ul className="flex flex-col gap-2.5 flex-1">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-2.5 text-sm text-[#8899bb]">
-                    <span className="text-[#F5C842] font-bold text-lg leading-none flex-shrink-0">›</span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <Link
-                href="/book"
-                className={`mt-2 font-sans font-semibold text-sm px-4 py-3 rounded text-center transition-all duration-200 ${
-                  plan.ctaStyle === 'primary'
-                    ? 'bg-[#F5C842] text-[#0a0f1e] hover:bg-[#d4a91a]'
-                    : 'text-[#8899bb] border border-[rgba(30,45,74,0.8)] hover:border-[rgba(245,200,66,0.3)] hover:text-[#f0f2f8]'
-                }`}
-              >
-                {plan.cta}
-              </Link>
-            </div>
+        {/* ── Row 1: Casual Lessons ── */}
+        <SectionRow
+          heading="Casual Lessons"
+          subtext="Book as you go — no upfront commitment required. Final price confirmed when we contact you."
+        />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
+          {casualLessons.map((p) => (
+            <PricingCard key={p.name} {...p} />
           ))}
         </div>
+
+        {/* ── Row 2: Lesson Packages ── */}
+        <SectionRow
+          heading="Lesson Packages"
+          subtext="Pay upfront, lock in your lessons, and save."
+        />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto mb-16">
+          {packages.map((p) => (
+            <PricingCard
+              key={p.name}
+              name={p.name}
+              price={p.price}
+              from={p.from}
+              features={p.features}
+              featured={p.featured}
+              saveBadge={p.featured ? 'Most Popular' : p.badge}
+              tag={!p.featured ? p.badge : undefined}
+            />
+          ))}
+        </div>
+
+        {/* ── Row 3: Test Preparation ── */}
+        <SectionRow
+          heading="Test Preparation"
+          subtext="Get properly prepared for your Service NSW driving test."
+        />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+          {testPrep.map((p) => (
+            <PricingCard key={p.name} {...p} />
+          ))}
+        </div>
+
+        {/* ── Referral callout ── */}
+        <div
+          id="referral"
+          className="rounded-xl p-7 flex flex-col sm:flex-row gap-5 items-start mb-8"
+          style={{
+            background: 'var(--bg-card)',
+            borderLeft: '3px solid var(--gold)',
+            border: '1px solid rgba(30, 45, 74, 0.8)',
+            borderLeftWidth: '3px',
+            borderLeftColor: 'var(--gold)',
+          }}
+        >
+          <div
+            className="w-11 h-11 rounded flex items-center justify-center flex-shrink-0 text-[#F5C842]"
+            style={{ background: 'rgba(245, 200, 66, 0.1)' }}
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <div className="flex-1">
+            <h3 className="font-serif font-bold text-lg text-[#f0f2f8]">
+              Know someone learning to drive?
+            </h3>
+            <p className="font-sans text-sm text-[#8899bb] mt-2 leading-relaxed">
+              Refer a friend and you both win. When someone you refer books their first lesson, you each receive{' '}
+              <span className="text-[#F5C842] font-semibold">10% off</span> your next booking. No limits — refer as many people as you like.
+            </p>
+            <p className="font-sans text-xs text-[#4a5a7a] mt-2">
+              Discount applied to your next lesson or package. Contact us to claim.
+            </p>
+          </div>
+          <Link
+            href="/contact"
+            className="font-sans font-semibold text-sm text-[#F5C842] hover:text-[#d4a91a] transition-colors whitespace-nowrap self-start"
+          >
+            Ask about referrals →
+          </Link>
+        </div>
+
+        {/* ── Disclaimer ── */}
+        <p className="font-sans text-[11px] text-[#4a5a7a] leading-relaxed max-w-3xl mx-auto text-center">
+          * Casual lesson prices start from the rates shown. Final pricing is confirmed when we contact you to confirm your booking — it may vary slightly based on your suburb and scheduling. Package and test preparation prices are fixed when booked online with payment.
+        </p>
+
       </div>
     </section>
   );

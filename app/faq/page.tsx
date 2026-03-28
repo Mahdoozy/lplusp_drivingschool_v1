@@ -43,7 +43,23 @@ const allFAQs = [
   {
     question: 'How much do lessons cost?',
     answer:
-      'A single lesson is $60/hr. Our 5-hour pack is $275 (save $25) and our most popular 10-hour pack is $500 (save $100 and earn 30 logbook hours via the 3-for-1 scheme). There are no hidden fees — prices include free pick-up and drop-off.',
+      'Casual lessons start from $60 for 1 hour, from $70 for 1.5 hours, and from $110 for 2 hours. Our 5-hour pack is $275 (save $25) and our most popular 10-hour pack is $550 (save $50 and earn 30 logbook hours via the 3-for-1 scheme). Test preparation: Mock Test $65, Test Day Package $170, 5 Hours + Test Day $390. All prices include free pick-up and drop-off.',
+  },
+  {
+    question: "Why do some prices say 'from'?",
+    answer:
+      "Our casual lesson prices are starting rates. The final price is confirmed when we contact you to confirm your booking — it may vary slightly based on your suburb and availability. Package prices (5-hour, 10-hour) and test preparation prices are fixed and locked in when you book.",
+  },
+  {
+    question: 'How does the referral discount work?',
+    answer:
+      "If you refer a friend or family member and they book their first lesson with us, you both receive 10% off your next booking. There is no limit — you can refer as many people as you like and earn a discount each time. Contact us after your referral has completed their first lesson to claim your discount.",
+  },
+  {
+    id: 'referral',
+    question: 'Can I pay in instalments or after the lesson?',
+    answer:
+      'For casual lessons, you pay your instructor directly after each lesson — no upfront payment required. For packages (5-hour and 10-hour) and test preparation bookings, payment is made upfront when you book. This locks in your price and secures your spot.',
   },
   {
     question: 'How do I book a lesson?',

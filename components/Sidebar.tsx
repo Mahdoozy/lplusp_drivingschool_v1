@@ -53,9 +53,9 @@ export default function Sidebar() {
         <div className="bg-[#1a2235] rounded-xl p-4 flex flex-col gap-2">
           <h4 className="text-white font-bold text-sm mb-1">Quick Pricing</h4>
           {[
-            { label: 'Single Lesson', price: '$60/hr' },
+            { label: 'Single Lesson', price: 'from $60/hr' },
             { label: '5-Hour Pack', price: '$275' },
-            { label: '10-Hour Pack', price: '$500' },
+            { label: '10-Hour Pack', price: '$550' },
           ].map((p) => (
             <div key={p.label} className="flex items-center justify-between">
               <span className="text-gray-400 text-xs">{p.label}</span>

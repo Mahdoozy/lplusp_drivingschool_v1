@@ -87,6 +87,13 @@ export default function Footer() {
                 </svg>
                 WhatsApp Us
               </a>
+              <Link
+                href="/faq#referral"
+                className="footer-link font-sans text-sm mt-1"
+                style={{ color: 'var(--gold)' }}
+              >
+                Refer a friend → you both get 10% off
+              </Link>
             </div>
           </div>
 

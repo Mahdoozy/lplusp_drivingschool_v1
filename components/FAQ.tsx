@@ -3,6 +3,7 @@
 import { useState } from 'react';
 
 interface FAQItem {
+  id?: string;
   question: string;
   answer: string;
 }
@@ -17,6 +18,7 @@ function FAQAccordionItem({ item }: { item: FAQItem }) {
 
   return (
     <div
+      id={item.id}
       className="rounded-xl overflow-hidden transition-all duration-200"
       style={{ border: '1px solid rgba(30, 45, 74, 0.8)' }}
     >
