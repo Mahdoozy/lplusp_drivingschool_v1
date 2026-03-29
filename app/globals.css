@@ -1,48 +1,69 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Colour palette — navy + gold */
-  --color-primary:    #0a0f1e;
-  --color-navy:       #0f1829;
-  --color-card:       #141e30;
-  --color-elevated:   #1e2d4a;
-  --color-gold:       #F5C842;
-  --color-gold-dark:  #d4a91a;
-  --color-whatsapp:   #25D366;
+  /* ── New design-system fonts ─────────────────────────────────────── */
+  --font-syne:   var(--font-syne), sans-serif;
+  --font-outfit: var(--font-outfit), sans-serif;
+  --font-mono:   var(--font-mono), monospace;
+  /* backward-compat aliases so old components keep working */
+  --font-serif:  var(--font-syne), sans-serif;
+  --font-sans:   var(--font-outfit), sans-serif;
 
-  /* Font stacks resolved from next/font CSS variables */
-  --font-serif: var(--font-playfair);
-  --font-sans:  var(--font-dm-sans);
-  --font-mono:  var(--font-dm-mono);
+  /* ── Colour tokens ───────────────────────────────────────────────── */
+  --color-primary:   #0B1628;
+  --color-navy:      #0F1E35;
+  --color-card:      #162440;
+  --color-elevated:  #1A2D45;
+  --color-gold:      #F5C132;
+  --color-gold-dark: #E8A800;
+  --color-whatsapp:  #22C55E;
 }
 
-/* ── CSS custom properties (direct use in CSS) ─────────────────────── */
+/* ── CSS custom properties ──────────────────────────────────────────── */
 :root {
-  --gold:           #F5C842;
-  --gold-dark:      #d4a91a;
-  --gold-subtle:    rgba(245, 200, 66, 0.08);
-  --gold-border:    rgba(245, 200, 66, 0.2);
-  --gold-border-hi: rgba(245, 200, 66, 0.35);
+  /* Design-system tokens */
+  --navy:       #0B1628;
+  --navy2:      #0F1E35;
+  --navy3:      #162440;
+  --blue:       #1A56DB;
+  --blue-light: #EBF3FF;
+  --gold:       #F5C132;
+  --gold-dark:  #E8A800;
+  --white:      #FFFFFF;
+  --off-white:  #F7F9FF;
+  --slate:      #E8EEF8;
+  --text-dark:  #0B1628;
+  --text-mid:   #2D4470;
+  --text-muted: #6B7FA8;
+  --green-wa:   #22C55E;
+  --red-plate:  #CC1500;
 
-  --bg-primary:    #0a0f1e;
-  --bg-secondary:  #0f1829;
-  --bg-card:       #141e30;
-  --bg-card-hover: #1a2540;
-  --bg-elevated:   #1e2d4a;
-
-  --text-primary:   #f0f2f8;
-  --text-secondary: #8899bb;
-  --text-faint:     #4a5a7a;
-  --border-subtle:  rgba(30, 45, 74, 0.8);
+  /* Legacy aliases for backward compat */
+  --gold-subtle:         rgba(245,193,50,0.08);
+  --gold-border:         rgba(245,193,50,0.2);
+  --gold-border-hi:      rgba(245,193,50,0.35);
+  --bg-primary:          #0B1628;
+  --bg-secondary:        #0F1E35;
+  --bg-card:             #162440;
+  --bg-card-hover:       #1a2d45;
+  --bg-elevated:         #1e2d4a;
+  --text-primary:        #f0f2f8;
+  --text-secondary:      #8899bb;
+  --text-faint:          #6B7FA8;
+  --border-subtle:       rgba(30,45,74,0.8);
+  --bg-light:            #ffffff;
+  --bg-light-secondary:  #F7F9FF;
+  --bg-light-card:       #ffffff;
+  --bg-light-border:     #E8EEF8;
+  --text-dark-secondary: #3a4a6a;
+  --text-dark-faint:     #6B7FA8;
 }
 
 /* ── Base ───────────────────────────────────────────────────────────── */
 html { scroll-behavior: smooth; }
 
 body {
-  background:
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(245, 200, 66, 0.04) 0%, transparent 60%),
-    #0f1829;
+  background: #0B1628;
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -73,25 +94,25 @@ body {
 .hero-tag      { animation: fadeUp 0.5s ease 0.10s both; }
 .hero-headline { animation: fadeUp 0.6s ease 0.20s both; }
 .hero-subtext  { animation: fadeUp 0.6s ease 0.35s both; }
-.hero-rule     { animation: fadeUp 0.6s ease 0.42s both; }
-.hero-rating   { animation: fadeUp 0.6s ease 0.50s both; }
-.hero-buttons  { animation: fadeUp 0.6s ease 0.60s both; }
+.hero-rule     { animation: fadeUp 0.6s ease 0.40s both; }
+.hero-rating   { animation: fadeUp 0.6s ease 0.45s both; }
+.hero-buttons  { animation: fadeUp 0.6s ease 0.50s both; }
 
-/* ── "Pass." shimmer word ───────────────────────────────────────────── */
+/* ── "Pass." gold shimmer ───────────────────────────────────────────── */
 .hero-gold {
-  background: linear-gradient(90deg, #F5C842 0%, #fff8dc 30%, #F5C842 60%, #d4a91a 100%);
+  background: linear-gradient(90deg, #F5C132 0%, #fff8dc 30%, #F5C132 60%, #E8A800 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: shimmer 4s linear infinite;
   display: block;
+  font-style: italic;
+  font-size: 1.18em;
 }
 
-/* ── Hero diagonal texture (via ::before) ────────────────────────────── */
-.hero-texture {
-  position: relative;
-}
+/* ── Hero diagonal texture ──────────────────────────────────────────── */
+.hero-texture { position: relative; }
 .hero-texture::before {
   content: '';
   position: absolute;
@@ -100,24 +121,34 @@ body {
     -45deg,
     transparent,
     transparent 40px,
-    rgba(255, 255, 255, 0.015) 40px,
-    rgba(255, 255, 255, 0.015) 41px
+    rgba(255,255,255,0.015) 40px,
+    rgba(255,255,255,0.015) 41px
   );
   pointer-events: none;
   z-index: 0;
 }
 .hero-texture > * { position: relative; z-index: 1; }
 
-/* ── Section heading pattern ────────────────────────────────────────── */
+/* ── Section labels ─────────────────────────────────────────────────── */
 .section-label {
   display: block;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 11px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 10px;
 }
+.section-label-blue {
+  display: block;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1A56DB;
+  margin-bottom: 10px;
+}
+.section-label-dark { color: var(--gold-dark); }
 
 .section-rule {
   display: block;
@@ -127,58 +158,63 @@ body {
   margin: 14px auto 44px;
 }
 
-/* ── Card base ──────────────────────────────────────────────────────── */
+/* ── Card variants ──────────────────────────────────────────────────── */
 .brand-card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
-  transition:
-    transform      0.25s ease,
-    box-shadow     0.25s ease,
-    border-color   0.25s ease,
-    background     0.25s ease;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 .brand-card:hover {
-  background: var(--bg-card-hover);
   border-color: var(--gold-border);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 40px rgba(245, 200, 66, 0.05);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
 }
 
-/* ── Service card lift + bottom-line ────────────────────────────────── */
-.service-card { transition: transform 0.25s ease; }
+.light-card {
+  background: #ffffff;
+  border: 1px solid #E8EEF8;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.light-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* ── Service card ────────────────────────────────────────────────────── */
+.service-card { transition: transform 0.2s ease; }
 .service-card:hover { transform: translateY(-4px); }
 
 .service-card-line {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  display: block;
   height: 2px;
   width: 0;
   background: var(--gold);
-  border-radius: 0 0 2px 0;
+  border-radius: 2px;
   transition: width 0.3s ease;
+  margin-top: 16px;
 }
 .service-card:hover .service-card-line { width: 100%; }
 
-/* ── Pricing featured — gradient border ─────────────────────────────── */
+/* ── Pricing featured border ─────────────────────────────────────────── */
 .pricing-featured {
   background:
     linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
-    linear-gradient(135deg, #F5C842, #d4a91a) border-box;
+    linear-gradient(135deg, #F5C132, #E8A800) border-box;
   border: 1.5px solid transparent;
 }
 
-/* ── Navbar scroll-blur ─────────────────────────────────────────────── */
+/* ── Navbar scrolled state ───────────────────────────────────────────── */
 .nav-scrolled {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  background-color: rgba(10, 15, 30, 0.92) !important;
-  border-bottom-color: rgba(245, 200, 66, 0.1) !important;
+  background-color: rgba(255,255,255,0.95) !important;
+  border-bottom-color: rgba(226,232,244,0.8) !important;
 }
 
-/* ── Footer link hover underline ────────────────────────────────────── */
+/* ── Footer link underline ───────────────────────────────────────────── */
 .footer-link {
-  color: var(--text-secondary);
+  color: rgba(255,255,255,0.45);
   position: relative;
   display: inline-block;
   transition: color 0.2s ease;
@@ -193,7 +229,7 @@ body {
   background: var(--gold);
   transition: width 0.2s ease;
 }
-.footer-link:hover { color: var(--gold); }
+.footer-link:hover { color: rgba(255,255,255,0.8); }
 .footer-link:hover::after { width: 100%; }
 
 /* ── WhatsApp pulse ring ─────────────────────────────────────────────── */
@@ -203,23 +239,21 @@ body {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: rgba(37, 211, 102, 0.45);
+  background: rgba(34,197,94,0.4);
   animation: pulse-ring 2.5s ease-out infinite;
   z-index: 0;
 }
 
-/* ── CTA diagonal texture ───────────────────────────────────────────── */
+/* ── CTA diagonal texture ────────────────────────────────────────────── */
 .cta-texture {
   background-image: repeating-linear-gradient(
     -45deg,
     transparent,
     transparent 20px,
-    rgba(0, 0, 0, 0.04) 20px,
-    rgba(0, 0, 0, 0.04) 21px
+    rgba(0,0,0,0.04) 20px,
+    rgba(0,0,0,0.04) 21px
   );
 }
 
 /* ── Booking form step slide-in ─────────────────────────────────────── */
-.step-enter {
-  animation: slideStepIn 0.3s ease both;
-}
+.step-enter { animation: slideStepIn 0.3s ease both; }

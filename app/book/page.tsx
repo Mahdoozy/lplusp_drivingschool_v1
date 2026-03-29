@@ -164,7 +164,6 @@ export default function BookPage() {
   }
 
   function handleConfirm() {
-    // TODO: Replace with Stripe payment for packages/test prep — see README.md
     setSubmitted(true);
   }
 
@@ -177,20 +176,28 @@ export default function BookPage() {
     'Fairly confident', 'Quite confident', 'Very confident',
   ];
 
+  // Light theme inputs
   const inputClass =
-    'w-full font-sans text-[#f0f2f8] placeholder-[#4a5a7a] rounded px-4 py-3 focus:outline-none focus:border-[#F5C842] transition-colors';
+    'w-full font-sans text-[#0a0f1e] placeholder-[#7a8aaa] rounded px-4 py-3 focus:outline-none focus:border-[#F5C842] transition-colors';
   const inputStyle = {
-    background: 'var(--bg-primary)',
-    border: '1px solid rgba(30, 45, 74, 0.8)',
+    background: '#ffffff',
+    border: '1px solid #c8d4f0',
   };
 
   if (submitted) {
     return (
       <div
         className="min-h-screen flex items-center justify-center px-4"
-        style={{ backgroundColor: 'var(--bg-secondary)' }}
+        style={{ backgroundColor: '#f4f7ff' }}
       >
-        <div className="brand-card rounded-xl p-8 max-w-md w-full text-center flex flex-col items-center gap-5">
+        <div
+          className="rounded-xl p-8 max-w-md w-full text-center flex flex-col items-center gap-5"
+          style={{
+            background: '#ffffff',
+            border: '1px solid #e2e8f4',
+            boxShadow: '0 4px 24px rgba(0,0,0,0.08)',
+          }}
+        >
           <div
             className="w-16 h-16 rounded-full flex items-center justify-center"
             style={{ background: 'linear-gradient(135deg, #F5C842, #d4a91a)' }}
@@ -199,30 +206,30 @@ export default function BookPage() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h2 className="font-serif font-bold text-2xl text-[#f0f2f8]">Booking Received!</h2>
-          <p className="font-sans text-[#8899bb] text-sm leading-relaxed">
+          <h2 className="font-serif font-bold text-2xl text-[#0a0f1e]">Booking Received!</h2>
+          <p className="font-sans text-[#3a4a6a] text-sm leading-relaxed">
             Thanks{form.name ? ` ${form.name}` : ''}! We will confirm your booking via WhatsApp within 1 hour.
           </p>
           <div
             className="w-full rounded-xl p-4 flex flex-col gap-2 text-sm text-left"
-            style={{ background: 'var(--bg-primary)' }}
+            style={{ background: '#f4f7ff', border: '1px solid #e2e8f4' }}
           >
             {selectedService && (
               <div className="flex justify-between">
-                <span className="font-sans text-[#4a5a7a]">Service</span>
-                <span className="font-sans text-[#f0f2f8]">{selectedService.label}</span>
+                <span className="font-sans text-[#7a8aaa]">Service</span>
+                <span className="font-sans text-[#0a0f1e]">{selectedService.label}</span>
               </div>
             )}
             {selectedPackage && (
               <div className="flex justify-between">
-                <span className="font-sans text-[#4a5a7a]">Package</span>
-                <span className="font-sans text-[#f0f2f8]">{selectedPackage.label} — {selectedPackage.priceSummary}</span>
+                <span className="font-sans text-[#7a8aaa]">Package</span>
+                <span className="font-sans text-[#0a0f1e]">{selectedPackage.label} — {selectedPackage.priceSummary}</span>
               </div>
             )}
             {form.suburb && (
               <div className="flex justify-between">
-                <span className="font-sans text-[#4a5a7a]">Suburb</span>
-                <span className="font-sans text-[#f0f2f8]">{form.suburb}</span>
+                <span className="font-sans text-[#7a8aaa]">Suburb</span>
+                <span className="font-sans text-[#0a0f1e]">{form.suburb}</span>
               </div>
             )}
           </div>
@@ -239,23 +246,23 @@ export default function BookPage() {
   }
 
   return (
-    <div className="min-h-screen py-12" style={{ backgroundColor: 'var(--bg-secondary)' }}>
+    <div className="min-h-screen py-12" style={{ backgroundColor: '#f4f7ff' }}>
       {/* Heading */}
       <div className="text-center px-4 mb-8">
-        <h1 className="font-serif font-bold text-3xl sm:text-5xl text-[#f0f2f8]">
+        <h1 className="font-serif font-bold text-3xl sm:text-5xl text-[#0a0f1e]">
           Book Your <span className="hero-gold inline">Lesson</span>
         </h1>
-        <p className="font-sans mt-2 text-[#8899bb]">We will WhatsApp you within the hour to confirm</p>
+        <p className="font-sans mt-2 text-[#3a4a6a]">We will WhatsApp you within the hour to confirm</p>
       </div>
 
       <div className="max-w-xl mx-auto px-4">
         {/* Progress bar */}
         <div className="mb-6">
           <div className="flex items-center justify-between mb-2">
-            <span className="font-sans text-[#4a5a7a] text-xs">Step {step} of {TOTAL_STEPS}</span>
-            <span className="font-sans text-[#4a5a7a] text-xs">{Math.round(progressPct)}% complete</span>
+            <span className="font-sans text-[#7a8aaa] text-xs">Step {step} of {TOTAL_STEPS}</span>
+            <span className="font-sans text-[#7a8aaa] text-xs">{Math.round(progressPct)}% complete</span>
           </div>
-          <div className="w-full rounded-full h-1.5" style={{ background: 'var(--bg-elevated)' }}>
+          <div className="w-full rounded-full h-1.5" style={{ background: '#e2e8f4' }}>
             <div
               className="h-1.5 rounded-full transition-all duration-500"
               style={{ width: `${progressPct}%`, background: 'var(--gold)' }}
@@ -263,15 +270,27 @@ export default function BookPage() {
           </div>
         </div>
 
-        <div className="brand-card rounded-xl p-6 sm:p-8">
+        {/* BUG 1 FIX: solid opaque white card, no transparency, no backdrop-filter */}
+        {/* BUG 2 FIX: id="booking-form" for anchor link from pricing cards */}
+        <div
+          id="booking-form"
+          className="rounded-xl p-6 sm:p-8"
+          style={{
+            background: '#ffffff',
+            border: '1px solid #e2e8f4',
+            boxShadow: '0 4px 24px rgba(0,0,0,0.08)',
+            position: 'relative',
+            zIndex: 1,
+          }}
+        >
 
           {/* STEP 1 — Confidence rating */}
           {step === 1 && (
             <div className="flex flex-col items-center gap-6">
-              <h2 className="font-serif font-bold text-xl text-[#f0f2f8] text-center">
+              <h2 className="font-serif font-bold text-xl text-[#0a0f1e] text-center">
                 How confident are you with road rules and driving?
               </h2>
-              <p className="font-sans text-[#4a5a7a] text-sm text-center">Click a star to continue</p>
+              <p className="font-sans text-[#7a8aaa] text-sm text-center">Click a star to continue</p>
               <div className="flex gap-3">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <button
@@ -281,19 +300,19 @@ export default function BookPage() {
                   >
                     <svg
                       className={`w-12 h-12 transition-colors ${
-                        star <= form.confidence ? 'text-[#F5C842]' : 'text-[#1e2d4a] group-hover:text-[#F5C842]'
+                        star <= form.confidence ? 'text-[#F5C842]' : 'text-[#dde4f0] group-hover:text-[#F5C842]'
                       }`}
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
-                    <span className="font-mono text-xs text-[#4a5a7a]">{star}</span>
+                    <span className="font-mono text-xs text-[#7a8aaa]">{star}</span>
                   </button>
                 ))}
               </div>
               {form.confidence > 0 && (
-                <p className="font-sans text-[#F5C842] text-sm font-medium">{confidenceLabels[form.confidence]}</p>
+                <p className="font-sans text-[#d4a91a] text-sm font-medium">{confidenceLabels[form.confidence]}</p>
               )}
             </div>
           )}
@@ -301,7 +320,7 @@ export default function BookPage() {
           {/* STEP 2 — Service selection */}
           {step === 2 && (
             <div className="flex flex-col gap-4">
-              <h2 className="font-serif font-bold text-xl text-[#f0f2f8] mb-1">
+              <h2 className="font-serif font-bold text-xl text-[#0a0f1e] mb-1">
                 What are you looking to do?
               </h2>
               <div className="grid grid-cols-1 gap-2">
@@ -311,8 +330,8 @@ export default function BookPage() {
                     onClick={() => { update('service', service.id); advance(); }}
                     className="relative flex items-center gap-3 p-4 rounded-xl transition-all text-left"
                     style={{
-                      border: `1.5px solid ${form.service === service.id ? '#F5C842' : 'rgba(30, 45, 74, 0.8)'}`,
-                      background: form.service === service.id ? 'rgba(245, 200, 66, 0.06)' : 'transparent',
+                      border: `1.5px solid ${form.service === service.id ? '#F5C842' : '#c8d4f0'}`,
+                      background: form.service === service.id ? 'rgba(245, 200, 66, 0.06)' : '#ffffff',
                     }}
                   >
                     {service.badge && (
@@ -323,12 +342,12 @@ export default function BookPage() {
                         {service.badge}
                       </span>
                     )}
-                    <div className={form.service === service.id ? 'text-[#F5C842]' : 'text-[#4a5a7a]'}>
+                    <div className={form.service === service.id ? 'text-[#d4a91a]' : 'text-[#7a8aaa]'}>
                       {service.icon}
                     </div>
                     <span
                       className="font-sans font-semibold text-sm"
-                      style={{ color: form.service === service.id ? '#f0f2f8' : '#8899bb' }}
+                      style={{ color: form.service === service.id ? '#0a0f1e' : '#3a4a6a' }}
                     >
                       {service.label}
                     </span>
@@ -341,7 +360,7 @@ export default function BookPage() {
           {/* STEP 3 — Package / pricing selection */}
           {step === 3 && (
             <div className="flex flex-col gap-6">
-              <h2 className="font-serif font-bold text-xl text-[#f0f2f8]">
+              <h2 className="font-serif font-bold text-xl text-[#0a0f1e]">
                 Choose a lesson type
               </h2>
 
@@ -349,14 +368,15 @@ export default function BookPage() {
                 <div key={group.groupId}>
                   {/* Group header */}
                   <div className="mb-3">
-                    <h3 className="font-sans font-semibold text-sm text-[#f0f2f8]">{group.groupTitle}</h3>
-                    <p className="font-sans text-xs text-[#4a5a7a] mt-0.5">{group.groupNote}</p>
+                    <h3 className="font-sans font-semibold text-sm text-[#0a0f1e]">{group.groupTitle}</h3>
+                    <p className="font-sans text-xs text-[#7a8aaa] mt-0.5">{group.groupNote}</p>
                   </div>
 
                   <div className="flex flex-col gap-2">
                     {group.items.map((pkg) => {
                       const isSelected = form.package === pkg.id;
                       const isFeatured = 'featured' in pkg && pkg.featured;
+
                       return (
                         <button
                           key={pkg.id}
@@ -364,9 +384,9 @@ export default function BookPage() {
                           className="relative flex items-center justify-between p-4 rounded-xl transition-all text-left"
                           style={{
                             border: `1.5px solid ${
-                              isSelected ? '#F5C842' : isFeatured ? 'rgba(245, 200, 66, 0.25)' : 'rgba(30, 45, 74, 0.8)'
+                              isSelected ? '#F5C842' : isFeatured ? 'rgba(245, 200, 66, 0.35)' : '#c8d4f0'
                             }`,
-                            background: isSelected ? 'rgba(245, 200, 66, 0.06)' : 'transparent',
+                            background: isSelected ? 'rgba(245, 200, 66, 0.06)' : '#ffffff',
                           }}
                         >
                           {isFeatured && !isSelected && (
@@ -380,17 +400,17 @@ export default function BookPage() {
                           <div>
                             <span
                               className="font-sans font-semibold text-sm block"
-                              style={{ color: isSelected ? '#f0f2f8' : '#8899bb' }}
+                              style={{ color: isSelected ? '#0a0f1e' : '#3a4a6a' }}
                             >
                               {pkg.label}
                             </span>
-                            <span className="font-sans text-xs text-[#4a5a7a] mt-0.5 block">{pkg.note}</span>
+                            <span className="font-sans text-xs text-[#7a8aaa] mt-0.5 block">{pkg.note}</span>
                           </div>
                           <div className="text-right flex-shrink-0 ml-4">
                             {group.isFrom && (
-                              <span className="font-sans text-[10px] text-[#4a5a7a] block">from</span>
+                              <span className="font-sans text-[10px] text-[#7a8aaa] block">from</span>
                             )}
-                            <span className="font-mono font-medium text-[#F5C842] text-base">
+                            <span className="font-mono font-medium text-[#d4a91a] text-base">
                               {pkg.priceText.replace('from ', '')}
                             </span>
                           </div>
@@ -406,7 +426,7 @@ export default function BookPage() {
           {/* STEP 4 — Suburb */}
           {step === 4 && (
             <div className="flex flex-col gap-5">
-              <h2 className="font-serif font-bold text-xl text-[#f0f2f8]">
+              <h2 className="font-serif font-bold text-xl text-[#0a0f1e]">
                 Which suburb are you in?
               </h2>
               <select
@@ -426,12 +446,12 @@ export default function BookPage() {
           {/* STEP 5 — Details */}
           {step === 5 && (
             <div className="flex flex-col gap-4">
-              <h2 className="font-serif font-bold text-xl text-[#f0f2f8] mb-1">
+              <h2 className="font-serif font-bold text-xl text-[#0a0f1e] mb-1">
                 Your Details
               </h2>
 
               <div>
-                <label className="block font-sans text-sm text-[#8899bb] mb-1.5">Full Name *</label>
+                <label className="block font-sans text-sm text-[#3a4a6a] mb-1.5">Full Name *</label>
                 <input
                   type="text"
                   value={form.name}
@@ -442,7 +462,7 @@ export default function BookPage() {
                 />
               </div>
               <div>
-                <label className="block font-sans text-sm text-[#8899bb] mb-1.5">Phone Number *</label>
+                <label className="block font-sans text-sm text-[#3a4a6a] mb-1.5">Phone Number *</label>
                 <input
                   type="tel"
                   value={form.phone}
@@ -453,7 +473,7 @@ export default function BookPage() {
                 />
               </div>
               <div>
-                <label className="block font-sans text-sm text-[#8899bb] mb-1.5">Email</label>
+                <label className="block font-sans text-sm text-[#3a4a6a] mb-1.5">Email</label>
                 <input
                   type="email"
                   value={form.email}
@@ -464,7 +484,7 @@ export default function BookPage() {
                 />
               </div>
               <div>
-                <label className="block font-sans text-sm text-[#8899bb] mb-1.5">Preferred Date</label>
+                <label className="block font-sans text-sm text-[#3a4a6a] mb-1.5">Preferred Date</label>
                 <input
                   type="date"
                   value={form.date}
@@ -477,34 +497,34 @@ export default function BookPage() {
               {/* Booking summary */}
               <div
                 className="rounded-xl p-4 flex flex-col gap-2.5 text-sm mt-2"
-                style={{ background: 'var(--bg-primary)' }}
+                style={{ background: '#f4f7ff', border: '1px solid #e2e8f4' }}
               >
-                <p className="font-sans text-[10px] font-semibold uppercase tracking-widest text-[#4a5a7a] mb-1">
+                <p className="font-sans text-[10px] font-semibold uppercase tracking-widest text-[#7a8aaa] mb-1">
                   Booking Summary
                 </p>
                 {selectedService && (
                   <div className="flex justify-between">
-                    <span className="font-sans text-[#4a5a7a]">Service</span>
-                    <span className="font-sans text-[#f0f2f8]">{selectedService.label}</span>
+                    <span className="font-sans text-[#7a8aaa]">Service</span>
+                    <span className="font-sans text-[#0a0f1e]">{selectedService.label}</span>
                   </div>
                 )}
                 {selectedPackage && (
                   <div className="flex justify-between">
-                    <span className="font-sans text-[#4a5a7a]">Package</span>
-                    <span className="font-mono text-[#F5C842] font-medium">
+                    <span className="font-sans text-[#7a8aaa]">Package</span>
+                    <span className="font-mono text-[#d4a91a] font-medium">
                       {selectedPackage.label} — {selectedPackage.priceSummary}
                     </span>
                   </div>
                 )}
                 {form.suburb && (
                   <div className="flex justify-between">
-                    <span className="font-sans text-[#4a5a7a]">Suburb</span>
-                    <span className="font-sans text-[#f0f2f8]">{form.suburb}</span>
+                    <span className="font-sans text-[#7a8aaa]">Suburb</span>
+                    <span className="font-sans text-[#0a0f1e]">{form.suburb}</span>
                   </div>
                 )}
                 <div className="flex justify-between">
-                  <span className="font-sans text-[#4a5a7a]">Confidence</span>
-                  <span className="font-sans text-[#f0f2f8]">{form.confidence}/5</span>
+                  <span className="font-sans text-[#7a8aaa]">Confidence</span>
+                  <span className="font-sans text-[#0a0f1e]">{form.confidence}/5</span>
                 </div>
               </div>
 
@@ -524,7 +544,7 @@ export default function BookPage() {
             {step > 1 ? (
               <button
                 onClick={back}
-                className="font-sans text-[#8899bb] hover:text-[#f0f2f8] text-sm font-medium transition-colors"
+                className="font-sans text-[#7a8aaa] hover:text-[#0a0f1e] text-sm font-medium transition-colors"
               >
                 ← Previous
               </button>
@@ -533,7 +553,7 @@ export default function BookPage() {
             )}
             <button
               onClick={advance}
-              className="font-sans text-[#8899bb] hover:text-[#f0f2f8] text-sm font-medium transition-colors"
+              className="font-sans text-[#7a8aaa] hover:text-[#0a0f1e] text-sm font-medium transition-colors"
             >
               Next →
             </button>
@@ -542,7 +562,7 @@ export default function BookPage() {
 
         {/* What happens next */}
         <div className="mt-10">
-          <h2 className="font-serif font-bold text-lg text-[#f0f2f8] text-center mb-6">
+          <h2 className="font-serif font-bold text-lg text-[#0a0f1e] text-center mb-6">
             What Happens Next
           </h2>
           <div className="grid grid-cols-3 gap-4">
@@ -551,14 +571,18 @@ export default function BookPage() {
               { num: '2', text: 'WhatsApp reminder 24hrs before' },
               { num: '3', text: 'Instructor picks you up' },
             ].map((item) => (
-              <div key={item.num} className="flex flex-col items-center gap-2 text-center">
+              <div
+                key={item.num}
+                className="flex flex-col items-center gap-2 text-center rounded-xl p-4"
+                style={{ background: '#ffffff', border: '1px solid #e2e8f4' }}
+              >
                 <div
                   className="w-10 h-10 rounded-full flex items-center justify-center font-serif font-bold text-[#0a0f1e]"
                   style={{ background: 'var(--gold)' }}
                 >
                   {item.num}
                 </div>
-                <p className="font-sans text-[#4a5a7a] text-xs leading-tight">{item.text}</p>
+                <p className="font-sans text-[#3a4a6a] text-xs leading-tight">{item.text}</p>
               </div>
             ))}
           </div>

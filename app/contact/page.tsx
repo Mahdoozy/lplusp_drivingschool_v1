@@ -19,71 +19,90 @@ export default function ContactPage() {
     setForm((prev) => ({ ...prev, [key]: value }));
   }
 
+  const inputClass = 'w-full font-sans bg-white border border-[#c8d4f0] rounded-lg px-4 py-3 text-[#0a0f1e] placeholder-[#7a8aaa] focus:outline-none focus:border-[#F5C842] transition-colors';
+
   return (
     <>
-      <section className="bg-[#0f1623] py-16 sm:py-24">
+      {/* Hero — light theme */}
+      <section className="py-16 sm:py-24" style={{ backgroundColor: '#f4f7ff', borderBottom: '1px solid #e2e8f4' }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-white">
-            Get In <span className="text-[#FFD700]">Touch</span>
+          <span className="section-label-dark">Get In Touch</span>
+          <h1 className="font-serif font-bold text-4xl sm:text-5xl text-[#0a0f1e]">
+            Contact Us
           </h1>
-          <p className="mt-4 text-gray-300 text-lg">We respond within 1 hour — usually much faster</p>
+          <p className="mt-4 font-sans text-[#3a4a6a] text-lg">We respond within 1 hour — usually much faster</p>
         </div>
       </section>
 
-      <section className="bg-[#0f1623] py-12 pb-20">
+      <section className="py-12 pb-20" style={{ backgroundColor: '#ffffff' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex gap-10 items-start">
           {/* Main content */}
           <div className="flex-1 min-w-0">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Contact info */}
               <div className="flex flex-col gap-6">
-                <h2 className="text-2xl font-extrabold text-white">Contact Details</h2>
+                <h2 className="font-serif font-bold text-2xl text-[#0a0f1e]">Contact Details</h2>
 
-                <div className="bg-[#1a2235] rounded-2xl p-6 flex flex-col gap-5">
+                <div
+                  className="rounded-2xl p-6 flex flex-col gap-5"
+                  style={{ background: '#f4f7ff', border: '1px solid #e2e8f4' }}
+                >
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-[#FFD700] rounded-full flex items-center justify-center flex-shrink-0">
-                      <svg className="w-5 h-5 text-[#0f1623]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div
+                      className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+                      style={{ background: 'var(--gold)' }}
+                    >
+                      <svg className="w-5 h-5 text-[#0a0f1e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                       </svg>
                     </div>
                     <div>
-                      <p className="text-gray-400 text-xs mb-0.5">Mick</p>
-                      <a href="tel:0469370978" className="text-white font-semibold hover:text-[#FFD700] transition-colors">0469 370 978</a>
+                      <p className="font-sans text-[#7a8aaa] text-xs mb-0.5">Mick</p>
+                      <a href="tel:0469370978" className="font-sans font-semibold text-[#0a0f1e] hover:text-[#d4a91a] transition-colors">0469 370 978</a>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-[#FFD700] rounded-full flex items-center justify-center flex-shrink-0">
-                      <svg className="w-5 h-5 text-[#0f1623]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div
+                      className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+                      style={{ background: 'var(--gold)' }}
+                    >
+                      <svg className="w-5 h-5 text-[#0a0f1e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                       </svg>
                     </div>
                     <div>
-                      <p className="text-gray-400 text-xs mb-0.5">Sidra</p>
-                      <a href="tel:0451331140" className="text-white font-semibold hover:text-[#FFD700] transition-colors">0451 331 140</a>
+                      <p className="font-sans text-[#7a8aaa] text-xs mb-0.5">Sidra</p>
+                      <a href="tel:0451331140" className="font-sans font-semibold text-[#0a0f1e] hover:text-[#d4a91a] transition-colors">0451 331 140</a>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-[#FFD700] rounded-full flex items-center justify-center flex-shrink-0">
-                      <svg className="w-5 h-5 text-[#0f1623]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div
+                      className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+                      style={{ background: 'var(--gold)' }}
+                    >
+                      <svg className="w-5 h-5 text-[#0a0f1e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </div>
-                    <a href="mailto:lpluspdrivingschool44@gmail.com" className="text-white hover:text-[#FFD700] transition-colors break-all text-sm">
+                    <a href="mailto:lpluspdrivingschool44@gmail.com" className="font-sans text-[#0a0f1e] hover:text-[#d4a91a] transition-colors break-all text-sm">
                       lpluspdrivingschool44@gmail.com
                     </a>
                   </div>
 
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-[#FFD700] rounded-full flex items-center justify-center flex-shrink-0">
-                      <svg className="w-5 h-5 text-[#0f1623]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div
+                      className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+                      style={{ background: 'var(--gold)' }}
+                    >
+                      <svg className="w-5 h-5 text-[#0a0f1e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
                     <div>
-                      <p className="text-white font-semibold">Mon – Sat, 6am – 6pm</p>
-                      <p className="text-gray-400 text-xs mt-0.5">We respond to messages 7 days a week</p>
+                      <p className="font-sans font-semibold text-[#0a0f1e]">Mon – Sat, 6am – 6pm</p>
+                      <p className="font-sans text-[#7a8aaa] text-xs mt-0.5">We respond to messages 7 days a week</p>
                     </div>
                   </div>
 
@@ -101,7 +120,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Map */}
-                <div className="rounded-2xl overflow-hidden h-64">
+                <div className="rounded-2xl overflow-hidden h-64" style={{ border: '1px solid #e2e8f4' }}>
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3314.8!2d151.1!3d-33.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sNorth+Ryde+NSW+2113!5e0!3m2!1sen!2sau!4v1"
                     width="100%"
@@ -117,56 +136,65 @@ export default function ContactPage() {
 
               {/* Contact form */}
               <div>
-                <h2 className="text-2xl font-extrabold text-white mb-6">Send Us a Message</h2>
+                <h2 className="font-serif font-bold text-2xl text-[#0a0f1e] mb-6">Send Us a Message</h2>
 
                 {submitted ? (
-                  <div className="bg-[#1a2235] rounded-2xl p-8 text-center flex flex-col items-center gap-4">
-                    <div className="w-14 h-14 bg-[#FFD700] rounded-full flex items-center justify-center">
-                      <svg className="w-7 h-7 text-[#0f1623]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div
+                    className="rounded-2xl p-8 text-center flex flex-col items-center gap-4"
+                    style={{ background: '#f4f7ff', border: '1px solid #e2e8f4' }}
+                  >
+                    <div
+                      className="w-14 h-14 rounded-full flex items-center justify-center"
+                      style={{ background: 'var(--gold)' }}
+                    >
+                      <svg className="w-7 h-7 text-[#0a0f1e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <p className="text-white font-bold text-xl">Message Sent!</p>
-                    <p className="text-gray-300 text-sm">Thanks {form.name}, we will get back to you within 1 hour.</p>
+                    <p className="font-serif font-bold text-xl text-[#0a0f1e]">Message Sent!</p>
+                    <p className="font-sans text-[#3a4a6a] text-sm">Thanks {form.name}, we will get back to you within 1 hour.</p>
                   </div>
                 ) : (
-                  <div className="bg-[#1a2235] rounded-2xl p-6 flex flex-col gap-4">
+                  <div
+                    className="rounded-2xl p-6 flex flex-col gap-4"
+                    style={{ background: '#ffffff', border: '1px solid #e2e8f4', boxShadow: '0 2px 12px rgba(0,0,0,0.05)' }}
+                  >
                     <div>
-                      <label className="block text-sm text-gray-400 mb-1">Full Name *</label>
+                      <label className="block font-sans text-sm text-[#3a4a6a] mb-1">Full Name *</label>
                       <input
                         type="text"
                         value={form.name}
                         onChange={(e) => update('name', e.target.value)}
-                        className="w-full bg-[#0f1623] border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-[#FFD700]"
+                        className={inputClass}
                         placeholder="Your full name"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm text-gray-400 mb-1">Phone *</label>
+                      <label className="block font-sans text-sm text-[#3a4a6a] mb-1">Phone *</label>
                       <input
                         type="tel"
                         value={form.phone}
                         onChange={(e) => update('phone', e.target.value)}
-                        className="w-full bg-[#0f1623] border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-[#FFD700]"
+                        className={inputClass}
                         placeholder="04xx xxx xxx"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm text-gray-400 mb-1">Email</label>
+                      <label className="block font-sans text-sm text-[#3a4a6a] mb-1">Email</label>
                       <input
                         type="email"
                         value={form.email}
                         onChange={(e) => update('email', e.target.value)}
-                        className="w-full bg-[#0f1623] border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-[#FFD700]"
+                        className={inputClass}
                         placeholder="you@email.com"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm text-gray-400 mb-1">Suburb</label>
+                      <label className="block font-sans text-sm text-[#3a4a6a] mb-1">Suburb</label>
                       <select
                         value={form.suburb}
                         onChange={(e) => update('suburb', e.target.value)}
-                        className="w-full bg-[#0f1623] border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#FFD700]"
+                        className={inputClass}
                       >
                         <option value="">Select suburb</option>
                         {suburbList.map((s) => (
@@ -175,18 +203,19 @@ export default function ContactPage() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm text-gray-400 mb-1">Message *</label>
+                      <label className="block font-sans text-sm text-[#3a4a6a] mb-1">Message *</label>
                       <textarea
                         value={form.message}
                         onChange={(e) => update('message', e.target.value)}
                         rows={4}
-                        className="w-full bg-[#0f1623] border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-[#FFD700] resize-none"
+                        className={`${inputClass} resize-none`}
                         placeholder="How can we help you?"
                       />
                     </div>
                     <button
                       onClick={() => { if (form.name && form.phone && form.message) setSubmitted(true); }}
-                      className="bg-[#FFD700] text-[#0f1623] font-bold py-3 rounded-lg hover:bg-yellow-300 transition-colors"
+                      className="font-sans font-bold py-3 rounded-lg hover:bg-[#d4a91a] transition-colors text-[#0a0f1e]"
+                      style={{ background: 'var(--gold)' }}
                     >
                       Send Message
                     </button>

@@ -231,7 +231,7 @@ function PricingCard({
 
       <ul className="flex flex-col gap-2.5 flex-1">
         {features.map((f) => (
-          <li key={f} className="flex items-start gap-2.5 text-sm text-[#8899bb]">
+          <li key={f} className="flex items-start gap-2.5 text-sm text-[#c0ccee]">
             <span className="text-[#F5C842] font-bold text-base leading-tight flex-shrink-0 mt-0.5">›</span>
             {f}
           </li>
@@ -239,7 +239,7 @@ function PricingCard({
       </ul>
 
       <Link
-        href="/book"
+        href="/book#booking-form"
         className="mt-2 font-sans font-semibold text-sm px-4 py-3 rounded text-center transition-all duration-200 bg-[#F5C842] text-[#0a0f1e] hover:bg-[#d4a91a]"
       >
         Book Now

@@ -106,16 +106,19 @@ const allFAQs = [
 export default function FAQPage() {
   return (
     <>
-      <section className="bg-[#0f1623] py-16 sm:py-24">
+      {/* Hero — light */}
+      <section className="py-16 sm:py-20" style={{ backgroundColor: '#f4f7ff', borderBottom: '1px solid #e2e8f4' }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-white">
-            Frequently Asked <span className="text-[#FFD700]">Questions</span>
+          <span className="section-label-dark">Support</span>
+          <h1 className="font-serif font-bold text-4xl sm:text-5xl text-[#0a0f1e]">
+            Frequently Asked Questions
           </h1>
-          <p className="mt-4 text-gray-300 text-lg">Everything you need to know about learning with L Plus P</p>
+          <p className="mt-4 font-sans text-[#3a4a6a] text-lg">Everything you need to know about learning with L Plus P</p>
         </div>
       </section>
 
-      <div className="bg-[#0f1623] py-12">
+      {/* FAQ content + sidebar */}
+      <div className="py-12" style={{ backgroundColor: '#ffffff' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex gap-10 items-start">
           <div className="flex-1 min-w-0">
             <FAQ items={allFAQs} showHeading={false} />

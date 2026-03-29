@@ -90,7 +90,14 @@ function StarRating() {
 
 export function ReviewCard({ review }: { review: Review }) {
   return (
-    <div className="relative break-inside-avoid brand-card rounded-xl p-6 flex flex-col gap-4 mb-5">
+    <div
+      className="relative break-inside-avoid rounded-xl p-6 flex flex-col gap-4 mb-5"
+      style={{
+        background: '#0f1829',
+        border: '1px solid rgba(245, 200, 66, 0.15)',
+        boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
+      }}
+    >
       {/* Decorative large quote mark */}
       <div
         className="font-serif absolute top-3 left-5 leading-none pointer-events-none select-none"
@@ -103,7 +110,7 @@ export function ReviewCard({ review }: { review: Review }) {
       <StarRating />
 
       <p
-        className="font-sans text-[#8899bb] text-[15px] italic relative z-10 pt-1"
+        className="font-sans text-[#c8d4f0] text-[15px] italic relative z-10 pt-1"
         style={{ lineHeight: '1.8' }}
       >
         &ldquo;{review.text}&rdquo;
@@ -131,7 +138,7 @@ export function ReviewCard({ review }: { review: Review }) {
 
 export default function Reviews() {
   return (
-    <section id="reviews" className="py-16 sm:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
+    <section id="reviews" className="py-16 sm:py-24" style={{ backgroundColor: '#060b15' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <span className="section-label">Student Reviews</span>

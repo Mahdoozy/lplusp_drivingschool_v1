@@ -44,12 +44,13 @@ export default function TrustStrip() {
     <section
       className="py-6 sm:py-8"
       style={{
-        background: '#141e30',
-        borderTop: '1px solid rgba(245, 200, 66, 0.15)',
+        background: '#eef2ff',
+        borderTop: '1px solid #c8d4f0',
+        borderBottom: '1px solid #c8d4f0',
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-[rgba(245,200,66,0.12)]">
+        <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-[#c8d4f0]">
           {trustItems.map((item, i) => (
             <div
               key={item.title}
@@ -57,10 +58,10 @@ export default function TrustStrip() {
                 i === trustItems.length - 1 ? 'pr-0 sm:pr-0' : ''
               } py-2`}
             >
-              <div className="text-[#F5C842] flex-shrink-0">{item.icon}</div>
+              <div className="text-[#d4a91a] flex-shrink-0">{item.icon}</div>
               <div>
-                <p className="text-[#f0f2f8] font-semibold text-sm leading-tight">{item.title}</p>
-                <p className="text-[#8899bb] text-xs mt-0.5">{item.subtitle}</p>
+                <p className="font-sans font-bold text-sm text-[#0a0f1e] leading-tight">{item.title}</p>
+                <p className="font-sans text-xs text-[#3a4a6a] mt-0.5">{item.subtitle}</p>
               </div>
             </div>
           ))}

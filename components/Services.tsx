@@ -106,11 +106,11 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-16 sm:py-24" style={{ backgroundColor: 'var(--bg-secondary)' }}>
+    <section id="services" className="py-16 sm:py-24" style={{ backgroundColor: '#f4f7ff' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <span className="section-label">Our Services</span>
-          <h2 className="font-serif font-bold text-3xl sm:text-4xl text-[#f0f2f8]">
+          <span className="section-label-dark">Our Services</span>
+          <h2 className="font-serif font-bold text-3xl sm:text-4xl text-[#0a0f1e]">
             Everything you need to get your licence
           </h2>
           <span className="section-rule" />
@@ -120,7 +120,7 @@ export default function Services() {
           {services.map((service) => (
             <div
               key={service.title}
-              className="service-card brand-card relative rounded-xl overflow-hidden flex flex-col gap-4"
+              className="service-card light-card relative rounded-xl overflow-hidden flex flex-col gap-4"
               style={{ padding: '32px 28px' }}
             >
               {/* Badge */}
@@ -135,24 +135,25 @@ export default function Services() {
 
               {/* Gold square icon */}
               <div
-                className="w-12 h-12 flex items-center justify-center flex-shrink-0 text-[#F5C842]"
-                style={{ border: '1px solid rgba(245, 200, 66, 0.3)' }}
+                className="w-12 h-12 flex items-center justify-center flex-shrink-0 text-[#d4a91a]"
+                style={{ border: '1px solid rgba(212, 169, 26, 0.35)', background: 'rgba(245, 200, 66, 0.07)' }}
               >
                 {service.icon}
               </div>
 
-              <h3 className="font-sans font-semibold text-[18px] text-[#f0f2f8] leading-snug">
+              <h3 className="font-sans font-semibold text-[18px] text-[#0a0f1e] leading-snug">
                 {service.title}
               </h3>
               <p
-                className="font-sans text-[14px] text-[#8899bb] flex-1"
+                className="font-sans text-[14px] text-[#3a4a6a] flex-1"
                 style={{ lineHeight: '1.7' }}
               >
                 {service.description}
               </p>
               <Link
                 href={service.href}
-                className="font-sans font-semibold text-sm text-[#F5C842] hover:text-[#d4a91a] transition-colors mt-auto"
+                className="font-sans font-semibold text-sm transition-colors mt-auto"
+                style={{ color: 'var(--gold-dark)' }}
               >
                 {service.href === '/book' ? 'Book Now →' : 'Learn More →'}
               </Link>
@@ -166,7 +167,8 @@ export default function Services() {
         <div className="text-center mt-10">
           <Link
             href="/services"
-            className="text-[#F5C842] hover:text-[#d4a91a] font-semibold text-sm transition-colors"
+            className="font-sans font-semibold text-sm transition-colors"
+            style={{ color: 'var(--gold-dark)' }}
           >
             View full service details →
           </Link>
