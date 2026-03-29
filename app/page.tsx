@@ -436,7 +436,7 @@ export default function HomePage() {
 
                 <Link
                   href="/book"
-                  className="inline-block bg-[#EBF3FF] text-[#1A56DB] font-outfit font-semibold text-sm px-4 py-2 rounded-lg hover:bg-[#1A56DB] hover:text-white transition-colors"
+                  className="inline-block bg-[#F5C132] text-[#0B1628] font-outfit font-semibold text-sm px-4 py-2 rounded-lg hover:bg-[#E8A800] transition-colors"
                 >
                   Book Now
                 </Link>
