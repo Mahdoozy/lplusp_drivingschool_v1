@@ -110,7 +110,7 @@ export default function FAQPage() {
       <section className="py-16 sm:py-20" style={{ backgroundColor: '#f4f7ff', borderBottom: '1px solid #e2e8f4' }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="section-label-dark">Support</span>
-          <h1 className="font-serif font-bold text-4xl sm:text-5xl text-[#0a0f1e]">
+          <h1 className="font-syne font-bold text-4xl sm:text-5xl text-[#0a0f1e]">
             Frequently Asked Questions
           </h1>
           <p className="mt-4 font-sans text-[#3a4a6a] text-lg">Everything you need to know about learning with L Plus P</p>

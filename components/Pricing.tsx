@@ -11,7 +11,7 @@ function SectionRow({
 }) {
   return (
     <div className="mb-7">
-      <h3 className="font-serif font-bold text-xl sm:text-2xl text-[#f0f2f8]">{heading}</h3>
+      <h3 className="font-syne font-bold text-xl sm:text-2xl text-[#f0f2f8]">{heading}</h3>
       <p className="font-sans text-sm text-[#4a5a7a] mt-1">{subtext}</p>
     </div>
   );
@@ -35,7 +35,7 @@ function PriceDisplay({
       )}
       <div className="flex items-baseline gap-1">
         <span
-          className="font-serif font-bold text-[#F5C842] leading-none"
+          className="font-syne font-bold text-[#F5C842] leading-none"
           style={{ fontSize: '48px' }}
         >
           {price}
@@ -258,7 +258,7 @@ export default function Pricing() {
         {/* Section heading */}
         <div className="text-center">
           <span className="section-label">Pricing</span>
-          <h2 className="font-serif font-bold text-3xl sm:text-4xl text-[#f0f2f8]">
+          <h2 className="font-syne font-bold text-3xl sm:text-4xl text-[#f0f2f8]">
             Transparent Pricing
           </h2>
           <p className="font-sans text-[#8899bb] text-lg mt-2">
@@ -330,7 +330,7 @@ export default function Pricing() {
             </svg>
           </div>
           <div className="flex-1">
-            <h3 className="font-serif font-bold text-lg text-[#f0f2f8]">
+            <h3 className="font-syne font-bold text-lg text-[#f0f2f8]">
               Know someone learning to drive?
             </h3>
             <p className="font-sans text-sm text-[#8899bb] mt-2 leading-relaxed">

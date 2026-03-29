@@ -21,7 +21,7 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <span className="section-label-dark">Our Team</span>
-          <h2 className="font-serif font-bold text-3xl sm:text-4xl text-[#0a0f1e]">
+          <h2 className="font-syne font-bold text-3xl sm:text-4xl text-[#0a0f1e]">
             Meet Your Instructors
           </h2>
           <span className="section-rule" />
@@ -40,7 +40,7 @@ export default function About() {
                   className="w-20 h-20 rounded-full flex-shrink-0 flex items-center justify-center shadow-lg"
                   style={{ background: 'linear-gradient(135deg, #F5C842, #d4a91a)' }}
                 >
-                  <span className="font-serif font-bold text-[#0a0f1e] text-3xl">
+                  <span className="font-syne font-bold text-[#0a0f1e] text-3xl">
                     {instructor.initial}
                   </span>
                 </div>
@@ -75,7 +75,7 @@ export default function About() {
 
           {/* Story text */}
           <div className="flex flex-col gap-5">
-            <h3 className="font-serif font-bold text-2xl sm:text-3xl text-[#0a0f1e] leading-snug">
+            <h3 className="font-syne font-bold text-2xl sm:text-3xl text-[#0a0f1e] leading-snug">
               20+ Years Teaching Sydney to Drive
             </h3>
             <p className="font-sans text-[#3a4a6a] leading-relaxed">

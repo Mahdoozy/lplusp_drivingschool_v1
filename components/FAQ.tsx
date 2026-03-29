@@ -58,7 +58,7 @@ export default function FAQ({ items, showHeading = true }: FAQProps) {
         {showHeading && (
           <div className="text-center">
             <span className="section-label-dark">Support</span>
-            <h2 className="font-serif font-bold text-3xl sm:text-4xl text-[#0a0f1e]">
+            <h2 className="font-syne font-bold text-3xl sm:text-4xl text-[#0a0f1e]">
               Frequently Asked Questions
             </h2>
             <span className="section-rule" />

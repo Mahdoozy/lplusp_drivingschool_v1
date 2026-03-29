@@ -110,7 +110,7 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <span className="section-label-dark">Our Services</span>
-          <h2 className="font-serif font-bold text-3xl sm:text-4xl text-[#0a0f1e]">
+          <h2 className="font-syne font-bold text-3xl sm:text-4xl text-[#0a0f1e]">
             Everything you need to get your licence
           </h2>
           <span className="section-rule" />

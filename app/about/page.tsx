@@ -55,7 +55,7 @@ export default function AboutPage() {
       <section className="py-16 sm:py-24" style={{ backgroundColor: 'var(--bg-secondary)' }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="section-label">Est. 1997</span>
-          <h1 className="font-serif font-bold text-4xl sm:text-5xl text-[#f0f2f8]">
+          <h1 className="font-syne font-bold text-4xl sm:text-5xl text-[#f0f2f8]">
             About L Plus P Driving School
           </h1>
           <p className="mt-4 font-sans text-[#8899bb] text-lg sm:text-xl">
@@ -74,7 +74,7 @@ export default function AboutPage() {
             {stats.map((stat) => (
               <div key={stat.label} className="px-4">
                 <div
-                  className="font-serif font-bold text-[#0a0f1e]"
+                  className="font-syne font-bold text-[#0a0f1e]"
                   style={{ fontSize: '48px', lineHeight: '1.1' }}
                 >
                   {stat.value}
@@ -97,7 +97,7 @@ export default function AboutPage() {
           <div className="flex-1 min-w-0">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
               <div>
-                <h2 className="font-serif font-bold text-2xl text-[#0a0f1e] mb-8">Our Story</h2>
+                <h2 className="font-syne font-bold text-2xl text-[#0a0f1e] mb-8">Our Story</h2>
                 <div className="flex flex-col gap-0">
                   {timeline.map((item, idx) => (
                     <div key={item.year} className="flex gap-4">
@@ -120,7 +120,7 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="flex flex-col gap-5">
-                <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#0a0f1e]">Our Mission</h2>
+                <h2 className="font-syne font-bold text-2xl sm:text-3xl text-[#0a0f1e]">Our Mission</h2>
                 <p className="font-sans text-[#3a4a6a] leading-relaxed">
                   L Plus P Driving School was founded with a clear mission: to produce safe, confident drivers who pass their test first time. We believe that great driving instruction is about more than passing a test — it is about developing lifelong safe driving habits.
                 </p>
@@ -140,7 +140,7 @@ export default function AboutPage() {
       {/* Instructor profiles — light #f4f7ff */}
       <section className="py-16" style={{ backgroundColor: '#f4f7ff', borderTop: '1px solid #e2e8f4' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-serif font-bold text-3xl text-[#0a0f1e] text-center mb-10">Meet Your Instructors</h2>
+          <h2 className="font-syne font-bold text-3xl text-[#0a0f1e] text-center mb-10">Meet Your Instructors</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {instructors.map((instructor) => (
               <div
@@ -152,7 +152,7 @@ export default function AboutPage() {
                   className="w-20 h-20 rounded-full mx-auto flex items-center justify-center shadow-lg"
                   style={{ background: 'linear-gradient(135deg, #F5C842, #d4a91a)' }}
                 >
-                  <span className="font-serif font-bold text-[#0a0f1e] text-3xl">{instructor.initial}</span>
+                  <span className="font-syne font-bold text-[#0a0f1e] text-3xl">{instructor.initial}</span>
                 </div>
                 <div className="text-center">
                   <h3 className="font-sans font-bold text-xl text-[#0a0f1e]">{instructor.name}</h3>
@@ -189,7 +189,7 @@ export default function AboutPage() {
       {/* Accreditations — dark (keep dramatic) */}
       <section className="py-16" style={{ backgroundColor: 'var(--bg-primary)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-serif font-bold text-2xl text-[#f0f2f8] text-center mb-8">Accreditations &amp; Certifications</h2>
+          <h2 className="font-syne font-bold text-2xl text-[#f0f2f8] text-center mb-8">Accreditations &amp; Certifications</h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 max-w-3xl mx-auto">
             {accreditations.map((acc) => (
               <div

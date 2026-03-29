@@ -27,7 +27,7 @@ export default function ContactPage() {
       <section className="py-16 sm:py-24" style={{ backgroundColor: '#f4f7ff', borderBottom: '1px solid #e2e8f4' }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="section-label-dark">Get In Touch</span>
-          <h1 className="font-serif font-bold text-4xl sm:text-5xl text-[#0a0f1e]">
+          <h1 className="font-syne font-bold text-4xl sm:text-5xl text-[#0a0f1e]">
             Contact Us
           </h1>
           <p className="mt-4 font-sans text-[#3a4a6a] text-lg">We respond within 1 hour — usually much faster</p>
@@ -41,7 +41,7 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Contact info */}
               <div className="flex flex-col gap-6">
-                <h2 className="font-serif font-bold text-2xl text-[#0a0f1e]">Contact Details</h2>
+                <h2 className="font-syne font-bold text-2xl text-[#0a0f1e]">Contact Details</h2>
 
                 <div
                   className="rounded-2xl p-6 flex flex-col gap-5"
@@ -136,7 +136,7 @@ export default function ContactPage() {
 
               {/* Contact form */}
               <div>
-                <h2 className="font-serif font-bold text-2xl text-[#0a0f1e] mb-6">Send Us a Message</h2>
+                <h2 className="font-syne font-bold text-2xl text-[#0a0f1e] mb-6">Send Us a Message</h2>
 
                 {submitted ? (
                   <div
@@ -151,7 +151,7 @@ export default function ContactPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <p className="font-serif font-bold text-xl text-[#0a0f1e]">Message Sent!</p>
+                    <p className="font-syne font-bold text-xl text-[#0a0f1e]">Message Sent!</p>
                     <p className="font-sans text-[#3a4a6a] text-sm">Thanks {form.name}, we will get back to you within 1 hour.</p>
                   </div>
                 ) : (

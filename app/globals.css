@@ -1,14 +1,18 @@
 @import "tailwindcss";
 
-@theme inline {
-  /* ── New design-system fonts ─────────────────────────────────────── */
-  --font-syne:   var(--font-syne), sans-serif;
-  --font-outfit: var(--font-outfit), sans-serif;
-  --font-mono:   var(--font-mono), monospace;
-  /* backward-compat aliases so old components keep working */
-  --font-serif:  var(--font-syne), sans-serif;
-  --font-sans:   var(--font-outfit), sans-serif;
+/* ── Font family utilities ──────────────────────────────────────────── */
+/* Defined as @layer utilities so they sit in the same specificity layer  */
+/* as Tailwind utilities and override the defaults (serif → Times New Roman) */
+@layer utilities {
+  .font-syne   { font-family: var(--font-syne),   sans-serif; }
+  .font-outfit { font-family: var(--font-outfit),  sans-serif; }
+  .font-mono   { font-family: var(--font-mono),   monospace; }
+  /* backward-compat: old components that still say font-serif / font-sans */
+  .font-serif  { font-family: var(--font-syne),   sans-serif; }
+  .font-sans   { font-family: var(--font-outfit),  sans-serif; }
+}
 
+@theme inline {
   /* ── Colour tokens ───────────────────────────────────────────────── */
   --color-primary:   #0B1628;
   --color-navy:      #0F1E35;

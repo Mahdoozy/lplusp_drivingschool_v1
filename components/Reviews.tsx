@@ -100,7 +100,7 @@ export function ReviewCard({ review }: { review: Review }) {
     >
       {/* Decorative large quote mark */}
       <div
-        className="font-serif absolute top-3 left-5 leading-none pointer-events-none select-none"
+        className="font-syne absolute top-3 left-5 leading-none pointer-events-none select-none"
         style={{ fontSize: '80px', color: 'rgba(245, 200, 66, 0.10)', lineHeight: '1' }}
         aria-hidden
       >
@@ -142,7 +142,7 @@ export default function Reviews() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <span className="section-label">Student Reviews</span>
-          <h2 className="font-serif font-bold text-3xl sm:text-4xl text-[#f0f2f8]">
+          <h2 className="font-syne font-bold text-3xl sm:text-4xl text-[#f0f2f8]">
             What&apos;s it like learning with L Plus P?
           </h2>
           <span className="section-rule" />

@@ -206,7 +206,7 @@ export default function BookPage() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h2 className="font-serif font-bold text-2xl text-[#0a0f1e]">Booking Received!</h2>
+          <h2 className="font-syne font-bold text-2xl text-[#0a0f1e]">Booking Received!</h2>
           <p className="font-sans text-[#3a4a6a] text-sm leading-relaxed">
             Thanks{form.name ? ` ${form.name}` : ''}! We will confirm your booking via WhatsApp within 1 hour.
           </p>
@@ -235,7 +235,7 @@ export default function BookPage() {
           </div>
           <Link
             href="/"
-            className="font-serif font-bold text-[#0a0f1e] px-6 py-3 rounded w-full text-center hover:bg-[#d4a91a] transition-colors"
+            className="font-syne font-bold text-[#0a0f1e] px-6 py-3 rounded w-full text-center hover:bg-[#d4a91a] transition-colors"
             style={{ background: 'var(--gold)' }}
           >
             Back to Home
@@ -249,7 +249,7 @@ export default function BookPage() {
     <div className="min-h-screen py-12" style={{ backgroundColor: '#f4f7ff' }}>
       {/* Heading */}
       <div className="text-center px-4 mb-8">
-        <h1 className="font-serif font-bold text-3xl sm:text-5xl text-[#0a0f1e]">
+        <h1 className="font-syne font-bold text-3xl sm:text-5xl text-[#0a0f1e]">
           Book Your <span className="hero-gold inline">Lesson</span>
         </h1>
         <p className="font-sans mt-2 text-[#3a4a6a]">We will WhatsApp you within the hour to confirm</p>
@@ -287,7 +287,7 @@ export default function BookPage() {
           {/* STEP 1 — Confidence rating */}
           {step === 1 && (
             <div className="flex flex-col items-center gap-6">
-              <h2 className="font-serif font-bold text-xl text-[#0a0f1e] text-center">
+              <h2 className="font-syne font-bold text-xl text-[#0a0f1e] text-center">
                 How confident are you with road rules and driving?
               </h2>
               <p className="font-sans text-[#7a8aaa] text-sm text-center">Click a star to continue</p>
@@ -320,7 +320,7 @@ export default function BookPage() {
           {/* STEP 2 — Service selection */}
           {step === 2 && (
             <div className="flex flex-col gap-4">
-              <h2 className="font-serif font-bold text-xl text-[#0a0f1e] mb-1">
+              <h2 className="font-syne font-bold text-xl text-[#0a0f1e] mb-1">
                 What are you looking to do?
               </h2>
               <div className="grid grid-cols-1 gap-2">
@@ -360,7 +360,7 @@ export default function BookPage() {
           {/* STEP 3 — Package / pricing selection */}
           {step === 3 && (
             <div className="flex flex-col gap-6">
-              <h2 className="font-serif font-bold text-xl text-[#0a0f1e]">
+              <h2 className="font-syne font-bold text-xl text-[#0a0f1e]">
                 Choose a lesson type
               </h2>
 
@@ -426,7 +426,7 @@ export default function BookPage() {
           {/* STEP 4 — Suburb */}
           {step === 4 && (
             <div className="flex flex-col gap-5">
-              <h2 className="font-serif font-bold text-xl text-[#0a0f1e]">
+              <h2 className="font-syne font-bold text-xl text-[#0a0f1e]">
                 Which suburb are you in?
               </h2>
               <select
@@ -446,7 +446,7 @@ export default function BookPage() {
           {/* STEP 5 — Details */}
           {step === 5 && (
             <div className="flex flex-col gap-4">
-              <h2 className="font-serif font-bold text-xl text-[#0a0f1e] mb-1">
+              <h2 className="font-syne font-bold text-xl text-[#0a0f1e] mb-1">
                 Your Details
               </h2>
 
@@ -531,7 +531,7 @@ export default function BookPage() {
               <button
                 onClick={handleConfirm}
                 disabled={!form.name || !form.phone}
-                className="font-serif font-bold text-[#0a0f1e] py-3.5 rounded transition-all duration-200 hover:bg-[#d4a91a] disabled:opacity-40 disabled:cursor-not-allowed mt-2"
+                className="font-syne font-bold text-[#0a0f1e] py-3.5 rounded transition-all duration-200 hover:bg-[#d4a91a] disabled:opacity-40 disabled:cursor-not-allowed mt-2"
                 style={{ background: 'var(--gold)' }}
               >
                 Confirm Booking
@@ -562,7 +562,7 @@ export default function BookPage() {
 
         {/* What happens next */}
         <div className="mt-10">
-          <h2 className="font-serif font-bold text-lg text-[#0a0f1e] text-center mb-6">
+          <h2 className="font-syne font-bold text-lg text-[#0a0f1e] text-center mb-6">
             What Happens Next
           </h2>
           <div className="grid grid-cols-3 gap-4">
@@ -577,7 +577,7 @@ export default function BookPage() {
                 style={{ background: '#ffffff', border: '1px solid #e2e8f4' }}
               >
                 <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center font-serif font-bold text-[#0a0f1e]"
+                  className="w-10 h-10 rounded-full flex items-center justify-center font-syne font-bold text-[#0a0f1e]"
                   style={{ background: 'var(--gold)' }}
                 >
                   {item.num}
