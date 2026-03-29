@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Syne, Outfit, DM_Mono } from 'next/font/google';
+import { Plus_Jakarta_Sans, Outfit, DM_Mono } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -7,7 +7,7 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import AnnouncementBar from '@/components/AnnouncementBar';
 import MobileStickyBar from '@/components/MobileStickyBar';
 
-const syne = Syne({
+const syne = Plus_Jakarta_Sans({
   subsets: ['latin'],
   weight: ['700', '800'],
   variable: '--font-syne',
