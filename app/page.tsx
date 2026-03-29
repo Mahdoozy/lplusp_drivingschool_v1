@@ -368,7 +368,7 @@ export default function HomePage() {
       <section className="bg-white py-[72px] px-6">
         <div className="max-w-5xl mx-auto">
           <span className="section-label-blue font-outfit">GETTING STARTED</span>
-          <h2 className="font-syne font-extrabold text-4xl text-[#0B1628] mt-1 mb-3">
+          <h2 className="font-heading font-extrabold text-4xl text-[#0B1628] mt-1 mb-3">
             Getting your licence has never been easier
           </h2>
           <p className="font-outfit text-[#6B7FA8] text-base max-w-lg mb-12">
@@ -397,7 +397,7 @@ export default function HomePage() {
                 <div className="font-syne font-extrabold text-6xl text-[#F5C132] leading-none mb-4">
                   {step.num}
                 </div>
-                <h3 className="font-syne font-bold text-xl text-[#0B1628] mb-2">{step.title}</h3>
+                <h3 className="font-heading font-bold text-xl text-[#0B1628] mb-2">{step.title}</h3>
                 <p className="font-outfit text-[#6B7FA8] text-sm leading-relaxed">{step.desc}</p>
               </div>
             ))}
@@ -409,7 +409,7 @@ export default function HomePage() {
       <section id="services" className="bg-[#F7F9FF] py-[72px] px-6">
         <div className="max-w-6xl mx-auto">
           <span className="section-label-blue font-outfit">WHAT WE OFFER</span>
-          <h2 className="font-syne font-extrabold text-4xl text-[#0B1628] mt-1 mb-12">
+          <h2 className="font-heading font-extrabold text-4xl text-[#0B1628] mt-1 mb-12">
             Every lesson type you need
           </h2>
 
@@ -431,7 +431,7 @@ export default function HomePage() {
                   </span>
                 )}
 
-                <h3 className="font-syne font-bold text-lg text-[#0B1628] mb-2">{svc.title}</h3>
+                <h3 className="font-heading font-bold text-lg text-[#0B1628] mb-2">{svc.title}</h3>
                 <p className="font-outfit text-[#6B7FA8] text-sm leading-relaxed mb-4">{svc.desc}</p>
 
                 <Link
@@ -452,7 +452,7 @@ export default function HomePage() {
       {/* ── LIFESTYLE CARDS ───────────────────────────────────────────── */}
       <section className="bg-[#0B1628] py-[72px] px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-syne font-extrabold text-4xl text-white mb-2">
+          <h2 className="font-heading font-extrabold text-4xl text-white mb-2">
             More than just a driving lesson.
           </h2>
           <p className="font-outfit text-white/50 text-base mb-12">
@@ -472,7 +472,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300" />
                 <div className="absolute bottom-0 left-0 p-6">
                   <div className="w-8 h-0.5 bg-[#F5C132] mb-2" />
-                  <p className="font-syne font-bold text-xl text-white">{card.caption}</p>
+                  <p className="font-heading font-bold text-xl text-white">{card.caption}</p>
                 </div>
               </div>
             ))}
@@ -484,7 +484,7 @@ export default function HomePage() {
       <section id="pricing" className="bg-[#0B1628] py-[72px] px-6">
         <div className="max-w-6xl mx-auto">
           <span className="section-label font-outfit">TRANSPARENT PRICING</span>
-          <h2 className="font-syne font-extrabold text-4xl text-white mt-1 mb-2">
+          <h2 className="font-heading font-extrabold text-4xl text-white mt-1 mb-2">
             Simple, honest pricing
           </h2>
           <p className="font-outfit text-white/50 text-base">
@@ -509,7 +509,7 @@ export default function HomePage() {
               <div key={pkg.duration} className="bg-[#162440] border border-white/7 rounded-2xl p-6">
                 <p className="font-outfit text-white/35 text-xs mb-1">from</p>
                 <p className="font-mono font-medium text-[#F5C132] text-4xl leading-none">{pkg.price}</p>
-                <h3 className="font-syne font-bold text-white text-base mt-3 mb-3">{pkg.duration}</h3>
+                <h3 className="font-heading font-bold text-white text-base mt-3 mb-3">{pkg.duration}</h3>
                 <ul className="flex flex-col gap-1.5 mb-5">
                   {pkg.features.map((f) => (
                     <li key={f} className="flex items-start gap-2 font-outfit text-white/60 text-xs">
@@ -535,7 +535,7 @@ export default function HomePage() {
             <div className="bg-[#162440] border border-white/7 rounded-2xl p-6">
               <p className="font-outfit text-white/35 text-xs mb-1">save more with</p>
               <p className="font-mono font-medium text-[#F5C132] text-4xl leading-none">$275</p>
-              <h3 className="font-syne font-bold text-white text-base mt-3 mb-3">5 hours</h3>
+              <h3 className="font-heading font-bold text-white text-base mt-3 mb-3">5 hours</h3>
               <ul className="flex flex-col gap-1.5 mb-5">
                 {['All suburbs covered', '3-for-1 logbook eligible', 'Flexible scheduling'].map((f) => (
                   <li key={f} className="flex items-start gap-2 font-outfit text-white/60 text-xs">
@@ -557,7 +557,7 @@ export default function HomePage() {
               </span>
               <p className="font-outfit text-white/35 text-xs mb-1">best value</p>
               <p className="font-mono font-medium text-[#F5C132] text-4xl leading-none">$550</p>
-              <h3 className="font-syne font-bold text-white text-base mt-3 mb-3">10 hours</h3>
+              <h3 className="font-heading font-bold text-white text-base mt-3 mb-3">10 hours</h3>
               <ul className="flex flex-col gap-1.5 mb-5">
                 {['30 logbook hours (3-for-1)', 'All suburbs covered', 'Priority scheduling'].map((f) => (
                   <li key={f} className="flex items-start gap-2 font-outfit text-white/60 text-xs">
@@ -587,7 +587,7 @@ export default function HomePage() {
               <div key={pkg.title} className="bg-[#162440] border border-white/7 rounded-2xl p-6">
                 <p className="font-outfit text-white/35 text-xs mb-1">from</p>
                 <p className="font-mono font-medium text-[#F5C132] text-4xl leading-none">{pkg.price}</p>
-                <h3 className="font-syne font-bold text-white text-base mt-3 mb-3">{pkg.title}</h3>
+                <h3 className="font-heading font-bold text-white text-base mt-3 mb-3">{pkg.title}</h3>
                 <ul className="flex flex-col gap-1.5 mb-5">
                   {pkg.features.map((f) => (
                     <li key={f} className="flex items-start gap-2 font-outfit text-white/60 text-xs">
@@ -628,7 +628,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <span className="section-label font-outfit inline-block">WHAT STUDENTS SAY</span>
-            <h2 className="font-syne font-extrabold text-4xl text-white mt-1 mb-3">
+            <h2 className="font-heading font-extrabold text-4xl text-white mt-1 mb-3">
               What&apos;s it like learning with us?
             </h2>
             <p className="font-outfit text-white/40 text-base">
@@ -695,7 +695,7 @@ export default function HomePage() {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <span className="section-label-blue font-outfit inline-block">COMMON QUESTIONS</span>
-            <h2 className="font-syne font-extrabold text-4xl text-[#0B1628] mt-1">
+            <h2 className="font-heading font-extrabold text-4xl text-[#0B1628] mt-1">
               Frequently asked questions
             </h2>
           </div>
@@ -709,7 +709,7 @@ export default function HomePage() {
         style={{ background: 'linear-gradient(135deg, #F5C132 0%, #E8A800 100%)' }}
       >
         <div className="max-w-2xl mx-auto">
-          <h2 className="font-syne font-extrabold text-[42px] text-[#0B1628] mb-3 leading-tight">
+          <h2 className="font-heading font-extrabold text-[42px] text-[#0B1628] mb-3 leading-tight">
             Ready to get your licence?
           </h2>
           <p className="font-outfit text-[#0B1628]/65 text-base mb-8">

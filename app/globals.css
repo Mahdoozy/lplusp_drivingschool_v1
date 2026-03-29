@@ -4,12 +4,13 @@
 /* Defined as @layer utilities so they sit in the same specificity layer  */
 /* as Tailwind utilities and override the defaults (serif → Times New Roman) */
 @layer utilities {
-  .font-syne   { font-family: var(--font-syne),   sans-serif; }
-  .font-outfit { font-family: var(--font-outfit),  sans-serif; }
-  .font-mono   { font-family: var(--font-mono),   monospace; }
+  .font-syne    { font-family: var(--font-syne),    sans-serif; }
+  .font-heading { font-family: var(--font-heading), sans-serif; }
+  .font-outfit  { font-family: var(--font-outfit),  sans-serif; }
+  .font-mono    { font-family: var(--font-mono),    monospace;  }
   /* backward-compat: old components that still say font-serif / font-sans */
-  .font-serif  { font-family: var(--font-syne),   sans-serif; }
-  .font-sans   { font-family: var(--font-outfit),  sans-serif; }
+  .font-serif   { font-family: var(--font-heading), sans-serif; }
+  .font-sans    { font-family: var(--font-outfit),  sans-serif; }
 }
 
 @theme inline {

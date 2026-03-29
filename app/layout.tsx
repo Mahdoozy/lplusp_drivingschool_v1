@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans, Outfit, DM_Mono } from 'next/font/google';
+import { Syne, Plus_Jakarta_Sans, Outfit, DM_Mono } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -7,10 +7,17 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import AnnouncementBar from '@/components/AnnouncementBar';
 import MobileStickyBar from '@/components/MobileStickyBar';
 
-const syne = Plus_Jakarta_Sans({
+const syne = Syne({
   subsets: ['latin'],
   weight: ['700', '800'],
   variable: '--font-syne',
+  display: 'swap',
+});
+
+const jakartaSans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['700', '800'],
+  variable: '--font-heading',
   display: 'swap',
 });
 
@@ -40,7 +47,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${outfit.variable} ${dmMono.variable} h-full`}
+      className={`${syne.variable} ${jakartaSans.variable} ${outfit.variable} ${dmMono.variable} h-full`}
     >
       <body className="min-h-full flex flex-col antialiased">
         <AnnouncementBar />
