@@ -422,7 +422,7 @@ export default function HomePage() {
             {services.map((svc) => (
               <div
                 key={svc.title}
-                className="service-card bg-white border border-[#E8EEF8] rounded-2xl p-6 group relative"
+                className="service-card bg-white border border-[#E8EEF8] rounded-2xl p-6 group relative flex flex-col h-full"
               >
                 {/* Icon square */}
                 <div className="w-11 h-11 bg-[#EBF3FF] rounded-xl flex items-center justify-center mb-4 text-[#1A56DB]">
@@ -437,11 +437,11 @@ export default function HomePage() {
                 )}
 
                 <h3 className="font-heading font-bold text-lg text-[#0B1628] mb-2">{svc.title}</h3>
-                <p className="font-outfit text-[#6B7FA8] text-sm leading-relaxed mb-4">{svc.desc}</p>
+                <p className="font-outfit text-[#6B7FA8] text-sm leading-relaxed mb-4 flex-1">{svc.desc}</p>
 
                 <Link
                   href="/book"
-                  className="inline-block bg-[#F5C132] text-[#0B1628] font-outfit font-semibold text-sm px-4 py-2 rounded-lg hover:bg-[#E8A800] transition-colors"
+                  className="mt-auto self-start bg-[#F5C132] text-[#0B1628] font-outfit font-semibold text-sm px-5 py-2.5 rounded-2xl hover:bg-[#E8A800] transition-colors"
                 >
                   Book Now
                 </Link>

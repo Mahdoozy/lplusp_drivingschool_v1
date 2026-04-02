@@ -33,7 +33,7 @@ export default function HeroSlideshow() {
   }, [next]);
 
   return (
-    <div className="relative w-full h-[480px] rounded-2xl overflow-hidden group bg-[#0B1628]">
+    <div className="relative w-full h-[580px] rounded-3xl overflow-hidden group bg-[#0B1628]">
       {/* Image */}
       <div
         className="absolute inset-0 transition-opacity duration-500"
@@ -43,7 +43,7 @@ export default function HeroSlideshow() {
           src={slides[current].src}
           alt={slides[current].alt}
           fill
-          className="object-contain object-center"
+          className="object-cover object-center"
           sizes="(max-width: 768px) 100vw, 50vw"
           priority={current === 0}
         />
