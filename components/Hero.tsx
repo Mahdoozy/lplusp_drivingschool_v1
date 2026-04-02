@@ -45,7 +45,7 @@ export default function Hero({
                     </svg>
                   ))}
                 </div>
-                <span className="text-white font-semibold">5.0</span>
+                <span className="text-white font-semibold">4.8</span>
                 <span className="text-gray-400 text-sm">(80+ reviews)</span>
               </div>
             )}

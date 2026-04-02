@@ -4,22 +4,12 @@ import Image from 'next/image';
 import { useState, useEffect, useCallback } from 'react';
 
 const slides = [
-  {
-    src: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800',
-    alt: 'Driving on Sydney roads with L Plus P',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800',
-    alt: 'First solo drive — the big milestone',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800',
-    alt: 'Road trip freedom with your licence',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800',
-    alt: 'Modern automatic car interior',
-  },
+  { src: '/Homepage Gallery/IMG_0064.jpg',     alt: 'L Plus P Driving School' },
+  { src: '/Homepage Gallery/IMG_8095.jpg',     alt: 'L Plus P Driving School' },
+  { src: '/Homepage Gallery/IMG_9347.jpg',     alt: 'L Plus P Driving School' },
+  { src: '/Homepage Gallery/pass_photo_1.jpg', alt: 'Student passing their driving test' },
+  { src: '/Homepage Gallery/pass_photo_2.jpg', alt: 'Student passing their driving test' },
+  { src: '/Homepage Gallery/pass_photo_3.jpg', alt: 'Student passing their driving test' },
 ];
 
 export default function HeroSlideshow() {
@@ -43,7 +33,7 @@ export default function HeroSlideshow() {
   }, [next]);
 
   return (
-    <div className="relative w-full h-[380px] rounded-2xl overflow-hidden group">
+    <div className="relative w-full h-[480px] rounded-2xl overflow-hidden group bg-[#0B1628]">
       {/* Image */}
       <div
         className="absolute inset-0 transition-opacity duration-500"
@@ -53,11 +43,11 @@ export default function HeroSlideshow() {
           src={slides[current].src}
           alt={slides[current].alt}
           fill
-          className="object-cover"
+          className="object-contain object-center"
           sizes="(max-width: 768px) 100vw, 50vw"
           priority={current === 0}
         />
-        <div className="absolute inset-0 bg-[#0B1628]/20" />
+
       </div>
 
       {/* Prev */}

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const stats = [
   { value: '20+', label: 'Years Experience' },
   { value: '1,000+', label: 'Students Passed' },
-  { value: '5.0', label: 'Google Rating' },
+  { value: '4.8', label: 'Google Rating' },
   { value: '24', label: 'Suburbs Covered' },
 ];
 

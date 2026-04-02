@@ -167,6 +167,11 @@ const reviews = [
     suburb: 'West Ryde NSW',
   },
   {
+    text: "I was really nervous about my test but Mick kept me calm the whole way through. Passed first attempt at Ryde — couldn't recommend L Plus P enough.",
+    name: 'Daniel R.',
+    suburb: 'Macquarie Park NSW',
+  },
+  {
     text: "Sidra is a fantastic instructor — calm, patient and incredibly knowledgeable. I was nervous every lesson but she always put me at ease. Passed first attempt.",
     name: 'Priya M.',
     suburb: 'Eastwood NSW',
@@ -187,12 +192,12 @@ const reviews = [
 const lifestyle = [
   {
     caption: 'The first solo drive',
-    src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600',
+    src: '/More Photos/1.jpg',
     alt: 'First solo drive — a milestone moment',
   },
   {
     caption: 'The road trip with mates',
-    src: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?w=600',
+    src: '/More Photos/2.jpg',
     alt: 'Road trip freedom with friends',
   },
   {
@@ -202,7 +207,7 @@ const lifestyle = [
   },
   {
     caption: 'The freedom of your own car',
-    src: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600',
+    src: '/More Photos/4.jpg',
     alt: 'The freedom of owning your own car',
   },
 ];
@@ -262,7 +267,7 @@ export default function HomePage() {
                     </svg>
                   ))}
                 </div>
-                <span className="font-outfit text-white/70 text-sm">5.0 · 80+ Google Reviews</span>
+                <span className="font-outfit text-white/70 text-sm">4.8 · 80+ Google Reviews</span>
               </div>
 
               {/* CTAs */}
@@ -450,33 +455,73 @@ export default function HomePage() {
       </section>
 
       {/* ── LIFESTYLE CARDS ───────────────────────────────────────────── */}
-      <section className="bg-[#0B1628] py-[72px] px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-heading font-extrabold text-4xl text-white mb-2">
-            More than just a driving lesson.
-          </h2>
-          <p className="font-outfit text-white/50 text-base mb-12">
-            We&apos;re here for every milestone that driving unlocks.
-          </p>
+      <section style={{ background: '#0d1b2e', padding: '48px 24px' }}>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* LEFT — 2×2 photo grid */}
+          <div className="grid grid-cols-2" style={{ gap: '10px' }}>
             {lifestyle.map((card) => (
-              <div key={card.caption} className="relative h-64 rounded-2xl overflow-hidden cursor-pointer group">
+              <div
+                key={card.caption}
+                className="relative overflow-hidden cursor-pointer group"
+                style={{ borderRadius: '10px', aspectRatio: '4/3' }}
+              >
                 <Image
                   src={card.src}
                   alt={card.alt}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 640px) 100vw, 50vw"
+                  sizes="(max-width: 1024px) 50vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300" />
-                <div className="absolute bottom-0 left-0 p-6">
-                  <div className="w-8 h-0.5 bg-[#F5C132] mb-2" />
-                  <p className="font-heading font-bold text-xl text-white">{card.caption}</p>
+                <div className="absolute inset-0 bg-black/55 group-hover:bg-black/45 transition-colors duration-300" />
+                <div className="absolute bottom-0 left-0 p-4">
+                  <div className="h-[2px] mb-2" style={{ width: '22px', background: '#f5c842' }} />
+                  <p className="font-heading font-bold text-sm text-white leading-snug">{card.caption}</p>
                 </div>
               </div>
             ))}
           </div>
+
+          {/* RIGHT — Motive panel */}
+          <div className="flex flex-col gap-5">
+            {/* Pill tag */}
+            <span
+              className="self-start font-outfit font-semibold text-xs uppercase tracking-widest px-3 py-1.5 rounded-full"
+              style={{ color: '#f5c842', border: '1px solid rgba(245,200,66,0.25)', background: 'rgba(245,200,66,0.06)' }}
+            >
+              Our Motive
+            </span>
+
+            {/* Headline */}
+            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-white leading-tight">
+              More than just a{' '}
+              <span style={{ color: '#f5c842' }}>driving lesson.</span>
+            </h2>
+
+            {/* Gold divider */}
+            <div style={{ width: '36px', height: '2px', background: '#f5c842' }} />
+
+            {/* Body */}
+            <p className="font-outfit text-white/60 text-base leading-relaxed">
+              We don&apos;t just teach people to pass a test — we build drivers who are ready for the road ahead. Every lesson is designed to develop real confidence, sharper instincts, and the judgement to handle whatever comes next.
+            </p>
+
+            {/* Rating row */}
+            <div className="flex items-center gap-2">
+              <span style={{ color: '#f5c842', fontSize: '16px' }}>★★★★★</span>
+              <span className="font-outfit text-white/50 text-sm">4.8 · Based on 80+ Google Reviews</span>
+            </div>
+
+            {/* CTA */}
+            <Link
+              href="/book"
+              className="self-start font-outfit font-bold text-sm px-6 py-3 rounded-xl transition-colors"
+              style={{ background: '#f5c842', color: '#0d1b2e' }}
+            >
+              Book a lesson →
+            </Link>
+          </div>
+
         </div>
       </section>
 
@@ -673,7 +718,7 @@ export default function HomePage() {
                 <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
               </svg>
               <span className="font-outfit font-bold text-white text-sm">
-                5.0{' '}
+                4.8{' '}
                 <span className="text-[#F5C132]">★★★★★</span>
               </span>
               <span className="font-outfit text-white/40 text-sm">Based on 80+ Google Reviews</span>
