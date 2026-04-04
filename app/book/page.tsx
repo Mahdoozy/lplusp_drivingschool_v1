@@ -135,11 +135,14 @@ interface FormData {
   phone: string;
   email: string;
   date: string;
+  message: string;
 }
 
 export default function BookPage() {
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const [form, setForm] = useState<FormData>({
     confidence: 0,
     service: '',
@@ -149,6 +152,7 @@ export default function BookPage() {
     phone: '',
     email: '',
     date: '',
+    message: '',
   });
 
   function update<K extends keyof FormData>(key: K, value: FormData[K]) {
@@ -163,8 +167,32 @@ export default function BookPage() {
     setStep((s) => Math.max(s - 1, 1));
   }
 
-  function handleConfirm() {
-    setSubmitted(true);
+  async function handleConfirm() {
+    setSending(true);
+    setSubmitError(false);
+    try {
+      const res = await fetch('/api/book', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          email: form.email,
+          suburb: form.suburb,
+          service: selectedService?.label ?? form.service,
+          package: selectedPackage ? `${selectedPackage.label} — ${selectedPackage.priceSummary}` : '',
+          confidence: form.confidence,
+          preferredDate: form.date,
+          message: form.message,
+        }),
+      });
+      if (!res.ok) throw new Error('Failed');
+      setSubmitted(true);
+    } catch {
+      setSubmitError(true);
+    } finally {
+      setSending(false);
+    }
   }
 
   const selectedService = serviceOptions.find((s) => s.id === form.service);
@@ -493,6 +521,17 @@ export default function BookPage() {
                   style={inputStyle}
                 />
               </div>
+              <div>
+                <label className="block font-sans text-sm text-[#3a4a6a] mb-1.5">Message <span className="text-[#7a8aaa]">(optional)</span></label>
+                <textarea
+                  value={form.message}
+                  onChange={(e) => update('message', e.target.value)}
+                  className={inputClass}
+                  style={{ ...inputStyle, resize: 'none' }}
+                  rows={3}
+                  placeholder="Anything you'd like us to know..."
+                />
+              </div>
 
               {/* Booking summary */}
               <div
@@ -528,13 +567,18 @@ export default function BookPage() {
                 </div>
               </div>
 
+              {submitError && (
+                <p className="font-sans text-sm text-red-500 text-center">
+                  Something went wrong — please call Mick on 0469 370 978
+                </p>
+              )}
               <button
                 onClick={handleConfirm}
-                disabled={!form.name || !form.phone}
+                disabled={!form.name || !form.phone || sending}
                 className="font-syne font-bold text-[#0a0f1e] py-3.5 rounded transition-all duration-200 hover:bg-[#d4a91a] disabled:opacity-40 disabled:cursor-not-allowed mt-2"
                 style={{ background: 'var(--gold)' }}
               >
-                Confirm Booking
+                {sending ? 'Sending...' : 'Confirm Booking'}
               </button>
             </div>
           )}
