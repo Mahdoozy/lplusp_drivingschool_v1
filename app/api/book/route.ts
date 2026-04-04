@@ -10,7 +10,7 @@ export async function POST(req: Request) {
   try {
     // Email to instructors
     await resend.emails.send({
-      from: 'onboarding@resend.dev',
+      from: 'bookings@lppdrivingschool.com.au',
       to: 'lppdrivingschool44@gmail.com',
       replyTo: email || undefined,
       subject: `New Booking — ${name} — ${service}`,
@@ -33,7 +33,7 @@ export async function POST(req: Request) {
     // Confirmation email to student (only if they provided an email)
     if (email) {
       await resend.emails.send({
-        from: 'onboarding@resend.dev',
+        from: 'bookings@lppdrivingschool.com.au',
         to: email,
         subject: 'Booking received — L Plus P Driving School',
         html: `

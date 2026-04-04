@@ -36,6 +36,7 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://lppdrivingschool.com.au'),
   title: 'L Plus P Driving School | Driving Lessons Sydney | Est. 1997',
   description:
     "L Plus P Driving School — Sydney's most trusted driving school since 1997. Expert driving lessons in North Ryde, Ryde, Epping, Castle Hill and 20+ suburbs. Learner drivers, test prep, overseas licence conversion. 3-for-1 logbook hours. Call Mick 0469 370 978.",
