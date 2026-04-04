@@ -5,7 +5,9 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   const body = await req.json();
-  const { name, phone, email, suburb, service, package: pkg, confidence, preferredDate, message } = body;
+  const { name, phone, email, suburb, service, package: pkg, confidence, preferredDate, preferredTime, message } = body;
+  const dateText = preferredDate || 'Flexible';
+  const timeText = preferredTime || 'Flexible';
 
   try {
     // Email to instructors
@@ -24,7 +26,8 @@ export async function POST(req: Request) {
           <tr><td style="padding:8px 0;color:#7a8aaa;">Service</td><td style="padding:8px 0;">${service}</td></tr>
           <tr><td style="padding:8px 0;color:#7a8aaa;">Package</td><td style="padding:8px 0;">${pkg || 'Not selected'}</td></tr>
           <tr><td style="padding:8px 0;color:#7a8aaa;">Confidence</td><td style="padding:8px 0;">${confidence}/5</td></tr>
-          <tr><td style="padding:8px 0;color:#7a8aaa;">Preferred Date</td><td style="padding:8px 0;">${preferredDate || 'Not specified'}</td></tr>
+          <tr><td style="padding:8px 0;color:#7a8aaa;">Preferred Date</td><td style="padding:8px 0;">${dateText}</td></tr>
+          <tr><td style="padding:8px 0;color:#7a8aaa;">Preferred Time</td><td style="padding:8px 0;">${timeText}</td></tr>
           <tr><td style="padding:8px 0;color:#7a8aaa;">Message</td><td style="padding:8px 0;">${message || 'None'}</td></tr>
         </table>
       `,
@@ -71,7 +74,7 @@ export async function POST(req: Request) {
             <td style="padding:40px 40px 20px 40px;">
               <p style="font-size:22px;font-weight:700;color:#0d1b2e;margin:0 0 8px 0;">You're booked in, ${name}!</p>
               <p style="font-size:15px;color:#555555;line-height:1.7;margin:0 0 28px 0;">
-                Thanks for choosing L Plus P. We've received your booking request and one of our instructors will WhatsApp you within the hour to lock in your lesson time.
+                Thanks for choosing L Plus P. We've received your booking request and one of our instructors will be in contact with you shortly to confirm your lesson.
               </p>
 
               <!-- Booking summary box -->
@@ -90,7 +93,11 @@ export async function POST(req: Request) {
                       </tr>
                       <tr>
                         <td style="font-size:13px;color:#888888;padding:4px 0;">Preferred date</td>
-                        <td style="font-size:13px;color:#0d1b2e;font-weight:600;padding:4px 0;">${preferredDate || 'Flexible'}</td>
+                        <td style="font-size:13px;color:#0d1b2e;font-weight:600;padding:4px 0;">${dateText}</td>
+                      </tr>
+                      <tr>
+                        <td style="font-size:13px;color:#888888;padding:4px 0;">Preferred time</td>
+                        <td style="font-size:13px;color:#0d1b2e;font-weight:600;padding:4px 0;">${timeText}</td>
                       </tr>
                     </table>
                   </td>

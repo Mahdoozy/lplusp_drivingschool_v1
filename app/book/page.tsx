@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
 const suburbList = [
@@ -134,15 +135,39 @@ interface FormData {
   name: string;
   phone: string;
   email: string;
-  date: string;
   message: string;
 }
 
-export default function BookPage() {
+const HOUR_SLOTS = [
+  '7:00 am','8:00 am','9:00 am','10:00 am','11:00 am','12:00 pm',
+  '1:00 pm','2:00 pm','3:00 pm','4:00 pm','5:00 pm','6:00 pm',
+];
+
+const DAY_NAMES = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+function BookPageInner() {
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [submitError, setSubmitError] = useState(false);
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const serviceParam = searchParams.get('service');
+    if (serviceParam && serviceOptions.some((s) => s.id === serviceParam)) {
+      setForm((prev) => ({ ...prev, service: serviceParam }));
+      setStep(3); // skip straight to package selection
+    }
+  }, [searchParams]);
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const [calYear, setCalYear] = useState(today.getFullYear());
+  const [calMonth, setCalMonth] = useState(today.getMonth());
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [selectedTime, setSelectedTime] = useState<string | null>(null);
+
   const [form, setForm] = useState<FormData>({
     confidence: 0,
     service: '',
@@ -151,12 +176,33 @@ export default function BookPage() {
     name: '',
     phone: '',
     email: '',
-    date: '',
     message: '',
   });
 
   function update<K extends keyof FormData>(key: K, value: FormData[K]) {
     setForm((prev) => ({ ...prev, [key]: value }));
+  }
+
+  function prevMonth() {
+    if (calMonth === 0) { setCalYear(y => y - 1); setCalMonth(11); }
+    else setCalMonth(m => m - 1);
+    setSelectedDate(null);
+    setSelectedTime(null);
+  }
+
+  function nextMonth() {
+    if (calMonth === 11) { setCalYear(y => y + 1); setCalMonth(0); }
+    else setCalMonth(m => m + 1);
+    setSelectedDate(null);
+    setSelectedTime(null);
+  }
+
+  function formatSelectedDate(d: Date) {
+    return d.toLocaleDateString('en-AU', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+  }
+
+  function formatDateLabel(d: Date) {
+    return d.toLocaleDateString('en-AU', { weekday: 'long', day: 'numeric', month: 'long' });
   }
 
   function advance() {
@@ -182,7 +228,8 @@ export default function BookPage() {
           service: selectedService?.label ?? form.service,
           package: selectedPackage ? `${selectedPackage.label} — ${selectedPackage.priceSummary}` : '',
           confidence: form.confidence,
-          preferredDate: form.date,
+          preferredDate: selectedDate ? formatSelectedDate(selectedDate) : '',
+          preferredTime: selectedTime ?? '',
           message: form.message,
         }),
       });
@@ -236,7 +283,7 @@ export default function BookPage() {
           </div>
           <h2 className="font-syne font-bold text-2xl text-[#0a0f1e]">Booking Received!</h2>
           <p className="font-sans text-[#3a4a6a] text-sm leading-relaxed">
-            Thanks{form.name ? ` ${form.name}` : ''}! We will confirm your booking via WhatsApp within 1 hour.
+            Thanks{form.name ? ` ${form.name}` : ''}! We'll be in contact with you shortly to confirm your lesson.
           </p>
           <div
             className="w-full rounded-xl p-4 flex flex-col gap-2 text-sm text-left"
@@ -356,10 +403,23 @@ export default function BookPage() {
                   <button
                     key={service.id}
                     onClick={() => { update('service', service.id); advance(); }}
-                    className="relative flex items-center gap-3 p-4 rounded-xl transition-all text-left"
+                    className="relative flex items-center gap-3 p-4 rounded-xl text-left"
                     style={{
                       border: `1.5px solid ${form.service === service.id ? '#F5C842' : '#c8d4f0'}`,
-                      background: form.service === service.id ? 'rgba(245, 200, 66, 0.06)' : '#ffffff',
+                      background: form.service === service.id ? 'rgba(245,200,66,0.08)' : '#ffffff',
+                      transition: 'all 0.15s ease',
+                    }}
+                    onMouseEnter={(e) => {
+                      if (form.service !== service.id) {
+                        e.currentTarget.style.background = '#f0f4ff';
+                        e.currentTarget.style.borderColor = '#a0b0d0';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (form.service !== service.id) {
+                        e.currentTarget.style.background = '#ffffff';
+                        e.currentTarget.style.borderColor = '#c8d4f0';
+                      }
                     }}
                   >
                     {service.badge && (
@@ -412,9 +472,22 @@ export default function BookPage() {
                           className="relative flex items-center justify-between p-4 rounded-xl transition-all text-left"
                           style={{
                             border: `1.5px solid ${
-                              isSelected ? '#F5C842' : isFeatured ? 'rgba(245, 200, 66, 0.35)' : '#c8d4f0'
+                              isSelected ? '#F5C842' : isFeatured ? 'rgba(245,200,66,0.35)' : '#c8d4f0'
                             }`,
-                            background: isSelected ? 'rgba(245, 200, 66, 0.06)' : '#ffffff',
+                            background: isSelected ? 'rgba(245,200,66,0.08)' : '#ffffff',
+                            transition: 'all 0.15s ease',
+                          }}
+                          onMouseEnter={(e) => {
+                            if (!isSelected) {
+                              e.currentTarget.style.background = '#f0f4ff';
+                              e.currentTarget.style.borderColor = '#a0b0d0';
+                            }
+                          }}
+                          onMouseLeave={(e) => {
+                            if (!isSelected) {
+                              e.currentTarget.style.background = '#ffffff';
+                              e.currentTarget.style.borderColor = isFeatured ? 'rgba(245,200,66,0.35)' : '#c8d4f0';
+                            }
                           }}
                         >
                           {isFeatured && !isSelected && (
@@ -511,16 +584,115 @@ export default function BookPage() {
                   placeholder="you@email.com"
                 />
               </div>
+              {/* ── INLINE CALENDAR ───────────────────────────────── */}
               <div>
-                <label className="block font-sans text-sm text-[#3a4a6a] mb-1.5">Preferred Date</label>
-                <input
-                  type="date"
-                  value={form.date}
-                  onChange={(e) => update('date', e.target.value)}
-                  className={inputClass}
-                  style={inputStyle}
-                />
+                <label className="block font-sans text-sm text-[#3a4a6a] mb-0.5">Preferred date &amp; time</label>
+                <p className="font-sans text-xs text-[#7a8aaa] mb-3">(optional) — we'll confirm availability when we call</p>
+                <div className="rounded-xl overflow-hidden" style={{ border: '1px solid #e2e8f4' }}>
+                  {/* Month header */}
+                  <div className="flex items-center justify-between px-4 py-3" style={{ background: '#f4f7ff' }}>
+                    <button
+                      type="button"
+                      onClick={prevMonth}
+                      className="w-8 h-8 rounded-lg flex items-center justify-center text-[#3a4a6a] hover:bg-white transition-colors"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+                      </svg>
+                    </button>
+                    <span className="font-sans font-semibold text-sm text-[#0a0f1e]">
+                      {MONTH_NAMES[calMonth]} {calYear}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={nextMonth}
+                      className="w-8 h-8 rounded-lg flex items-center justify-center text-[#3a4a6a] hover:bg-white transition-colors"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
+                  {/* Day headers */}
+                  <div className="grid grid-cols-7 px-2 pt-2">
+                    {DAY_NAMES.map((d) => (
+                      <div key={d} className="text-center font-sans text-[10px] font-semibold text-[#7a8aaa] uppercase py-1">{d}</div>
+                    ))}
+                  </div>
+                  {/* Date grid */}
+                  <div className="grid grid-cols-7 gap-0.5 px-2 pb-3">
+                    {(() => {
+                      const firstDay = new Date(calYear, calMonth, 1);
+                      // Mon=0 offset: getDay() returns 0=Sun,1=Mon...
+                      const startOffset = (firstDay.getDay() + 6) % 7;
+                      const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+                      const cells: React.ReactNode[] = [];
+                      for (let i = 0; i < startOffset; i++) cells.push(<div key={`e${i}`} />);
+                      for (let d = 1; d <= daysInMonth; d++) {
+                        const date = new Date(calYear, calMonth, d);
+                        const isSunday = date.getDay() === 0;
+                        const isPast = date < today;
+                        const disabled = isSunday || isPast;
+                        const isSelected = selectedDate?.toDateString() === date.toDateString();
+                        cells.push(
+                          <button
+                            key={d}
+                            type="button"
+                            disabled={disabled}
+                            onClick={() => { setSelectedDate(date); setSelectedTime(null); }}
+                            className="aspect-square rounded-lg text-xs font-sans font-medium flex items-center justify-center transition-all duration-150"
+                            style={{
+                              background: isSelected ? '#F5C842' : 'transparent',
+                              color: disabled ? '#c8d4f0' : isSelected ? '#0a0f1e' : '#0a0f1e',
+                              fontWeight: isSelected ? 700 : 400,
+                              cursor: disabled ? 'default' : 'pointer',
+                              border: isSelected ? '1.5px solid #F5C842' : '1.5px solid transparent',
+                            }}
+                            onMouseEnter={(e) => { if (!disabled && !isSelected) { e.currentTarget.style.background = '#fffbea'; e.currentTarget.style.borderColor = '#F5C842'; } }}
+                            onMouseLeave={(e) => { if (!disabled && !isSelected) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'transparent'; } }}
+                          >
+                            {d}
+                          </button>
+                        );
+                      }
+                      return cells;
+                    })()}
+                  </div>
+                </div>
+
+                {/* Time slots — shown after date selected */}
+                {selectedDate && (
+                  <div className="mt-4">
+                    <p className="font-sans text-sm font-semibold text-[#0a0f1e] mb-2">
+                      Available times — {formatDateLabel(selectedDate)}
+                    </p>
+                    <div className="grid grid-cols-3 gap-2">
+                      {HOUR_SLOTS.map((slot) => {
+                        const active = selectedTime === slot;
+                        return (
+                          <button
+                            key={slot}
+                            type="button"
+                            onClick={() => setSelectedTime(slot)}
+                            className="py-2 px-3 rounded-xl text-xs font-sans font-medium text-center transition-all duration-150"
+                            style={{
+                              border: `1.5px solid ${active ? '#F5C842' : '#c8d4f0'}`,
+                              background: active ? '#F5C842' : '#ffffff',
+                              color: active ? '#0a0f1e' : '#3a4a6a',
+                              fontWeight: active ? 700 : 400,
+                            }}
+                            onMouseEnter={(e) => { if (!active) { e.currentTarget.style.background = '#fffbea'; e.currentTarget.style.borderColor = '#F5C842'; } }}
+                            onMouseLeave={(e) => { if (!active) { e.currentTarget.style.background = '#ffffff'; e.currentTarget.style.borderColor = '#c8d4f0'; } }}
+                          >
+                            {slot}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
               </div>
+
               <div>
                 <label className="block font-sans text-sm text-[#3a4a6a] mb-1.5">Message <span className="text-[#7a8aaa]">(optional)</span></label>
                 <textarea
@@ -633,5 +805,13 @@ export default function BookPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function BookPage() {
+  return (
+    <Suspense>
+      <BookPageInner />
+    </Suspense>
   );
 }

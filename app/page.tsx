@@ -49,6 +49,7 @@ const faqs = [
 /* ── Services data ────────────────────────────────────────────────────── */
 const services = [
   {
+    serviceId: 'learner',
     title: 'Learner Driver Lessons',
     desc: 'Patient, structured lessons in a late-model automatic car. We cover every skill from basics to advanced manoeuvres.',
     icon: (
@@ -59,6 +60,7 @@ const services = [
     isNew: false,
   },
   {
+    serviceId: 'test-prep',
     title: 'Driving Test Preparation',
     desc: 'Targeted mock tests on real test routes at Ryde, Silverwater, Castle Hill, Chatswood, and Hornsby.',
     icon: (
@@ -69,6 +71,7 @@ const services = [
     isNew: false,
   },
   {
+    serviceId: 'overseas',
     title: 'Overseas Licence Conversion',
     desc: 'Holding a foreign licence? We help you understand Australian road rules and pass the local practical test.',
     icon: (
@@ -79,6 +82,7 @@ const services = [
     isNew: false,
   },
   {
+    serviceId: 'female-instructor',
     title: 'Prefer a Female Instructor?',
     desc: 'Our instructor Sidra provides a comfortable, supportive learning environment for all students who prefer a female instructor.',
     icon: (
@@ -89,6 +93,7 @@ const services = [
     isNew: false,
   },
   {
+    serviceId: 'logbook',
     title: 'Logbook Hour Assistance',
     desc: '3-for-1 scheme for learners under 25. Every 1 hour with us counts as 3 logbook hours — get to 120 hours faster.',
     icon: (
@@ -99,6 +104,7 @@ const services = [
     isNew: false,
   },
   {
+    serviceId: 'intensive',
     title: 'Intensive Driving Course',
     desc: 'Need your licence fast? Our intensive courses compress weeks of practice into a short, focused programme.',
     icon: (
@@ -109,6 +115,7 @@ const services = [
     isNew: false,
   },
   {
+    serviceId: 'ev',
     title: 'EV Familiarisation Course',
     desc: 'Just bought an electric vehicle? Learn regenerative braking, one-pedal driving, charging and EV-specific road techniques.',
     icon: (
@@ -119,6 +126,7 @@ const services = [
     isNew: true,
   },
   {
+    serviceId: 'senior',
     title: 'Senior Driver Refresher',
     desc: 'Regain confidence after a break from driving. Our patient instructors adapt to your pace and needs.',
     icon: (
@@ -129,6 +137,7 @@ const services = [
     isNew: false,
   },
   {
+    serviceId: 'pplate',
     title: 'P-Plate Confidence Course',
     desc: 'Just got your P-plates? Build real-world confidence with motorway driving, night driving, and tricky situations.',
     icon: (
@@ -392,7 +401,7 @@ export default function HomePage() {
                 <p className="font-outfit text-[#6B7FA8] text-sm leading-relaxed mb-4 flex-1">{svc.desc}</p>
 
                 <Link
-                  href="/book"
+                  href={`/book?service=${svc.serviceId}`}
                   className="mt-auto self-start bg-[#F5C132] text-[#0B1628] font-outfit font-semibold text-sm px-5 py-2.5 rounded-2xl hover:bg-[#E8A800] transition-colors"
                 >
                   Book Now
