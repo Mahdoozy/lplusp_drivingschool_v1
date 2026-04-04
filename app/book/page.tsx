@@ -94,7 +94,7 @@ const packageGroups = [
     isFrom: true,
     items: [
       { id: 'casual-1h',   label: '1 Hour Lesson',   priceText: 'from $60',  priceSummary: 'from $60',  note: 'Most flexible' },
-      { id: 'casual-1h5', label: '1.5 Hour Lesson', priceText: 'from $70',  priceSummary: 'from $70',  note: 'Great for beginners' },
+      { id: 'casual-1h5', label: '1.5 Hour Lesson', priceText: 'from $85',  priceSummary: 'from $85',  note: 'Great for beginners' },
       { id: 'casual-2h',   label: '2 Hour Lesson',   priceText: 'from $110', priceSummary: 'from $110', note: 'Deep practice' },
     ],
   },
@@ -116,7 +116,7 @@ const packageGroups = [
     items: [
       { id: 'test-mock', label: 'Mock Test',           priceText: '$65',  priceSummary: '$65',  note: 'Practice the real routes' },
       { id: 'test-day',  label: 'Test Day Package',    priceText: '$170', priceSummary: '$170', note: '1hr warm-up + car for test' },
-      { id: 'test-full', label: '5 Hours + Test Day',  priceText: '$390', priceSummary: '$390', note: 'Best value for test prep' },
+      { id: 'test-full', label: '6 Hours + Test Day',  priceText: '$500', priceSummary: '$500', note: 'Best value for test prep' },
     ],
   },
 ];

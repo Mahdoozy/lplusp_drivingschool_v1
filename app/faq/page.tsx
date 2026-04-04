@@ -43,7 +43,7 @@ const allFAQs = [
   {
     question: 'How much do lessons cost?',
     answer:
-      'Casual lessons start from $60 for 1 hour, from $70 for 1.5 hours, and from $110 for 2 hours. Our 5-hour pack is $275 (save $25) and our most popular 10-hour pack is $550 (save $50 and earn 30 logbook hours via the 3-for-1 scheme). Test preparation: Mock Test $65, Test Day Package $170, 5 Hours + Test Day $390. All prices include free pick-up and drop-off.',
+      'Casual lessons start from $60 for 1 hour, from $85 for 1.5 hours, and from $110 for 2 hours. Our 5-hour pack is $275 (save $25) and our most popular 10-hour pack is $550 (save $50 and earn 30 logbook hours via the 3-for-1 scheme). Test preparation: Mock Test $65, Test Day Package $170, 6 Hours + Test Day $500. All prices include free pick-up and drop-off.',
   },
   {
     question: "Why do some prices say 'from'?",

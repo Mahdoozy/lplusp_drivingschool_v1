@@ -67,7 +67,7 @@ const casualLessons = [
   {
     name: '1.5 Hours',
     tag: 'Great for Beginners',
-    price: '$70',
+    price: '$85',
     unit: '',
     from: true,
     features: [
@@ -155,13 +155,13 @@ const testPrep = [
     ],
   },
   {
-    name: '5 Hours + Test Day',
+    name: '6 Hours + Test Day',
     tag: 'Best Value for Test Prep',
     saveBadge: 'Save $35 vs buying separately',
-    price: '$390',
+    price: '$500',
     from: false,
     features: [
-      '5 hours of focused pre-test instruction',
+      '6 hours of focused pre-test instruction',
       'Full test day package included',
       'We target your weak points before test day',
       'Automatic vehicle throughout',

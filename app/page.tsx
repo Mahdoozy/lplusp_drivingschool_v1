@@ -500,7 +500,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
               { price: '$60', duration: '1 hour', features: ['Suitable for beginners', 'Free pick-up & drop-off', 'Any suburb we cover'] },
-              { price: '$70', duration: '1.5 hours', features: ['More time on road', 'Great for practice runs', 'Focus on weak areas'] },
+              { price: '$85', duration: '1.5 hours', features: ['More time on road', 'Great for practice runs', 'Focus on weak areas'] },
               { price: '$110', duration: '2 hours', features: ['Deep skill building', 'Long-route experience', 'Best for test prep'] },
             ].map((pkg) => (
               <div key={pkg.duration} className="bg-[#162440] border border-white/7 rounded-2xl p-6">
@@ -579,7 +579,7 @@ export default function HomePage() {
             {[
               { price: '$65', title: 'Mock Test', features: ['Full test simulation', 'Detailed feedback', 'Routes you\'ll actually drive'] },
               { price: '$170', title: 'Test Day Package', features: ['1 hr prep lesson', 'Car for the test', 'Pick-up & drop-off included'] },
-              { price: '$390', title: '5 Hours + Test Day', features: ['5 hrs lessons', 'Mock test included', 'Car for the real test'] },
+              { price: '$500', title: '6 Hours + Test Day', features: ['6 hrs lessons', 'Mock test included', 'Car for the real test'] },
             ].map((pkg) => (
               <div key={pkg.title} className="bg-[#162440] border border-white/7 rounded-2xl p-6">
                 <p className="font-outfit text-white/35 text-xs mb-1">from</p>
