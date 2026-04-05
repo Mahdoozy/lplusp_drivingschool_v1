@@ -10,10 +10,11 @@ const stats = [
 ];
 
 function useCountUp(target: number, duration = 2000, enabled: boolean) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(target);
 
   useEffect(() => {
     if (!enabled) return;
+    setCount(0);
     const startTime = performance.now();
 
     function update(now: number) {

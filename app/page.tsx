@@ -629,6 +629,30 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── REFERRAL CALLOUT ──────────────────────────────────────────── */}
+      <div className="bg-[#0B1628] px-6 pb-10">
+        <div
+          className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 px-6 py-4 rounded-2xl"
+          style={{ background: 'rgba(245,193,50,0.07)', border: '1px solid rgba(245,193,50,0.18)' }}
+        >
+          <div className="flex items-center gap-3">
+            <span style={{ fontSize: 20 }}>🎁</span>
+            <p className="font-outfit text-sm text-white/80 leading-snug">
+              Know someone learning to drive?{' '}
+              <span className="text-white font-semibold">Refer a friend and you both get 10% off</span>{' '}
+              your next lesson.
+            </p>
+          </div>
+          <Link
+            href="/contact"
+            className="flex-shrink-0 font-outfit font-semibold text-xs px-4 py-2 rounded-lg transition-colors whitespace-nowrap"
+            style={{ background: 'rgba(245,193,50,0.15)', color: '#f5c842', border: '1px solid rgba(245,193,50,0.25)' }}
+          >
+            Find out more →
+          </Link>
+        </div>
+      </div>
+
       {/* ── REVIEWS ───────────────────────────────────────────────────── */}
       <ReviewsCarousel />
 

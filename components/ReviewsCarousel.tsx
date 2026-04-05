@@ -105,7 +105,7 @@ export default function ReviewsCarousel() {
             onTransitionEnd={handleTransitionEnd}
           >
             {slides.map((r, i) => (
-              <div key={i} className="w-full flex-shrink-0">
+              <div key={i} className="w-full flex-shrink-0" aria-hidden={i === 0 || i === TOTAL - 1 ? true : undefined}>
                 <div
                   className="rounded-3xl"
                   style={{ background: '#111f35', padding: 40 }}
