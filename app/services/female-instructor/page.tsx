@@ -51,7 +51,7 @@ export default function FemaleInstructorPage() {
                   ))}
                 </div>
                 <p className="text-gray-300 leading-relaxed mt-2">
-                  Sidra is a senior instructor at L Plus P with a calm, encouraging teaching style. She has helped hundreds of students build confidence behind the wheel — particularly students who feel more at ease with a female instructor. Sidra teaches in our late-model automatic car and offers free pick-up across all 24 suburbs we cover.
+                  Sidra is a senior instructor at L Plus P with a calm, encouraging teaching style. She has helped hundreds of students build confidence behind the wheel — particularly students who feel more at ease with a female instructor. Sidra teaches in our late-model automatic car and offers free pick-up across all 27 suburbs we cover.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 mt-2">
                   <a

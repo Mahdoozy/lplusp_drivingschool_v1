@@ -118,10 +118,10 @@ const servicesData = [
     title: 'Prefer a Female Instructor?',
     badge: 'Ask for Sidra',
     description:
-      'Many students feel more comfortable learning with a female instructor. Sidra is our experienced senior instructor specialising in learner drivers, female students, logbook hours, and overseas licence conversion. She teaches in our late-model automatic car with the same free pick-up service across all 24 suburbs. Call Sidra directly on 0451 331 140.',
+      'Many students feel more comfortable learning with a female instructor. Sidra is our experienced senior instructor specialising in learner drivers, female students, logbook hours, and overseas licence conversion. She teaches in our late-model automatic car with the same free pick-up service across all 27 suburbs. Call Sidra directly on 0451 331 140.',
     includes: [
       'Learn with Sidra — experienced, calm, encouraging female instructor',
-      'Free pick-up and drop-off across all 24 suburbs',
+      'Free pick-up and drop-off across all 27 suburbs',
       'Late-model automatic car for all lessons',
       '3-for-1 logbook hours for learners under 25',
       'Learner driver, test prep, logbook, and overseas conversion all available',

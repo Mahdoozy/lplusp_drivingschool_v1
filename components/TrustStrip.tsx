@@ -26,7 +26,7 @@ const trustItems = [
       </svg>
     ),
     title: 'Free Pick-up',
-    subtitle: '24 suburbs covered',
+    subtitle: '27 suburbs covered',
   },
   {
     icon: (

@@ -38,7 +38,7 @@ export default function Footer() {
             </div>
             <p className="font-syne font-bold text-white text-base mb-1">L Plus P Driving School</p>
             <p className="font-outfit text-white/35 text-sm leading-relaxed mt-3 max-w-xs">
-              Sydney&apos;s most trusted driving school since 1997. Automatic cars, free pick-up &amp; drop-off across 24 suburbs.
+              Sydney&apos;s most trusted driving school since 1997. Automatic cars, free pick-up &amp; drop-off across 27 suburbs.
             </p>
           </div>
 

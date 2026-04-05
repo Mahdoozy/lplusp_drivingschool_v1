@@ -4,7 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Overseas Licence Conversion Sydney | L Plus P Driving School',
   description:
-    'Holding a foreign licence? L Plus P Driving School helps you convert your overseas driving licence to a NSW licence. Serving North Ryde, Eastwood, Epping and 24 suburbs. Book online.',
+    'Holding a foreign licence? L Plus P Driving School helps you convert your overseas driving licence to a NSW licence. Serving North Ryde, Eastwood, Epping and 27 suburbs. Book online.',
 };
 
 const steps = [
@@ -45,11 +45,11 @@ const faqs = [
   },
   {
     q: 'Do you have a female instructor?',
-    a: 'Yes. Sidra is our senior female instructor and is available across all 24 suburbs we cover. Many of our international students specifically request Sidra for her patient, structured approach.',
+    a: 'Yes. Sidra is our senior female instructor and is available across all 27 suburbs we cover. Many of our international students specifically request Sidra for her patient, structured approach.',
   },
   {
     q: 'Which suburbs do you cover?',
-    a: 'We cover 24 suburbs including North Ryde, Eastwood, Epping, Carlingford, Castle Hill, Chatswood, Ryde, West Ryde, Macquarie Park, Silverwater and more. Pick-up and drop-off is always free.',
+    a: 'We cover 27 suburbs including North Ryde, Eastwood, Epping, Carlingford, Castle Hill, Chatswood, Ryde, West Ryde, Macquarie Park, Silverwater and more. Pick-up and drop-off is always free.',
   },
 ];
 
@@ -159,8 +159,8 @@ export default function OverseasLicencePage() {
               {[
                 'Mick (Head Instructor, 27+ years experience) and Sidra (Senior Instructor) are both experienced with international drivers and know exactly where to focus.',
                 'Patient, structured lessons tailored to overseas drivers — we know the difference between driving overseas and passing an Australian test.',
-                'Free pick-up and drop-off across 24 suburbs — no need to find your own way to a lesson.',
-                'We know every local test route at Ryde, Silverwater, Castle Hill, Chatswood and Hornsby.',
+                'Free pick-up and drop-off across 27 suburbs — no need to find your own way to a lesson.',
+                'We know every local test route at Ryde, Silverwater, Castle Hill, Chatswood, Hornsby, Blacktown and Bankstown.',
                 'Available 7 days. Female instructor available on request.',
               ].map((point, i) => (
                 <li key={i} className="flex gap-3">

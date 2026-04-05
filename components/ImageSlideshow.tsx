@@ -4,22 +4,12 @@ import Image from 'next/image';
 import { useState, useEffect, useCallback } from 'react';
 
 const slides = [
-  {
-    src: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800',
-    alt: 'Driving lessons Sydney — car on open road',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800',
-    alt: 'Professional driving instruction',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800',
-    alt: 'Car keys — ready to drive',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800',
-    alt: 'Our late-model automatic car interior',
-  },
+  { src: '/Homepage Gallery/IMG_0064.jpg',     alt: 'L Plus P Driving School' },
+  { src: '/Homepage Gallery/IMG_8095.jpg',     alt: 'L Plus P Driving School' },
+  { src: '/Homepage Gallery/IMG_9347.jpg',     alt: 'L Plus P Driving School' },
+  { src: '/Homepage Gallery/pass_photo_1.jpg', alt: 'Student passing their driving test' },
+  { src: '/Homepage Gallery/pass_photo_2.jpg', alt: 'Student passing their driving test' },
+  { src: '/Homepage Gallery/pass_photo_3.jpg', alt: 'Student passing their driving test' },
 ];
 
 export default function ImageSlideshow() {

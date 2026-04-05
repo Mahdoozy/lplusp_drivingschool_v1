@@ -6,7 +6,7 @@ const stats = [
   { target: 87, suffix: '%', label: 'First-attempt pass rate' },
   { target: 1000, suffix: '+', label: 'Students taught' },
   { target: 20, suffix: '+', label: 'Years experience' },
-  { target: 24, suffix: '', label: 'Suburbs covered' },
+  { target: 27, suffix: '', label: 'Suburbs covered' },
 ];
 
 function useCountUp(target: number, duration = 2000, enabled: boolean) {

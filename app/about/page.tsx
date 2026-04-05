@@ -24,7 +24,7 @@ const values = [
 
 const stats = [
   { value: 'Est. 1997', label: 'Founded in North Ryde' },
-  { value: '24', label: 'Suburbs covered' },
+  { value: '27', label: 'Suburbs covered' },
   { value: '4.8★', label: 'Google rating' },
   { value: '80+', label: 'Reviews' },
 ];

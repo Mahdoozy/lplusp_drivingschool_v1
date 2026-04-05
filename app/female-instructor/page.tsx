@@ -5,7 +5,7 @@ import { suburbs } from '@/lib/suburbs';
 export const metadata: Metadata = {
   title: 'Female Driving Instructor Sydney | L Plus P Driving School',
   description:
-    "Looking for a female driving instructor in Sydney's north-west? Sidra is L Plus P's experienced female instructor covering North Ryde, Eastwood, Epping, Carlingford and 24 suburbs. Book online.",
+    "Looking for a female driving instructor in Sydney's north-west? Sidra is L Plus P's experienced female instructor covering North Ryde, Eastwood, Epping, Carlingford and 27 suburbs. Book online.",
 };
 
 const audiences = [
@@ -59,7 +59,7 @@ export default function FemaleInstructorPage() {
             <span style={{ color: '#F5C132' }}>who gets it.</span>
           </h1>
           <p className="font-outfit text-white/60 text-lg leading-relaxed max-w-2xl mx-auto mb-8">
-            Sidra has been helping students learn to drive with patience, calm, and zero judgement since she joined L Plus P. Available across 24 north-west Sydney suburbs.
+            Sidra has been helping students learn to drive with patience, calm, and zero judgement since she joined L Plus P. Available across 27 Sydney suburbs.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
             <Link
@@ -103,7 +103,7 @@ export default function FemaleInstructorPage() {
               <span className="font-syne font-bold text-[#0B1628]" style={{ fontSize: 80, lineHeight: 1 }}>S</span>
             </div>
             <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
-              {['Senior Instructor', 'Automatic cars only', 'Available 6 days a week', 'All 24 suburbs covered'].map((fact) => (
+              {['Senior Instructor', 'Automatic cars only', 'Available 6 days a week', 'All 27 suburbs covered'].map((fact) => (
                 <span
                   key={fact}
                   className="font-outfit text-xs px-3 py-1.5 rounded-full"

@@ -18,7 +18,7 @@ const allFAQs = [
   {
     question: 'Which suburbs do you cover?',
     answer:
-      'We cover 24 suburbs across North Sydney and Ryde: North Ryde, East Ryde, Ryde, West Ryde, Macquarie Park, Eastwood, Epping, Castle Hill, North Rocks, Carlingford, Beecroft, Telopea, Dundas, Ermington, Rydalmere, Melrose Park, Meadowbank, Rhodes, Gladesville, Putney, Silverwater, Newington, Auburn, and Chatswood. Contact us if you are not sure whether your suburb is included.',
+      'We cover 27 suburbs across Sydney: North Ryde, East Ryde, Ryde, West Ryde, Macquarie Park, Eastwood, Epping, Castle Hill, North Rocks, Carlingford, Beecroft, Telopea, Dundas, Ermington, Rydalmere, Melrose Park, Meadowbank, Rhodes, Gladesville, Putney, Silverwater, Newington, Auburn, Chatswood, Hornsby, Blacktown, and Bankstown. Contact us if you are not sure whether your suburb is included.',
   },
   {
     question: 'What is the 3-for-1 logbook scheme?',

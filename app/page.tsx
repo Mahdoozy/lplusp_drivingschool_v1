@@ -9,7 +9,7 @@ import ReviewsCarousel from '@/components/ReviewsCarousel';
 export const metadata: Metadata = {
   title: 'L Plus P Driving School | Driving Lessons Sydney | Est. 1997',
   description:
-    "Sydney's most trusted driving school since 1997. Expert driving lessons in North Ryde, Ryde, Epping, Carlingford, Castle Hill and 20+ suburbs. Late-model automatic cars, 3-for-1 logbook hours. Call Mick 0469 370 978.",
+    "Sydney's most trusted driving school since 1997. Expert driving lessons in North Ryde, Ryde, Epping, Castle Hill, Hornsby, Blacktown, Bankstown and 27 suburbs. Automatic cars, 3-for-1 logbook hours. Call Mick 0469 370 978.",
 };
 
 /* ── FAQ data ─────────────────────────────────────────────────────────── */
@@ -22,7 +22,7 @@ const faqs = [
   {
     question: 'Do you cover my suburb?',
     answer:
-      'We cover 24 suburbs across North Sydney and Ryde including North Ryde, Ryde, Epping, Carlingford, Castle Hill, Chatswood and many more. Contact us to confirm your suburb.',
+      'We cover 27 suburbs across Sydney including North Ryde, Ryde, Epping, Carlingford, Castle Hill, Chatswood, Hornsby, Blacktown, Bankstown and many more. Contact us to confirm your suburb.',
   },
   {
     question: 'What is the 3-for-1 logbook scheme?',
@@ -210,7 +210,7 @@ export default function HomePage() {
 
               {/* Subheadline */}
               <p className="hero-subtext font-outfit text-white/65 text-base leading-relaxed max-w-md">
-                North Ryde&apos;s driving school since 1997. Automatic cars, free pick-up and drop-off across 24 Sydney suburbs.
+                North Ryde&apos;s driving school since 1997. Automatic cars, free pick-up and drop-off across 27 Sydney suburbs.
               </p>
 
               {/* Gold rule */}
@@ -376,7 +376,7 @@ export default function HomePage() {
               {
                 num: '03',
                 title: 'Pass with confidence',
-                desc: "We know every test route at Ryde, Silverwater, Castle Hill, Chatswood and Hornsby.",
+                desc: "We know every test route at Ryde, Silverwater, Castle Hill, Chatswood, Hornsby, Blacktown and Bankstown.",
               },
             ].map((step) => (
               <div key={step.num} className="bg-[#F7F9FF] rounded-2xl p-8">
@@ -514,7 +514,7 @@ export default function HomePage() {
             Failed your test? You&apos;re not alone — and you&apos;re not done.
           </h2>
           <p className="font-outfit text-[#6B7FA8] text-base leading-relaxed max-w-2xl mb-8">
-            Many of our students come to us after failing with another school. In most cases, 2–3 focused lessons on the actual test routes is all it takes. We know exactly what Service NSW assessors look for at Ryde, Silverwater, Castle Hill, Chatswood, and Hornsby.
+            Many of our students come to us after failing with another school. In most cases, 2–3 focused lessons on the actual test routes is all it takes. We know exactly what Service NSW assessors look for at Ryde, Silverwater, Castle Hill, Chatswood, Hornsby, Blacktown and Bankstown.
           </p>
           <blockquote
             className="font-outfit text-sm leading-relaxed italic px-6 py-5 rounded-2xl mb-8 max-w-2xl"
