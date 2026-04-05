@@ -1,218 +1,220 @@
 import type { Metadata } from 'next';
-import CTABanner from '@/components/CTABanner';
-import Sidebar from '@/components/Sidebar';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'About Us | L Plus P Driving School Sydney',
+  title: 'About L Plus P Driving School | Mick & Sidra | Est. 1997 North Ryde',
   description:
-    'Learn about L Plus P Driving School — founded in 1997 by Mick and Sidra. Sydney driving school serving North Ryde and 23 suburbs. All lessons in our automatic cars. RMS accredited, WWCC cleared.',
+    'L Plus P Driving School has been teaching Sydney drivers since 1997. Meet Mick and Sidra — North Ryde\'s most trusted driving instructors for 27 years.',
 };
 
+const values = [
+  {
+    title: 'Confidence over speed',
+    body: "We don't rush students through hours just to fill a quota. We teach until you're genuinely ready — and it shows in our pass rates.",
+  },
+  {
+    title: 'Local knowledge matters',
+    body: "We've driven every test route in our area hundreds of times. That knowledge is something no national chain can replicate.",
+  },
+  {
+    title: 'Driving is a life skill',
+    body: "Passing the test is the beginning. We teach you to be safe for every road you'll ever drive — not just the ones on test day.",
+  },
+];
+
 const stats = [
-  { value: '20+', label: 'Years Experience' },
-  { value: '1,000+', label: 'Students Passed' },
-  { value: '4.8', label: 'Google Rating' },
-  { value: '24', label: 'Suburbs Covered' },
-];
-
-const timeline = [
-  { year: '1997', event: 'L Plus P Driving School founded by Mick in North Ryde' },
-  { year: '2005', event: 'Expanded coverage to 10 suburbs across Sydney' },
-  { year: '2010', event: 'Sidra joins as Senior Instructor' },
-  { year: '2015', event: 'Service area expanded to 20+ suburbs' },
-  { year: '2020', event: '3-for-1 logbook scheme introduced for learner drivers' },
-  { year: 'Today', event: '1,000+ students passed — still growing' },
-];
-
-const instructors = [
-  {
-    name: 'Mick',
-    initial: 'M',
-    title: 'Head Instructor',
-    credentials: ['RMS Accredited', 'WWCC Cleared', '20+ Years Experience'],
-    specialties: ['Learner drivers', 'Test preparation', 'Nervous drivers', 'Overseas conversion'],
-  },
-  {
-    name: 'Sidra',
-    initial: 'S',
-    title: 'Senior Instructor',
-    credentials: ['RMS Accredited', 'WWCC Cleared', 'Expert Instructor'],
-    specialties: ['Learner drivers', 'Female students', 'Logbook hours', 'Overseas conversion'],
-  },
-];
-
-const accreditations = [
-  { label: 'NSW Transport Accredited' },
-  { label: 'Automatic Vehicles Only' },
-  { label: 'Working With Children Check' },
-  { label: 'ADTA Member' },
+  { value: 'Est. 1997', label: 'Founded in North Ryde' },
+  { value: '24', label: 'Suburbs covered' },
+  { value: '4.8★', label: 'Google rating' },
+  { value: '80+', label: 'Reviews' },
 ];
 
 export default function AboutPage() {
   return (
     <>
-      {/* Hero — dark (keep dramatic) */}
-      <section className="py-16 sm:py-24" style={{ backgroundColor: 'var(--bg-secondary)' }}>
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="section-label">Est. 1997</span>
-          <h1 className="font-syne font-bold text-4xl sm:text-5xl text-[#f0f2f8]">
-            About L Plus P Driving School
+      {/* ── HERO ───────────────────────────────────────────────────────── */}
+      <section className="bg-[#0B1628] pt-16 pb-20 px-6 text-center">
+        <div className="max-w-3xl mx-auto">
+          <span className="section-label font-outfit inline-block mb-4">ABOUT US</span>
+          <h1 className="font-heading font-extrabold text-4xl sm:text-5xl text-white leading-tight mb-5">
+            27 years. Hundreds of students.{' '}
+            <span style={{ color: '#F5C132' }}>One family.</span>
           </h1>
-          <p className="mt-4 font-sans text-[#8899bb] text-lg sm:text-xl">
-            Teaching Sydney to drive safely since 1997
+          <p className="font-outfit text-white/60 text-lg leading-relaxed max-w-2xl mx-auto mb-8">
+            L Plus P Driving School has been part of North Ryde since 1997. We&apos;re not a franchise or a chain — we&apos;re Mick and Sidra, and we still teach every lesson ourselves.
+          </p>
+          <a
+            href="#team"
+            className="font-outfit font-bold text-sm px-7 py-3.5 rounded-xl transition-colors inline-block"
+            style={{ background: '#F5C132', color: '#0B1628' }}
+          >
+            Meet the team ↓
+          </a>
+        </div>
+      </section>
+
+      {/* ── THE STORY ──────────────────────────────────────────────────── */}
+      <section className="bg-white py-[72px] px-6">
+        <div className="max-w-3xl mx-auto">
+          <span className="section-label font-outfit">OUR STORY</span>
+          <h2 className="font-heading font-extrabold text-4xl text-[#0B1628] mt-1 mb-6">
+            How it started
+          </h2>
+          <p className="font-outfit text-[#6B7FA8] text-base leading-relaxed mb-4">
+            L Plus P Driving School was founded in 1997 in North Ryde, Sydney. What started as a commitment to teaching safe, confident driving has grown into one of the area&apos;s most trusted driving schools — built entirely on word of mouth, repeat students, and families who send us their kids after learning to drive with us themselves.
+          </p>
+          <p className="font-outfit text-[#6B7FA8] text-base leading-relaxed">
+            We&apos;ve never been a franchise. We&apos;ve never sent you a random instructor. Every student who books with us drives with Mick or Sidra — experienced, qualified, and genuinely invested in helping you pass.
           </p>
         </div>
       </section>
 
-      {/* Stats bar — light */}
-      <section
-        className="py-10"
-        style={{ background: '#eef2ff', borderTop: '1px solid #c8d4f0', borderBottom: '1px solid #c8d4f0' }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center divide-x divide-[#c8d4f0]">
-            {stats.map((stat) => (
-              <div key={stat.label} className="px-4">
-                <div
-                  className="font-syne font-bold text-[#0a0f1e]"
-                  style={{ fontSize: '48px', lineHeight: '1.1' }}
-                >
-                  {stat.value}
-                </div>
-                <div
-                  className="font-sans text-[#3a4a6a] mt-1 uppercase tracking-widest"
-                  style={{ fontSize: '11px' }}
-                >
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── MEET THE TEAM ──────────────────────────────────────────────── */}
+      <section id="team" className="bg-[#0B1628] py-[72px] px-6">
+        <div className="max-w-5xl mx-auto">
+          <span className="section-label font-outfit">THE TEAM</span>
+          <h2 className="font-heading font-extrabold text-4xl text-white mt-1 mb-12">
+            Meet Mick &amp; Sidra
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-      {/* Our Story — white */}
-      <section className="py-16" style={{ backgroundColor: '#ffffff' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex gap-10 items-start">
-          <div className="flex-1 min-w-0">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-              <div>
-                <h2 className="font-syne font-bold text-2xl text-[#0a0f1e] mb-8">Our Story</h2>
-                <div className="flex flex-col gap-0">
-                  {timeline.map((item, idx) => (
-                    <div key={item.year} className="flex gap-4">
-                      <div className="flex flex-col items-center">
-                        <div
-                          className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-                          style={{ background: 'var(--gold)' }}
-                        >
-                          <span className="text-[#0a0f1e] text-xs font-bold text-center leading-tight px-1">{item.year}</span>
-                        </div>
-                        {idx < timeline.length - 1 && (
-                          <div className="w-0.5 h-10 bg-[#e2e8f4] mt-1" />
-                        )}
-                      </div>
-                      <div className="pb-8">
-                        <p className="font-sans text-[#3a4a6a] text-sm pt-2">{item.event}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+            {/* Mick */}
+            <div
+              className="rounded-2xl p-8"
+              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+            >
+              {/* TODO: Replace with Mick's professional photo — /public/mick.jpg */}
+              <div
+                className="w-40 h-40 rounded-full flex items-center justify-center mb-6"
+                style={{ background: '#F5C132' }}
+              >
+                <span className="font-syne font-bold text-[#0B1628]" style={{ fontSize: 72, lineHeight: 1 }}>M</span>
               </div>
-              <div className="flex flex-col gap-5">
-                <h2 className="font-syne font-bold text-2xl sm:text-3xl text-[#0a0f1e]">Our Mission</h2>
-                <p className="font-sans text-[#3a4a6a] leading-relaxed">
-                  L Plus P Driving School was founded with a clear mission: to produce safe, confident drivers who pass their test first time. We believe that great driving instruction is about more than passing a test — it is about developing lifelong safe driving habits.
-                </p>
-                <p className="font-sans text-[#3a4a6a] leading-relaxed">
-                  All lessons are conducted in our late-model automatic cars. Every lesson is tailored to the individual student. Whether you are a nervous beginner, an experienced driver who failed the test, or converting from an overseas licence, we meet you where you are and get you where you need to be.
-                </p>
-                <p className="font-sans text-[#3a4a6a] leading-relaxed">
-                  We serve 24 suburbs across North Sydney and Ryde, offering free pick-up and drop-off. Our 3-for-1 logbook scheme means students log 30 hours from a single 10-hour pack — accelerating the path to a full licence.
-                </p>
-              </div>
+              <h3 className="font-heading font-extrabold text-2xl text-white mb-1">Mick</h3>
+              <p className="font-outfit text-sm mb-1" style={{ color: '#F5C132' }}>Head Instructor &amp; Founder</p>
+              <a
+                href="tel:0469370978"
+                className="font-mono text-white/50 text-sm hover:text-white/80 transition-colors block mb-5"
+              >
+                0469 370 978
+              </a>
+              <p className="font-outfit text-white/60 text-sm leading-relaxed mb-6">
+                Mick has been teaching drivers since 1997. In that time he&apos;s helped hundreds of students get their licence — from nervous first-timers to overseas drivers starting from scratch. He knows every test route at Ryde, Silverwater, Castle Hill, Chatswood, and Hornsby, and he&apos;ll make sure you&apos;re prepared for exactly what the test requires. His students describe him as calm, thorough, and genuinely encouraging.
+              </p>
+              <blockquote
+                className="font-outfit text-sm leading-relaxed italic px-4 py-3 rounded-xl"
+                style={{ color: '#F5C132', background: 'rgba(245,193,50,0.07)', borderLeft: '3px solid rgba(245,193,50,0.4)' }}
+              >
+                &ldquo;My goal isn&apos;t just to get you through the test — it&apos;s to make sure you&apos;re safe on the road for life.&rdquo;
+              </blockquote>
             </div>
+
+            {/* Sidra */}
+            <div
+              className="rounded-2xl p-8"
+              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+            >
+              {/* TODO: Replace with Sidra's professional photo — /public/sidra.jpg */}
+              <div
+                className="w-40 h-40 rounded-full flex items-center justify-center mb-6"
+                style={{ background: '#F5C132' }}
+              >
+                <span className="font-syne font-bold text-[#0B1628]" style={{ fontSize: 72, lineHeight: 1 }}>S</span>
+              </div>
+              <h3 className="font-heading font-extrabold text-2xl text-white mb-1">Sidra</h3>
+              <p className="font-outfit text-sm mb-1" style={{ color: '#F5C132' }}>Senior Instructor</p>
+              <a
+                href="tel:0451331140"
+                className="font-mono text-white/50 text-sm hover:text-white/80 transition-colors block mb-5"
+              >
+                0451 331 140
+              </a>
+              <p className="font-outfit text-white/60 text-sm leading-relaxed mb-6">
+                Sidra brings patience, warmth, and structure to every lesson. She&apos;s particularly known for helping nervous learners and students from diverse backgrounds who prefer a female instructor. Whether you&apos;re just starting out or converting an overseas licence, Sidra adapts to your pace and makes sure you feel confident, not rushed.
+              </p>
+              <blockquote
+                className="font-outfit text-sm leading-relaxed italic px-4 py-3 rounded-xl"
+                style={{ color: '#F5C132', background: 'rgba(245,193,50,0.07)', borderLeft: '3px solid rgba(245,193,50,0.4)' }}
+              >
+                &ldquo;Every student learns differently. My job is to find your pace and work with it — not against it.&rdquo;
+              </blockquote>
+            </div>
+
           </div>
-          <Sidebar />
         </div>
       </section>
 
-      {/* Instructor profiles — light #f4f7ff */}
-      <section className="py-16" style={{ backgroundColor: '#f4f7ff', borderTop: '1px solid #e2e8f4' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-syne font-bold text-3xl text-[#0a0f1e] text-center mb-10">Meet Your Instructors</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-            {instructors.map((instructor) => (
+      {/* ── VALUES ─────────────────────────────────────────────────────── */}
+      <section className="bg-white py-[72px] px-6">
+        <div className="max-w-5xl mx-auto">
+          <span className="section-label font-outfit">WHAT WE BELIEVE</span>
+          <h2 className="font-heading font-extrabold text-4xl text-[#0B1628] mt-1 mb-10">
+            What we believe about driving education
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {values.map((v) => (
               <div
-                key={instructor.name}
-                className="rounded-2xl p-6 flex flex-col gap-4"
-                style={{ background: '#ffffff', border: '1px solid #e2e8f4', boxShadow: '0 2px 12px rgba(0,0,0,0.06)' }}
+                key={v.title}
+                className="rounded-2xl p-7"
+                style={{ background: '#F7F9FF', border: '1px solid #E8EEF8' }}
               >
-                <div
-                  className="w-20 h-20 rounded-full mx-auto flex items-center justify-center shadow-lg"
-                  style={{ background: 'linear-gradient(135deg, #F5C842, #d4a91a)' }}
-                >
-                  <span className="font-syne font-bold text-[#0a0f1e] text-3xl">{instructor.initial}</span>
-                </div>
-                <div className="text-center">
-                  <h3 className="font-sans font-bold text-xl text-[#0a0f1e]">{instructor.name}</h3>
-                  <p className="font-sans text-sm font-semibold text-[#d4a91a]">{instructor.title}</p>
-                </div>
-                <div className="flex flex-wrap justify-center gap-2">
-                  {instructor.credentials.map((cred) => (
-                    <span
-                      key={cred}
-                      className="font-sans text-[#d4a91a] text-xs px-2 py-1 rounded-md font-semibold"
-                      style={{ background: 'rgba(245, 200, 66, 0.1)', border: '1px solid rgba(212, 169, 26, 0.2)' }}
-                    >
-                      {cred}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex flex-wrap justify-center gap-2">
-                  {instructor.specialties.map((spec) => (
-                    <span
-                      key={spec}
-                      className="font-sans text-[#3a4a6a] text-xs px-2 py-1 rounded-md"
-                      style={{ background: '#f4f7ff', border: '1px solid #c8d4f0' }}
-                    >
-                      {spec}
-                    </span>
-                  ))}
-                </div>
+                <h3 className="font-heading font-bold text-lg text-[#0B1628] mb-3">{v.title}</h3>
+                <p className="font-outfit text-[#6B7FA8] text-sm leading-relaxed">{v.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Accreditations — dark (keep dramatic) */}
-      <section className="py-16" style={{ backgroundColor: 'var(--bg-primary)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-syne font-bold text-2xl text-[#f0f2f8] text-center mb-8">Accreditations &amp; Certifications</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 max-w-3xl mx-auto">
-            {accreditations.map((acc) => (
-              <div
-                key={acc.label}
-                className="rounded-xl p-5 flex flex-col items-center gap-3 text-center"
-                style={{ background: 'var(--bg-card)', border: '1px solid rgba(30,45,74,0.8)' }}
-              >
-                <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center"
-                  style={{ background: 'var(--gold)' }}
-                >
-                  <svg className="w-5 h-5 text-[#0a0f1e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span className="font-sans text-[#f0f2f8] text-xs font-semibold">{acc.label}</span>
+      {/* ── BY THE NUMBERS ─────────────────────────────────────────────── */}
+      <section className="bg-[#0B1628] py-[72px] px-6">
+        <div className="max-w-5xl mx-auto">
+          <span className="section-label font-outfit">BY THE NUMBERS</span>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-8">
+            {stats.map((s) => (
+              <div key={s.label} className="text-center">
+                <p className="font-syne font-bold text-3xl sm:text-4xl mb-1" style={{ color: '#F5C132' }}>
+                  {s.value}
+                </p>
+                <p className="font-outfit text-white/40 text-xs uppercase tracking-widest">{s.label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <CTABanner />
+      {/* ── FINAL CTA ──────────────────────────────────────────────────── */}
+      <section className="bg-white py-[72px] px-6 text-center">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="font-heading font-extrabold text-4xl text-[#0B1628] mb-3">
+            Ready to learn with Mick or Sidra?
+          </h2>
+          <p className="font-outfit text-[#6B7FA8] text-base mb-8">
+            Free pick-up and drop-off. We confirm within 1 hour.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              href="/book"
+              className="font-outfit font-bold text-sm px-7 py-3.5 rounded-xl transition-colors text-center"
+              style={{ background: '#F5C132', color: '#0B1628' }}
+            >
+              Book a Lesson →
+            </Link>
+            <a
+              href="tel:0469370978"
+              className="font-outfit font-bold text-sm px-7 py-3.5 rounded-xl border border-[#E8EEF8] text-[#2D4470] hover:bg-[#F7F9FF] transition-colors text-center"
+            >
+              Call Mick — 0469 370 978
+            </a>
+            <a
+              href="tel:0451331140"
+              className="font-outfit font-bold text-sm px-7 py-3.5 rounded-xl border border-[#E8EEF8] text-[#2D4470] hover:bg-[#F7F9FF] transition-colors text-center"
+            >
+              Call Sidra — 0451 331 140
+            </a>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

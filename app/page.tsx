@@ -327,6 +327,26 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── MQ CALLOUT ────────────────────────────────────────────────── */}
+      <div className="bg-[#0B1628] px-6 pb-6">
+        <div
+          className="max-w-5xl mx-auto flex flex-col sm:flex-row sm:items-center gap-3 px-5 py-3.5 rounded-xl"
+          style={{ borderLeft: '3px solid #C9A84C', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', borderLeftColor: '#C9A84C', borderLeftWidth: 3 }}
+        >
+          <span className="text-base flex-shrink-0" aria-hidden="true">🎓</span>
+          <p className="font-outfit text-sm text-white/60 leading-snug flex-1">
+            Studying at Macquarie University? We pick up directly from campus in North Ryde.
+          </p>
+          <Link
+            href="/book"
+            className="font-outfit font-semibold text-xs whitespace-nowrap transition-colors flex-shrink-0"
+            style={{ color: '#C9A84C' }}
+          >
+            Book a lesson →
+          </Link>
+        </div>
+      </div>
+
       {/* ── STATS BAR ─────────────────────────────────────────────────── */}
       <StatsBar />
 
@@ -486,6 +506,33 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── TEST PREP CALLOUT ─────────────────────────────────────────── */}
+      <section className="bg-white py-[72px] px-6">
+        <div className="max-w-5xl mx-auto">
+          <span className="section-label-blue font-outfit">TEST PREPARATION</span>
+          <h2 className="font-heading font-extrabold text-4xl text-[#0B1628] mt-1 mb-4">
+            Failed your test? You&apos;re not alone — and you&apos;re not done.
+          </h2>
+          <p className="font-outfit text-[#6B7FA8] text-base leading-relaxed max-w-2xl mb-8">
+            Many of our students come to us after failing with another school. In most cases, 2–3 focused lessons on the actual test routes is all it takes. We know exactly what Service NSW assessors look for at Ryde, Silverwater, Castle Hill, Chatswood, and Hornsby.
+          </p>
+          <blockquote
+            className="font-outfit text-sm leading-relaxed italic px-6 py-5 rounded-2xl mb-8 max-w-2xl"
+            style={{ borderLeft: '3px solid #C9A84C', background: '#F7F9FF', color: '#3a4a6a' }}
+          >
+            &ldquo;After failing twice elsewhere, I came to L Plus P and passed first try. Mick identified exactly what I was doing wrong and fixed it in 3 lessons.&rdquo;
+            <span className="block font-bold not-italic mt-3 text-[#0B1628]">— Tom W., Castle Hill</span>
+          </blockquote>
+          <Link
+            href="/book?service=test-prep"
+            className="font-outfit font-bold text-sm px-7 py-3.5 rounded-xl transition-colors inline-block"
+            style={{ background: '#0B1628', color: '#F5C132' }}
+          >
+            Book a mock test — from $65 →
+          </Link>
+        </div>
+      </section>
+
       {/* ── PRICING ───────────────────────────────────────────────────── */}
       <section id="pricing" className="bg-[#0B1628] py-[72px] px-6">
         <div className="max-w-6xl mx-auto">
@@ -581,34 +628,78 @@ export default function HomePage() {
           </div>
 
           {/* Group 3: Test Prep */}
-          <p className="font-outfit font-bold text-xs uppercase tracking-widest text-white/40 mt-10 mb-4">
-            Test Preparation
-          </p>
+          <div className="mt-10 mb-4 flex flex-col sm:flex-row sm:items-center gap-2">
+            <p className="font-outfit font-bold text-xs uppercase tracking-widest text-white/40">
+              Test Preparation
+            </p>
+            <span
+              className="font-outfit text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide w-fit"
+              style={{ background: 'rgba(201,168,76,0.12)', color: '#C9A84C', border: '1px solid rgba(201,168,76,0.25)' }}
+            >
+              Most popular for students who&apos;ve failed before
+            </span>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {[
-              { price: '$65', title: 'Mock Test', features: ['Full test simulation', 'Detailed feedback', 'Routes you\'ll actually drive'] },
-              { price: '$170', title: 'Test Day Package', features: ['1 hr prep lesson', 'Car for the test', 'Pick-up & drop-off included'] },
-              { price: '$500', title: '6 Hours + Test Day', features: ['6 hrs lessons', 'Mock test included', 'Car for the real test'] },
-            ].map((pkg) => (
-              <div key={pkg.title} className="bg-[#162440] border border-white/7 rounded-2xl p-6">
-                <p className="font-outfit text-white/35 text-xs mb-1">from</p>
-                <p className="font-mono font-medium text-[#F5C132] text-4xl leading-none">{pkg.price}</p>
-                <h3 className="font-heading font-bold text-white text-base mt-3 mb-3">{pkg.title}</h3>
-                <ul className="flex flex-col gap-1.5 mb-5">
-                  {pkg.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 font-outfit text-white/60 text-xs">
-                      <span className="text-[#F5C132] mt-0.5">›</span> {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/book"
-                  className="block w-full bg-[#F5C132] text-[#0B1628] font-outfit font-bold text-sm py-2.5 rounded-lg text-center hover:bg-[#E8A800] transition-colors"
-                >
-                  Book Now
-                </Link>
-              </div>
-            ))}
+            <div className="bg-[#162440] border border-white/7 rounded-2xl p-6">
+              <p className="font-outfit text-white/35 text-xs mb-1">from</p>
+              <p className="font-mono font-medium text-[#F5C132] text-4xl leading-none">$65</p>
+              <h3 className="font-heading font-bold text-white text-base mt-3 mb-1">Mock Test</h3>
+              <p className="font-outfit text-white/35 text-[10px] mb-3">Book after a failed test</p>
+              <ul className="flex flex-col gap-1.5 mb-5">
+                {['Full test simulation', 'Detailed feedback', "Routes you'll actually drive"].map((f) => (
+                  <li key={f} className="flex items-start gap-2 font-outfit text-white/60 text-xs">
+                    <span className="text-[#F5C132] mt-0.5">›</span> {f}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/book?service=test-prep"
+                className="block w-full bg-[#F5C132] text-[#0B1628] font-outfit font-bold text-sm py-2.5 rounded-lg text-center hover:bg-[#E8A800] transition-colors"
+              >
+                Book Now
+              </Link>
+            </div>
+
+            <div className="pricing-featured rounded-2xl p-6 relative scale-[1.02]">
+              <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#F5C132] text-[#0B1628] font-outfit font-bold text-[10px] px-3 py-1 rounded-full uppercase tracking-widest whitespace-nowrap">
+                Most Popular
+              </span>
+              <p className="font-outfit text-white/35 text-xs mb-1">complete package</p>
+              <p className="font-mono font-medium text-[#F5C132] text-4xl leading-none">$170</p>
+              <h3 className="font-heading font-bold text-white text-base mt-3 mb-3">Test Day Package</h3>
+              <ul className="flex flex-col gap-1.5 mb-5">
+                {['1 hr prep lesson', 'Car for the test', 'Pick-up & drop-off included'].map((f) => (
+                  <li key={f} className="flex items-start gap-2 font-outfit text-white/60 text-xs">
+                    <span className="text-[#F5C132] mt-0.5">›</span> {f}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/book?service=test-prep"
+                className="block w-full bg-[#F5C132] text-[#0B1628] font-outfit font-bold text-sm py-2.5 rounded-lg text-center hover:bg-[#E8A800] transition-colors"
+              >
+                Book Now
+              </Link>
+            </div>
+
+            <div className="bg-[#162440] border border-white/7 rounded-2xl p-6">
+              <p className="font-outfit text-white/35 text-xs mb-1">best value</p>
+              <p className="font-mono font-medium text-[#F5C132] text-4xl leading-none">$500</p>
+              <h3 className="font-heading font-bold text-white text-base mt-3 mb-3">6 Hours + Test Day</h3>
+              <ul className="flex flex-col gap-1.5 mb-5">
+                {['6 hrs lessons', 'Mock test included', 'Car for the real test'].map((f) => (
+                  <li key={f} className="flex items-start gap-2 font-outfit text-white/60 text-xs">
+                    <span className="text-[#F5C132] mt-0.5">›</span> {f}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/book?service=test-prep"
+                className="block w-full bg-[#F5C132] text-[#0B1628] font-outfit font-bold text-sm py-2.5 rounded-lg text-center hover:bg-[#E8A800] transition-colors"
+              >
+                Book Now
+              </Link>
+            </div>
           </div>
 
           {/* Custom pricing callout */}
@@ -630,28 +721,28 @@ export default function HomePage() {
       </section>
 
       {/* ── REFERRAL CALLOUT ──────────────────────────────────────────── */}
-      <div className="bg-[#0B1628] px-6 pb-10">
-        <div
-          className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 px-6 py-4 rounded-2xl"
-          style={{ background: 'rgba(245,193,50,0.07)', border: '1px solid rgba(245,193,50,0.18)' }}
-        >
-          <div className="flex items-center gap-3">
-            <span style={{ fontSize: 20 }}>🎁</span>
-            <p className="font-outfit text-sm text-white/80 leading-snug">
-              Know someone learning to drive?{' '}
-              <span className="text-white font-semibold">Refer a friend and you both get 10% off</span>{' '}
-              your next lesson.
+      <section className="px-6 py-10" style={{ background: '#0B1628', borderTop: '4px solid #C9A84C' }}>
+        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 text-center sm:text-left">
+          <div>
+            <span className="font-outfit text-xs font-bold uppercase tracking-widest" style={{ color: '#C9A84C' }}>
+              REFER A FRIEND
+            </span>
+            <h2 className="font-heading font-extrabold text-2xl text-white mt-1 mb-1">
+              Know someone learning to drive?
+            </h2>
+            <p className="font-outfit text-white/50 text-sm leading-relaxed max-w-lg">
+              When someone you refer books their first lesson, you both get 10% off. No limits — refer as many people as you like.
             </p>
           </div>
           <Link
-            href="/contact"
-            className="flex-shrink-0 font-outfit font-semibold text-xs px-4 py-2 rounded-lg transition-colors whitespace-nowrap"
-            style={{ background: 'rgba(245,193,50,0.15)', color: '#f5c842', border: '1px solid rgba(245,193,50,0.25)' }}
+            href="/faq"
+            className="flex-shrink-0 font-outfit font-bold text-sm px-6 py-3 rounded-xl transition-colors self-center whitespace-nowrap"
+            style={{ background: '#C9A84C', color: '#0B1628' }}
           >
-            Find out more →
+            Ask us how →
           </Link>
         </div>
-      </div>
+      </section>
 
       {/* ── REVIEWS ───────────────────────────────────────────────────── */}
       <ReviewsCarousel />

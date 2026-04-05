@@ -7,8 +7,8 @@ const col2 = suburbs.slice(12);
 const serviceLinks = [
   { label: 'Learner Lessons', href: '/services#learner' },
   { label: 'Test Prep', href: '/services#test-prep' },
-  { label: 'Overseas Conversion', href: '/services#overseas' },
-  { label: 'Female Instructor', href: '/services#female' },
+  { label: 'Overseas Conversion', href: '/overseas-licence-conversion' },
+  { label: 'Female Instructor', href: '/female-instructor' },
   { label: 'EV Familiarisation', href: '/services#ev' },
   { label: 'Senior Refresher', href: '/services#senior' },
 ];
@@ -131,7 +131,7 @@ export default function Footer() {
             href="/faq"
             className="font-outfit text-xs text-[#F5C132]/50 hover:text-[#F5C132]/80 transition-colors"
           >
-            Refer a friend → you both get 10% off
+            Refer a friend — you both save 10%
           </Link>
         </div>
       </div>
