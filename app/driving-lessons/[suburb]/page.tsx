@@ -20,8 +20,8 @@ interface SuburbExtra {
 const suburbData: Record<string, SuburbExtra> = {
   'north-ryde': {
     testCentre: 'Ryde',
-    testCentreAddress: 'Ryde Service Centre, 8 Small Street, Ryde',
-    localKnowledge: 'North Ryde sits right next to Macquarie University and the M2 motorway. We practise on Epping Road, Waterloo Road, and the busy roundabouts around Macquarie Shopping Centre — all common on the Ryde test.',
+    testCentreAddress: 'Service NSW Ryde, Macquarie Shopping Centre, Shop 1U05/6, Level 1, Corner Waterloo and Herring Road, North Ryde',
+    localKnowledge: 'The Ryde Service NSW test centre is inside Macquarie Shopping Centre, just minutes from North Ryde. North Ryde sits right next to Macquarie University and the M2 motorway. We practise on Epping Road, Waterloo Road, and the busy roundabouts around Macquarie Shopping Centre — all common on the Ryde test.',
     landmark: 'Macquarie Shopping Centre',
     pickup: 'We pick up from anywhere in North Ryde including the Macquarie University campus and Student Village.',
   },
@@ -47,11 +47,11 @@ const suburbData: Record<string, SuburbExtra> = {
     pickup: 'We pick up from West Ryde station, West Ryde Marketplace, or your home.',
   },
   'macquarie-park': {
-    testCentre: 'Ryde',
-    testCentreAddress: 'Ryde Service Centre, 8 Small Street, Ryde',
-    localKnowledge: 'Macquarie Park is a high-density suburb with complex intersections around Herring Road, Epping Road, and the Macquarie University station precinct. We drill these intersections specifically because they are tricky for new drivers.',
-    landmark: 'Macquarie University',
-    pickup: 'We pick up directly from Macquarie University campus and the surrounding Macquarie Park streets.',
+    testCentre: 'Ryde (at Macquarie Shopping Centre)',
+    testCentreAddress: 'Service NSW Ryde, Macquarie Shopping Centre, Shop 1U05/6, Level 1, Corner Waterloo and Herring Road, North Ryde',
+    localKnowledge: 'The Ryde Service NSW test centre is actually located right inside Macquarie Shopping Centre — so if you live in Macquarie Park you are practically testing in your own backyard. The test routes use Herring Road, Epping Road, Waterloo Road, and the complex intersections around Macquarie University station. We practise all of these with you before test day.',
+    landmark: 'Macquarie Shopping Centre and Macquarie University',
+    pickup: 'We pick up directly from Macquarie University campus, Macquarie Shopping Centre, or your home anywhere in Macquarie Park. The test centre is 2 minutes from where we pick you up.',
   },
   'eastwood': {
     testCentre: 'Ryde',
@@ -75,11 +75,11 @@ const suburbData: Record<string, SuburbExtra> = {
     pickup: 'We pick up from Castle Towers, Castle Hill station, or your home anywhere in Castle Hill.',
   },
   'north-rocks': {
-    testCentre: 'Ryde and Silverwater',
-    testCentreAddress: 'Ryde Service Centre or Silverwater Service Centre',
-    localKnowledge: 'North Rocks is a quiet suburb but the test takes you out onto Carlingford Road and surrounding arterials. We practise the route from North Rocks into both Ryde and Silverwater so you are ready for either test centre.',
-    landmark: 'North Rocks shopping village',
-    pickup: 'We pick up from your home or school anywhere in North Rocks.',
+    testCentre: 'North Rocks',
+    testCentreAddress: 'Service NSW North Rocks, North Rocks Shopping Centre, Shop 50-56, 328-336 North Rocks Road, North Rocks',
+    localKnowledge: 'North Rocks has its own Service NSW test centre right inside North Rocks Shopping Centre. The test routes use North Rocks Road, Jenkins Road roundabouts, Barclay Road residential streets, and school zones around the shopping centre area. We know every metre of these routes and practise them specifically with every North Rocks student.',
+    landmark: 'North Rocks Shopping Centre (opposite Kmart)',
+    pickup: 'We pick up from North Rocks Shopping Centre or your home anywhere in North Rocks — and we can drop you directly at the test centre entrance.',
   },
   'carlingford': {
     testCentre: 'Ryde and Silverwater',
