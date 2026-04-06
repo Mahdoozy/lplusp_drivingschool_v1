@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { posts, getPost, formatDate } from '@/lib/posts';
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
@@ -12,7 +12,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = getPost(params.slug);
+  const { slug } = await params;
+  const post = getPost(slug);
   if (!post) return {};
   return {
     title: post.title + ' | L Plus P Driving School',
@@ -20,8 +21,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function BlogPostPage({ params }: Props) {
-  const post = getPost(params.slug);
+export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params;
+  const post = getPost(slug);
   if (!post) notFound();
 
   return (
@@ -50,10 +52,6 @@ export default function BlogPostPage({ params }: Props) {
         <div
           className="max-w-[720px] mx-auto font-outfit text-[#374060] text-base leading-[1.8] prose-custom"
           dangerouslySetInnerHTML={{ __html: post.content }}
-          style={{
-            '--prose-h2': '#0B1C2E',
-            '--prose-strong': '#0B1C2E',
-          } as React.CSSProperties}
         />
 
         {/* CTA */}
