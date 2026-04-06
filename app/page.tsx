@@ -507,29 +507,44 @@ export default function HomePage() {
       </section>
 
       {/* ── TEST PREP CALLOUT ─────────────────────────────────────────── */}
-      <section className="bg-white py-[72px] px-6">
-        <div className="max-w-5xl mx-auto">
-          <span className="section-label-blue font-outfit">TEST PREPARATION</span>
-          <h2 className="font-heading font-extrabold text-4xl text-[#0B1628] mt-1 mb-4">
-            Failed your test? You&apos;re not alone — and you&apos;re not done.
-          </h2>
-          <p className="font-outfit text-[#6B7FA8] text-base leading-relaxed max-w-2xl mb-8">
-            Many of our students come to us after failing with another school. In most cases, 2–3 focused lessons on the actual test routes is all it takes. We know exactly what Service NSW assessors look for at Ryde, Silverwater, Castle Hill, Chatswood, Hornsby, Blacktown and Bankstown.
-          </p>
-          <blockquote
-            className="font-outfit text-sm leading-relaxed italic px-6 py-5 rounded-2xl mb-8 max-w-2xl"
-            style={{ borderLeft: '3px solid #C9A84C', background: '#F7F9FF', color: '#3a4a6a' }}
+      <section className="py-[72px] px-6" style={{ background: '#0B1C2E' }}>
+        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          {/* Left column */}
+          <div>
+            <span className="font-outfit text-xs font-bold uppercase tracking-widest" style={{ color: '#C9A84C' }}>
+              TEST PREPARATION
+            </span>
+            <h2 className="font-heading font-extrabold text-4xl text-white mt-2 mb-4 leading-tight">
+              Failed your test? You&apos;re not alone — and you&apos;re not done.
+            </h2>
+            <p className="font-outfit text-white/55 text-base leading-relaxed mb-8">
+              Many of our students come to us after failing with another school. In most cases, 2–3 focused lessons on the actual test routes is all it takes. We know exactly what Service NSW assessors look for at Ryde, Silverwater, Castle Hill, Chatswood, and Hornsby.
+            </p>
+            <Link
+              href="/book?service=test-prep"
+              className="font-outfit font-bold text-sm px-7 py-3.5 rounded-xl transition-colors inline-block"
+              style={{ background: '#C9A84C', color: '#0B1C2E' }}
+            >
+              Book a mock test — from $65 →
+            </Link>
+          </div>
+          {/* Right column — review card */}
+          <div
+            className="bg-white rounded-2xl p-6"
+            style={{ borderLeft: '4px solid #C9A84C' }}
           >
-            &ldquo;After failing twice elsewhere, I came to L Plus P and passed first try. Mick identified exactly what I was doing wrong and fixed it in 3 lessons.&rdquo;
-            <span className="block font-bold not-italic mt-3 text-[#0B1628]">— Tom W., Castle Hill</span>
-          </blockquote>
-          <Link
-            href="/book?service=test-prep"
-            className="font-outfit font-bold text-sm px-7 py-3.5 rounded-xl transition-colors inline-block"
-            style={{ background: '#0B1628', color: '#F5C132' }}
-          >
-            Book a mock test — from $65 →
-          </Link>
+            <div className="flex gap-0.5 mb-4">
+              {[...Array(5)].map((_, i) => (
+                <svg key={i} className="w-4 h-4" fill="#C9A84C" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            <p className="font-outfit text-[#3a4a6a] text-sm leading-relaxed italic mb-4">
+              &ldquo;After failing twice elsewhere, I came to L Plus P and passed first try. Mick identified exactly what I was doing wrong and fixed it in 3 lessons.&rdquo;
+            </p>
+            <p className="font-outfit font-bold text-sm text-[#0B1C2E]">Tom W. — Castle Hill NSW</p>
+          </div>
         </div>
       </section>
 
@@ -550,7 +565,7 @@ export default function HomePage() {
               Casual Lessons — Pay as you go
             </p>
             <p className="font-outfit text-white/25 text-xs mt-1">
-              Prices shown are starting rates — confirmed when we contact you based on your suburb.
+              Starting from $60 — final price confirmed based on your suburb (typically $60–$75/hr). No hidden fees.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -721,23 +736,23 @@ export default function HomePage() {
       </section>
 
       {/* ── REFERRAL CALLOUT ──────────────────────────────────────────── */}
-      <section className="px-6 py-10" style={{ background: '#0B1628', borderTop: '4px solid #C9A84C' }}>
+      <section className="px-6 py-10" style={{ background: '#C9A84C' }}>
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 text-center sm:text-left">
           <div>
-            <span className="font-outfit text-xs font-bold uppercase tracking-widest" style={{ color: '#C9A84C' }}>
+            <span className="font-outfit text-xs font-bold uppercase tracking-widest" style={{ color: '#0B1C2E', letterSpacing: '0.15em' }}>
               REFER A FRIEND
             </span>
-            <h2 className="font-heading font-extrabold text-2xl text-white mt-1 mb-1">
+            <h2 className="font-heading font-extrabold text-2xl mt-1 mb-1" style={{ color: '#0B1C2E' }}>
               Know someone learning to drive?
             </h2>
-            <p className="font-outfit text-white/50 text-sm leading-relaxed max-w-lg">
+            <p className="font-outfit text-sm leading-relaxed max-w-lg" style={{ color: 'rgba(11,28,46,0.7)' }}>
               When someone you refer books their first lesson, you both get 10% off. No limits — refer as many people as you like.
             </p>
           </div>
           <Link
             href="/faq"
             className="flex-shrink-0 font-outfit font-bold text-sm px-6 py-3 rounded-xl transition-colors self-center whitespace-nowrap"
-            style={{ background: '#C9A84C', color: '#0B1628' }}
+            style={{ background: '#0B1C2E', color: '#ffffff' }}
           >
             Ask us how →
           </Link>

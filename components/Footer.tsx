@@ -131,7 +131,7 @@ export default function Footer() {
             href="/faq"
             className="font-outfit text-xs text-[#F5C132]/50 hover:text-[#F5C132]/80 transition-colors"
           >
-            Refer a friend — you both save 10%
+            Refer a friend — save 10%
           </Link>
         </div>
       </div>
