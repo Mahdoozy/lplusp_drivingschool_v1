@@ -11,6 +11,7 @@ const serviceLinks = [
   { label: 'Female Instructor', href: '/female-instructor' },
   { label: 'EV Familiarisation', href: '/services#ev' },
   { label: 'Senior Refresher', href: '/services#senior' },
+  { label: 'Helpful Guides', href: '/blog' },
 ];
 
 export default function Footer() {
