@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 const stats = [
-  { target: 87, suffix: '%', label: 'First-attempt pass rate' },
+  { target: 96, suffix: '%', label: 'First-attempt pass rate' },
   { target: 1000, suffix: '+', label: 'Students taught' },
   { target: 20, suffix: '+', label: 'Years experience' },
   { target: 27, suffix: '', label: 'Suburbs covered' },
