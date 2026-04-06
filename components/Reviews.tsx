@@ -166,7 +166,7 @@ export default function Reviews() {
             <div className="flex items-center gap-2">
               <GoogleLogo />
               <span className="font-sans font-semibold text-[#f0f2f8]">4.8</span>
-              <span className="font-sans text-[#8899bb] text-sm">· 80+ reviews</span>
+              <span className="font-sans text-[#8899bb] text-sm">· 126+ reviews</span>
             </div>
           </div>
           <a

@@ -186,7 +186,7 @@ export default function ReviewsCarousel() {
           <span className="font-outfit font-bold text-white text-sm">
             4.8 <span style={{ color: '#F5C132' }}>★★★★★</span>
           </span>
-          <span className="font-outfit text-white/40 text-sm">Based on 80+ Google Reviews</span>
+          <span className="font-outfit text-white/40 text-sm">Based on 126+ Google Reviews</span>
         </div>
         <a
           href="https://www.google.com/search?q=L+Plus+P+Driving+School+Sydney+reviews"

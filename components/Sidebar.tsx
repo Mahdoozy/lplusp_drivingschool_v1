@@ -78,7 +78,7 @@ export default function Sidebar() {
           </div>
           <div>
             <p className="text-white font-bold text-sm">5.0 Google Rating</p>
-            <p className="text-gray-400 text-xs">80+ reviews</p>
+            <p className="text-gray-400 text-xs">126+ reviews</p>
           </div>
         </div>
 

@@ -26,7 +26,7 @@ const stats = [
   { value: 'Est. 1997', label: 'Founded in North Ryde' },
   { value: '27', label: 'Suburbs covered' },
   { value: '4.8★', label: 'Google rating' },
-  { value: '80+', label: 'Reviews' },
+  { value: '126+', label: 'Reviews' },
 ];
 
 export default function AboutPage() {

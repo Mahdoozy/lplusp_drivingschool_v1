@@ -46,7 +46,7 @@ export default function Hero({
                   ))}
                 </div>
                 <span className="text-white font-semibold">4.8</span>
-                <span className="text-gray-400 text-sm">(80+ reviews)</span>
+                <span className="text-gray-400 text-sm">(126+ reviews)</span>
               </div>
             )}
 
