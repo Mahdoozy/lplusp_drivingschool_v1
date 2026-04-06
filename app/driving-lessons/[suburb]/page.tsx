@@ -9,6 +9,185 @@ import CTABanner from '@/components/CTABanner';
 import Sidebar from '@/components/Sidebar';
 import ImageSlideshow from '@/components/ImageSlideshow';
 
+interface SuburbExtra {
+  testCentre: string;
+  testCentreAddress: string;
+  localKnowledge: string;
+  landmark: string;
+  pickup: string;
+}
+
+const suburbData: Record<string, SuburbExtra> = {
+  'north-ryde': {
+    testCentre: 'Ryde',
+    testCentreAddress: 'Ryde Service Centre, 8 Small Street, Ryde',
+    localKnowledge: 'North Ryde sits right next to Macquarie University and the M2 motorway. We practise on Epping Road, Waterloo Road, and the busy roundabouts around Macquarie Shopping Centre — all common on the Ryde test.',
+    landmark: 'Macquarie Shopping Centre',
+    pickup: 'We pick up from anywhere in North Ryde including the Macquarie University campus and Student Village.',
+  },
+  'ryde': {
+    testCentre: 'Ryde',
+    testCentreAddress: 'Ryde Service Centre, 8 Small Street, Ryde',
+    localKnowledge: 'Ryde is where your test happens. We know every street, give way rule, and trick intersection on the Ryde test route — Top Ryde City, Victoria Road, and the Meadowbank bridge area are all common test territory.',
+    landmark: 'Top Ryde City',
+    pickup: 'We pick up from anywhere in Ryde including near Top Ryde City and Ryde train station.',
+  },
+  'east-ryde': {
+    testCentre: 'Ryde',
+    testCentreAddress: 'Ryde Service Centre, 8 Small Street, Ryde',
+    localKnowledge: 'East Ryde is a quiet residential suburb but the test takes you onto the busy roads around Ryde and Macquarie Park. We make sure you are comfortable on both the quiet streets and the main roads before test day.',
+    landmark: 'Lane Cove National Park',
+    pickup: 'We pick up from your home or school anywhere in East Ryde.',
+  },
+  'west-ryde': {
+    testCentre: 'Ryde and Silverwater',
+    testCentreAddress: 'Ryde Service Centre or Silverwater Service Centre',
+    localKnowledge: 'West Ryde students can test at either Ryde or Silverwater. We cover both routes — the busy Victoria Road corridor, the West Ryde station area, and the Parramatta River routes used in the Silverwater test.',
+    landmark: 'West Ryde Marketplace',
+    pickup: 'We pick up from West Ryde station, West Ryde Marketplace, or your home.',
+  },
+  'macquarie-park': {
+    testCentre: 'Ryde',
+    testCentreAddress: 'Ryde Service Centre, 8 Small Street, Ryde',
+    localKnowledge: 'Macquarie Park is a high-density suburb with complex intersections around Herring Road, Epping Road, and the Macquarie University station precinct. We drill these intersections specifically because they are tricky for new drivers.',
+    landmark: 'Macquarie University',
+    pickup: 'We pick up directly from Macquarie University campus and the surrounding Macquarie Park streets.',
+  },
+  'eastwood': {
+    testCentre: 'Ryde',
+    testCentreAddress: 'Ryde Service Centre, 8 Small Street, Ryde',
+    localKnowledge: 'Eastwood has some of the busiest shopping strip traffic in the area. We practise on Rowe Street, Shaftsbury Road, and the tricky give way rules around Eastwood station before heading to the Ryde test centre.',
+    landmark: 'Eastwood station and shopping strip',
+    pickup: 'We pick up from Eastwood station, the shopping strip, or your home anywhere in Eastwood.',
+  },
+  'epping': {
+    testCentre: 'Ryde and Silverwater',
+    testCentreAddress: 'Ryde Service Centre or Silverwater Service Centre',
+    localKnowledge: 'Epping sits on the border of two test centre zones. We know both routes. The M2 on-ramp near Epping, the Oxford Street shopping area, and the school zones around Epping Boys and Girls High are all part of your local driving environment.',
+    landmark: 'Epping station',
+    pickup: 'We pick up from Epping station or your home anywhere in Epping.',
+  },
+  'castle-hill': {
+    testCentre: 'Castle Hill',
+    testCentreAddress: 'Service NSW Castle Hill, Old Northern Road, Castle Hill',
+    localKnowledge: 'Castle Hill has its own test centre and its own test routes. We know every road the assessor will take you on — Old Northern Road, Showground Road, the Castle Towers area, and the Hills M7 interchange approach roads.',
+    landmark: 'Castle Towers Shopping Centre',
+    pickup: 'We pick up from Castle Towers, Castle Hill station, or your home anywhere in Castle Hill.',
+  },
+  'north-rocks': {
+    testCentre: 'Ryde and Silverwater',
+    testCentreAddress: 'Ryde Service Centre or Silverwater Service Centre',
+    localKnowledge: 'North Rocks is a quiet suburb but the test takes you out onto Carlingford Road and surrounding arterials. We practise the route from North Rocks into both Ryde and Silverwater so you are ready for either test centre.',
+    landmark: 'North Rocks shopping village',
+    pickup: 'We pick up from your home or school anywhere in North Rocks.',
+  },
+  'carlingford': {
+    testCentre: 'Ryde and Silverwater',
+    testCentreAddress: 'Ryde Service Centre or Silverwater Service Centre',
+    localKnowledge: 'Carlingford has Carlingford Court, the light rail route, and busy Pennant Hills Road. We practise all of these plus the routes into both Ryde and Silverwater test centres — you will be ready for whichever one you book.',
+    landmark: 'Carlingford Court and the light rail',
+    pickup: 'We pick up from Carlingford station, Carlingford Court, or your home.',
+  },
+  'beecroft': {
+    testCentre: 'Ryde and Silverwater',
+    testCentreAddress: 'Ryde Service Centre or Silverwater Service Centre',
+    localKnowledge: 'Beecroft is a leafy suburb with narrow residential streets and school zones around Beecroft Public School. We make sure you are comfortable on both the quiet local streets and the busy Pennant Hills Road before test day.',
+    landmark: 'Beecroft village and train station',
+    pickup: 'We pick up from Beecroft station or your home anywhere in Beecroft.',
+  },
+  'telopea': {
+    testCentre: 'Silverwater',
+    testCentreAddress: 'Silverwater Service Centre, 1 Holker Street, Silverwater',
+    localKnowledge: 'Telopea feeds directly into the Silverwater test route. We practise the Pennant Hills Road corridor, the Dundas Valley roads, and the approach to the Silverwater test centre so there are no surprises on the day.',
+    landmark: 'Telopea and the Toongabbie Creek area',
+    pickup: 'We pick up from your home anywhere in Telopea.',
+  },
+  'dundas': {
+    testCentre: 'Silverwater',
+    testCentreAddress: 'Silverwater Service Centre, 1 Holker Street, Silverwater',
+    localKnowledge: 'Dundas is close to the Silverwater test centre. We know the specific roads and give way situations used on the Silverwater test route and will have you practising on the exact same streets before your test.',
+    landmark: 'Dundas and the Cumberland Highway',
+    pickup: 'We pick up from your home anywhere in Dundas.',
+  },
+  'ermington': {
+    testCentre: 'Silverwater',
+    testCentreAddress: 'Silverwater Service Centre, 1 Holker Street, Silverwater',
+    localKnowledge: 'Ermington sits right next to the Parramatta River and close to the Silverwater test centre. We practise the River Road corridor, the Shepherd Street roundabout area, and the approach roads to Silverwater.',
+    landmark: 'Parramatta River foreshore',
+    pickup: 'We pick up from your home anywhere in Ermington.',
+  },
+  'rydalmere': {
+    testCentre: 'Silverwater',
+    testCentreAddress: 'Silverwater Service Centre, 1 Holker Street, Silverwater',
+    localKnowledge: 'Rydalmere students test at Silverwater. We know the Church Street corridor, the TAFE area, and the approach roads to the Silverwater Service Centre. Your test will feel familiar because we will have driven those exact roads together.',
+    landmark: 'TAFE NSW Rydalmere',
+    pickup: 'We pick up from TAFE Rydalmere or your home anywhere in Rydalmere.',
+  },
+  'melrose-park': {
+    testCentre: 'Silverwater',
+    testCentreAddress: 'Silverwater Service Centre, 1 Holker Street, Silverwater',
+    localKnowledge: 'Melrose Park is a quiet suburb close to Silverwater. We practise the Victoria Road and Wharf Road routes that connect Melrose Park to the test centre, making sure you are comfortable on the busier roads before test day.',
+    landmark: 'Melrose Park and the Parramatta River',
+    pickup: 'We pick up from your home anywhere in Melrose Park.',
+  },
+  'meadowbank': {
+    testCentre: 'Ryde',
+    testCentreAddress: 'Ryde Service Centre, 8 Small Street, Ryde',
+    localKnowledge: 'Meadowbank is right on the Parramatta River with the light rail running through it. We practise the Meadowbank station area, the Shepherd Street bridge, and the routes up into Ryde for your test.',
+    landmark: 'Meadowbank light rail and the Parramatta River',
+    pickup: 'We pick up from Meadowbank station or your home anywhere in Meadowbank.',
+  },
+  'rhodes': {
+    testCentre: 'Ryde',
+    testCentreAddress: 'Ryde Service Centre, 8 Small Street, Ryde',
+    localKnowledge: 'Rhodes is a high-density suburb with complex traffic around Rhodes station, the shopping centre, and the busy Concord Road and Homebush Bay Drive. We make sure you are comfortable in heavy traffic before your Ryde test.',
+    landmark: 'Rhodes shopping centre and train station',
+    pickup: 'We pick up from Rhodes station, the shopping centre, or your home anywhere in Rhodes.',
+  },
+  'gladesville': {
+    testCentre: 'Ryde',
+    testCentreAddress: 'Ryde Service Centre, 8 Small Street, Ryde',
+    localKnowledge: 'Gladesville has the Victoria Road shopping strip and the Gladesville Bridge — busy roads that require real confidence. We practise these plus the quieter residential streets before heading to the Ryde test centre.',
+    landmark: 'Gladesville Bridge and Victoria Road shopping strip',
+    pickup: 'We pick up from your home anywhere in Gladesville.',
+  },
+  'putney': {
+    testCentre: 'Ryde',
+    testCentreAddress: 'Ryde Service Centre, 8 Small Street, Ryde',
+    localKnowledge: 'Putney is a quiet riverside suburb close to Ryde. We practise the Meadowbank and Victoria Road routes that connect Putney to the Ryde test centre, building your confidence on both quiet and busy roads.',
+    landmark: 'Putney foreshore and Kissing Point Road',
+    pickup: 'We pick up from your home anywhere in Putney.',
+  },
+  'silverwater': {
+    testCentre: 'Silverwater',
+    testCentreAddress: 'Silverwater Service Centre, 1 Holker Street, Silverwater',
+    localKnowledge: 'Silverwater is home to the test centre itself. We know the test routes inside out — the industrial roads, the M4 approach, and the specific intersections the assessor uses. Testing here is a home game for our students.',
+    landmark: 'Silverwater Service NSW test centre',
+    pickup: 'We pick up from your home anywhere in Silverwater and can drop you directly at the test centre.',
+  },
+  'newington': {
+    testCentre: 'Silverwater',
+    testCentreAddress: 'Silverwater Service Centre, 1 Holker Street, Silverwater',
+    localKnowledge: 'Newington was built for the 2000 Olympics and has wide boulevards and roundabouts that are great for building confidence. We practise the Olympic Park area roads before moving to the Silverwater test routes.',
+    landmark: 'Sydney Olympic Park',
+    pickup: 'We pick up from Sydney Olympic Park or your home anywhere in Newington.',
+  },
+  'auburn': {
+    testCentre: 'Silverwater',
+    testCentreAddress: 'Silverwater Service Centre, 1 Holker Street, Silverwater',
+    localKnowledge: 'Auburn has some of the busiest shopping streets in western Sydney — Auburn Road and the surrounding streets require confident merging, lane changing, and pedestrian awareness. We build these skills before your Silverwater test.',
+    landmark: 'Auburn station and shopping district',
+    pickup: 'We pick up from Auburn station or your home anywhere in Auburn.',
+  },
+  'chatswood': {
+    testCentre: 'Chatswood',
+    testCentreAddress: 'Service NSW Chatswood, 1-3 Searle Street, Chatswood',
+    localKnowledge: "Chatswood has its own test centre and some of Sydney's most complex traffic — the Victoria Avenue shopping strip, the Pacific Highway, and the Chatswood Chase area are all part of your test environment. We know every metre of the route.",
+    landmark: 'Chatswood Chase and the Pacific Highway',
+    pickup: 'We pick up from Chatswood station, Chatswood Chase, or your home anywhere in Chatswood.',
+  },
+};
+
 type Props = {
   params: Promise<{ suburb: string }>;
 };
@@ -43,6 +222,7 @@ export default async function SuburbPage({ params }: Props) {
   if (!suburb) notFound();
 
   const displayReviews = getSuburbReviews(slug);
+  const extra = suburbData[slug];
 
   return (
     <>
@@ -54,10 +234,24 @@ export default async function SuburbPage({ params }: Props) {
               <h1 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight">
                 Driving Lessons in{' '}
                 <span className="text-[#FFD700]">{suburb.name}</span>
+                {' '}— We Know Every Street
               </h1>
               <p className="text-gray-300 text-lg sm:text-xl">
-                Expert local instruction — we know every {suburb.name} test route at {suburb.testCentre}. All lessons in our late-model automatic cars.
+                Your driving test will be at <strong className="text-white">{extra?.testCentre ?? suburb.testCentre}</strong>. We know that route better than anyone.
               </p>
+              {extra && (
+                <>
+                  <p className="text-gray-400 text-base leading-relaxed">
+                    {extra.localKnowledge}
+                  </p>
+                  <div className="flex items-start gap-2 bg-[#1a2235] rounded-xl px-4 py-3 text-sm text-gray-300">
+                    <svg className="w-4 h-4 text-[#FFD700] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    <span>{extra.pickup}</span>
+                  </div>
+                </>
+              )}
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/book"
