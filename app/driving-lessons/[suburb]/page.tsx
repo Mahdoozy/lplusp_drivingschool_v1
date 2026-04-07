@@ -229,29 +229,23 @@ export default async function SuburbPage({ params }: Props) {
     "@type": "Service",
     "name": `Driving Lessons in ${suburb.name}`,
     "provider": {
-      "@type": "DrivingSchool",
+      "@type": "LocalBusiness",
       "name": "L Plus P Driving School",
-      "url": "https://lppdrivingschool.com.au",
       "telephone": "+61469370978",
+      "url": "https://lppdrivingschool.com.au",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "North Ryde",
         "addressRegion": "NSW",
         "postalCode": "2113",
         "addressCountry": "AU"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "126",
-        "bestRating": "5"
       }
     },
     "areaServed": {
-      "@type": "City",
+      "@type": "AdministrativeArea",
       "name": suburb.name
     },
-    "description": `Professional driving lessons in ${suburb.name} from L Plus P Driving School. Automatic cars, free pick-up and drop-off.`
+    "description": `Automatic driving lessons in ${suburb.name} from $60/hr. Free pick-up and drop-off. L Plus P Driving School — Est. 1997.`
   };
 
   return (
