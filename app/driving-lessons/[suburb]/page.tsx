@@ -224,8 +224,42 @@ export default async function SuburbPage({ params }: Props) {
   const displayReviews = getSuburbReviews(slug);
   const extra = suburbData[slug];
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": `Driving Lessons in ${suburb.name}`,
+    "provider": {
+      "@type": "DrivingSchool",
+      "name": "L Plus P Driving School",
+      "url": "https://lppdrivingschool.com.au",
+      "telephone": "+61469370978",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "North Ryde",
+        "addressRegion": "NSW",
+        "postalCode": "2113",
+        "addressCountry": "AU"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "126",
+        "bestRating": "5"
+      }
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": suburb.name
+    },
+    "description": `Professional driving lessons in ${suburb.name} from L Plus P Driving School. Automatic cars, free pick-up and drop-off.`
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero */}
       <section className="bg-[#0f1623] py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
