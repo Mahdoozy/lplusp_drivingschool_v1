@@ -56,7 +56,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "DrivingSchool",
+              "@type": ["LocalBusiness", "DrivingSchool"],
               "name": "L Plus P Driving School",
               "description": "Family-run driving school in North Ryde, Sydney, established 1997. Automatic cars only, free pick-up and drop-off across 24 suburbs. Taught by Mick and Sidra.",
               "url": "https://lppdrivingschool.com.au",
