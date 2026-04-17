@@ -234,6 +234,15 @@ function BookPageInner() {
         }),
       });
       if (!res.ok) throw new Error('Failed');
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (window as any).gtag('event', 'conversion', {
+          send_to: 'AW-18072728281',
+          value: 420.0,
+          currency: 'AUD',
+        });
+      }
       setSubmitted(true);
     } catch {
       setSubmitError(true);

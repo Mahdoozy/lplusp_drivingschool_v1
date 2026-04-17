@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Syne, Plus_Jakarta_Sans, Outfit, DM_Mono } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -170,6 +171,18 @@ export default function RootLayout({
             })
           }}
         />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18072728281"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-tag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18072728281');
+          `}
+        </Script>
       </head>
       <body className="min-h-full flex flex-col antialiased">
         <AnnouncementBar />
