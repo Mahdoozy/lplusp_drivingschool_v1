@@ -1,8 +1,7 @@
 'use client';
 
 import { useState, useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
-import Link from 'next/link';
+import { useSearchParams, useRouter } from 'next/navigation';
 
 const suburbList = [
   'North Ryde', 'East Ryde', 'Ryde', 'West Ryde', 'Macquarie Park',
@@ -148,10 +147,10 @@ const MONTH_NAMES = ['January','February','March','April','May','June','July','A
 
 function BookPageInner() {
   const [step, setStep] = useState(1);
-  const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [submitError, setSubmitError] = useState(false);
   const searchParams = useSearchParams();
+  const router = useRouter();
 
   useEffect(() => {
     const serviceParam = searchParams.get('service');
@@ -243,7 +242,7 @@ function BookPageInner() {
           currency: 'AUD',
         });
       }
-      setSubmitted(true);
+      router.push('/book/thank-you');
     } catch {
       setSubmitError(true);
     } finally {
@@ -267,67 +266,6 @@ function BookPageInner() {
     background: '#ffffff',
     border: '1px solid #c8d4f0',
   };
-
-  if (submitted) {
-    return (
-      <div
-        className="min-h-screen flex items-center justify-center px-4"
-        style={{ backgroundColor: '#f4f7ff' }}
-      >
-        <div
-          className="rounded-xl p-8 max-w-md w-full text-center flex flex-col items-center gap-5"
-          style={{
-            background: '#ffffff',
-            border: '1px solid #e2e8f4',
-            boxShadow: '0 4px 24px rgba(0,0,0,0.08)',
-          }}
-        >
-          <div
-            className="w-16 h-16 rounded-full flex items-center justify-center"
-            style={{ background: 'linear-gradient(135deg, #F5C842, #d4a91a)' }}
-          >
-            <svg className="w-8 h-8 text-[#0a0f1e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <h2 className="font-syne font-bold text-2xl text-[#0a0f1e]">Booking Received!</h2>
-          <p className="font-sans text-[#3a4a6a] text-sm leading-relaxed">
-            Thanks{form.name ? ` ${form.name}` : ''}! We'll be in contact with you shortly to confirm your lesson.
-          </p>
-          <div
-            className="w-full rounded-xl p-4 flex flex-col gap-2 text-sm text-left"
-            style={{ background: '#f4f7ff', border: '1px solid #e2e8f4' }}
-          >
-            {selectedService && (
-              <div className="flex justify-between">
-                <span className="font-sans text-[#7a8aaa]">Service</span>
-                <span className="font-sans text-[#0a0f1e]">{selectedService.label}</span>
-              </div>
-            )}
-            {selectedPackage && (
-              <div className="flex justify-between">
-                <span className="font-sans text-[#7a8aaa]">Package</span>
-                <span className="font-sans text-[#0a0f1e]">{selectedPackage.label} — {selectedPackage.priceSummary}</span>
-              </div>
-            )}
-            {form.suburb && (
-              <div className="flex justify-between">
-                <span className="font-sans text-[#7a8aaa]">Suburb</span>
-                <span className="font-sans text-[#0a0f1e]">{form.suburb}</span>
-              </div>
-            )}
-          </div>
-          <Link
-            href="/"
-            className="font-syne font-bold text-[#0a0f1e] px-6 py-3 rounded w-full text-center hover:bg-[#d4a91a] transition-colors"
-            style={{ background: 'var(--gold)' }}
-          >
-            Back to Home
-          </Link>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="pb-12" style={{ backgroundColor: '#f4f7ff' }}>
