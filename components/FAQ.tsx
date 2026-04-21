@@ -42,11 +42,12 @@ function FAQAccordionItem({ item }: { item: FAQItem }) {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
       </button>
-      {open && (
-        <div className="px-5 py-4" style={{ background: '#ffffff', borderTop: '1px solid #e2e8f4' }}>
-          <p className="font-sans text-[#3a4a6a] text-sm leading-relaxed">{item.answer}</p>
-        </div>
-      )}
+      <div
+        className="px-5 py-4"
+        style={{ display: open ? 'block' : 'none', background: '#ffffff', borderTop: '1px solid #e2e8f4' }}
+      >
+        <p className="font-sans text-[#3a4a6a] text-sm leading-relaxed">{item.answer}</p>
+      </div>
     </div>
   );
 }

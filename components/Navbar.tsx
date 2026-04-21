@@ -6,9 +6,8 @@ import { useState, useEffect } from 'react';
 const navLinks = [
   { href: '#services', label: 'Services' },
   { href: '#pricing', label: 'Pricing' },
+  { href: '/blog', label: 'Guides' },
   { href: '/about', label: 'About' },
-  { href: '#reviews', label: 'Reviews' },
-  { href: '/book', label: 'Book Online' },
 ];
 
 export default function Navbar() {

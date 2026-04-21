@@ -7,6 +7,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import AnnouncementBar from '@/components/AnnouncementBar';
+import TrustBar from '@/components/TrustBar';
 import MobileStickyBar from '@/components/MobileStickyBar';
 import ReferralButton from '@/components/ReferralButton';
 
@@ -189,6 +190,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col antialiased">
         <AnnouncementBar />
         <Navbar />
+        <TrustBar />
         <main className="flex-1">{children}</main>
         <Footer />
         <WhatsAppButton />

@@ -19,7 +19,7 @@ const allFAQs = [
   {
     question: 'Which suburbs do you cover?',
     answer:
-      'We cover 27 suburbs across Sydney: North Ryde, East Ryde, Ryde, West Ryde, Macquarie Park, Eastwood, Epping, Castle Hill, North Rocks, Carlingford, Beecroft, Telopea, Dundas, Ermington, Rydalmere, Melrose Park, Meadowbank, Rhodes, Gladesville, Putney, Silverwater, Newington, Auburn, Chatswood, Hornsby, Blacktown, and Bankstown. Contact us if you are not sure whether your suburb is included.',
+      'We cover 24 suburbs across Sydney: North Ryde, East Ryde, Ryde, West Ryde, Macquarie Park, Eastwood, Epping, Castle Hill, North Rocks, Carlingford, Beecroft, Telopea, Dundas, Ermington, Rydalmere, Melrose Park, Meadowbank, Rhodes, Gladesville, Putney, Silverwater, Newington, Auburn, and Chatswood. Contact us if you are not sure whether your suburb is included.',
   },
   {
     question: 'What is the 3-for-1 logbook scheme?',
@@ -102,11 +102,48 @@ const allFAQs = [
     answer:
       'Yes! Driving lessons make a fantastic gift for new drivers. Gift vouchers are available for any amount and can be sent digitally or as a physical card. Contact Mick or Sidra to arrange a voucher.',
   },
+  {
+    question: "What's the pass rate at the Ryde test centre?",
+    answer:
+      'The Ryde test centre (Service NSW, Macquarie Shopping Centre) has a pass rate of approximately 50% — below the NSW state average. It is one of the busier and more technically demanding Sydney centres due to high-speed arterial roads and heavy traffic near Macquarie University. We prepare all our North Ryde, Ryde, and Macquarie Park students specifically for the routes and intersections used by Ryde assessors.',
+  },
+  {
+    question: 'Can I book lessons on weekends?',
+    answer:
+      'Yes, we run lessons seven days a week including weekends. Weekend slots are popular and book out quickly, especially Saturday mornings. We recommend booking at least 1–2 weeks ahead for weekend availability. Use the booking form on this site or WhatsApp Mick directly to check the next available slot.',
+  },
+  {
+    question: 'What should I bring to my driving test?',
+    answer:
+      'You must bring your current NSW learner licence (or overseas licence if converting) and your logbook showing you have completed the required hours. Wear comfortable clothes and flat shoes. If you are using our car for the test, we handle insurance and roadworthiness — you just need to show up. Arrive 10–15 minutes early to settle in.',
+  },
+  {
+    question: 'How long does it take to get a driver\'s licence in NSW?',
+    answer:
+      'As a learner driver under 25, you must hold your L plates for at least 12 months and complete 120 logbook hours (including 20 hours at night) before you can sit the driving test. With our 3-for-1 scheme, 10 professional hours count as 30 logbook hours — significantly reducing how long it takes to reach 120 hours. After passing your P1 test, you hold P plates for at least 12 months before progressing to P2 (another 24 months minimum).',
+  },
 ];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: allFAQs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
 
 export default function FAQPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Hero — light */}
       <section className="py-16 sm:py-20" style={{ backgroundColor: '#f4f7ff', borderBottom: '1px solid #e2e8f4' }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

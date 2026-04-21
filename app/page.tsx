@@ -10,7 +10,7 @@ import ReviewsCarousel from '@/components/ReviewsCarousel';
 export const metadata: Metadata = {
   title: 'L Plus P Driving School | Driving Lessons Sydney | Est. 1997',
   description:
-    "Sydney's most trusted driving school since 1997. Expert driving lessons in North Ryde, Ryde, Epping, Castle Hill, Hornsby, Blacktown, Bankstown and 27 suburbs. Automatic cars, 3-for-1 logbook hours. Call Mick 0469 370 978.",
+    "Sydney's most trusted driving school since 1997. Expert driving lessons in North Ryde, Ryde, Epping, Castle Hill, Chatswood and 24 suburbs. Automatic cars, 3-for-1 logbook hours. Call Mick 0469 370 978.",
   alternates: { canonical: '/' },
 };
 
@@ -24,7 +24,7 @@ const faqs = [
   {
     question: 'Do you cover my suburb?',
     answer:
-      'We cover 27 suburbs across Sydney including North Ryde, Ryde, Epping, Carlingford, Castle Hill, Chatswood, Hornsby, Blacktown, Bankstown and many more. Contact us to confirm your suburb.',
+      'We cover 24 suburbs across Sydney including North Ryde, Ryde, Epping, Carlingford, Castle Hill, Chatswood, Meadowbank, Auburn, and more. Contact us to confirm your suburb.',
   },
   {
     question: 'What is the 3-for-1 logbook scheme?',
