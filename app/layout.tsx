@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import AnnouncementBar from '@/components/AnnouncementBar';
 import MobileStickyBar from '@/components/MobileStickyBar';
+import ReferralButton from '@/components/ReferralButton';
 
 const syne = Syne({
   subsets: ['latin'],
@@ -192,6 +193,7 @@ export default function RootLayout({
         <Footer />
         <WhatsAppButton />
         <MobileStickyBar />
+        <ReferralButton />
       </body>
     </html>
   );

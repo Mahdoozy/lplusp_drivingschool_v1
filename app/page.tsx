@@ -257,6 +257,24 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── REFERRAL BANNER ───────────────────────────────────────────── */}
+      <div
+        className="w-full py-3 px-4"
+        style={{ background: '#f5c842' }}
+      >
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+          <p className="font-outfit font-semibold text-[#0d1b3e] text-sm text-center sm:text-left">
+            ⭐ Refer a mate — you both save 10% on your next lesson
+          </p>
+          <Link
+            href="/refer"
+            className="font-outfit font-bold text-[#0d1b3e] text-sm underline underline-offset-2 hover:opacity-70 transition-opacity whitespace-nowrap"
+          >
+            How it works →
+          </Link>
+        </div>
+      </div>
+
       {/* ── TRUST STRIP ───────────────────────────────────────────────── */}
       <section
         className="py-5"

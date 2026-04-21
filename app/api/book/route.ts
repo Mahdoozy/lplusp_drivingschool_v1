@@ -127,6 +127,21 @@ export async function POST(req: Request) {
             </td>
           </tr>
 
+          <!-- Referral CTA -->
+          <tr>
+            <td style="padding:0 40px 32px 40px;">
+              <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f5c842;border-radius:8px;">
+                <tr>
+                  <td style="padding:24px;">
+                    <h3 style="color:#0d1b3e;margin:0 0 8px 0;font-family:Arial,sans-serif;font-size:16px;font-weight:700;">Know someone else learning to drive?</h3>
+                    <p style="color:#0d1b3e;margin:0 0 16px 0;font-family:Arial,sans-serif;font-size:14px;line-height:1.6;">Refer a friend — you both save 10% on your next lesson. Just get them to mention your name when they book.</p>
+                    <a href="https://lppdrivingschool.com.au/refer" style="background-color:#0d1b3e;color:#f5c842;padding:12px 24px;border-radius:6px;text-decoration:none;display:inline-block;font-family:Arial,sans-serif;font-size:14px;font-weight:600;">Share your link →</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
           <!-- Footer -->
           <tr>
             <td style="background-color:#0d1b2e;padding:24px 40px;text-align:center;">
