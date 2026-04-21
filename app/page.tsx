@@ -916,16 +916,155 @@ export default function HomePage() {
         `}</style>
       </section>
 
-      {/* ── SOCIAL PROOF (placeholder \u2014 rebuilt Section 6) ─────────── */}
-      <section className="py-[72px] px-6" style={{ background: 'var(--cream)' }}>
-        <div className="max-w-5xl mx-auto">
-          <blockquote className="font-syne italic text-2xl leading-snug pl-5" style={{ color: 'var(--navy-ink)', borderLeft: '3px solid var(--gold-deep)' }}>
-            &ldquo;Failed twice elsewhere. Came to Mick, passed first try.&rdquo;
-          </blockquote>
-          <p className="mt-4 text-sm" style={{ color: 'var(--ink-60)' }}>
-            <span className="font-medium" style={{ color: 'var(--navy-ink)' }}>Tom W.</span> — Castle Hill
-          </p>
+      {/* ══════════════════════════════════════════════════════════════════
+          SECTION 6 — SOCIAL PROOF (single anchor testimonial)
+          ══════════════════════════════════════════════════════════════════ */}
+      <section style={{ background: 'var(--cream)', padding: '48px 32px 72px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ maxWidth: '640px', marginBottom: '32px' }}>
+            <p
+              style={{
+                fontFamily: 'var(--type-display)',
+                fontSize: '24px',
+                color: 'var(--gold-deep)',
+                margin: 0,
+                marginBottom: '8px',
+              }}
+            >
+              04
+            </p>
+            <p
+              style={{
+                fontFamily: 'var(--type-mono)',
+                fontSize: '11px',
+                textTransform: 'uppercase',
+                letterSpacing: '0.18em',
+                color: 'var(--ink-60)',
+                margin: 0,
+              }}
+            >
+              From students
+            </p>
+          </div>
+
+          <div
+            className="social-panel"
+            style={{
+              background: 'var(--paper)',
+              border: '1px solid var(--hairline)',
+              padding: '48px',
+              display: 'grid',
+              gridTemplateColumns: '1.3fr 1fr',
+              gap: '48px',
+              alignItems: 'center',
+            }}
+          >
+            <figure style={{ margin: 0 }}>
+              <blockquote
+                style={{
+                  fontFamily: 'var(--type-display)',
+                  fontStyle: 'italic',
+                  fontSize: '26px',
+                  lineHeight: 1.4,
+                  color: 'var(--navy-ink)',
+                  margin: 0,
+                  marginBottom: '24px',
+                  fontWeight: 500,
+                }}
+              >
+                &ldquo;Failed twice elsewhere. Came to Mick, passed first try. He identified exactly what I was doing wrong and fixed it in 3 lessons.&rdquo;
+              </blockquote>
+              <p
+                style={{
+                  fontFamily: 'var(--type-mono)',
+                  fontSize: '16px',
+                  color: 'var(--gold-deep)',
+                  letterSpacing: '0.1em',
+                  margin: 0,
+                  marginBottom: '8px',
+                }}
+              >
+                ★★★★★
+              </p>
+              <figcaption>
+                <span style={{ fontSize: '15px', fontWeight: 500, color: 'var(--navy-ink)' }}>Tom W.</span>
+                <span style={{ fontSize: '13px', color: 'var(--ink-60)', marginLeft: '6px' }}>
+                  Castle Hill · Passed 2025
+                </span>
+              </figcaption>
+            </figure>
+
+            <aside
+              className="social-stats"
+              style={{
+                borderLeft: '1px solid var(--hairline)',
+                paddingLeft: '32px',
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: 'var(--type-mono)',
+                  fontSize: '11px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.15em',
+                  color: 'var(--ink-60)',
+                  margin: 0,
+                  marginBottom: '16px',
+                }}
+              >
+                More reviews
+              </p>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '16px', marginBottom: '24px', flexWrap: 'wrap' }}>
+                <span
+                  style={{
+                    fontFamily: 'var(--type-display)',
+                    fontSize: '48px',
+                    fontWeight: 700,
+                    color: 'var(--navy-ink)',
+                    lineHeight: 1,
+                  }}
+                >
+                  {TRUST_STATS.reviewCount}
+                </span>
+                <span style={{ fontSize: '14px', color: 'var(--ink-60)', lineHeight: 1.4 }}>
+                  Google reviews<br />
+                  {TRUST_STATS.rating} average ★
+                </span>
+              </div>
+              <Link
+                href="/book"
+                style={{
+                  display: 'inline-block',
+                  background: 'var(--navy)',
+                  color: 'var(--gold)',
+                  padding: '14px 24px',
+                  fontFamily: 'var(--type-mono)',
+                  fontSize: '13px',
+                  fontWeight: 500,
+                  letterSpacing: '0.02em',
+                }}
+              >
+                Book your lesson →
+              </Link>
+            </aside>
+          </div>
         </div>
+
+        <style>{`
+          @media (max-width: 860px) {
+            .social-panel {
+              grid-template-columns: 1fr !important;
+              gap: 32px !important;
+              padding: 32px !important;
+            }
+            .social-stats {
+              border-left: none !important;
+              border-top: 1px solid var(--hairline);
+              padding-left: 0 !important;
+              padding-top: 32px;
+            }
+          }
+        `}</style>
       </section>
 
       {/* ── SERVICE AREA (placeholder \u2014 rebuilt Section 7) ────────── */}
