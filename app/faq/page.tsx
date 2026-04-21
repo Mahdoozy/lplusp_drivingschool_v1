@@ -54,7 +54,7 @@ const allFAQs = [
   {
     question: 'How does the referral discount work?',
     answer:
-      "If you refer a friend or family member and they book their first lesson with us, you both receive 10% off your next booking. There is no limit — you can refer as many people as you like and earn a discount each time. Contact us after your referral has completed their first lesson to claim your discount.",
+      "Every friend you refer = 10% off your next booking. They get 10% off their first lesson. Each referral earns you a separate discount — refer ten friends, get 10% off ten different future bookings. The discounts don't stack on one booking (it's always 10% off, not 20%). Contact us once your referral has completed their first lesson to claim yours.",
   },
   {
     id: 'referral',

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 const referralMessage = encodeURIComponent(
-  "Hey, just booked a driving lesson with L Plus P Driving School — they're really good. Mention my name when you book and we both get 10% off: https://lppdrivingschool.com.au/book"
+  "Hey! I just booked a driving lesson with L Plus P Driving School — they're great. Mention my name when you book your first lesson and you get 10% off. I get 10% off my next booking too. Book here: https://lppdrivingschool.com.au/book"
 );
 
 export default function ThankYouPage() {
@@ -74,7 +74,7 @@ export default function ThankYouPage() {
               Know someone else learning to drive?
             </h2>
             <p className="font-sans text-[#0d1b3e] text-sm leading-relaxed">
-              Refer a friend — you both save 10% on your next lesson. Just get them to mention your name when they book.
+              Refer a mate. They get 10% off their first lesson. You get 10% off your next booking. Refer as many people as you like — each one earns you another discount.
             </p>
           </div>
 

@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 function buildMessage(name: string): string {
   const displayName = name.trim() || 'a friend';
-  return `Hey, ${displayName} recommended L Plus P Driving School — mention their name when you book and you both get 10% off your next lesson. Book here: https://lppdrivingschool.com.au/book`;
+  return `Hey! ${displayName} referred me to L Plus P Driving School. Mention their name when you book your first lesson and you get 10% off — they get 10% off their next booking too. Book here: https://lppdrivingschool.com.au/book`;
 }
 
 export default function ReferContent() {
@@ -38,10 +38,10 @@ export default function ReferContent() {
           </div>
           <h1 className="font-syne font-bold text-4xl sm:text-5xl text-white">
             Refer a mate.{' '}
-            <span style={{ color: '#f5c842' }}>You both save 10%.</span>
+            <span style={{ color: '#f5c842' }}>You both save.</span>
           </h1>
           <p className="font-sans text-gray-300 text-lg max-w-lg">
-            Get a friend to mention your name when they book their first lesson with L Plus P — you both get 10% off your next booking. No catch, no limit.
+            Every friend you refer = 10% off a future lesson for you. They save 10% on their first booking. Refer as many people as you like — each one earns you another discount.
           </p>
         </div>
       </section>
@@ -57,8 +57,8 @@ export default function ReferContent() {
           <ol className="flex flex-col gap-4">
             {[
               { num: '1', text: 'Share a message with your mate using the buttons below' },
-              { num: '2', text: 'They book their first lesson (any type, any package) and mention your name when they get in touch' },
-              { num: '3', text: 'You both get 10% off your next booking — Mick will apply it when you book' },
+              { num: '2', text: 'They book their first lesson and mention your name when they get in touch' },
+              { num: '3', text: 'They get 10% off their first booking. You get 10% off your next booking. Repeat with as many mates as you like.' },
             ].map((step) => (
               <li key={step.num} className="flex items-start gap-4">
                 <div
@@ -142,7 +142,7 @@ export default function ReferContent() {
             No cap — refer as many mates as you want.
           </p>
           <p className="font-sans text-[#0d1b3e] text-sm mt-1">
-            Every successful referral = 10% off for both of you.
+            Every friend who books = 10% off your next lesson. They save 10% on their first.
           </p>
         </div>
 

@@ -349,8 +349,8 @@ export default function Pricing() {
               Know someone learning to drive?
             </h3>
             <p className="font-sans text-sm text-[#8899bb] mt-2 leading-relaxed">
-              Refer a friend and you both win. When someone you refer books their first lesson, you each receive{' '}
-              <span className="text-[#F5C842] font-semibold">10% off</span> your next booking. No limits — refer as many people as you like.
+              Every friend you refer = 10% off your next booking. They save{' '}
+              <span className="text-[#F5C842] font-semibold">10%</span> on their first lesson. Refer ten friends, get 10% off ten different future bookings.
             </p>
             <p className="font-sans text-xs text-[#4a5a7a] mt-2">
               Discount applied to your next lesson or package. Contact us to claim.

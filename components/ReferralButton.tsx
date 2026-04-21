@@ -3,7 +3,7 @@
 import { useState } from 'react';
 
 const referralMessage = encodeURIComponent(
-  "Hey, I've been learning with L Plus P Driving School — they're really good. Mention my name when you book and we both get 10% off: https://lppdrivingschool.com.au/book"
+  "Hey! I've been learning with L Plus P Driving School — they're really good. Mention my name when you book your first lesson and you get 10% off. I get 10% off my next booking too. Book here: https://lppdrivingschool.com.au/book"
 );
 
 export default function ReferralButton() {
@@ -42,7 +42,7 @@ export default function ReferralButton() {
             <div className="flex flex-col gap-1">
               <h3 className="font-syne font-bold text-xl text-[#0d1b3e]">Refer a mate — you both save 10%</h3>
               <p className="font-sans text-[#3a4a6a] text-sm">
-                Get a friend to mention your name when they book their first lesson. You both get 10% off your next booking.
+                Refer a mate. They save 10% on their first lesson. You save 10% on your next. Refer as many as you like.
               </p>
             </div>
 

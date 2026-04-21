@@ -265,7 +265,7 @@ export default function HomePage() {
       >
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="font-outfit font-semibold text-[#0d1b3e] text-sm text-center sm:text-left">
-            ⭐ Refer a mate — you both save 10% on your next lesson
+            ⭐ Refer a mate — they save 10% on their first lesson, you save 10% on your next
           </p>
           <Link
             href="/refer"
@@ -842,7 +842,7 @@ export default function HomePage() {
               Know someone learning to drive?
             </h2>
             <p className="font-outfit text-sm leading-relaxed max-w-lg" style={{ color: 'rgba(11,28,46,0.7)' }}>
-              When someone you refer books their first lesson, you both get 10% off. No limits — refer as many people as you like.
+              Every friend you refer = 10% off your next booking. They save 10% on their first lesson. Refer as many people as you like — each one earns you another discount.
             </p>
           </div>
           <Link
