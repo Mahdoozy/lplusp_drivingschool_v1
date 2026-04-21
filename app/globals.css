@@ -48,9 +48,10 @@
   --space-block:   clamp(2rem, 4vw, 3rem);
 
   /* Design-system tokens */
-  --navy:       #0B1628;
-  --navy2:      #0F1E35;
-  --navy3:      #162440;
+  --navy:           #0B1628;
+  --navy2:          #0F1E35;
+  --navy3:          #162440;
+  --navy-elevated:  #1a2548;
   --blue:       #1A56DB;
   --blue-light: #EBF3FF;
   --gold:       #F5C132;
