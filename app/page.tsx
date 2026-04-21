@@ -568,6 +568,82 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── INSTRUCTORS ───────────────────────────────────────────────── */}
+      <section className="bg-[#0a0f1e] py-16 px-6">
+        <div className="max-w-6xl mx-auto">
+          <span className="section-label font-outfit">YOUR INSTRUCTORS</span>
+          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-white mt-1 mb-10">
+            The people in the car with you
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+            {[
+              {
+                initial: 'M',
+                name: 'Mick',
+                role: 'Head Instructor',
+                phone: '0469 370 978',
+                bio: `Teaching Sydney drivers since ${TRUST_STATS.yearEstablished}. Specialises in learner drivers, driving test prep, and overseas licence conversion. Calm, structured, and direct — students failing elsewhere regularly pass first time with Mick.`,
+                tags: ['Learner drivers', 'Test prep', 'Overseas conversion'],
+              },
+              {
+                initial: 'S',
+                name: 'Sidra',
+                role: 'Senior Instructor · Female',
+                phone: '0451 331 140',
+                bio: 'Senior female instructor available across all 24 suburbs. Many students specifically request Sidra for a more comfortable learning environment. Covers learner lessons, test prep, and overseas conversion.',
+                tags: ['Female instructor', 'Nervous learners', 'Overseas conversion'],
+              },
+            ].map((inst) => (
+              <div
+                key={inst.name}
+                className="rounded-2xl p-7 flex flex-col gap-4"
+                style={{ background: '#0f1829', border: '1px solid rgba(255,255,255,0.07)' }}
+              >
+                <div className="flex items-center gap-4">
+                  {/* TODO: Replace with real photo */}
+                  <div
+                    className="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ background: 'rgba(245,200,66,0.1)' }}
+                  >
+                    <span className="font-syne font-bold text-[#F5C842] text-2xl">{inst.initial}</span>
+                  </div>
+                  <div>
+                    <p className="font-syne font-bold text-white text-lg">{inst.name}</p>
+                    <p className="font-outfit text-[#F5C842] text-xs">{inst.role}</p>
+                  </div>
+                </div>
+                <p className="font-outfit text-gray-300 text-sm leading-relaxed">{inst.bio}</p>
+                <div className="flex flex-wrap gap-2">
+                  {inst.tags.map((t) => (
+                    <span
+                      key={t}
+                      className="font-outfit text-xs px-2.5 py-1 rounded-full text-gray-400"
+                      style={{ background: '#1a2235', border: '1px solid rgba(255,255,255,0.07)' }}
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <a
+                  href={`tel:${inst.phone.replace(/\s/g, '')}`}
+                  className="font-outfit text-sm text-[#F5C842] hover:text-white transition-colors"
+                >
+                  📞 {inst.phone}
+                </a>
+              </div>
+            ))}
+          </div>
+          <div className="text-center">
+            <Link
+              href="/instructors"
+              className="font-outfit text-sm text-gray-400 hover:text-[#F5C842] transition-colors underline underline-offset-4"
+            >
+              Full instructor profiles →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── PRICING ───────────────────────────────────────────────────── */}
       <section id="pricing" className="bg-[#0B1628] py-[72px] px-6">
         <div className="max-w-6xl mx-auto">
@@ -576,7 +652,7 @@ export default function HomePage() {
             Simple, honest pricing
           </h2>
           <p className="font-outfit text-white/50 text-base">
-            No hidden fees. Packages confirmed when we contact you.
+            No hidden fees. Your rate confirmed instantly when you book.
           </p>
 
           {/* Group 1: Casual */}

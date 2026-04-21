@@ -49,7 +49,7 @@ const allFAQs = [
   {
     question: "Why do some prices say 'from'?",
     answer:
-      "Our casual lesson prices are starting rates. The final price is confirmed when we contact you to confirm your booking — it may vary slightly based on your suburb and availability. Package prices (5-hour, 10-hour) and test preparation prices are fixed and locked in when you book.",
+      "Our casual lesson prices start from $60/hr. Your exact rate is confirmed instantly when you book — it varies slightly based on your suburb. Suburbs close to North Ryde are at the base rate; more distant suburbs may be slightly higher. Package prices (5-hour, 10-hour) and test preparation prices are fixed at the rates shown.",
   },
   {
     question: 'How does the referral discount work?',

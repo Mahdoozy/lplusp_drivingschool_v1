@@ -267,10 +267,25 @@ export default function Pricing() {
           <span className="section-rule" />
         </div>
 
+        {/* ── Zone pricing note ── */}
+        <div
+          className="rounded-xl px-6 py-4 mb-10 flex flex-col sm:flex-row sm:items-center gap-3"
+          style={{ background: 'rgba(245,200,66,0.06)', border: '1px solid rgba(245,200,66,0.15)' }}
+        >
+          <svg className="w-5 h-5 text-[#F5C842] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <p className="font-sans text-sm text-[#c0ccee]">
+            <span className="text-[#F5C842] font-semibold">Prices start from $60/hr</span> for suburbs near North Ryde.
+            Rate is confirmed instantly when you book — no surprises.
+          </p>
+        </div>
+
         {/* ── Row 1: Casual Lessons ── */}
         <SectionRow
           heading="Casual Lessons"
-          subtext="Book as you go — no upfront commitment required. Final price confirmed when we contact you."
+          subtext="Book as you go — no upfront commitment required."
         />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
           {casualLessons.map((p) => (
@@ -351,7 +366,7 @@ export default function Pricing() {
 
         {/* ── Disclaimer ── */}
         <p className="font-sans text-[11px] text-[#4a5a7a] leading-relaxed max-w-3xl mx-auto text-center">
-          * Casual lesson prices start from the rates shown. Final pricing is confirmed when we contact you to confirm your booking — it may vary slightly based on your suburb and scheduling. Package and test preparation prices are fixed when booked online with payment.
+          * Casual lesson prices start from $60/hr. Your exact rate is confirmed instantly when you submit a booking — it may vary slightly based on your suburb. Package and test preparation prices are fixed at the rates shown.
         </p>
 
       </div>
