@@ -316,3 +316,11 @@ body {
     animation: none;
   }
 }
+
+.suburb-area-link {
+  transition: color 0.15s, padding-left 0.15s;
+}
+.suburb-area-link:hover {
+  color: var(--gold-deep) !important;
+  padding-left: 0.4rem;
+}

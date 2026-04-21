@@ -582,7 +582,7 @@ export default async function SuburbPage({ params }: Props) {
                 <Link
                   key={s.slug}
                   href={`/driving-lessons/${s.slug}`}
-                  className="font-outfit"
+                  className="suburb-area-link font-outfit"
                   style={{
                     display: 'block',
                     padding: '0.7rem 0',
@@ -590,15 +590,6 @@ export default async function SuburbPage({ params }: Props) {
                     color: 'var(--navy-ink)',
                     textDecoration: 'none',
                     fontSize: '0.9375rem',
-                    transition: 'color 0.15s, padding-left 0.15s',
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLAnchorElement).style.color = 'var(--gold-deep)';
-                    (e.currentTarget as HTMLAnchorElement).style.paddingLeft = '0.4rem';
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLAnchorElement).style.color = 'var(--navy-ink)';
-                    (e.currentTarget as HTMLAnchorElement).style.paddingLeft = '0';
                   }}
                 >
                   {s.name}
