@@ -1413,19 +1413,109 @@ export default function HomePage() {
         `}</style>
       </section>
 
-      {/* ── FINAL CTA (placeholder \u2014 rebuilt Section 10) ────────────── */}
-      <section className="py-[64px] px-6 text-center" style={{ background: 'var(--navy)', color: 'var(--cream)' }}>
-        <div className="max-w-2xl mx-auto">
-          <h2 className="font-syne font-semibold text-3xl sm:text-4xl mb-4">
-            Ready to start?
-          </h2>
-          <Link
-            href="/book"
-            className="inline-block px-8 py-4"
-            style={{ background: 'var(--gold)', color: 'var(--navy-ink)' }}
+      {/* ══════════════════════════════════════════════════════════════════
+          SECTION 10 — FINAL CTA
+          ══════════════════════════════════════════════════════════════════ */}
+      <section style={{ background: 'var(--navy)', color: 'var(--cream)', padding: '64px 32px' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+          <p
+            style={{
+              fontFamily: 'var(--type-mono)',
+              fontSize: '11px',
+              textTransform: 'uppercase',
+              letterSpacing: '0.18em',
+              color: 'var(--gold)',
+              margin: 0,
+              marginBottom: '20px',
+            }}
           >
-            Book your first lesson →
-          </Link>
+            Booking slots open this week
+          </p>
+          <h2
+            style={{
+              fontFamily: 'var(--type-display)',
+              fontSize: 'clamp(32px, 6vw, 56px)',
+              fontWeight: 600,
+              lineHeight: 1.05,
+              letterSpacing: '-0.02em',
+              color: 'var(--cream)',
+              margin: 0,
+              marginBottom: '24px',
+            }}
+          >
+            Ready to start?{' '}
+            <span style={{ fontStyle: 'italic', fontWeight: 500, color: 'var(--gold)' }}>
+              We&apos;re waiting.
+            </span>
+          </h2>
+          <p
+            style={{
+              fontSize: '16px',
+              lineHeight: 1.6,
+              color: 'rgba(250, 247, 242, 0.7)',
+              maxWidth: '44ch',
+              margin: '0 auto 36px',
+            }}
+          >
+            We reply within the hour. Pick-up from your home, school, or Macquarie Uni campus.
+          </p>
+
+          <div
+            className="final-cta-row"
+            style={{
+              display: 'flex',
+              gap: '16px',
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+              marginBottom: '24px',
+            }}
+          >
+            <Link
+              href="/book"
+              style={{
+                background: 'var(--gold)',
+                color: 'var(--navy-ink)',
+                padding: '18px 36px',
+                fontFamily: 'var(--type-body)',
+                fontSize: '15px',
+                fontWeight: 500,
+                letterSpacing: '0.01em',
+                display: 'inline-block',
+              }}
+            >
+              Book your first lesson →
+            </Link>
+            <a
+              href="https://wa.me/61469370978"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                background: 'transparent',
+                color: 'var(--cream)',
+                padding: '18px 36px',
+                fontFamily: 'var(--type-body)',
+                fontSize: '15px',
+                fontWeight: 500,
+                letterSpacing: '0.01em',
+                border: '1px solid rgba(250, 247, 242, 0.3)',
+                display: 'inline-block',
+              }}
+            >
+              WhatsApp us
+            </a>
+          </div>
+
+          <p
+            style={{
+              fontFamily: 'var(--type-mono)',
+              fontSize: '13px',
+              color: 'rgba(250, 247, 242, 0.5)',
+              margin: 0,
+            }}
+          >
+            <a href="tel:0469370978" style={{ color: 'inherit' }}>Mick 0469 370 978</a> ·{' '}
+            <a href="tel:0451331140" style={{ color: 'inherit' }}>Sidra 0451 331 140</a>
+          </p>
         </div>
       </section>
     </>
