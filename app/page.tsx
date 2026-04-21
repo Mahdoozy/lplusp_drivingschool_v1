@@ -4,6 +4,7 @@ import { TRUST_STATS } from '@/lib/trustStats';
 import { suburbs } from '@/lib/suburbs';
 import FAQSection from '@/components/FAQSection';
 import InstructorCard from '@/components/InstructorCard';
+import MatchCard from '@/components/MatchCard';
 
 export const metadata: Metadata = {
   title: 'L Plus P Driving School | Driving Lessons Sydney | Est. 1997',
@@ -26,28 +27,38 @@ const faqs = [
   },
 ];
 
-/* ── Matchmaker archetypes (replaced in Section 4) ───────────────────── */
+/* ── Matchmaker archetypes (Section 4) ───────────────────────────────── */
 const matchmaker = [
   {
-    tag: 'Just got my Ls',
-    title: 'Start with the basics \u2014 properly',
-    body: 'Complete beginners pick up faster when they start with a structured instructor. Every hour with us counts as 3 logbook hours under the 3-for-1 scheme.',
-    cta: 'Learner driver lessons',
-    href: '/book?service=learner',
+    number: '01',
+    variant: 'light' as const,
+    title: 'I just got my Ls.',
+    body: 'Fresh learner driver. Zero experience. Needs patient teaching from scratch + logbook hours fast.',
+    packageLabel: '10-hour pack',
+    price: '$550',
+    ctaLabel: 'Book now \u2192',
+    ctaHref: '/book?service=learner',
   },
   {
-    tag: 'Test in 2 weeks',
-    title: 'Lock in test-route practice',
-    body: 'We know every turn on the Ryde, Silverwater, Castle Hill, Chatswood and Hornsby routes. 2\u20133 targeted lessons is usually enough.',
-    cta: 'Test prep lessons',
-    href: '/book?service=test-prep',
+    number: '02',
+    variant: 'dark' as const,
+    badge: 'Most booked',
+    title: 'My test is in 2 weeks.',
+    body: 'Test booked. Needs serious prep on the actual routes Service NSW examiners use. Fast, focused.',
+    packageLabel: '6hr + test day',
+    price: '$500',
+    ctaLabel: 'Book now \u2192',
+    ctaHref: '/book?service=test-prep',
   },
   {
-    tag: 'Failed last time',
-    title: 'Fix what went wrong \u2014 fast',
-    body: 'Most second-attempt students pass in 2\u20133 lessons once we pinpoint the issue. Mock tests on the actual route tell us exactly what to fix.',
-    cta: 'Book a mock test',
-    href: '/book?service=test-prep',
+    number: '03',
+    variant: 'light' as const,
+    title: 'I failed last time.',
+    body: 'Been there. Mock test identifies what went wrong, then 2\u20133 lessons to fix it. Most pass next try.',
+    packageLabel: 'Mock test',
+    price: '$65',
+    ctaLabel: 'Book now \u2192',
+    ctaHref: '/book?service=test-prep',
   },
 ];
 
@@ -289,28 +300,65 @@ export default function HomePage() {
         `}</style>
       </section>
 
-      {/* ── MATCHMAKER (placeholder \u2014 rebuilt Section 4) ─────────── */}
-      <section style={{ background: 'var(--paper)' }} className="py-[72px] px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="font-mono text-xs uppercase tracking-widest" style={{ color: 'var(--ink-60)' }}>Start here</span>
-            <h2 className="font-syne font-bold text-3xl sm:text-4xl mt-2" style={{ color: 'var(--navy-ink)' }}>
-              Which one sounds like you?
+      {/* ══════════════════════════════════════════════════════════════════
+          SECTION 4 — MATCHMAKER
+          ══════════════════════════════════════════════════════════════════ */}
+      <section style={{ background: 'var(--cream)', padding: '72px 32px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ maxWidth: '640px', marginBottom: '48px' }}>
+            <p
+              style={{
+                fontFamily: 'var(--type-display)',
+                fontSize: '24px',
+                color: 'var(--gold-deep)',
+                margin: 0,
+                marginBottom: '8px',
+              }}
+            >
+              02
+            </p>
+            <p
+              style={{
+                fontFamily: 'var(--type-mono)',
+                fontSize: '11px',
+                textTransform: 'uppercase',
+                letterSpacing: '0.18em',
+                color: 'var(--ink-60)',
+                margin: 0,
+                marginBottom: '20px',
+              }}
+            >
+              Where do you start?
+            </p>
+            <h2
+              style={{
+                fontFamily: 'var(--type-display)',
+                fontSize: 'clamp(32px, 5vw, 48px)',
+                fontWeight: 600,
+                lineHeight: 1.05,
+                letterSpacing: '-0.02em',
+                color: 'var(--navy-ink)',
+                margin: 0,
+              }}
+            >
+              Three ways{' '}
+              <span style={{ fontStyle: 'italic', fontWeight: 500, color: 'var(--gold-deep)' }}>
+                people find us.
+              </span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
+
+          <div
+            className="match-grid"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '24px',
+              alignItems: 'stretch',
+            }}
+          >
             {matchmaker.map((m) => (
-              <Link
-                key={m.tag}
-                href={m.href}
-                className="group flex flex-col p-7 rounded-sm"
-                style={{ background: '#f7f4ee', border: '1px solid var(--hairline)' }}
-              >
-                <span className="font-mono text-xs uppercase tracking-widest mb-3" style={{ color: 'var(--gold-deep)' }}>{m.tag}</span>
-                <h3 className="font-syne font-semibold text-xl mb-3" style={{ color: 'var(--navy-ink)' }}>{m.title}</h3>
-                <p className="text-sm leading-relaxed flex-1 mb-5" style={{ color: 'var(--ink-60)' }}>{m.body}</p>
-                <span className="font-medium text-sm" style={{ color: 'var(--navy-ink)' }}>{m.cta} →</span>
-              </Link>
+              <MatchCard key={m.number} {...m} />
             ))}
           </div>
         </div>
