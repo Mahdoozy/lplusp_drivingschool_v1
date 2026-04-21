@@ -4,14 +4,13 @@ import { posts } from '@/lib/posts'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://lppdrivingschool.com.au'
 
-  // All 27 suburbs matching lib/suburbs.ts
+  // All 24 suburbs matching lib/suburbs.ts
   const suburbs = [
     'north-ryde', 'east-ryde', 'ryde', 'west-ryde', 'macquarie-park',
     'eastwood', 'epping', 'castle-hill', 'north-rocks', 'carlingford',
     'beecroft', 'telopea', 'dundas', 'ermington', 'rydalmere',
     'melrose-park', 'meadowbank', 'rhodes', 'gladesville', 'putney',
     'silverwater', 'newington', 'auburn', 'chatswood',
-    'hornsby', 'blacktown', 'bankstown',
   ]
 
   const suburbPages = suburbs.map((suburb) => ({

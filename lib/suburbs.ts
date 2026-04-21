@@ -29,9 +29,6 @@ export const suburbs: Suburb[] = [
   { slug: 'newington', name: 'Newington', testCentre: 'Silverwater' },
   { slug: 'auburn', name: 'Auburn', testCentre: 'Silverwater' },
   { slug: 'chatswood', name: 'Chatswood', testCentre: 'Chatswood' },
-  { slug: 'hornsby', name: 'Hornsby', testCentre: 'Hornsby' },
-  { slug: 'blacktown', name: 'Blacktown', testCentre: 'Blacktown' },
-  { slug: 'bankstown', name: 'Bankstown', testCentre: 'Bankstown' },
 ];
 
 export function getSuburbBySlug(slug: string): Suburb | undefined {

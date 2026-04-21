@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { suburbs, getSuburbBySlug } from '@/lib/suburbs';
-import { SUBURBS } from '@/data/suburbs';
+import { SUBURBS, getSuburb } from '@/data/suburbs';
 import { TRUST_STATS } from '@/lib/trustStats';
 import Pricing from '@/components/Pricing';
 import CTABanner from '@/components/CTABanner';
@@ -38,8 +38,7 @@ export default async function SuburbPage({ params }: Props) {
 
   const data = SUBURBS[slug];
 
-  const hasChallenges = data?.commonChallenges?.some((c) => c.title && c.description);
-  const hasTestimonial = data?.suburbTestimonial?.quote;
+  const hasChallenges = data?.commonChallenges?.length > 0;
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -143,15 +142,13 @@ export default async function SuburbPage({ params }: Props) {
                 <p className="text-white font-bold text-lg">{data.nearestTestCentre.name}</p>
                 <p className="text-gray-400 text-sm">{data.nearestTestCentre.address}</p>
                 <div className="flex gap-4 text-sm text-gray-400 mt-1">
-                  <span>{data.nearestTestCentre.distanceKm} km away</span>
-                  <span>·</span>
-                  <span>~{data.nearestTestCentre.travelTimeMinutes} min drive</span>
+                  <span className="text-[#F5C842] font-semibold">{data.nearestTestCentre.passRate}% pass rate</span>
                 </div>
                 <p
-                  className="text-sm mt-2 rounded-lg px-4 py-3 italic"
-                  style={{ background: 'rgba(245,200,66,0.08)', color: '#F5C842' }}
+                  className="text-sm mt-2 rounded-lg px-4 py-3"
+                  style={{ background: 'rgba(245,200,66,0.08)', color: '#c8c8c8' }}
                 >
-                  💡 {data.nearestTestCentre.tip}
+                  {data.nearestTestCentre.notes}
                 </p>
               </div>
             </div>
@@ -242,29 +239,17 @@ export default async function SuburbPage({ params }: Props) {
       {/* ── PRICING ──────────────────────────────────────────────────── */}
       <Pricing />
 
-      {/* ── TESTIMONIAL (only if populated) ──────────────────────────── */}
-      {hasTestimonial && (
+      {/* ── LOCAL INSIGHT ─────────────────────────────────────────────── */}
+      {data?.localInsight && (
         <section className="bg-[#060b15] py-12">
-          <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div
-              className="rounded-2xl p-8 flex flex-col gap-4"
-              style={{ background: '#0f1829', border: '1px solid rgba(245,200,66,0.15)' }}
-            >
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-4 h-4 text-[#F5C842]" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="text-gray-300 text-base italic leading-relaxed">
-                &ldquo;{data.suburbTestimonial.quote}&rdquo;
-              </p>
-              <div>
-                <p className="text-[#F5C842] font-semibold text-sm">{data.suburbTestimonial.name}</p>
-                <p className="text-gray-500 text-xs mt-0.5">Passed at {data.suburbTestimonial.passedAt}</p>
-              </div>
-            </div>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-extrabold text-white mb-4">
+              What to know about driving in{' '}
+              <span className="text-[#FFD700]">{suburb.name}</span>
+            </h2>
+            <p className="text-gray-300 text-base leading-relaxed max-w-2xl">
+              {data.localInsight}
+            </p>
           </div>
         </section>
       )}
