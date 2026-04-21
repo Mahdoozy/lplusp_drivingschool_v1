@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { TRUST_STATS } from '@/lib/trustStats';
 import { suburbs } from '@/lib/suburbs';
 import FAQSection from '@/components/FAQSection';
+import InstructorCard from '@/components/InstructorCard';
 
 export const metadata: Metadata = {
   title: 'L Plus P Driving School | Driving Lessons Sydney | Est. 1997',
@@ -50,25 +51,35 @@ const matchmaker = [
   },
 ];
 
-/* ── Instructors (replaced in Section 3) ─────────────────────────────── */
+/* ── Instructors (Section 3) ─────────────────────────────────────────── */
 const instructors = [
   {
     initial: 'M',
+    title: 'Head instructor · Since 1997',
     name: 'Mick',
-    role: 'Head Instructor',
+    tagline: 'The instructor who gets you through test day.',
+    bio: [
+      "28 years of teaching Sydney learners. Specialises in nervous students, overseas drivers, and the ones who've failed before and think they can't pass. Knows every test centre route in north-west Sydney by heart.",
+    ],
+    quote: '\u201CMy job isn\u2019t to get you to pass once. It\u2019s to make sure you drive safely for the next fifty years.\u201D',
     phone: '0469 370 978',
-    tel: '0469370978',
-    bio: `Teaching Sydney drivers since ${TRUST_STATS.yearEstablished}.`,
-    quote: '\u201CPass first time or we keep working until you do.\u201D',
+    phoneHref: 'tel:0469370978',
+    bookHref: '/book?instructor=mick',
   },
   {
     initial: 'S',
+    badge: 'Student favourite',
+    title: 'Senior instructor · Loved by students',
     name: 'Sidra',
-    role: 'Senior Instructor',
+    tagline: 'Calm, patient, and somehow makes driving fun.',
+    bio: [
+      'If you\u2019ve ever sat in a driving lesson and felt your palms sweat, Sidra is your instructor. She teaches with excitement, not pressure. Her students describe her as warm, endlessly patient, and the person who took them from \u201CI can\u2019t do this\u201D to passing first try.',
+      "Perfect for learners who prefer a female instructor, anyone nervous behind the wheel, or students coming back to driving after a break. Confidence boosted from zero \u2014 that\u2019s her specialty.",
+    ],
+    quote: '\u201CSidra is a fantastic instructor \u2014 calm, patient and incredibly knowledgeable. I was nervous every lesson but she always put me at ease. Passed first attempt.\u201D \u2014 Priya M., Eastwood',
     phone: '0451 331 140',
-    tel: '0451331140',
-    bio: 'Senior female instructor available across all 24 suburbs.',
-    quote: '\u201CA calm car is a safe car.\u201D',
+    phoneHref: 'tel:0451331140',
+    bookHref: '/book?instructor=sidra',
   },
 ];
 
@@ -305,35 +316,91 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── INSTRUCTORS (placeholder \u2014 rebuilt Section 3) ────────── */}
-      <section className="py-[72px] px-6" style={{ background: 'var(--navy)', color: 'var(--cream)' }}>
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-syne font-semibold text-3xl sm:text-4xl mb-10" style={{ color: 'var(--cream)' }}>
-            Your instructors
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+      {/* ══════════════════════════════════════════════════════════════════
+          SECTION 3 — INSTRUCTORS (equal-height cards)
+          ══════════════════════════════════════════════════════════════════ */}
+      <section style={{ background: 'var(--navy)', color: 'var(--cream)', padding: '72px 32px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          {/* Header */}
+          <div style={{ maxWidth: '640px', marginBottom: '48px' }}>
+            <p
+              style={{
+                fontFamily: 'var(--type-display)',
+                fontSize: '24px',
+                color: 'var(--gold)',
+                margin: 0,
+                marginBottom: '8px',
+              }}
+            >
+              01
+            </p>
+            <p
+              style={{
+                fontFamily: 'var(--type-mono)',
+                fontSize: '11px',
+                textTransform: 'uppercase',
+                letterSpacing: '0.18em',
+                color: 'rgba(250, 247, 242, 0.55)',
+                margin: 0,
+                marginBottom: '20px',
+              }}
+            >
+              Your instructors
+            </p>
+            <h2
+              style={{
+                fontFamily: 'var(--type-display)',
+                fontSize: 'clamp(32px, 5vw, 48px)',
+                fontWeight: 600,
+                lineHeight: 1.05,
+                letterSpacing: '-0.02em',
+                color: 'var(--cream)',
+                margin: 0,
+                marginBottom: '20px',
+              }}
+            >
+              You&apos;ll learn with{' '}
+              <span style={{ fontStyle: 'italic', fontWeight: 500, color: 'var(--gold)' }}>
+                Mick or Sidra.
+              </span>
+            </h2>
+            <p
+              style={{
+                fontSize: '17px',
+                lineHeight: 1.5,
+                color: 'rgba(250, 247, 242, 0.6)',
+                maxWidth: '50ch',
+                margin: 0,
+              }}
+            >
+              Not whoever&apos;s available that day. Two instructors, two phone numbers. Pick the one you want.
+            </p>
+          </div>
+
+          {/* Cards grid */}
+          <div
+            className="instructor-grid"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+              gap: '40px',
+              alignItems: 'stretch',
+            }}
+          >
             {instructors.map((inst) => (
-              <div
-                key={inst.name}
-                className="p-7 flex flex-col h-full"
-                style={{ background: 'var(--navy-elevated)', border: '1px solid rgba(245,200,66,0.2)' }}
-              >
-                <p className="font-syne font-bold text-2xl mb-2" style={{ color: 'var(--cream)' }}>{inst.name}</p>
-                <p className="font-mono text-xs uppercase tracking-wider mb-4" style={{ color: 'var(--gold)' }}>{inst.role}</p>
-                <p className="text-sm leading-relaxed mb-5 flex-1" style={{ color: 'rgba(250,247,242,0.8)' }}>{inst.bio}</p>
-                <p className="italic text-sm mb-5 pl-3" style={{ borderLeft: '2px solid var(--gold)', color: 'rgba(250,247,242,0.9)' }}>{inst.quote}</p>
-                <div className="flex gap-3 mt-auto">
-                  <Link href="/book" className="flex-1 text-center font-mono text-xs px-4 py-3" style={{ background: 'var(--gold)', color: 'var(--navy-ink)' }}>
-                    Book with {inst.name}
-                  </Link>
-                  <a href={`tel:${inst.tel}`} className="flex-1 text-center font-mono text-xs px-4 py-3" style={{ color: 'var(--gold)', border: '1px solid rgba(245,200,66,0.3)' }}>
-                    {inst.phone}
-                  </a>
-                </div>
-              </div>
+              <InstructorCard key={inst.name} {...inst} />
             ))}
           </div>
         </div>
+
+        <style>{`
+          @media (max-width: 860px) {
+            .instructor-grid {
+              grid-template-columns: 1fr !important;
+              gap: 32px !important;
+            }
+          }
+        `}</style>
       </section>
 
       {/* ── PRICING (placeholder \u2014 rebuilt Section 5) ──────────────── */}
