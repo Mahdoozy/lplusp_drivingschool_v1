@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Female Driving Instructor Sydney | L Plus P Driving School',
   description:
     "Looking for a female driving instructor in Sydney's north-west? Sidra is L Plus P's experienced female instructor covering North Ryde, Eastwood, Epping, Carlingford and 27 suburbs. Book online.",
+  alternates: { canonical: '/female-instructor' },
 };
 
 const audiences = [

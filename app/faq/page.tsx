@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Frequently Asked Questions | L Plus P Driving School',
   description:
     'Answers to common questions about driving lessons, pricing, the 3-for-1 logbook scheme, test preparation, automatic vehicles, and booking with L Plus P Driving School in Sydney.',
+  alternates: { canonical: '/faq' },
 };
 
 const allFAQs = [

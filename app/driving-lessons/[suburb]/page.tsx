@@ -26,6 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `Driving Lessons in ${suburb.name} from $60/hr | L Plus P Driving School`,
     description: `Expert driving lessons in ${suburb.name}. ${TRUST_STATS.rating}★ (${TRUST_STATS.reviewCount}+ reviews). Est. ${TRUST_STATS.yearEstablished}. Free pick-up. ${TRUST_STATS.firstAttemptPassRate}% first-attempt pass rate at ${testCentreName}.`,
+    alternates: { canonical: `/driving-lessons/${slug}` },
   };
 }
 

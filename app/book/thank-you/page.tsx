@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     index: false,
     follow: true,
   },
+  alternates: { canonical: '/book/thank-you' },
 };
 
 const referralMessage = encodeURIComponent(

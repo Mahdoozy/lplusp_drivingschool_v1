@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: 'L Plus P Driving School | Driving Lessons Sydney | Est. 1997',
   description:
     "Sydney's most trusted driving school since 1997. Expert driving lessons in North Ryde, Ryde, Epping, Castle Hill, Hornsby, Blacktown, Bankstown and 27 suburbs. Automatic cars, 3-for-1 logbook hours. Call Mick 0469 370 978.",
+  alternates: { canonical: '/' },
 };
 
 /* ── FAQ data ─────────────────────────────────────────────────────────── */

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Driving Lesson Services | L Plus P Driving School Sydney',
   description:
     'Driving lesson services in Sydney: Learner driver lessons, driving test preparation, overseas licence conversion, logbook hours, EV familiarisation, senior refresher, P-plate confidence. All lessons in our automatic cars.',
+  alternates: { canonical: '/services' },
 };
 
 const servicesData = [

@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.title + ' | L Plus P Driving School',
     description: post.excerpt,
+    alternates: { canonical: `/blog/${slug}` },
   };
 }
 

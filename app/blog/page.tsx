@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Driving Guides & Tips | L Plus P Driving School Blog',
   description:
     'Helpful guides for NSW learner drivers — logbook hours, overseas licence conversion, test prep tips and more from L Plus P Driving School.',
+  alternates: { canonical: '/blog' },
 };
 
 export default function BlogIndexPage() {

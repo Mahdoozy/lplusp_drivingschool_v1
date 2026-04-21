@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Female Driving Instructor Sydney | Learn with Sidra | L Plus P',
   description:
     'Prefer a female driving instructor? Learn with Sidra at L Plus P Driving School, Sydney. Specialising in learner drivers, female students, logbook hours, and overseas licence conversion. Call 0451 331 140.',
+  alternates: { canonical: '/services/female-instructor' },
 };
 
 export default function FemaleInstructorPage() {

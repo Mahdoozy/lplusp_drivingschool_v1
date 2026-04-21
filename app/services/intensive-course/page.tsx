@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Intensive Driving Course Sydney | Fast-Track Lessons | L Plus P',
   description:
     'Intensive driving course in Sydney with L Plus P. Multiple lessons in one week — ideal if your test is approaching, you recently moved to Sydney, or need to get your licence fast. Call 0469 370 978.',
+  alternates: { canonical: '/services/intensive-course' },
 };
 
 export default function IntensiveCoursePage() {

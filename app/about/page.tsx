@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'About L Plus P Driving School | Mick & Sidra | Est. 1997 North Ryde',
   description:
     'L Plus P Driving School has been teaching Sydney drivers since 1997. Meet Mick and Sidra — North Ryde\'s most trusted driving instructors for 27 years.',
+  alternates: { canonical: '/about' },
 };
 
 const values = [

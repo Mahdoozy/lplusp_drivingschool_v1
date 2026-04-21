@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'Overseas Licence Conversion Sydney | L Plus P Driving School',
   description:
     'Holding a foreign licence? L Plus P Driving School helps you convert your overseas driving licence to a NSW licence. Serving North Ryde, Eastwood, Epping and 27 suburbs. Book online.',
+  alternates: { canonical: '/overseas-licence-conversion' },
 };
 
 const steps = [

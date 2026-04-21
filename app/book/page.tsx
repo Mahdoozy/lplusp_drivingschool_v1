@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'Book a Driving Lesson | L Plus P Driving School Sydney',
   description:
     'Book your driving lesson online with L Plus P Driving School. Serving North Ryde, Ryde, Epping, Castle Hill and 20+ Sydney suburbs. We confirm within 1 hour.',
+  alternates: { canonical: '/book' },
 };
 
 export default function BookPage() {
