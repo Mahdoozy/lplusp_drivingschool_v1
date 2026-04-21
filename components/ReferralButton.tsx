@@ -40,9 +40,9 @@ export default function ReferralButton() {
             <div className="w-10 h-1 rounded-full mx-auto" style={{ background: '#e2e8f4' }} />
 
             <div className="flex flex-col gap-1">
-              <h3 className="font-syne font-bold text-xl text-[#0d1b3e]">Refer a mate — you both save 10%</h3>
+              <h3 className="font-syne font-bold text-xl text-[#0d1b3e]">Refer a mate</h3>
               <p className="font-sans text-[#3a4a6a] text-sm">
-                Refer a mate. They save 10% on their first lesson. You save 10% on your next. Refer as many as you like.
+                They save 10% on their first lesson. You save 10% on your next. Do it as often as you like.
               </p>
             </div>
 

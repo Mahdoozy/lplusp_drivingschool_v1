@@ -1210,13 +1210,56 @@ export default function HomePage() {
         `}</style>
       </section>
 
-      {/* ── REFERRAL (placeholder \u2014 rebuilt Section 8) ─────────────── */}
-      <section className="py-14 px-6 text-center" style={{ background: 'var(--navy)', color: 'var(--cream)' }}>
-        <div className="max-w-2xl mx-auto">
-          <p className="font-syne text-xl sm:text-2xl leading-snug">
-            They save 10% on their first lesson. You save 10% on your next. <em style={{ color: 'var(--gold)' }}>Do it as often as you like.</em>
+      {/* ══════════════════════════════════════════════════════════════════
+          SECTION 8 — REFERRAL BANNER
+          ══════════════════════════════════════════════════════════════════ */}
+      <section style={{ background: 'var(--navy)', color: 'var(--cream)', padding: '48px 32px' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+          <p
+            style={{
+              fontFamily: 'var(--type-mono)',
+              fontSize: '11px',
+              textTransform: 'uppercase',
+              letterSpacing: '0.18em',
+              color: 'var(--gold)',
+              margin: 0,
+              marginBottom: '20px',
+            }}
+          >
+            Refer a mate
           </p>
-          <Link href="/refer" className="inline-block mt-6 px-7 py-3 border text-sm" style={{ borderColor: 'rgba(250,247,242,0.3)', color: 'var(--cream)' }}>
+          <h3
+            style={{
+              fontFamily: 'var(--type-display)',
+              fontSize: 'clamp(24px, 3.5vw, 32px)',
+              fontWeight: 500,
+              lineHeight: 1.3,
+              letterSpacing: '-0.01em',
+              color: 'var(--cream)',
+              margin: 0,
+              marginBottom: '28px',
+            }}
+          >
+            They save 10% on their first lesson.<br />
+            You save 10% on your next.{' '}
+            <span style={{ fontStyle: 'italic', fontWeight: 500, color: 'var(--gold)' }}>
+              Do it as often as you like.
+            </span>
+          </h3>
+          <Link
+            href="/refer"
+            style={{
+              display: 'inline-block',
+              background: 'transparent',
+              border: '1px solid rgba(250, 247, 242, 0.3)',
+              color: 'var(--cream)',
+              padding: '14px 28px',
+              fontFamily: 'var(--type-mono)',
+              fontSize: '13px',
+              fontWeight: 500,
+              letterSpacing: '0.02em',
+            }}
+          >
             How it works →
           </Link>
         </div>
