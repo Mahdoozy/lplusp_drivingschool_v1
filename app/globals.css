@@ -95,8 +95,9 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: #0B1628;
-  color: var(--text-primary);
+  background: var(--cream);
+  color: var(--navy-ink);
+  font-family: var(--type-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

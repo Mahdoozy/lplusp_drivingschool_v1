@@ -11,45 +11,25 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
 };
 
-/* ── FAQ data ─────────────────────────────────────────────────────────── */
+/* ── FAQ data (replaced in Section 9) ─────────────────────────────────── */
 const faqs = [
   {
     question: 'How many lessons do I need?',
     answer:
-      'It depends on your experience and how quickly you progress. Complete beginners typically need 10–20 hours. Those with some supervised driving experience usually need 5–10 hours. We assess your ability in the first lesson and recommend the right package.',
+      'Most students need between 5 and 15 hours depending on their starting level. Complete beginners usually book our 10-hour package; students who\u2019ve driven before often just need 5 hours of targeted practice before their test.',
   },
   {
     question: 'Do you cover my suburb?',
     answer:
-      'We cover 24 suburbs across north-west Sydney including North Ryde, Ryde, Epping, Carlingford, Castle Hill, Chatswood, Meadowbank, Auburn, and more. Pick-up and drop-off is always free.',
-  },
-  {
-    question: 'What is the 3-for-1 logbook scheme?',
-    answer:
-      'For learner drivers under 25, every 1 hour of professional instruction counts as 3 logbook hours. A 10-hour package counts as 30 logbook hours toward your 120-hour requirement — saving you months of supervised driving.',
-  },
-  {
-    question: 'Can I use your car for the driving test?',
-    answer:
-      'Yes. Our Test Day Package ($170) includes a 1-hour warm-up lesson, use of our dual-control automatic car for the test, and pick-up/drop-off. Available at Ryde, Silverwater, Castle Hill, Chatswood and Hornsby test centres.',
-  },
-  {
-    question: 'Do you offer overseas licence conversion?',
-    answer:
-      'Yes. We tailor lessons to help you understand Australian road rules, gain confidence on local roads, and pass the practical test first time. We also pick up from Macquarie University campus for international students.',
-  },
-  {
-    question: 'Do you have a female instructor?',
-    answer:
-      'Yes. Sidra is our senior female instructor available across all 24 suburbs. Many students specifically request Sidra for a more comfortable learning environment. Call her directly on 0451 331 140.',
+      'We cover 24 suburbs across north-west Sydney \u2014 North Ryde, Eastwood, Epping, Castle Hill, Macquarie Park, Ryde, Chatswood, Silverwater and more. If your suburb isn\u2019t listed, call Mick or Sidra \u2014 we can usually still help.',
   },
 ];
 
-/* ── Matchmaker archetypes ────────────────────────────────────────────── */
+/* ── Matchmaker archetypes (replaced in Section 4) ───────────────────── */
 const matchmaker = [
   {
     tag: 'Just got my Ls',
-    title: 'Start with the basics — properly',
+    title: 'Start with the basics \u2014 properly',
     body: 'Complete beginners pick up faster when they start with a structured instructor. Every hour with us counts as 3 logbook hours under the 3-for-1 scheme.',
     cta: 'Learner driver lessons',
     href: '/book?service=learner',
@@ -57,20 +37,20 @@ const matchmaker = [
   {
     tag: 'Test in 2 weeks',
     title: 'Lock in test-route practice',
-    body: 'We know every turn on the Ryde, Silverwater, Castle Hill, Chatswood and Hornsby routes. 2–3 targeted lessons is usually enough.',
+    body: 'We know every turn on the Ryde, Silverwater, Castle Hill, Chatswood and Hornsby routes. 2\u20133 targeted lessons is usually enough.',
     cta: 'Test prep lessons',
     href: '/book?service=test-prep',
   },
   {
     tag: 'Failed last time',
-    title: 'Fix what went wrong — fast',
-    body: 'Most second-attempt students pass in 2–3 lessons once we pinpoint the issue. Mock tests on the actual route tell us exactly what to fix.',
+    title: 'Fix what went wrong \u2014 fast',
+    body: 'Most second-attempt students pass in 2\u20133 lessons once we pinpoint the issue. Mock tests on the actual route tell us exactly what to fix.',
     cta: 'Book a mock test',
     href: '/book?service=test-prep',
   },
 ];
 
-/* ── Instructors ──────────────────────────────────────────────────────── */
+/* ── Instructors (replaced in Section 3) ─────────────────────────────── */
 const instructors = [
   {
     initial: 'M',
@@ -78,456 +58,319 @@ const instructors = [
     role: 'Head Instructor',
     phone: '0469 370 978',
     tel: '0469370978',
-    bio: `Teaching Sydney drivers since ${TRUST_STATS.yearEstablished} — over ${TRUST_STATS.yearsOperating} years on the same roads your test will be on. Mick specialises in learner drivers, driving test preparation, and overseas licence conversion. His calm, structured approach means students who failed elsewhere regularly pass first time with him.`,
-    quote: '"Pass first time or we keep working until you do."',
-    tags: ['Learner drivers', 'Test prep', 'Overseas conversion', 'Nervous drivers'],
+    bio: `Teaching Sydney drivers since ${TRUST_STATS.yearEstablished}.`,
+    quote: '\u201CPass first time or we keep working until you do.\u201D',
   },
   {
     initial: 'S',
     name: 'Sidra',
-    role: 'Senior Instructor · Female',
+    role: 'Senior Instructor',
     phone: '0451 331 140',
     tel: '0451331140',
-    bio: 'Senior female instructor available across all 24 suburbs. Students from Chinese, Korean, Indian and Middle Eastern communities specifically request Sidra for a comfortable, patient environment — it makes a real difference for learners who feel anxious. Covers learner lessons, test prep, and overseas conversion.',
-    quote: '"A calm car is a safe car."',
-    tags: ['Female instructor', 'Nervous learners', 'Overseas conversion', 'Multilingual'],
+    bio: 'Senior female instructor available across all 24 suburbs.',
+    quote: '\u201CA calm car is a safe car.\u201D',
   },
 ];
 
-/* ════════════════════════════════════════════════════════════════════════
-   PAGE
-════════════════════════════════════════════════════════════════════════ */
 export default function HomePage() {
   return (
     <>
-      {/* ── HERO ──────────────────────────────────────────────────────── */}
-      <section className="hero-texture bg-[#0B1628] py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.6fr_1fr] gap-12 lg:gap-16 items-center">
-
-            {/* Left — headline + CTAs */}
-            <div className="flex flex-col gap-6">
-              <div className="hero-tag">
-                <span className="inline-flex items-center gap-2 bg-[#F5C132]/12 border border-[#F5C132]/30 rounded-full px-3.5 py-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#F5C132] flex-shrink-0" />
-                  <span className="font-outfit font-semibold text-[#F5C132] text-xs uppercase tracking-widest">
-                    Est. {TRUST_STATS.yearEstablished} — Sydney&apos;s most trusted
-                  </span>
-                </span>
-              </div>
-
-              <h1
-                className="hero-headline font-syne font-extrabold text-white leading-[1.02]"
-                style={{ fontSize: 'clamp(44px, 7vw, 84px)' }}
-              >
-                Learn.
-                <br />
-                Practice.
-                <br />
-                <span className="hero-gold">Pass.</span>
-              </h1>
-
-              <p className="hero-subtext font-outfit text-white/70 text-base sm:text-lg leading-relaxed max-w-xl">
-                North Ryde&apos;s family-run driving school since {TRUST_STATS.yearEstablished}. Automatic cars, free pick-up and drop-off across 24 Sydney suburbs.
-              </p>
-
-              <hr
-                className="hero-rule border-0 self-start"
-                style={{ height: '1px', width: '200px', background: 'rgba(245,193,50,0.4)' }}
-              />
-
-              <div className="hero-buttons flex flex-col sm:flex-row gap-3">
-                <Link
-                  href="/book"
-                  className="bg-[#F5C132] text-[#0B1628] font-outfit font-bold px-7 py-3.5 rounded-xl hover:bg-[#E8A800] transition-colors text-center"
-                >
-                  Book a lesson →
-                </Link>
-                <a
-                  href="tel:0469370978"
-                  className="border-2 border-white/25 text-white font-outfit font-semibold px-7 py-3.5 rounded-xl hover:border-white/60 transition-colors text-center"
-                >
-                  Call Mick · 0469 370 978
-                </a>
-              </div>
-            </div>
-
-            {/* Right — stats panel */}
-            <div
-              className="rounded-2xl p-7 sm:p-8 flex flex-col gap-6"
+      {/* ══════════════════════════════════════════════════════════════════
+          SECTION 2 \u2014 HERO
+          ══════════════════════════════════════════════════════════════════ */}
+      <section style={{ background: 'var(--cream)' }}>
+        <div
+          className="hero-grid"
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            padding: '72px 32px 48px',
+            display: 'grid',
+            gridTemplateColumns: '1.6fr 1fr',
+            gap: '56px',
+            alignItems: 'end',
+          }}
+        >
+          {/* Left column */}
+          <div>
+            <p
               style={{
-                background: 'rgba(255,255,255,0.03)',
-                border: '1px solid rgba(245,193,50,0.18)',
+                fontFamily: 'var(--type-mono)',
+                fontSize: '11px',
+                textTransform: 'uppercase',
+                letterSpacing: '0.18em',
+                color: 'var(--ink-60)',
+                margin: 0,
+                marginBottom: '24px',
               }}
             >
-              <div className="flex items-center gap-2">
-                <span className="text-[#F5C132] text-base">★★★★★</span>
-                <span className="font-outfit text-white/70 text-sm">{TRUST_STATS.rating} · {TRUST_STATS.reviewCount}+ Google reviews</span>
-              </div>
+              North-West Sydney · Family-run since {TRUST_STATS.yearEstablished}
+            </p>
 
-              <div className="h-px bg-white/8" />
+            <h1
+              style={{
+                fontFamily: 'var(--type-display)',
+                fontSize: 'clamp(44px, 7vw, 76px)',
+                fontWeight: 700,
+                lineHeight: 0.95,
+                letterSpacing: '-0.03em',
+                color: 'var(--navy-ink)',
+                margin: 0,
+                marginBottom: '28px',
+              }}
+            >
+              The driving school<br />
+              your{' '}
+              <span
+                style={{
+                  fontStyle: 'italic',
+                  fontWeight: 500,
+                  color: 'var(--gold-deep)',
+                }}
+              >
+                parents
+              </span>{' '}
+              would pick.
+            </h1>
 
-              <div className="grid grid-cols-2 gap-5">
-                {[
-                  { value: `${TRUST_STATS.yearsOperating}+`, label: 'Years teaching' },
-                  { value: `${TRUST_STATS.studentsTaught.toLocaleString()}+`, label: 'Students taught' },
-                  { value: `${TRUST_STATS.firstAttemptPassRate}%`, label: 'First-attempt pass' },
-                  { value: '24', label: 'Suburbs covered' },
-                ].map((stat) => (
-                  <div key={stat.label} className="flex flex-col gap-1">
-                    <span className="font-syne font-bold text-3xl sm:text-4xl text-[#F5C132] leading-none">
-                      {stat.value}
-                    </span>
-                    <span className="font-outfit text-white/50 text-xs">{stat.label}</span>
-                  </div>
-                ))}
-              </div>
+            <p
+              style={{
+                fontSize: '19px',
+                lineHeight: 1.5,
+                color: 'var(--ink-60)',
+                maxWidth: '46ch',
+                margin: 0,
+                marginBottom: '32px',
+              }}
+            >
+              Mick and Sidra have taught over {TRUST_STATS.studentsTaught.toLocaleString()} students to drive across North-West Sydney. Automatic cars, free pick-up, patient instructors who know every local test route by heart.
+            </p>
 
-              <div className="h-px bg-white/8" />
-
-              <ul className="flex flex-col gap-2">
-                {[
-                  'Automatic cars only',
-                  'Free pick-up & drop-off',
-                  '3-for-1 logbook hours',
-                  'Female instructor available',
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 font-outfit text-white/65 text-sm">
-                    <span className="text-[#F5C132] mt-0.5 flex-shrink-0">✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+            <div
+              className="hero-ctas"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '24px',
+                flexWrap: 'wrap',
+                marginBottom: '20px',
+              }}
+            >
+              <Link
+                href="/book"
+                style={{
+                  background: 'var(--navy)',
+                  color: 'var(--cream)',
+                  padding: '18px 36px',
+                  fontFamily: 'var(--type-body)',
+                  fontSize: '15px',
+                  fontWeight: 500,
+                  letterSpacing: '0.01em',
+                  borderRadius: '2px',
+                  display: 'inline-block',
+                }}
+              >
+                Book your first lesson →
+              </Link>
+              <a
+                href="https://wa.me/61469370978"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontFamily: 'var(--type-body)',
+                  fontSize: '15px',
+                  color: 'var(--navy-ink)',
+                  fontWeight: 500,
+                  borderBottom: '1px solid var(--navy-ink)',
+                  paddingBottom: '2px',
+                }}
+              >
+                WhatsApp us
+              </a>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ── MATCHMAKER ────────────────────────────────────────────────── */}
-      <section className="bg-white py-[72px] px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="section-label-blue font-outfit">Start here</span>
-            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-[#0B1628] mt-1">
-              Which one sounds like you?
-            </h2>
-            <p className="font-outfit text-[#6B7FA8] text-base mt-3 max-w-2xl mx-auto">
-              Pick the closest match — we&apos;ll point you to the right lesson in one click.
+            <p
+              style={{
+                fontFamily: 'var(--type-mono)',
+                fontSize: '13px',
+                color: 'var(--ink-60)',
+                margin: 0,
+              }}
+            >
+              Or call direct —{' '}
+              <a href="tel:0469370978" style={{ color: 'var(--navy-ink)' }}>
+                Mick 0469 370 978
+              </a>{' '}
+              ·{' '}
+              <a href="tel:0451331140" style={{ color: 'var(--navy-ink)' }}>
+                Sidra 0451 331 140
+              </a>
             </p>
           </div>
 
+          {/* Right column \u2014 stats panel */}
+          <aside
+            className="hero-stats"
+            style={{
+              borderTop: '1px solid var(--hairline)',
+              borderBottom: '1px solid var(--hairline)',
+            }}
+          >
+            {[
+              { label: 'First-attempt pass rate', value: `${TRUST_STATS.firstAttemptPassRate}`, suffix: '%' },
+              { label: 'Students taught', value: `${TRUST_STATS.studentsTaught.toLocaleString()}+`, suffix: '' },
+              { label: 'Google reviews', value: `${TRUST_STATS.rating}`, suffix: ' \u2605' },
+            ].map((row, i, arr) => (
+              <div
+                key={row.label}
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'baseline',
+                  padding: '20px 0',
+                  borderBottom: i < arr.length - 1 ? '1px solid var(--hairline)' : 'none',
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: 'var(--type-mono)',
+                    fontSize: '11px',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.15em',
+                    color: 'var(--ink-60)',
+                  }}
+                >
+                  {row.label}
+                </span>
+                <span
+                  style={{
+                    fontFamily: 'var(--type-display)',
+                    fontSize: '32px',
+                    fontWeight: 700,
+                    color: 'var(--navy-ink)',
+                    lineHeight: 1,
+                  }}
+                >
+                  {row.value}
+                  {row.suffix && (
+                    <span style={{ color: row.suffix === '%' ? 'var(--gold-deep)' : 'var(--gold-deep)' }}>
+                      {row.suffix}
+                    </span>
+                  )}
+                </span>
+              </div>
+            ))}
+          </aside>
+        </div>
+
+        <style>{`
+          @media (max-width: 900px) {
+            .hero-grid {
+              grid-template-columns: 1fr !important;
+              gap: 40px !important;
+              padding: 48px 20px 32px !important;
+            }
+            .hero-ctas > a:first-child {
+              width: 100%;
+              text-align: center;
+            }
+          }
+        `}</style>
+      </section>
+
+      {/* ── MATCHMAKER (placeholder \u2014 rebuilt Section 4) ─────────── */}
+      <section style={{ background: 'var(--paper)' }} className="py-[72px] px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="font-mono text-xs uppercase tracking-widest" style={{ color: 'var(--ink-60)' }}>Start here</span>
+            <h2 className="font-syne font-bold text-3xl sm:text-4xl mt-2" style={{ color: 'var(--navy-ink)' }}>
+              Which one sounds like you?
+            </h2>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
             {matchmaker.map((m) => (
               <Link
                 key={m.tag}
                 href={m.href}
-                className="group flex flex-col p-7 rounded-2xl bg-[#F7F9FF] border border-[#E8EEF8] hover:border-[#F5C132] hover:shadow-[0_4px_24px_rgba(245,193,50,0.15)] transition-all"
+                className="group flex flex-col p-7 rounded-sm"
+                style={{ background: '#f7f4ee', border: '1px solid var(--hairline)' }}
               >
-                <span className="font-mono text-xs text-[#F5C132] uppercase tracking-[0.12em] mb-3">
-                  {m.tag}
-                </span>
-                <h3 className="font-heading font-bold text-xl text-[#0B1628] mb-3 leading-snug">
-                  {m.title}
-                </h3>
-                <p className="font-outfit text-[#6B7FA8] text-sm leading-relaxed flex-1 mb-5">
-                  {m.body}
-                </p>
-                <span className="font-outfit font-semibold text-sm text-[#0B1628] group-hover:text-[#E8A800] transition-colors">
-                  {m.cta} →
-                </span>
+                <span className="font-mono text-xs uppercase tracking-widest mb-3" style={{ color: 'var(--gold-deep)' }}>{m.tag}</span>
+                <h3 className="font-syne font-semibold text-xl mb-3" style={{ color: 'var(--navy-ink)' }}>{m.title}</h3>
+                <p className="text-sm leading-relaxed flex-1 mb-5" style={{ color: 'var(--ink-60)' }}>{m.body}</p>
+                <span className="font-medium text-sm" style={{ color: 'var(--navy-ink)' }}>{m.cta} →</span>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── INSTRUCTORS ───────────────────────────────────────────────── */}
-      <section className="bg-[#0a0f1e] py-[72px] px-6">
+      {/* ── INSTRUCTORS (placeholder \u2014 rebuilt Section 3) ────────── */}
+      <section className="py-[72px] px-6" style={{ background: 'var(--navy)', color: 'var(--cream)' }}>
         <div className="max-w-6xl mx-auto">
-          <div className="mb-12 max-w-2xl">
-            <span className="section-label font-outfit">Your instructors</span>
-            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-white mt-1">
-              The people in the car with you
-            </h2>
-            <p className="font-outfit text-white/55 text-base mt-3 leading-relaxed">
-              Between them, Mick and Sidra have spent over {TRUST_STATS.yearsOperating} years on Sydney roads. They know every test route, every tricky intersection, and exactly where learners go wrong.
-            </p>
-          </div>
-
-          {/* Equal-height cards: items-stretch + h-full + flex-1 on bio */}
+          <h2 className="font-syne font-semibold text-3xl sm:text-4xl mb-10" style={{ color: 'var(--cream)' }}>
+            Your instructors
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
             {instructors.map((inst) => (
               <div
                 key={inst.name}
-                className="rounded-2xl p-7 flex flex-col h-full"
-                style={{
-                  background: 'var(--navy-elevated)',
-                  border: '1px solid rgba(255,255,255,0.07)',
-                }}
+                className="p-7 flex flex-col h-full"
+                style={{ background: 'var(--navy-elevated)', border: '1px solid rgba(245,200,66,0.2)' }}
               >
-                <div className="flex items-center gap-4 mb-5">
-                  <div
-                    className="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ background: 'rgba(245,200,66,0.12)' }}
-                  >
-                    <span className="font-syne font-bold text-[#F5C842] text-2xl">{inst.initial}</span>
-                  </div>
-                  <div>
-                    <p className="font-syne font-bold text-white text-xl">{inst.name}</p>
-                    <p className="font-outfit text-[#F5C842] text-xs uppercase tracking-wider">{inst.role}</p>
-                  </div>
-                </div>
-
-                <p className="font-outfit text-gray-300 text-sm leading-relaxed mb-5 flex-1">
-                  {inst.bio}
-                </p>
-
-                <p
-                  className="font-syne italic text-white/80 text-base leading-snug mb-5 pl-4"
-                  style={{ borderLeft: '2px solid #F5C842' }}
-                >
-                  {inst.quote}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-5">
-                  {inst.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="font-outfit text-xs px-2.5 py-1 rounded-full text-gray-400"
-                      style={{ background: '#1a2235', border: '1px solid rgba(255,255,255,0.07)' }}
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-3 mt-auto">
-                  <Link
-                    href="/book"
-                    className="flex-1 text-center font-outfit font-bold text-sm px-5 py-2.5 rounded-lg transition-colors"
-                    style={{ background: '#F5C842', color: '#0a0f1e' }}
-                  >
+                <p className="font-syne font-bold text-2xl mb-2" style={{ color: 'var(--cream)' }}>{inst.name}</p>
+                <p className="font-mono text-xs uppercase tracking-wider mb-4" style={{ color: 'var(--gold)' }}>{inst.role}</p>
+                <p className="text-sm leading-relaxed mb-5 flex-1" style={{ color: 'rgba(250,247,242,0.8)' }}>{inst.bio}</p>
+                <p className="italic text-sm mb-5 pl-3" style={{ borderLeft: '2px solid var(--gold)', color: 'rgba(250,247,242,0.9)' }}>{inst.quote}</p>
+                <div className="flex gap-3 mt-auto">
+                  <Link href="/book" className="flex-1 text-center font-mono text-xs px-4 py-3" style={{ background: 'var(--gold)', color: 'var(--navy-ink)' }}>
                     Book with {inst.name}
                   </Link>
-                  <a
-                    href={`tel:${inst.tel}`}
-                    className="flex-1 text-center font-outfit font-semibold text-sm px-5 py-2.5 rounded-lg border border-white/15 text-white hover:border-white/40 transition-colors"
-                  >
+                  <a href={`tel:${inst.tel}`} className="flex-1 text-center font-mono text-xs px-4 py-3" style={{ color: 'var(--gold)', border: '1px solid rgba(245,200,66,0.3)' }}>
                     {inst.phone}
                   </a>
                 </div>
               </div>
             ))}
           </div>
-
-          <div className="text-center mt-8">
-            <Link
-              href="/instructors"
-              className="font-outfit text-sm text-white/55 hover:text-[#F5C842] transition-colors underline underline-offset-4"
-            >
-              Full instructor profiles →
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* ── PRICING ───────────────────────────────────────────────────── */}
-      <section id="pricing" className="bg-[#0B1628] py-[72px] px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-12 max-w-2xl">
-            <span className="section-label font-outfit">Transparent pricing</span>
-            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-white mt-1">
-              Simple, honest pricing
-            </h2>
-            <p className="font-outfit text-white/55 text-base mt-3">
-              No hidden fees. Starting from $60/hr — final rate confirmed instantly when you book.
-            </p>
-          </div>
+      {/* ── PRICING (placeholder \u2014 rebuilt Section 5) ──────────────── */}
+      <section id="pricing" className="py-[72px] px-6" style={{ background: 'var(--cream)' }}>
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="font-syne font-semibold text-3xl sm:text-4xl mb-4" style={{ color: 'var(--navy-ink)' }}>
+            Simple, honest rates
+          </h2>
+          <p style={{ color: 'var(--ink-60)' }}>Starting from $60/hr. Rates confirmed instantly at booking.</p>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
-            {/* Casual */}
-            <div className="rounded-2xl p-7 flex flex-col bg-[#162440] border border-white/7">
-              <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/40 mb-3">
-                Casual Lessons
-              </span>
-              <div className="flex items-baseline gap-2 mb-1">
-                <span className="font-outfit text-white/40 text-xs">from</span>
-                <span className="font-syne font-bold text-[#F5C132] text-5xl leading-none">$60</span>
-                <span className="font-outfit text-white/50 text-sm">/hr</span>
-              </div>
-              <p className="font-outfit text-white/50 text-sm mb-6">Pay as you go — no upfront commitment.</p>
-              <ul className="flex flex-col gap-2.5 mb-7 flex-1">
-                {[
-                  '1 hour — $60',
-                  '1.5 hours — $85',
-                  '2 hours — $110',
-                  'Free pick-up & drop-off',
-                  'Automatic vehicle',
-                ].map((f) => (
-                  <li key={f} className="flex items-start gap-2.5 font-outfit text-white/70 text-sm">
-                    <span className="text-[#F5C132] mt-0.5 flex-shrink-0">›</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/book"
-                className="mt-auto text-center bg-white/8 border border-white/15 text-white font-outfit font-bold text-sm py-3 rounded-lg hover:bg-white/12 transition-colors"
-              >
-                Book a lesson
-              </Link>
-            </div>
-
-            {/* Packages — FEATURED */}
-            <div
-              className="rounded-2xl p-7 flex flex-col relative"
-              style={{
-                background: 'linear-gradient(180deg, #162a54 0%, #0f1e3e 100%)',
-                border: '1.5px solid #F5C132',
-                boxShadow: '0 16px 48px rgba(0,0,0,0.4)',
-              }}
-            >
-              <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#F5C132] text-[#0B1628] font-outfit font-bold text-[10px] px-3 py-1 rounded-full uppercase tracking-[0.1em] whitespace-nowrap">
-                Most Popular
-              </span>
-              <span className="font-mono text-xs uppercase tracking-[0.12em] text-[#F5C132] mb-3">
-                10-Hour Package
-              </span>
-              <div className="flex items-baseline gap-2 mb-1">
-                <span className="font-syne font-bold text-[#F5C132] text-5xl leading-none">$550</span>
-                <span className="font-outfit text-white/50 text-sm line-through">$600</span>
-              </div>
-              <p className="font-outfit text-white/60 text-sm mb-6">Save $50 · Best value for learners.</p>
-              <ul className="flex flex-col gap-2.5 mb-7 flex-1">
-                {[
-                  '10 hours of structured lessons',
-                  '30 logbook hours (3-for-1)',
-                  'Priority scheduling',
-                  'Free pick-up & drop-off',
-                  'Valid 6 months',
-                ].map((f) => (
-                  <li key={f} className="flex items-start gap-2.5 font-outfit text-white/85 text-sm">
-                    <span className="text-[#F5C132] mt-0.5 flex-shrink-0">›</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/book"
-                className="mt-auto text-center bg-[#F5C132] text-[#0B1628] font-outfit font-bold text-sm py-3 rounded-lg hover:bg-[#E8A800] transition-colors"
-              >
-                Book 10-hour package →
-              </Link>
-            </div>
-
-            {/* Test Prep */}
-            <div className="rounded-2xl p-7 flex flex-col bg-[#162440] border border-white/7">
-              <span className="font-mono text-xs uppercase tracking-[0.12em] text-white/40 mb-3">
-                Test Prep
-              </span>
-              <div className="flex items-baseline gap-2 mb-1">
-                <span className="font-outfit text-white/40 text-xs">from</span>
-                <span className="font-syne font-bold text-[#F5C132] text-5xl leading-none">$65</span>
-              </div>
-              <p className="font-outfit text-white/50 text-sm mb-6">Know the route. Pass the test.</p>
-              <ul className="flex flex-col gap-2.5 mb-7 flex-1">
-                {[
-                  'Mock test — $65',
-                  'Test Day Package — $170',
-                  '6 hrs + Test Day — $500',
-                  'All local test routes',
-                  'Dual-control automatic',
-                ].map((f) => (
-                  <li key={f} className="flex items-start gap-2.5 font-outfit text-white/70 text-sm">
-                    <span className="text-[#F5C132] mt-0.5 flex-shrink-0">›</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/book?service=test-prep"
-                className="mt-auto text-center bg-white/8 border border-white/15 text-white font-outfit font-bold text-sm py-3 rounded-lg hover:bg-white/12 transition-colors"
-              >
-                Book test prep
-              </Link>
-            </div>
-          </div>
-
-          <p className="font-outfit text-xs text-white/35 mt-8 max-w-3xl">
-            Casual lesson rates start from $60/hr and may vary slightly by suburb. Package and test-prep prices are fixed at the rates shown. 3-for-1 logbook scheme applies to learners under 25.
+      {/* ── SOCIAL PROOF (placeholder \u2014 rebuilt Section 6) ─────────── */}
+      <section className="py-[72px] px-6" style={{ background: 'var(--cream)' }}>
+        <div className="max-w-5xl mx-auto">
+          <blockquote className="font-syne italic text-2xl leading-snug pl-5" style={{ color: 'var(--navy-ink)', borderLeft: '3px solid var(--gold-deep)' }}>
+            &ldquo;Failed twice elsewhere. Came to Mick, passed first try.&rdquo;
+          </blockquote>
+          <p className="mt-4 text-sm" style={{ color: 'var(--ink-60)' }}>
+            <span className="font-medium" style={{ color: 'var(--navy-ink)' }}>Tom W.</span> — Castle Hill
           </p>
         </div>
       </section>
 
-      {/* ── SOCIAL PROOF ──────────────────────────────────────────────── */}
-      <section className="bg-white py-[72px] px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-10 items-center">
-
-            {/* Testimonial */}
-            <figure className="flex flex-col gap-5">
-              <div className="flex items-center gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-[#F5C132]" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-              <blockquote
-                className="font-syne italic text-2xl sm:text-3xl text-[#0B1628] leading-snug pl-5"
-                style={{ borderLeft: '3px solid #F5C132' }}
-              >
-                &ldquo;After failing twice elsewhere, I came to L Plus P and passed first try. Mick identified exactly what I was doing wrong and fixed it in 3 lessons.&rdquo;
-              </blockquote>
-              <figcaption className="font-outfit text-sm text-[#6B7FA8]">
-                <span className="font-semibold text-[#0B1628]">Tom W.</span> — Castle Hill NSW
-              </figcaption>
-            </figure>
-
-            {/* Stats grid */}
-            <div className="grid grid-cols-2 gap-5">
-              {[
-                { value: `${TRUST_STATS.rating}★`, label: `${TRUST_STATS.reviewCount}+ Google reviews` },
-                { value: `${TRUST_STATS.firstAttemptPassRate}%`, label: 'First-attempt pass rate' },
-                { value: `${TRUST_STATS.studentsTaught.toLocaleString()}+`, label: 'Students taught' },
-                { value: `${TRUST_STATS.yearsOperating}+`, label: 'Years operating' },
-              ].map((stat) => (
-                <div
-                  key={stat.label}
-                  className="p-5 rounded-xl bg-[#F7F9FF] border border-[#E8EEF8]"
-                >
-                  <span className="font-syne font-bold text-3xl text-[#0B1628] block leading-none">
-                    {stat.value}
-                  </span>
-                  <span className="font-outfit text-xs text-[#6B7FA8] mt-2 block">{stat.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── SERVICE AREA (gold block) ─────────────────────────────────── */}
-      <section className="px-6 py-[72px]" style={{ background: '#F5C132' }}>
+      {/* ── SERVICE AREA (placeholder \u2014 rebuilt Section 7) ────────── */}
+      <section className="px-6 py-[72px]" style={{ background: 'var(--gold)' }}>
         <div className="max-w-6xl mx-auto">
-          <div className="mb-10 max-w-2xl">
-            <span className="font-mono text-xs uppercase tracking-[0.15em] text-[#0B1628]/60">
-              Where we teach
-            </span>
-            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-[#0B1628] mt-2">
-              24 suburbs across north-west Sydney
-            </h2>
-            <p className="font-outfit text-[#0B1628]/70 text-base mt-3">
-              Free pick-up and drop-off at every address we cover. Each suburb has its own page with local test-route intel.
-            </p>
-          </div>
-
+          <h2 className="font-syne font-semibold text-3xl sm:text-4xl mb-6" style={{ color: 'var(--navy-ink)' }}>
+            24 suburbs across north-west Sydney
+          </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-6 gap-y-2">
-            {suburbs.map((s) => (
+            {suburbs.slice(0, 12).map((s) => (
               <Link
                 key={s.slug}
                 href={`/driving-lessons/${s.slug}`}
-                className="font-outfit text-[#0B1628] text-sm py-2 border-b border-[#0B1628]/15 hover:border-[#0B1628] transition-colors"
+                className="text-sm py-2"
+                style={{ color: 'var(--navy-ink)', borderBottom: '1px solid rgba(10,21,48,0.2)' }}
               >
                 {s.name}
               </Link>
@@ -536,73 +379,41 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── REFERRAL BANNER (navy) ────────────────────────────────────── */}
-      <section className="bg-[#0a0f1e] py-14 px-6">
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-          <div className="max-w-2xl">
-            <span className="font-mono text-xs uppercase tracking-[0.15em] text-[#F5C132]">
-              Refer a mate
-            </span>
-            <h2 className="font-heading font-extrabold text-2xl sm:text-3xl text-white mt-2 mb-2">
-              Everyone you refer = another discount
-            </h2>
-            <p className="font-outfit text-white/65 text-sm sm:text-base leading-relaxed">
-              They save <span className="text-[#F5C132] font-semibold">10%</span> on their first lesson. You save <span className="text-[#F5C132] font-semibold">10%</span> on your next. Refer as many people as you like — each one earns you another discount.
-            </p>
-          </div>
-          <Link
-            href="/refer"
-            className="flex-shrink-0 font-outfit font-bold text-sm px-7 py-3.5 rounded-xl transition-colors self-start whitespace-nowrap"
-            style={{ background: '#F5C132', color: '#0B1628' }}
-          >
+      {/* ── REFERRAL (placeholder \u2014 rebuilt Section 8) ─────────────── */}
+      <section className="py-14 px-6 text-center" style={{ background: 'var(--navy)', color: 'var(--cream)' }}>
+        <div className="max-w-2xl mx-auto">
+          <p className="font-syne text-xl sm:text-2xl leading-snug">
+            They save 10% on their first lesson. You save 10% on your next. <em style={{ color: 'var(--gold)' }}>Do it as often as you like.</em>
+          </p>
+          <Link href="/refer" className="inline-block mt-6 px-7 py-3 border text-sm" style={{ borderColor: 'rgba(250,247,242,0.3)', color: 'var(--cream)' }}>
             How it works →
           </Link>
         </div>
       </section>
 
-      {/* ── FAQ ───────────────────────────────────────────────────────── */}
-      <section className="bg-white py-[72px] px-6">
+      {/* ── FAQ (placeholder \u2014 rebuilt Section 9) ──────────────────── */}
+      <section className="py-[72px] px-6" style={{ background: 'var(--cream)' }}>
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="section-label-blue font-outfit">Common questions</span>
-            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-[#0B1628] mt-1">
-              Frequently asked
-            </h2>
-            <p className="font-outfit text-[#6B7FA8] text-base mt-3">
-              Can&apos;t find your question?{' '}
-              <Link href="/faq" className="text-[#0B1628] underline underline-offset-4 hover:text-[#E8A800] transition-colors">
-                See the full FAQ
-              </Link>.
-            </p>
-          </div>
+          <h2 className="font-syne font-semibold text-3xl sm:text-4xl mb-8 text-center" style={{ color: 'var(--navy-ink)' }}>
+            Common questions
+          </h2>
           <FAQSection items={faqs} />
         </div>
       </section>
 
-      {/* ── FINAL CTA ─────────────────────────────────────────────────── */}
-      <section className="bg-[#0B1628] py-[72px] px-6 text-center">
+      {/* ── FINAL CTA (placeholder \u2014 rebuilt Section 10) ────────────── */}
+      <section className="py-[64px] px-6 text-center" style={{ background: 'var(--navy)', color: 'var(--cream)' }}>
         <div className="max-w-2xl mx-auto">
-          <span className="section-label font-outfit">Ready when you are</span>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-[42px] text-white mt-2 mb-4 leading-tight">
-            Book your first lesson
+          <h2 className="font-syne font-semibold text-3xl sm:text-4xl mb-4">
+            Ready to start?
           </h2>
-          <p className="font-outfit text-white/60 text-base mb-8">
-            One form. One hour. We&apos;ll be back in touch within 60 minutes to confirm your time.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              href="/book"
-              className="bg-[#F5C132] text-[#0B1628] font-outfit font-bold text-base px-8 py-4 rounded-xl hover:bg-[#E8A800] transition-colors"
-            >
-              Book a lesson →
-            </Link>
-            <a
-              href="tel:0469370978"
-              className="border-2 border-white/25 text-white font-outfit font-semibold text-base px-8 py-4 rounded-xl hover:border-white/60 transition-colors"
-            >
-              Call Mick · 0469 370 978
-            </a>
-          </div>
+          <Link
+            href="/book"
+            className="inline-block px-8 py-4"
+            style={{ background: 'var(--gold)', color: 'var(--navy-ink)' }}
+          >
+            Book your first lesson →
+          </Link>
         </div>
       </section>
     </>
