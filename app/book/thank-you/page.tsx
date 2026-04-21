@@ -5,6 +5,10 @@ export const metadata: Metadata = {
   title: 'Booking Confirmed | L Plus P Driving School',
   description:
     'Your driving lesson request has been received. Mick or Sidra will confirm your slot within the hour.',
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 const referralMessage = encodeURIComponent(
