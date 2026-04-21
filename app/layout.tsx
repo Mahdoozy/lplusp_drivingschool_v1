@@ -115,65 +115,6 @@ export default function RootLayout({
             })
           }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "How many lessons do I need?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Most students need between 5 and 15 hours of professional instruction depending on prior experience. Complete beginners typically benefit from our 10-hour package which also gives 30 logbook hours under the 3-for-1 scheme."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Do you cover my suburb?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "We cover 24 north-west Sydney suburbs including North Ryde, Epping, Eastwood, Carlingford, Castle Hill, Chatswood, Ryde, West Ryde, Macquarie Park, Meadowbank, Rhodes, Silverwater, Auburn and more. Pick-up and drop-off is always free."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "What is the 3-for-1 logbook scheme?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "For learner drivers under 25, every 1 hour of professional instruction with an accredited instructor counts as 3 logbook hours. A 10-hour package with us counts as 30 logbook hours toward the required 120 hours."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Can I use your car for the driving test?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes. Our Test Day Package ($170) includes a 1-hour warm-up lesson before your test, use of our dual-control automatic car for the actual test, plus pick-up and drop-off. Available at Ryde, Silverwater, Castle Hill, Chatswood and Hornsby test centres."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Do you offer overseas licence conversion?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes. We specialise in helping international drivers understand NSW road rules and pass the Australian driving test. We also pick up from Macquarie University campus for international students. Book at lppdrivingschool.com.au/overseas-licence-conversion"
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Do you have a female instructor?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes. Sidra is our senior female instructor available across all 24 suburbs. Many students from Chinese, Korean, Indian and Middle Eastern communities specifically request Sidra. Call her directly on 0451 331 140."
-                  }
-                }
-              ]
-            })
-          }}
-        />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-18072728281"
           strategy="afterInteractive"

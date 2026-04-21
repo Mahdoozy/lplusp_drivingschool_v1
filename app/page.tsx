@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { TRUST_STATS } from '@/lib/trustStats';
 import { suburbs } from '@/lib/suburbs';
-import FAQSection from '@/components/FAQSection';
 import InstructorCard from '@/components/InstructorCard';
 import MatchCard from '@/components/MatchCard';
 
@@ -13,19 +12,51 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
 };
 
-/* ── FAQ data (replaced in Section 9) ─────────────────────────────────── */
+/* ── FAQ data (Section 9) ─────────────────────────────────────────────── */
 const faqs = [
   {
-    question: 'How many lessons do I need?',
-    answer:
-      'Most students need between 5 and 15 hours depending on their starting level. Complete beginners usually book our 10-hour package; students who\u2019ve driven before often just need 5 hours of targeted practice before their test.',
+    q: 'How many lessons do I need?',
+    a: 'Most students need between 5 and 15 hours depending on their starting level. Complete beginners usually book our 10-hour package; students who\u2019ve driven before often just need 5 hours of targeted practice before their test.',
   },
   {
-    question: 'Do you cover my suburb?',
-    answer:
-      'We cover 24 suburbs across north-west Sydney \u2014 North Ryde, Eastwood, Epping, Castle Hill, Macquarie Park, Ryde, Chatswood, Silverwater and more. If your suburb isn\u2019t listed, call Mick or Sidra \u2014 we can usually still help.',
+    q: 'Do you cover my suburb?',
+    a: 'We cover 24 suburbs across north-west Sydney \u2014 North Ryde, Eastwood, Epping, Castle Hill, Macquarie Park, Ryde, Chatswood, Silverwater and more. If your suburb isn\u2019t listed, call Mick or Sidra \u2014 we can usually still help.',
+  },
+  {
+    q: 'What is the 3-for-1 logbook scheme?',
+    a: 'For learners under 25, every 1 hour of supervised instruction with us counts as 3 hours in your logbook, up to a maximum of 30 logbook hours from 10 instructor hours. Our 10-hour package is designed around this scheme \u2014 it gets you to 120 hours faster.',
+  },
+  {
+    q: 'Can I use your car for the driving test?',
+    a: 'Yes. Our Test Day Package ($170) includes a 1-hour warm-up lesson, use of our automatic car for your Service NSW test, pick-up from your home, and drop-off after. Available at all test centres we serve (Ryde, Silverwater, Castle Hill, Chatswood, Hornsby).',
+  },
+  {
+    q: 'Do you offer lessons for overseas licence holders?',
+    a: 'Yes. We help overseas licence holders convert to NSW licences through our Overseas Licence Conversion programme. We focus on the Australian-specific road rules, local test routes, and the assessor expectations that differ from other countries.',
+  },
+  {
+    q: 'How much does a driving lesson cost?',
+    a: 'Casual lessons start from $60/hr for suburbs near North Ryde. Rates vary slightly by suburb (typically $60-75/hr). Package deals offer better value \u2014 5 hours for $275 or 10 hours for $550 with 30 logbook hours included.',
+  },
+  {
+    q: 'How do I book?',
+    a: 'Three ways: book online via our booking form, WhatsApp us, or call direct \u2014 Mick on 0469 370 978 or Sidra on 0451 331 140. We reply within the hour during business hours.',
+  },
+  {
+    q: 'What if I fail my test?',
+    a: 'Most of our test-day students pass first attempt (96% first-attempt rate). If you do fail, we offer discounted re-prep packages focused specifically on the areas you struggled with. A mock test on the actual test route is usually the fastest path to a pass next time.',
   },
 ];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 
 /* ── Matchmaker archetypes (Section 4) ───────────────────────────────── */
 const matchmaker = [
@@ -1265,14 +1296,121 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── FAQ (placeholder \u2014 rebuilt Section 9) ──────────────────── */}
-      <section className="py-[72px] px-6" style={{ background: 'var(--cream)' }}>
-        <div className="max-w-3xl mx-auto">
-          <h2 className="font-syne font-semibold text-3xl sm:text-4xl mb-8 text-center" style={{ color: 'var(--navy-ink)' }}>
-            Common questions
-          </h2>
-          <FAQSection items={faqs} />
+      {/* ══════════════════════════════════════════════════════════════════
+          SECTION 9 — FAQ (native details/summary + JSON-LD)
+          ══════════════════════════════════════════════════════════════════ */}
+      <section style={{ background: 'var(--cream)', padding: 'var(--space-section) 32px' }}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <div style={{ marginBottom: '48px' }}>
+            <p
+              style={{
+                fontFamily: 'var(--type-display)',
+                fontSize: '24px',
+                color: 'var(--gold-deep)',
+                margin: 0,
+                marginBottom: '8px',
+              }}
+            >
+              05
+            </p>
+            <p
+              style={{
+                fontFamily: 'var(--type-mono)',
+                fontSize: '11px',
+                textTransform: 'uppercase',
+                letterSpacing: '0.18em',
+                color: 'var(--ink-60)',
+                margin: 0,
+                marginBottom: '20px',
+              }}
+            >
+              Common questions
+            </p>
+            <h2
+              style={{
+                fontFamily: 'var(--type-display)',
+                fontSize: 'clamp(32px, 5vw, 48px)',
+                fontWeight: 600,
+                lineHeight: 1.05,
+                letterSpacing: '-0.02em',
+                color: 'var(--navy-ink)',
+                margin: 0,
+              }}
+            >
+              Questions we get every day.
+            </h2>
+          </div>
+
+          <div className="faq-list" style={{ borderTop: '1px solid var(--hairline)' }}>
+            {faqs.map((item) => (
+              <details
+                key={item.q}
+                className="faq-item"
+                style={{
+                  borderBottom: '1px solid var(--hairline)',
+                  padding: '20px 0',
+                }}
+              >
+                <summary
+                  style={{
+                    fontFamily: 'var(--type-display)',
+                    fontSize: '20px',
+                    fontWeight: 500,
+                    color: 'var(--navy-ink)',
+                    cursor: 'pointer',
+                    listStyle: 'none',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    gap: '24px',
+                  }}
+                >
+                  <span style={{ flex: 1 }}>{item.q}</span>
+                  <span
+                    className="faq-icon"
+                    style={{
+                      fontFamily: 'var(--type-mono)',
+                      fontSize: '20px',
+                      color: 'var(--gold-deep)',
+                      flexShrink: 0,
+                      lineHeight: 1,
+                      minWidth: '14px',
+                      textAlign: 'center',
+                    }}
+                    aria-hidden="true"
+                  >
+                    <span className="faq-plus">+</span>
+                    <span className="faq-minus">−</span>
+                  </span>
+                </summary>
+                <p
+                  style={{
+                    marginTop: '16px',
+                    marginBottom: 0,
+                    fontSize: '16px',
+                    lineHeight: 1.6,
+                    color: 'var(--ink-60)',
+                    maxWidth: '65ch',
+                  }}
+                >
+                  {item.a}
+                </p>
+              </details>
+            ))}
+          </div>
         </div>
+
+        <style>{`
+          .faq-item summary::-webkit-details-marker { display: none; }
+          .faq-item summary { outline: none; }
+          .faq-minus { display: none; }
+          .faq-item[open] .faq-plus { display: none; }
+          .faq-item[open] .faq-minus { display: inline; }
+        `}</style>
       </section>
 
       {/* ── FINAL CTA (placeholder \u2014 rebuilt Section 10) ────────────── */}
