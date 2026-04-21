@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { TRUST_STATS } from '@/lib/trustStats';
 
 const suburbList = [
   'North Ryde', 'East Ryde', 'Ryde', 'West Ryde', 'Macquarie Park',
@@ -77,8 +78,8 @@ export default function Sidebar() {
             ))}
           </div>
           <div>
-            <p className="text-white font-bold text-sm">5.0 Google Rating</p>
-            <p className="text-gray-400 text-xs">126+ reviews</p>
+            <p className="text-white font-bold text-sm">{TRUST_STATS.rating} Google Rating</p>
+            <p className="text-gray-400 text-xs">{TRUST_STATS.reviewCount}+ reviews</p>
           </div>
         </div>
 

@@ -4,7 +4,6 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 
 const reviews = [
   { text: 'Mick is an excellent instructor and teaches the rules and tricks in an easy to understand manner. With his support I was able to get my full licence today.', name: 'Brian Joe A.', suburb: 'North Ryde NSW' },
-  { text: 'I am an international driver and failed my first attempt. Then I met Mick. He taught me the tips I needed, I gained confidence and passed on my next attempt.', name: 'Brian Joe Adriano', suburb: 'Carlingford NSW' },
   { text: 'Sidra is a fantastic instructor — calm, patient and incredibly knowledgeable. I was nervous every lesson but she always put me at ease. Passed first attempt.', name: 'Priya M.', suburb: 'Eastwood NSW' },
   { text: 'Mike is a legend! Extremely humble, experienced and professional. Without those 5 lessons from Mike it would have been difficult to pass first time.', name: 'Google Reviewer', suburb: 'Ryde NSW' },
   { text: 'I passed first time! Mick knows all the test routes around Ryde and Silverwater. Patient, professional and thorough.', name: 'Sarah K.', suburb: 'West Ryde NSW' },

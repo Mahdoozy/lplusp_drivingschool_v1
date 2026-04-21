@@ -1,12 +1,13 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { TRUST_STATS } from '@/lib/trustStats';
 
 const stats = [
-  { target: 96, suffix: '%', label: 'First-attempt pass rate' },
-  { target: 1000, suffix: '+', label: 'Students taught' },
-  { target: 20, suffix: '+', label: 'Years experience' },
-  { target: 27, suffix: '', label: 'Suburbs covered' },
+  { target: TRUST_STATS.firstAttemptPassRate, suffix: '%', label: 'First-attempt pass rate' },
+  { target: TRUST_STATS.studentsTaught, suffix: '+', label: 'Students taught' },
+  { target: TRUST_STATS.yearsOperating, suffix: '+', label: 'Years experience' },
+  { target: TRUST_STATS.suburbCount, suffix: '', label: 'Suburbs covered' },
 ];
 
 function useCountUp(target: number, duration = 2000, enabled: boolean) {

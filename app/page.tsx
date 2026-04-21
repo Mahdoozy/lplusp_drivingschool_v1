@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import { TRUST_STATS } from '@/lib/trustStats';
 import HeroSlideshow from '@/components/HeroSlideshow';
 import StatsBar from '@/components/StatsBar';
 import FAQSection from '@/components/FAQSection';
@@ -228,7 +229,7 @@ export default function HomePage() {
                     </svg>
                   ))}
                 </div>
-                <span className="font-outfit text-white/70 text-sm">4.8 · 126+ Google Reviews</span>
+                <span className="font-outfit text-white/70 text-sm">{TRUST_STATS.rating} · {TRUST_STATS.reviewCount}+ Google Reviews</span>
               </div>
 
               {/* CTAs */}
@@ -490,7 +491,7 @@ export default function HomePage() {
             {/* Rating row */}
             <div className="flex items-center gap-2">
               <span style={{ color: '#f5c842', fontSize: '16px' }}>★★★★★</span>
-              <span className="font-outfit text-white/50 text-sm">4.8 · Based on 126+ Google Reviews</span>
+              <span className="font-outfit text-white/50 text-sm">{TRUST_STATS.rating} · Based on {TRUST_STATS.reviewCount}+ Google Reviews</span>
             </div>
 
             {/* CTA */}

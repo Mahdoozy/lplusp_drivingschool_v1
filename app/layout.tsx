@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Syne, Plus_Jakarta_Sans, Outfit, DM_Mono } from 'next/font/google';
+import { TRUST_STATS } from '@/lib/trustStats';
 import Script from 'next/script';
 import './globals.css';
 import Navbar from '@/components/Navbar';
@@ -87,8 +88,8 @@ export default function RootLayout({
               "priceRange": "$$",
               "aggregateRating": {
                 "@type": "AggregateRating",
-                "ratingValue": "4.8",
-                "reviewCount": "126",
+                "ratingValue": String(TRUST_STATS.rating),
+                "reviewCount": String(TRUST_STATS.reviewCount),
                 "bestRating": "5"
               },
               "areaServed": [

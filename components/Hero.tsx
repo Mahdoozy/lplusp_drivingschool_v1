@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { TRUST_STATS } from '@/lib/trustStats';
 
 interface HeroProps {
   heading: string;
@@ -45,8 +46,8 @@ export default function Hero({
                     </svg>
                   ))}
                 </div>
-                <span className="text-white font-semibold">4.8</span>
-                <span className="text-gray-400 text-sm">(126+ reviews)</span>
+                <span className="text-white font-semibold">{TRUST_STATS.rating}</span>
+                <span className="text-gray-400 text-sm">({TRUST_STATS.reviewCount}+ reviews)</span>
               </div>
             )}
 
