@@ -1067,25 +1067,147 @@ export default function HomePage() {
         `}</style>
       </section>
 
-      {/* ── SERVICE AREA (placeholder \u2014 rebuilt Section 7) ────────── */}
-      <section className="px-6 py-[72px]" style={{ background: 'var(--gold)' }}>
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-syne font-semibold text-3xl sm:text-4xl mb-6" style={{ color: 'var(--navy-ink)' }}>
-            24 suburbs across north-west Sydney
-          </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-6 gap-y-2">
-            {suburbs.slice(0, 12).map((s) => (
-              <Link
-                key={s.slug}
-                href={`/driving-lessons/${s.slug}`}
-                className="text-sm py-2"
-                style={{ color: 'var(--navy-ink)', borderBottom: '1px solid rgba(10,21,48,0.2)' }}
-              >
-                {s.name}
-              </Link>
-            ))}
+      {/* ══════════════════════════════════════════════════════════════════
+          SECTION 7 — SERVICE AREA (gold block)
+          ══════════════════════════════════════════════════════════════════ */}
+      <section id="suburbs" style={{ background: 'var(--gold)', color: 'var(--navy-ink)', padding: '48px 32px 72px' }}>
+        <div
+          className="service-grid"
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            display: 'grid',
+            gridTemplateColumns: '1fr 1.5fr',
+            gap: '48px',
+          }}
+        >
+          {/* Left */}
+          <div>
+            <p
+              style={{
+                fontFamily: 'var(--type-mono)',
+                fontSize: '11px',
+                textTransform: 'uppercase',
+                letterSpacing: '0.18em',
+                color: 'rgba(10, 21, 48, 0.7)',
+                margin: 0,
+                marginBottom: '20px',
+              }}
+            >
+              Suburbs we cover
+            </p>
+            <h2
+              style={{
+                fontFamily: 'var(--type-display)',
+                fontSize: '40px',
+                fontWeight: 600,
+                lineHeight: 1.05,
+                letterSpacing: '-0.02em',
+                color: 'var(--navy-ink)',
+                margin: 0,
+                marginBottom: '20px',
+              }}
+            >
+              24 suburbs across{' '}
+              <span style={{ fontStyle: 'italic', fontWeight: 500 }}>north-west Sydney.</span>
+            </h2>
+            <p
+              style={{
+                fontSize: '15px',
+                lineHeight: 1.6,
+                color: 'rgba(10, 21, 48, 0.75)',
+                margin: 0,
+                marginBottom: '28px',
+              }}
+            >
+              Free pick-up from home, school, work, or wherever you are. We plan lessons around your local test centre.
+            </p>
+            <Link
+              href="/book"
+              style={{
+                display: 'inline-block',
+                background: 'var(--navy)',
+                color: 'var(--gold)',
+                padding: '14px 28px',
+                fontFamily: 'var(--type-mono)',
+                fontSize: '13px',
+                fontWeight: 500,
+                letterSpacing: '0.02em',
+              }}
+            >
+              Book in your area →
+            </Link>
+          </div>
+
+          {/* Right — suburbs grid */}
+          <div
+            className="suburb-cells"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(4, 1fr)',
+              columnGap: '16px',
+              rowGap: '4px',
+            }}
+          >
+            {[
+              'north-ryde',
+              'eastwood',
+              'epping',
+              'castle-hill',
+              'macquarie-park',
+              'ryde',
+              'west-ryde',
+              'carlingford',
+              'chatswood',
+              'silverwater',
+              'north-rocks',
+              'beecroft',
+            ].map((slug) => {
+              const s = suburbs.find((x) => x.slug === slug);
+              if (!s) return null;
+              return (
+                <Link
+                  key={s.slug}
+                  href={`/driving-lessons/${s.slug}`}
+                  style={{
+                    fontSize: '13px',
+                    fontWeight: 500,
+                    padding: '8px 0',
+                    borderBottom: '1px solid rgba(10, 21, 48, 0.2)',
+                    color: 'var(--navy-ink)',
+                  }}
+                >
+                  {s.name}
+                </Link>
+              );
+            })}
+            <Link
+              href="/book"
+              style={{
+                fontSize: '12px',
+                padding: '8px 0',
+                borderBottom: '1px solid rgba(10, 21, 48, 0.15)',
+                color: 'rgba(10, 21, 48, 0.5)',
+              }}
+            >
+              + 12 more suburbs
+            </Link>
           </div>
         </div>
+
+        <style>{`
+          @media (max-width: 900px) {
+            .service-grid {
+              grid-template-columns: 1fr !important;
+              gap: 32px !important;
+            }
+          }
+          @media (max-width: 640px) {
+            .suburb-cells {
+              grid-template-columns: repeat(2, 1fr) !important;
+            }
+          }
+        `}</style>
       </section>
 
       {/* ── REFERRAL (placeholder \u2014 rebuilt Section 8) ─────────────── */}
