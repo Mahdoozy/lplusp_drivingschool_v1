@@ -33,7 +33,12 @@
   --paper:      #ffffff;
   --ink-60:     rgba(13, 27, 62, 0.6);
   --ink-40:     rgba(13, 27, 62, 0.4);
-  --hairline:   rgba(13, 27, 62, 0.1);
+  --hairline:   rgba(13, 27, 62, 0.12);
+
+  /* ── Editorial design tokens (homepage redesign) ── */
+  --type-display: var(--font-syne), serif;
+  --type-body:    var(--font-outfit), sans-serif;
+  --type-mono:    var(--font-mono), monospace;
 
   /* ── Fluid type scale ── */
   --fs-hero:    clamp(3rem, 8vw, 6rem);
@@ -48,14 +53,14 @@
   --space-block:   clamp(2rem, 4vw, 3rem);
 
   /* Design-system tokens */
-  --navy:           #0B1628;
+  --navy:           #0d1b3e;
   --navy2:          #0F1E35;
   --navy3:          #162440;
   --navy-elevated:  #1a2548;
   --blue:       #1A56DB;
   --blue-light: #EBF3FF;
-  --gold:       #F5C132;
-  --gold-dark:  #E8A800;
+  --gold:       #f5c842;
+  --gold-dark:  #d9a91f;
   --white:      #FFFFFF;
   --off-white:  #F7F9FF;
   --slate:      #E8EEF8;

@@ -5,5 +5,5 @@ export const TRUST_STATS = {
   yearsOperating: new Date().getFullYear() - 1997,
   studentsTaught: 1000,
   firstAttemptPassRate: 96,
-  suburbCount: 27,
+  suburbCount: 24,
 } as const;
