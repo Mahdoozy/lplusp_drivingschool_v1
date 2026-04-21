@@ -2,9 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { suburbs, getSuburbBySlug } from '@/lib/suburbs';
-import { SUBURBS, getSuburb } from '@/data/suburbs';
+import { SUBURBS } from '@/data/suburbs';
 import { TRUST_STATS } from '@/lib/trustStats';
-import Pricing from '@/components/Pricing';
 import CTABanner from '@/components/CTABanner';
 
 type Props = {
@@ -38,8 +37,6 @@ export default async function SuburbPage({ params }: Props) {
 
   const data = SUBURBS[slug];
 
-  const hasChallenges = data?.commonChallenges?.length > 0;
-
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'DrivingSchool',
@@ -56,10 +53,7 @@ export default async function SuburbPage({ params }: Props) {
       postalCode: data?.postcode ?? '',
       addressCountry: 'AU',
     },
-    areaServed: {
-      '@type': 'Place',
-      name: `${suburb.name}, NSW`,
-    },
+    areaServed: { '@type': 'Place', name: `${suburb.name}, NSW` },
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: TRUST_STATS.rating,
@@ -67,117 +61,324 @@ export default async function SuburbPage({ params }: Props) {
     },
   };
 
+  /* ── shared layout values ── */
+  const w = 'max-w-5xl mx-auto px-6 sm:px-8';
+  const ht = 'rgba(13,27,62,0.1)';  /* hairline colour */
+
   return (
-    <>
+    <div style={{ background: 'var(--cream)', color: 'var(--navy-ink)' }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* ── HERO ─────────────────────────────────────────────────────── */}
-      <section className="bg-[#0f1623] py-16 sm:py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center gap-6">
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight">
-            Driving Lessons in{' '}
-            <span className="text-[#FFD700]">{suburb.name}</span>
+      {/* ── HERO ───────────────────────────────────────────────────────── */}
+      <section style={{ paddingTop: 'var(--space-section)', paddingBottom: 'var(--space-section)' }}>
+        <div className={`${w} suburb-rise`}>
+
+          {/* eyebrow */}
+          <p className="eyebrow">
+            {data?.postcode ? `N°${data.postcode} — ` : ''}Sydney, NSW
+          </p>
+
+          {/* headline */}
+          <h1
+            className="font-syne"
+            style={{
+              fontSize: 'var(--fs-hero)',
+              fontWeight: 700,
+              lineHeight: 0.95,
+              letterSpacing: '-0.03em',
+              margin: '1rem 0 1.75rem',
+            }}
+          >
+            Driving lessons
+            <br />
+            <em style={{ fontStyle: 'italic', fontWeight: 600, color: 'var(--gold-deep)' }}>
+              in {suburb.name}.
+            </em>
           </h1>
+
+          {/* tagline */}
           {data?.heroTagline && (
-            <p className="text-gray-300 text-lg sm:text-xl max-w-2xl">{data.heroTagline}</p>
+            <p
+              className="font-outfit"
+              style={{
+                fontSize: 'var(--fs-body-lg)',
+                lineHeight: 1.55,
+                color: 'var(--ink-60)',
+                maxWidth: '40ch',
+                marginBottom: '2.5rem',
+              }}
+            >
+              {data.heroTagline}
+            </p>
           )}
 
-          {/* Trust bar */}
-          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-gray-400">
-            <span>Est. {TRUST_STATS.yearEstablished}</span>
-            <span className="text-gray-600">·</span>
-            <span className="text-[#FFD700]">{'★'.repeat(5)}</span>
-            <span>{TRUST_STATS.rating} ({TRUST_STATS.reviewCount}+ reviews)</span>
-            <span className="text-gray-600">·</span>
-            <span>{TRUST_STATS.firstAttemptPassRate}% first-attempt pass rate</span>
+          {/* meta row */}
+          <div
+            className="flex flex-wrap gap-x-10 gap-y-4"
+            style={{
+              borderTop: `1px solid ${ht}`,
+              borderBottom: `1px solid ${ht}`,
+              padding: '1.25rem 0',
+              marginBottom: '2rem',
+            }}
+          >
+            {[
+              { label: 'Est.', value: String(TRUST_STATS.yearEstablished) },
+              { label: 'Pass rate', value: `${TRUST_STATS.firstAttemptPassRate}%` },
+              { label: 'Reviews', value: `${TRUST_STATS.rating} / ${TRUST_STATS.reviewCount}` },
+            ].map(({ label, value }) => (
+              <div key={label} className="flex flex-col gap-0.5">
+                <span className="eyebrow">{label}</span>
+                <span
+                  className="font-mono"
+                  style={{ fontSize: '1.2rem', fontWeight: 500, color: 'var(--navy-ink)' }}
+                >
+                  {value}
+                </span>
+              </div>
+            ))}
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 mt-2">
+          {/* CTAs */}
+          <div className="flex flex-wrap gap-4">
             <Link
               href="/book"
-              className="bg-[#FFD700] text-[#0f1623] font-bold px-8 py-3 rounded-lg text-center hover:bg-yellow-300 transition-colors"
+              className="font-outfit font-medium"
+              style={{
+                background: 'var(--navy-ink)',
+                color: 'var(--cream)',
+                padding: '0.875rem 2rem',
+                textDecoration: 'none',
+                transition: 'background 0.2s',
+                display: 'inline-block',
+              }}
             >
-              Book a Lesson
+              Book a lesson
             </Link>
             <a
               href="https://wa.me/61469370978?text=Hi%2C%20I%27d%20like%20to%20book%20a%20driving%20lesson%20with%20L%20Plus%20P"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold px-8 py-3 rounded-lg hover:bg-green-500 transition-colors"
+              className="font-outfit font-medium"
+              style={{
+                color: 'var(--navy-ink)',
+                textDecoration: 'none',
+                borderBottom: '1px solid var(--navy-ink)',
+                paddingBottom: '2px',
+                alignSelf: 'center',
+              }}
             >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-              </svg>
-              WhatsApp Us
+              WhatsApp us →
             </a>
           </div>
         </div>
       </section>
 
-      {/* ── TEST CENTRE CARD ─────────────────────────────────────────── */}
+      {/* ── 01 — TEST CENTRE ──────────────────────────────────────────── */}
       {data?.nearestTestCentre && (
-        <section className="bg-[#060b15] py-12">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-extrabold text-white mb-6">
-              Your local test centre
-            </h2>
+        <section style={{ background: 'var(--paper)', paddingTop: 'var(--space-section)', paddingBottom: 'var(--space-section)' }}>
+          <div className={w}>
+            {/* section label */}
+            <div className="flex items-baseline gap-4" style={{ marginBottom: '2.5rem' }}>
+              <span className="font-mono" style={{ fontSize: '1.75rem', color: 'var(--gold-deep)', fontWeight: 400 }}>01</span>
+              <span className="eyebrow">Your test centre</span>
+            </div>
+
+            {/* asymmetric grid — 2fr / 3fr */}
             <div
-              className="rounded-2xl p-6 flex flex-col sm:flex-row gap-6"
-              style={{ background: '#0f1829', border: '1px solid rgba(245,200,66,0.15)' }}
+              className="grid gap-12 items-start"
+              style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}
             >
-              <div className="flex-shrink-0 flex items-start gap-3">
+              {/* left — huge pass rate */}
+              <div>
                 <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{ background: '#F5C842' }}
+                  className="font-syne"
+                  style={{
+                    fontSize: 'clamp(6rem, 15vw, 9rem)',
+                    fontWeight: 800,
+                    lineHeight: 1,
+                    color: 'var(--navy-ink)',
+                    letterSpacing: '-0.05em',
+                  }}
                 >
-                  <svg className="w-5 h-5 text-[#0a0f1e]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                  </svg>
+                  {data.nearestTestCentre.passRate}%
                 </div>
+                <p className="eyebrow" style={{ marginTop: '0.75rem' }}>First-attempt pass rate</p>
               </div>
-              <div className="flex flex-col gap-2">
-                <p className="text-white font-bold text-lg">{data.nearestTestCentre.name}</p>
-                <p className="text-gray-400 text-sm">{data.nearestTestCentre.address}</p>
-                <div className="flex gap-4 text-sm text-gray-400 mt-1">
-                  <span className="text-[#F5C842] font-semibold">{data.nearestTestCentre.passRate}% pass rate</span>
-                </div>
-                <p
-                  className="text-sm mt-2 rounded-lg px-4 py-3"
-                  style={{ background: 'rgba(245,200,66,0.08)', color: '#c8c8c8' }}
+
+              {/* right — info */}
+              <div className="flex flex-col gap-4">
+                <h2
+                  className="font-syne"
+                  style={{ fontSize: 'var(--fs-headline)', fontWeight: 600, lineHeight: 1.2 }}
                 >
+                  {data.nearestTestCentre.name}
+                </h2>
+                <p className="font-outfit" style={{ fontSize: 'var(--fs-caption)', color: 'var(--ink-60)' }}>
+                  {data.nearestTestCentre.address}
+                </p>
+                <p className="font-outfit" style={{ fontSize: 'var(--fs-body-lg)', lineHeight: 1.6, color: 'var(--ink-60)' }}>
                   {data.nearestTestCentre.notes}
                 </p>
+                <div
+                  style={{
+                    marginTop: '0.5rem',
+                    padding: '1.25rem 1.5rem',
+                    background: 'var(--cream)',
+                    borderLeft: '3px solid var(--gold-deep)',
+                  }}
+                >
+                  <p className="eyebrow" style={{ marginBottom: '0.5rem' }}>Our approach</p>
+                  <p className="font-outfit" style={{ fontSize: '0.9375rem', lineHeight: 1.6, color: 'var(--navy-ink)' }}>
+                    We run every mock test on the actual routes examiners use at this centre.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </section>
       )}
 
-      {/* ── PICKUP LANDMARKS ─────────────────────────────────────────── */}
+      {/* ── 02 — PICKUP LANDMARKS ─────────────────────────────────────── */}
       {data?.pickupLandmarks?.length > 0 && (
-        <section className="bg-[#0a0f1e] py-12">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-extrabold text-white mb-2">
-              Where we pick you up in{' '}
-              <span className="text-[#FFD700]">{suburb.name}</span>
+        <section style={{ paddingTop: 'var(--space-section)', paddingBottom: 'var(--space-section)' }}>
+          <div className={w}>
+            <div className="flex items-baseline gap-4" style={{ marginBottom: '1.5rem' }}>
+              <span className="font-mono" style={{ fontSize: '1.75rem', color: 'var(--gold-deep)', fontWeight: 400 }}>02</span>
+              <span className="eyebrow">Pick-up in {suburb.name}</span>
+            </div>
+
+            <h2
+              className="font-syne"
+              style={{
+                fontSize: 'var(--fs-display)',
+                fontWeight: 600,
+                lineHeight: 1.1,
+                letterSpacing: '-0.02em',
+                marginBottom: '2.5rem',
+                maxWidth: '16ch',
+              }}
+            >
+              Where we come to you.
             </h2>
-            <p className="text-gray-400 text-sm mb-6">
-              Prefer somewhere else? Just tell us when you book — we&apos;ll come to you.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {data.pickupLandmarks.map((landmark) => (
+
+            <div
+              className="grid"
+              style={{
+                gridTemplateColumns: `repeat(${Math.min(data.pickupLandmarks.length, 3)}, 1fr)`,
+                borderTop: `1px solid ${ht}`,
+              }}
+            >
+              {data.pickupLandmarks.map((landmark, i) => (
                 <div
                   key={landmark}
-                  className="rounded-xl px-5 py-4 flex items-center gap-3 text-sm text-gray-300"
-                  style={{ background: '#0f1829', border: '1px solid rgba(255,255,255,0.07)' }}
+                  className="flex flex-col gap-2"
+                  style={{
+                    padding: '1.75rem 2rem 1.75rem 0',
+                    borderRight: i < data.pickupLandmarks.length - 1 ? `1px solid ${ht}` : 'none',
+                    paddingLeft: i > 0 ? '2rem' : '0',
+                  }}
                 >
-                  <svg className="w-4 h-4 text-[#FFD700] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                  </svg>
-                  {landmark}
+                  <span
+                    className="font-mono"
+                    style={{ fontSize: 'var(--fs-caption)', color: 'var(--gold-deep)' }}
+                  >
+                    —{String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span
+                    className="font-syne"
+                    style={{ fontSize: '1.2rem', fontWeight: 500, lineHeight: 1.3, color: 'var(--navy-ink)' }}
+                  >
+                    {landmark}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <p
+              className="font-outfit"
+              style={{ fontSize: 'var(--fs-caption)', color: 'var(--ink-60)', marginTop: '1.5rem' }}
+            >
+              Prefer somewhere else? Tell us when you book — we&apos;re flexible.
+            </p>
+          </div>
+        </section>
+      )}
+
+      {/* ── 03 — COMMON CHALLENGES ────────────────────────────────────── */}
+      {data?.commonChallenges?.length > 0 && (
+        <section style={{ background: 'var(--paper)', paddingTop: 'var(--space-section)', paddingBottom: 'var(--space-section)' }}>
+          <div className={w}>
+            <div className="flex items-baseline gap-4" style={{ marginBottom: '1.5rem' }}>
+              <span className="font-mono" style={{ fontSize: '1.75rem', color: 'var(--gold-deep)', fontWeight: 400 }}>03</span>
+              <span className="eyebrow">Local challenges</span>
+            </div>
+
+            <h2
+              className="font-syne"
+              style={{
+                fontSize: 'var(--fs-display)',
+                fontWeight: 600,
+                lineHeight: 1.1,
+                letterSpacing: '-0.02em',
+                marginBottom: '3rem',
+              }}
+            >
+              What catches out{' '}
+              <em style={{ fontStyle: 'italic', color: 'var(--gold-deep)', fontWeight: 500 }}>
+                {suburb.name}
+              </em>{' '}
+              learners.
+            </h2>
+
+            <div>
+              {data.commonChallenges.map((challenge, i) => (
+                <div
+                  key={challenge.title}
+                  className="grid"
+                  style={{
+                    gridTemplateColumns: 'clamp(80px, 15vw, 120px) 1fr',
+                    gap: 'clamp(1.5rem, 4vw, 3rem)',
+                    padding: '2.25rem 0',
+                    borderTop: `1px solid ${ht}`,
+                    ...(i === data.commonChallenges.length - 1 ? { borderBottom: `1px solid ${ht}` } : {}),
+                  }}
+                >
+                  <div className="pt-1">
+                    <span
+                      className="font-mono"
+                      style={{ fontSize: '1rem', color: 'var(--gold-deep)', fontWeight: 400 }}
+                    >
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <div>
+                    <h3
+                      className="font-syne"
+                      style={{
+                        fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)',
+                        fontWeight: 600,
+                        lineHeight: 1.2,
+                        marginBottom: '0.875rem',
+                      }}
+                    >
+                      {challenge.title}
+                    </h3>
+                    <p
+                      className="font-outfit"
+                      style={{
+                        fontSize: 'var(--fs-body-lg)',
+                        lineHeight: 1.65,
+                        color: 'var(--ink-60)',
+                        maxWidth: '60ch',
+                      }}
+                    >
+                      {challenge.description}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -185,87 +386,220 @@ export default async function SuburbPage({ params }: Props) {
         </section>
       )}
 
-      {/* ── COMMON CHALLENGES (only if populated) ────────────────────── */}
-      {hasChallenges && (
-        <section className="bg-[#060b15] py-12">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-extrabold text-white mb-6">
-              Common challenges for{' '}
-              <span className="text-[#FFD700]">{suburb.name}</span> learners
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {data.commonChallenges
-                .filter((c) => c.title && c.description)
-                .map((challenge) => (
-                  <div
-                    key={challenge.title}
-                    className="rounded-xl p-5 flex flex-col gap-2"
-                    style={{ background: '#0f1829', border: '1px solid rgba(245,200,66,0.12)' }}
-                  >
-                    <p className="text-[#F5C842] font-semibold text-sm">{challenge.title}</p>
-                    <p className="text-gray-400 text-sm leading-relaxed">{challenge.description}</p>
-                  </div>
-                ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ── SCHOOLS & UNIS ───────────────────────────────────────────── */}
+      {/* ── 04 — SCHOOLS & UNIS ───────────────────────────────────────── */}
       {data?.localSchoolsAndUnis?.length > 0 && (
-        <section className="bg-[#0a0f1e] py-10">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-xl font-extrabold text-white mb-4">
-              Schools and unis we pick up from in {suburb.name}
-            </h2>
-            <div className="flex flex-wrap gap-2 mb-3">
+        <section style={{ paddingTop: 'var(--space-block)', paddingBottom: 'var(--space-block)' }}>
+          <div className={w}>
+            <div className="flex items-baseline gap-4" style={{ marginBottom: '1.5rem' }}>
+              <span className="font-mono" style={{ fontSize: '1.75rem', color: 'var(--gold-deep)', fontWeight: 400 }}>04</span>
+              <span className="eyebrow">Schools we pick up from</span>
+            </div>
+
+            <div className="flex flex-wrap gap-2.5" style={{ marginBottom: '1rem' }}>
               {data.localSchoolsAndUnis.map((school) => (
                 <span
                   key={school}
-                  className="text-sm rounded-full px-4 py-1.5 text-gray-300"
-                  style={{ background: '#0f1829', border: '1px solid rgba(255,255,255,0.08)' }}
+                  className="font-outfit"
+                  style={{
+                    padding: '0.4rem 1rem',
+                    border: `1px solid ${ht}`,
+                    borderRadius: '100px',
+                    fontSize: '0.9375rem',
+                    color: 'var(--navy-ink)',
+                    background: 'var(--paper)',
+                  }}
                 >
                   {school}
                 </span>
               ))}
             </div>
-            <p className="text-gray-500 text-xs">
-              Your school not listed? We probably still pick up — just ask when you book.
+
+            <p className="font-outfit" style={{ fontSize: 'var(--fs-caption)', color: 'var(--ink-60)' }}>
+              Your school not listed? Ask when you book — we probably still pick up.
             </p>
           </div>
         </section>
       )}
 
-      {/* ── PRICING ──────────────────────────────────────────────────── */}
-      <Pricing />
+      {/* ── 05 — PRICING ──────────────────────────────────────────────── */}
+      <section style={{ background: 'var(--paper)', paddingTop: 'var(--space-section)', paddingBottom: 'var(--space-section)' }}>
+        <div className={w}>
+          <div className="flex items-baseline gap-4" style={{ marginBottom: '1.5rem' }}>
+            <span className="font-mono" style={{ fontSize: '1.75rem', color: 'var(--gold-deep)', fontWeight: 400 }}>05</span>
+            <span className="eyebrow">Pricing</span>
+          </div>
 
-      {/* ── LOCAL INSIGHT ─────────────────────────────────────────────── */}
+          <h2
+            className="font-syne"
+            style={{
+              fontSize: 'var(--fs-display)',
+              fontWeight: 600,
+              lineHeight: 1.1,
+              letterSpacing: '-0.02em',
+              marginBottom: '3rem',
+            }}
+          >
+            Simple, honest rates.
+          </h2>
+
+          <div className="grid gap-10" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
+            {[
+              {
+                group: 'Casual lessons',
+                rows: [
+                  { label: '1 hour', price: 'from $60' },
+                  { label: '1½ hours', price: 'from $85' },
+                  { label: '2 hours', price: 'from $110' },
+                ],
+              },
+              {
+                group: 'Packages',
+                rows: [
+                  { label: '5 hours', price: '$275', note: 'save $25' },
+                  { label: '10 hours', price: '$550', note: '30 logbook hrs' },
+                ],
+              },
+              {
+                group: 'Test preparation',
+                rows: [
+                  { label: 'Mock test', price: '$65' },
+                  { label: 'Test day package', price: '$170' },
+                  { label: '6 hrs + test day', price: '$500' },
+                ],
+              },
+            ].map(({ group, rows }) => (
+              <div key={group}>
+                <p
+                  className="font-mono"
+                  style={{
+                    fontSize: 'var(--fs-caption)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.1em',
+                    color: 'var(--ink-60)',
+                    paddingBottom: '0.75rem',
+                    marginBottom: '0',
+                    borderBottom: `1px solid ${ht}`,
+                  }}
+                >
+                  {group}
+                </p>
+                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                  <tbody>
+                    {rows.map(({ label, price, note }: { label: string; price: string; note?: string }) => (
+                      <tr key={label} style={{ borderBottom: `1px solid ${ht}` }}>
+                        <td className="font-outfit" style={{ padding: '0.875rem 0', fontSize: '0.9375rem', verticalAlign: 'baseline' }}>
+                          {label}
+                          {note && (
+                            <span
+                              className="font-mono"
+                              style={{ marginLeft: '0.5rem', fontSize: 'var(--fs-caption)', color: 'var(--ink-40)' }}
+                            >
+                              {note}
+                            </span>
+                          )}
+                        </td>
+                        <td
+                          className="font-mono"
+                          style={{ padding: '0.875rem 0', fontSize: '0.9375rem', fontWeight: 500, textAlign: 'right', whiteSpace: 'nowrap' }}
+                        >
+                          {price}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ))}
+          </div>
+
+          <p
+            className="font-outfit"
+            style={{ fontSize: 'var(--fs-caption)', color: 'var(--ink-60)', marginTop: '2.5rem' }}
+          >
+            Rates start from $60/hr for suburbs near North Ryde. Rate confirmed instantly when you book.
+          </p>
+
+          <div style={{ marginTop: '2rem' }}>
+            <Link
+              href="/book"
+              className="font-outfit font-medium"
+              style={{
+                background: 'var(--navy-ink)',
+                color: 'var(--cream)',
+                padding: '0.875rem 2rem',
+                textDecoration: 'none',
+                display: 'inline-block',
+                transition: 'background 0.2s',
+              }}
+            >
+              Book a lesson →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── LOCAL INSIGHT — pullquote ──────────────────────────────────── */}
       {data?.localInsight && (
-        <section className="bg-[#060b15] py-12">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-extrabold text-white mb-4">
-              What to know about driving in{' '}
-              <span className="text-[#FFD700]">{suburb.name}</span>
-            </h2>
-            <p className="text-gray-300 text-base leading-relaxed max-w-2xl">
-              {data.localInsight}
-            </p>
+        <section style={{ paddingTop: 'var(--space-section)', paddingBottom: 'var(--space-section)' }}>
+          <div className={w}>
+            <blockquote
+              style={{
+                margin: '0 0 1.5rem',
+                paddingLeft: '2rem',
+                borderLeft: '3px solid var(--gold-deep)',
+              }}
+            >
+              <p
+                className="font-syne"
+                style={{
+                  fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)',
+                  fontWeight: 400,
+                  fontStyle: 'italic',
+                  lineHeight: 1.45,
+                  color: 'var(--navy-ink)',
+                  maxWidth: '50ch',
+                }}
+              >
+                {data.localInsight}
+              </p>
+            </blockquote>
+            <p className="eyebrow" style={{ paddingLeft: '2rem' }}>From our instructors, Mick &amp; Sidra</p>
           </div>
         </section>
       )}
 
-      {/* ── OTHER SUBURBS ────────────────────────────────────────────── */}
-      <section className="bg-[#0f1623] py-10">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-lg font-extrabold text-white mb-4">Other areas we cover</h2>
-          <div className="flex flex-wrap gap-2">
+      {/* ── OTHER AREAS ───────────────────────────────────────────────── */}
+      <section style={{ background: 'var(--paper)', paddingTop: 'var(--space-block)', paddingBottom: 'var(--space-block)' }}>
+        <div className={w}>
+          <p className="eyebrow" style={{ marginBottom: '1.5rem' }}>Other areas we cover</p>
+          <div
+            className="grid"
+            style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(170px, 1fr))', gap: '0 2rem' }}
+          >
             {suburbs
               .filter((s) => s.slug !== suburb.slug)
               .map((s) => (
                 <Link
                   key={s.slug}
                   href={`/driving-lessons/${s.slug}`}
-                  className="bg-[#1a2235] text-gray-300 hover:text-[#FFD700] hover:border-[#FFD700] border border-gray-700 text-sm px-3 py-1.5 rounded-lg transition-colors"
+                  className="font-outfit"
+                  style={{
+                    display: 'block',
+                    padding: '0.7rem 0',
+                    borderBottom: `1px solid ${ht}`,
+                    color: 'var(--navy-ink)',
+                    textDecoration: 'none',
+                    fontSize: '0.9375rem',
+                    transition: 'color 0.15s, padding-left 0.15s',
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.color = 'var(--gold-deep)';
+                    (e.currentTarget as HTMLAnchorElement).style.paddingLeft = '0.4rem';
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.color = 'var(--navy-ink)';
+                    (e.currentTarget as HTMLAnchorElement).style.paddingLeft = '0';
+                  }}
                 >
                   {s.name}
                 </Link>
@@ -278,6 +612,6 @@ export default async function SuburbPage({ params }: Props) {
         heading={`Ready to start your lessons in ${suburb.name}?`}
         subtext={`Join hundreds of ${suburb.name} students who passed first time with L Plus P.`}
       />
-    </>
+    </div>
   );
 }

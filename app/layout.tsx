@@ -13,7 +13,7 @@ import ReferralButton from '@/components/ReferralButton';
 
 const syne = Syne({
   subsets: ['latin'],
-  weight: ['700', '800'],
+  weight: ['400', '600', '700', '800'],
   variable: '--font-syne',
   display: 'swap',
 });

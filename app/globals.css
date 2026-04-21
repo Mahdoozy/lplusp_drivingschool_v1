@@ -26,6 +26,27 @@
 
 /* ── CSS custom properties ──────────────────────────────────────────── */
 :root {
+  /* ── Editorial palette (suburb pages + light contexts) ── */
+  --navy-ink:   #0a1530;
+  --gold-deep:  #d9a91f;
+  --cream:      #faf7f2;
+  --paper:      #ffffff;
+  --ink-60:     rgba(13, 27, 62, 0.6);
+  --ink-40:     rgba(13, 27, 62, 0.4);
+  --hairline:   rgba(13, 27, 62, 0.1);
+
+  /* ── Fluid type scale ── */
+  --fs-hero:    clamp(3rem, 8vw, 6rem);
+  --fs-display: clamp(2rem, 5vw, 3.5rem);
+  --fs-headline:clamp(1.5rem, 3vw, 2rem);
+  --fs-body-lg: 1.125rem;
+  --fs-caption: 0.8125rem;
+  --fs-micro:   0.6875rem;
+
+  /* ── Editorial spacing ── */
+  --space-section: clamp(4rem, 10vw, 8rem);
+  --space-block:   clamp(2rem, 4vw, 3rem);
+
   /* Design-system tokens */
   --navy:       #0B1628;
   --navy2:      #0F1E35;
@@ -262,3 +283,36 @@ body {
 
 /* ── Booking form step slide-in ─────────────────────────────────────── */
 .step-enter { animation: slideStepIn 0.3s ease both; }
+
+/* ── Editorial utilities ─────────────────────────────────────────────── */
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--ink-60);
+}
+
+/* ── Suburb hero stagger ─────────────────────────────────────────────── */
+@keyframes rise-in {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.suburb-rise > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: rise-in 0.8s ease-out forwards;
+}
+.suburb-rise > *:nth-child(1) { animation-delay: 0.08s; }
+.suburb-rise > *:nth-child(2) { animation-delay: 0.22s; }
+.suburb-rise > *:nth-child(3) { animation-delay: 0.36s; }
+.suburb-rise > *:nth-child(4) { animation-delay: 0.50s; }
+.suburb-rise > *:nth-child(5) { animation-delay: 0.64s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .suburb-rise > * {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
