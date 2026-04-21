@@ -78,13 +78,21 @@ export default function Navbar() {
             </a>
             <Link
               href="/book"
-              className={`font-outfit font-semibold text-sm px-5 py-2 rounded-lg transition-colors duration-200 ${
-                scrolled
-                  ? 'bg-[#F5C132] text-[#0B1628] hover:bg-[#E8A800]'
-                  : 'bg-[#F5C132] text-[#0B1628] hover:bg-[#E8A800]'
-              }`}
+              className="nav-book-btn"
+              style={{
+                background: 'var(--navy)',
+                color: 'var(--gold)',
+                padding: '10px 20px',
+                fontFamily: 'var(--type-body)',
+                fontWeight: 500,
+                fontSize: '13px',
+                letterSpacing: '0.02em',
+                borderRadius: '4px',
+                border: '1px solid rgba(245, 200, 66, 0.25)',
+                transition: 'background 0.2s ease, border-color 0.2s ease',
+              }}
             >
-              Book Now
+              Book now →
             </Link>
           </div>
 
@@ -131,10 +139,21 @@ export default function Navbar() {
             </a>
             <Link
               href="/book"
-              className="bg-[#F5C132] text-[#0B1628] font-outfit font-semibold text-sm px-4 py-2.5 rounded-lg text-center hover:bg-[#E8A800] transition-colors"
+              className="text-center"
+              style={{
+                background: 'var(--navy)',
+                color: 'var(--gold)',
+                padding: '10px 20px',
+                fontFamily: 'var(--type-body)',
+                fontWeight: 500,
+                fontSize: '13px',
+                letterSpacing: '0.02em',
+                borderRadius: '4px',
+                border: '1px solid rgba(245, 200, 66, 0.25)',
+              }}
               onClick={() => setMenuOpen(false)}
             >
-              Book Now
+              Book now →
             </Link>
           </div>
         </div>
