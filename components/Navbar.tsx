@@ -77,7 +77,7 @@ export default function Navbar() {
               0469 370 978
             </a>
             <Link
-              href="/book"
+              href="/#book"
               className="nav-book-btn"
               style={{
                 background: 'var(--navy)',
@@ -138,7 +138,7 @@ export default function Navbar() {
               0469 370 978
             </a>
             <Link
-              href="/book"
+              href="/#book"
               className="text-center"
               style={{
                 background: 'var(--navy)',

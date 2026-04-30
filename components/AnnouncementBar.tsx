@@ -24,7 +24,7 @@ export default function AnnouncementBar() {
     <div className="bg-[#F5C132] text-[#0B1628] py-2.5 px-4 relative text-center">
       <p className="font-outfit text-sm font-medium pr-8">
         This week — 10-hour package at $55/hr (save $50 vs casual).{' '}
-        <Link href="/book" className="font-semibold underline underline-offset-2">
+        <Link href="/#book" className="font-semibold underline underline-offset-2">
           Lock in your rate →
         </Link>
       </p>

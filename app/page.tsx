@@ -4,6 +4,8 @@ import { TRUST_STATS } from '@/lib/trustStats';
 import { suburbs } from '@/lib/suburbs';
 import InstructorCard from '@/components/InstructorCard';
 import MatchCard from '@/components/MatchCard';
+import HeroSlideshow from './components/HeroSlideshow';
+import HomepageBookingForm from './components/HomepageBookingForm';
 
 export const metadata: Metadata = {
   title: 'L Plus P Driving School | Driving Lessons Sydney | Est. 1997',
@@ -68,7 +70,7 @@ const matchmaker = [
     packageLabel: '10-hour pack',
     price: '$550',
     ctaLabel: 'Book now \u2192',
-    ctaHref: '/book?service=learner',
+    ctaHref: '#book',
   },
   {
     number: '02',
@@ -79,7 +81,7 @@ const matchmaker = [
     packageLabel: '6hr + test day',
     price: '$500',
     ctaLabel: 'Book now \u2192',
-    ctaHref: '/book?service=test-prep',
+    ctaHref: '#book',
   },
   {
     number: '03',
@@ -89,7 +91,7 @@ const matchmaker = [
     packageLabel: 'Mock test',
     price: '$65',
     ctaLabel: 'Book now \u2192',
-    ctaHref: '/book?service=test-prep',
+    ctaHref: '#book',
   },
 ];
 
@@ -106,7 +108,7 @@ const instructors = [
     quote: '\u201CMy job isn\u2019t to get you to pass once. It\u2019s to make sure you drive safely for the next fifty years.\u201D',
     phone: '0469 370 978',
     phoneHref: 'tel:0469370978',
-    bookHref: '/book?instructor=mick',
+    bookHref: '#book',
   },
   {
     initial: 'S',
@@ -121,7 +123,7 @@ const instructors = [
     quote: '\u201CSidra is a fantastic instructor \u2014 calm, patient and incredibly knowledgeable. I was nervous every lesson but she always put me at ease. Passed first attempt.\u201D \u2014 Priya M., Eastwood',
     phone: '0451 331 140',
     phoneHref: 'tel:0451331140',
-    bookHref: '/book?instructor=sidra',
+    bookHref: '#book',
   },
 ];
 
@@ -244,7 +246,7 @@ export default function HomePage() {
               }}
             >
               <Link
-                href="/book"
+                href="#book"
                 style={{
                   background: 'var(--navy)',
                   color: 'var(--cream)',
@@ -295,75 +297,9 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Column 2 \u2014 Photo */}
+          {/* Column 2 \u2014 Slideshow */}
           <div className="hero-photo-col">
-            <div
-              className="hero-photo"
-              style={{
-                aspectRatio: '3 / 4',
-                borderTop: '3px solid var(--gold)',
-                background:
-                  'linear-gradient(180deg, var(--navy) 0%, var(--navy-ink) 100%)',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: 'var(--cream)',
-                padding: '24px',
-                gap: '12px',
-              }}
-            >
-              <p
-                style={{
-                  fontFamily: 'var(--type-mono)',
-                  fontSize: '10px',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.2em',
-                  color: 'rgba(250, 247, 242, 0.5)',
-                  margin: 0,
-                }}
-              >
-                Photo placeholder
-              </p>
-              <p
-                style={{
-                  fontFamily: 'var(--type-display)',
-                  fontSize: '28px',
-                  fontWeight: 600,
-                  color: 'var(--cream)',
-                  margin: 0,
-                  textAlign: 'center',
-                  lineHeight: 1.1,
-                }}
-              >
-                Mick &amp; Sidra
-              </p>
-              <p
-                style={{
-                  fontFamily: 'var(--type-mono)',
-                  fontSize: '11px',
-                  color: 'var(--gold)',
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  margin: 0,
-                }}
-              >
-                Your instructors
-              </p>
-            </div>
-            <p
-              style={{
-                fontFamily: 'var(--type-mono)',
-                fontSize: '11px',
-                color: 'var(--ink-60)',
-                letterSpacing: '0.08em',
-                marginTop: '12px',
-                marginBottom: 0,
-                textAlign: 'center',
-              }}
-            >
-              Mick &amp; Sidra · North Ryde
-            </p>
+            <HeroSlideshow />
           </div>
 
           <aside
@@ -626,28 +562,43 @@ export default function HomePage() {
               style={{
                 fontFamily: 'var(--type-display)',
                 fontSize: 'clamp(32px, 5vw, 48px)',
-                fontWeight: 600,
+                fontWeight: 700,
                 lineHeight: 1.05,
                 letterSpacing: '-0.02em',
                 color: 'var(--navy-ink)',
                 margin: 0,
+                marginBottom: '18px',
               }}
             >
               What does a{' '}
-              <span style={{ fontStyle: 'italic', fontWeight: 500, color: 'var(--gold-deep)' }}>
+              <span style={{ fontStyle: 'italic', fontWeight: 700, color: 'var(--gold-deep)' }}>
                 lesson
               </span>{' '}
               cost?
             </h2>
+            <p
+              style={{
+                fontFamily: 'var(--type-body)',
+                fontSize: '17px',
+                lineHeight: 1.55,
+                color: 'var(--ink-60)',
+                margin: 0,
+                maxWidth: '60ch',
+              }}
+            >
+              No hidden fees. Three core paths — pick the one that fits. Your exact rate confirmed the moment you book.
+            </p>
           </div>
 
-          {/* Three-card row — hairline rules, equal height */}
+          {/* Three-card pricing grid */}
           <div
             className="pricing-cols"
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(3, 1fr)',
-              border: '1px solid var(--hairline)',
+              gap: 0,
+              borderTop: '1px solid var(--hairline)',
+              borderBottom: '1px solid var(--hairline)',
               alignItems: 'stretch',
             }}
           >
@@ -655,9 +606,10 @@ export default function HomePage() {
             <div
               className="pricing-col"
               style={{
-                padding: '36px 32px',
+                padding: '40px 32px',
                 display: 'flex',
                 flexDirection: 'column',
+                height: '100%',
                 background: 'var(--paper)',
                 borderRight: '1px solid var(--hairline)',
               }}
@@ -667,39 +619,41 @@ export default function HomePage() {
                   fontFamily: 'var(--type-mono)',
                   fontSize: '11px',
                   textTransform: 'uppercase',
-                  letterSpacing: '0.15em',
+                  letterSpacing: '0.18em',
                   color: 'var(--ink-60)',
                   margin: 0,
-                  marginBottom: '12px',
+                  marginBottom: '14px',
                 }}
               >
-                Casual
+                Pay as you go
               </p>
               <h3
                 style={{
                   fontFamily: 'var(--type-display)',
-                  fontSize: '22px',
-                  fontWeight: 600,
+                  fontSize: '28px',
+                  fontWeight: 700,
+                  lineHeight: 1.15,
                   color: 'var(--navy-ink)',
                   margin: 0,
-                  marginBottom: '20px',
-                  lineHeight: 1.2,
+                  marginBottom: '24px',
                 }}
               >
-                Pay-as-you-go lesson
+                Casual lesson
               </h3>
+
               <div
                 style={{
                   display: 'flex',
                   alignItems: 'baseline',
                   gap: '8px',
-                  marginBottom: '6px',
+                  marginBottom: '10px',
                 }}
               >
                 <span
                   style={{
                     fontFamily: 'var(--type-mono)',
                     fontSize: '12px',
+                    textTransform: 'uppercase',
                     color: 'var(--ink-60)',
                     letterSpacing: '0.05em',
                   }}
@@ -709,8 +663,9 @@ export default function HomePage() {
                 <span
                   style={{
                     fontFamily: 'var(--type-display)',
-                    fontSize: '44px',
-                    fontWeight: 700,
+                    fontSize: '64px',
+                    fontWeight: 800,
+                    letterSpacing: '-0.03em',
                     color: 'var(--navy-ink)',
                     lineHeight: 1,
                   }}
@@ -720,7 +675,7 @@ export default function HomePage() {
                 <span
                   style={{
                     fontFamily: 'var(--type-mono)',
-                    fontSize: '13px',
+                    fontSize: '14px',
                     color: 'var(--ink-60)',
                   }}
                 >
@@ -729,30 +684,104 @@ export default function HomePage() {
               </div>
               <p
                 style={{
-                  fontSize: '14px',
-                  lineHeight: 1.55,
-                  color: 'var(--ink-60)',
+                  fontFamily: 'var(--type-mono)',
+                  fontSize: '12px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.04em',
+                  color: 'var(--gold-deep)',
                   margin: 0,
-                  marginBottom: '24px',
+                  marginBottom: '20px',
                 }}
               >
-                One lesson at a time. No commitment. Try us out, build confidence, book again whenever you’re ready.
+                Single lessons · no commitment
               </p>
+
+              <p
+                style={{
+                  fontFamily: 'var(--type-mono)',
+                  fontSize: '10px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.2em',
+                  color: 'var(--ink-60)',
+                  margin: 0,
+                  marginTop: '4px',
+                  marginBottom: '10px',
+                }}
+              >
+                All casual options
+              </p>
+              <ul
+                style={{
+                  listStyle: 'none',
+                  padding: 0,
+                  margin: 0,
+                  marginBottom: '18px',
+                }}
+              >
+                {[
+                  { label: '1 hour lesson', price: '$60', last: false },
+                  { label: '1.5 hours · room to build confidence', price: '$85', last: false },
+                  { label: '2 hours · deep practice + manoeuvres', price: '$110', last: true },
+                ].map((row) => (
+                  <li
+                    key={row.label}
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'baseline',
+                      gap: '12px',
+                      padding: '10px 0',
+                      borderBottom: row.last ? 'none' : '1px solid var(--hairline)',
+                    }}
+                  >
+                    <span style={{ fontFamily: 'var(--type-body)', fontSize: '14px', color: 'var(--navy-ink)' }}>
+                      {row.label}
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: 'var(--type-mono)',
+                        fontSize: '13px',
+                        fontWeight: 500,
+                        color: 'var(--navy-ink)',
+                      }}
+                    >
+                      {row.price}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <p
+                style={{
+                  fontFamily: 'var(--type-body)',
+                  fontSize: '12px',
+                  fontStyle: 'italic',
+                  color: 'var(--ink-60)',
+                  margin: 0,
+                  marginBottom: '22px',
+                  lineHeight: 1.5,
+                }}
+              >
+                Rate varies slightly by suburb — typically $60–$75/hr. Final rate confirmed when you book.
+              </p>
+
               <Link
-                href="/book?service=casual"
+                href="#book"
                 style={{
                   marginTop: 'auto',
                   background: 'var(--navy)',
-                  color: 'var(--gold)',
-                  padding: '14px',
+                  color: '#ffffff',
+                  padding: '14px 18px',
                   textAlign: 'center',
                   fontFamily: 'var(--type-mono)',
-                  fontSize: '13px',
+                  fontSize: '12px',
                   fontWeight: 500,
-                  letterSpacing: '0.02em',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  borderRadius: '2px',
                 }}
               >
-                Book a single lesson →
+                Book a casual lesson →
               </Link>
             </div>
 
@@ -760,150 +789,194 @@ export default function HomePage() {
             <div
               className="pricing-col pricing-col-featured"
               style={{
-                padding: '36px 32px',
+                padding: '40px 32px',
                 display: 'flex',
                 flexDirection: 'column',
+                height: '100%',
                 background: 'var(--navy)',
-                color: 'var(--cream)',
-                borderRight: '1px solid var(--hairline)',
-                position: 'relative',
+                color: '#ffffff',
+                borderLeft: '1px solid rgba(255, 255, 255, 0.12)',
+                borderRight: '1px solid rgba(255, 255, 255, 0.12)',
               }}
             >
-              <span
-                style={{
-                  position: 'absolute',
-                  top: '-1px',
-                  left: '32px',
-                  background: 'var(--gold)',
-                  color: 'var(--navy-ink)',
-                  fontFamily: 'var(--type-mono)',
-                  fontSize: '11px',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.12em',
-                  padding: '6px 14px',
-                  fontWeight: 500,
-                }}
-              >
-                ★ Best value · save $50
-              </span>
-
               <p
                 style={{
                   fontFamily: 'var(--type-mono)',
                   fontSize: '11px',
                   textTransform: 'uppercase',
-                  letterSpacing: '0.15em',
+                  letterSpacing: '0.18em',
                   color: 'var(--gold)',
                   margin: 0,
-                  marginTop: '20px',
-                  marginBottom: '12px',
+                  marginBottom: '18px',
                 }}
               >
-                Package
+                ★ Best value · save $50
               </p>
               <h3
                 style={{
                   fontFamily: 'var(--type-display)',
-                  fontSize: '22px',
-                  fontWeight: 600,
-                  color: 'var(--cream)',
+                  fontSize: '28px',
+                  fontWeight: 700,
+                  lineHeight: 1.15,
+                  color: '#ffffff',
                   margin: 0,
-                  marginBottom: '20px',
-                  lineHeight: 1.2,
+                  marginBottom: '24px',
                 }}
               >
-                10-hour package
+                10-hour{' '}
+                <span style={{ fontStyle: 'italic', color: 'var(--gold)', fontWeight: 700 }}>
+                  package
+                </span>
               </h3>
+
               <div
                 style={{
                   display: 'flex',
                   alignItems: 'baseline',
-                  gap: '10px',
-                  marginBottom: '6px',
-                  flexWrap: 'wrap',
+                  gap: '8px',
+                  marginBottom: '10px',
                 }}
               >
                 <span
                   style={{
                     fontFamily: 'var(--type-display)',
-                    fontSize: '44px',
-                    fontWeight: 700,
+                    fontSize: '84px',
+                    fontWeight: 800,
+                    letterSpacing: '-0.03em',
                     color: 'var(--gold)',
                     lineHeight: 1,
                   }}
                 >
                   $550
                 </span>
-                <span
-                  style={{
-                    fontFamily: 'var(--type-mono)',
-                    fontSize: '13px',
-                    color: 'rgba(250, 247, 242, 0.7)',
-                  }}
-                >
-                  $55/hr
-                </span>
               </div>
               <p
                 style={{
-                  fontSize: '14px',
-                  lineHeight: 1.55,
-                  color: 'rgba(250, 247, 242, 0.7)',
+                  fontFamily: 'var(--type-mono)',
+                  fontSize: '12px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.04em',
+                  color: 'var(--gold)',
                   margin: 0,
                   marginBottom: '20px',
                 }}
               >
-                Lock in the lower rate. Most students book this once they’ve had a casual lesson.
+                = $55/hr · $5 cheaper per hour vs casual
               </p>
+
+              <p
+                style={{
+                  fontFamily: 'var(--type-mono)',
+                  fontSize: '10px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.2em',
+                  color: 'rgba(255, 255, 255, 0.55)',
+                  margin: 0,
+                  marginTop: '4px',
+                  marginBottom: '10px',
+                }}
+              >
+                All package options
+              </p>
+              <ul
+                style={{
+                  listStyle: 'none',
+                  padding: 0,
+                  margin: 0,
+                  marginBottom: '20px',
+                }}
+              >
+                {[
+                  { label: '10-hour package · BEST VALUE', price: '$550', last: false },
+                  { label: '5-hour package · save $25', price: '$275', last: true },
+                ].map((row) => (
+                  <li
+                    key={row.label}
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'baseline',
+                      gap: '12px',
+                      padding: '10px 0',
+                      borderBottom: row.last ? 'none' : '1px solid rgba(255, 255, 255, 0.12)',
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: 'var(--type-body)',
+                        fontSize: '14px',
+                        color: 'rgba(255, 255, 255, 0.92)',
+                      }}
+                    >
+                      {row.label}
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: 'var(--type-mono)',
+                        fontSize: '13px',
+                        fontWeight: 500,
+                        color: 'var(--gold)',
+                      }}
+                    >
+                      {row.price}
+                    </span>
+                  </li>
+                ))}
+              </ul>
 
               {/* 3-for-1 callout */}
               <div
                 style={{
-                  border: '1px solid rgba(245, 200, 66, 0.35)',
+                  background: 'rgba(245, 200, 66, 0.08)',
+                  borderLeft: '2px solid var(--gold)',
                   padding: '14px 16px',
-                  marginBottom: '24px',
+                  marginBottom: '22px',
                 }}
               >
-                <p
+                <span
                   style={{
+                    display: 'block',
                     fontFamily: 'var(--type-mono)',
-                    fontSize: '10px',
+                    fontSize: '11px',
                     textTransform: 'uppercase',
-                    letterSpacing: '0.15em',
+                    letterSpacing: '0.14em',
                     color: 'var(--gold)',
-                    margin: 0,
+                    fontWeight: 500,
                     marginBottom: '6px',
                   }}
                 >
-                  3-for-1 logbook scheme
-                </p>
+                  3-for-1 logbook bonus
+                </span>
                 <p
                   style={{
+                    fontFamily: 'var(--type-body)',
                     fontSize: '13px',
-                    lineHeight: 1.45,
-                    color: 'var(--cream)',
+                    lineHeight: 1.55,
+                    color: 'rgba(255, 255, 255, 0.92)',
                     margin: 0,
                   }}
                 >
-                  Counts as <strong style={{ color: 'var(--gold)' }}>30 logbook hours</strong> for under-25 learners.
+                  Every 1 hr with us = 3 logbook hours for under 25s. The 10-hour package counts as 30 logbook hours toward your 120.
                 </p>
               </div>
 
               <Link
-                href="/book?service=package"
+                href="#book"
                 style={{
                   marginTop: 'auto',
                   background: 'var(--gold)',
                   color: 'var(--navy-ink)',
-                  padding: '14px',
+                  padding: '16px 18px',
                   textAlign: 'center',
                   fontFamily: 'var(--type-mono)',
                   fontSize: '13px',
                   fontWeight: 500,
-                  letterSpacing: '0.02em',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  borderRadius: '2px',
                 }}
               >
-                Lock in $55/hr →
+                Book this package →
               </Link>
             </div>
 
@@ -911,9 +984,10 @@ export default function HomePage() {
             <div
               className="pricing-col"
               style={{
-                padding: '36px 32px',
+                padding: '40px 32px',
                 display: 'flex',
                 flexDirection: 'column',
+                height: '100%',
                 background: 'var(--paper)',
               }}
             >
@@ -922,80 +996,146 @@ export default function HomePage() {
                   fontFamily: 'var(--type-mono)',
                   fontSize: '11px',
                   textTransform: 'uppercase',
-                  letterSpacing: '0.15em',
+                  letterSpacing: '0.18em',
                   color: 'var(--ink-60)',
                   margin: 0,
-                  marginBottom: '12px',
+                  marginBottom: '14px',
                 }}
               >
-                Test prep
+                On real test routes
               </p>
               <h3
                 style={{
                   fontFamily: 'var(--type-display)',
-                  fontSize: '22px',
-                  fontWeight: 600,
+                  fontSize: '28px',
+                  fontWeight: 700,
+                  lineHeight: 1.15,
                   color: 'var(--navy-ink)',
                   margin: 0,
-                  marginBottom: '20px',
-                  lineHeight: 1.2,
+                  marginBottom: '24px',
                 }}
               >
-                Mock test on real routes
+                Test preparation
               </h3>
+
               <div
                 style={{
                   display: 'flex',
                   alignItems: 'baseline',
                   gap: '8px',
-                  marginBottom: '6px',
+                  marginBottom: '10px',
                 }}
               >
                 <span
                   style={{
-                    fontFamily: 'var(--type-mono)',
-                    fontSize: '12px',
-                    color: 'var(--ink-60)',
-                    letterSpacing: '0.05em',
-                  }}
-                >
-                  from
-                </span>
-                <span
-                  style={{
                     fontFamily: 'var(--type-display)',
-                    fontSize: '44px',
-                    fontWeight: 700,
+                    fontSize: '64px',
+                    fontWeight: 800,
+                    letterSpacing: '-0.03em',
                     color: 'var(--navy-ink)',
                     lineHeight: 1,
                   }}
                 >
-                  $65
+                  $500
                 </span>
               </div>
               <p
                 style={{
-                  fontSize: '14px',
-                  lineHeight: 1.55,
-                  color: 'var(--ink-60)',
+                  fontFamily: 'var(--type-mono)',
+                  fontSize: '12px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.04em',
+                  color: 'var(--gold-deep)',
                   margin: 0,
-                  marginBottom: '24px',
+                  marginBottom: '20px',
                 }}
               >
-                Full mock on the Service NSW route your assessor uses. Identifies exactly what to fix before test day.
+                6 hours + test day · best value for test-ready students
               </p>
+
+              <p
+                style={{
+                  fontFamily: 'var(--type-mono)',
+                  fontSize: '10px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.2em',
+                  color: 'var(--ink-60)',
+                  margin: 0,
+                  marginTop: '4px',
+                  marginBottom: '10px',
+                }}
+              >
+                All test prep options
+              </p>
+              <ul
+                style={{
+                  listStyle: 'none',
+                  padding: 0,
+                  margin: 0,
+                  marginBottom: '18px',
+                }}
+              >
+                {[
+                  { label: '6 hrs + test day · BEST VALUE', price: '$500', last: false },
+                  { label: 'Test day package · use our car', price: '$170', last: false },
+                  { label: 'Mock test · full simulation', price: '$65', last: true },
+                ].map((row) => (
+                  <li
+                    key={row.label}
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'baseline',
+                      gap: '12px',
+                      padding: '10px 0',
+                      borderBottom: row.last ? 'none' : '1px solid var(--hairline)',
+                    }}
+                  >
+                    <span style={{ fontFamily: 'var(--type-body)', fontSize: '14px', color: 'var(--navy-ink)' }}>
+                      {row.label}
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: 'var(--type-mono)',
+                        fontSize: '13px',
+                        fontWeight: 500,
+                        color: 'var(--navy-ink)',
+                      }}
+                    >
+                      {row.price}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <p
+                style={{
+                  fontFamily: 'var(--type-body)',
+                  fontSize: '12px',
+                  fontStyle: 'italic',
+                  color: 'var(--ink-60)',
+                  margin: 0,
+                  marginBottom: '22px',
+                  lineHeight: 1.5,
+                }}
+              >
+                We know every test route at Ryde, Silverwater, Castle Hill, North Rocks &amp; Chatswood by heart.
+              </p>
+
               <Link
-                href="/book?service=test-prep"
+                href="#book"
                 style={{
                   marginTop: 'auto',
                   background: 'var(--navy)',
-                  color: 'var(--gold)',
-                  padding: '14px',
+                  color: '#ffffff',
+                  padding: '14px 18px',
                   textAlign: 'center',
                   fontFamily: 'var(--type-mono)',
-                  fontSize: '13px',
+                  fontSize: '12px',
                   fontWeight: 500,
-                  letterSpacing: '0.02em',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  borderRadius: '2px',
                 }}
               >
                 Book test prep →
@@ -1007,27 +1147,34 @@ export default function HomePage() {
           <p
             style={{
               textAlign: 'center',
-              fontSize: '13px',
+              fontFamily: 'var(--type-mono)',
+              fontSize: '12px',
+              letterSpacing: '0.04em',
               color: 'var(--ink-60)',
               maxWidth: '64ch',
-              margin: '32px auto 0',
-              lineHeight: 1.65,
+              margin: '40px auto 0',
+              lineHeight: 1.6,
             }}
           >
-            Casual rates start from $60/hr; final rate confirmed instantly when you book. For block bookings, school groups, or anything custom, call Mick on{' '}
-            <a href="tel:0469370978" style={{ color: 'var(--navy-ink)', borderBottom: '1px solid var(--hairline)' }}>
-              0469 370 978
+            Block bookings, school groups, or anything custom — call{' '}
+            <a
+              href="tel:0469370978"
+              style={{ color: 'var(--navy-ink)', fontWeight: 600 }}
+            >
+              Mick 0469 370 978
             </a>{' '}
-            or Sidra on{' '}
-            <a href="tel:0451331140" style={{ color: 'var(--navy-ink)', borderBottom: '1px solid var(--hairline)' }}>
-              0451 331 140
+            or{' '}
+            <a
+              href="tel:0451331140"
+              style={{ color: 'var(--navy-ink)', fontWeight: 600 }}
+            >
+              Sidra 0451 331 140
             </a>
-            .
           </p>
         </div>
 
         <style>{`
-          @media (max-width: 900px) {
+          @media (max-width: 768px) {
             .pricing-cols {
               grid-template-columns: 1fr !important;
             }
@@ -1037,6 +1184,183 @@ export default function HomePage() {
             }
             .pricing-cols > .pricing-col:last-child {
               border-bottom: none;
+            }
+            .pricing-cols > .pricing-col-featured {
+              border-left: none !important;
+              border-right: none !important;
+            }
+          }
+        `}</style>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════
+          SECTION 5b — HOMEPAGE BOOKING (anchor target #book)
+          ══════════════════════════════════════════════════════════════════ */}
+      <section
+        id="book"
+        style={{
+          background: 'var(--navy)',
+          color: '#ffffff',
+          padding: 'var(--space-section) 32px',
+          borderTop: '1px solid rgba(255, 255, 255, 0.12)',
+        }}
+      >
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div
+            className="book-grid"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1.2fr',
+              gap: '64px',
+              alignItems: 'start',
+            }}
+          >
+            {/* LEFT COLUMN — copy */}
+            <div>
+              <p
+                style={{
+                  fontFamily: 'var(--type-display)',
+                  fontSize: '64px',
+                  fontWeight: 700,
+                  letterSpacing: '-0.02em',
+                  lineHeight: 1,
+                  color: 'var(--gold)',
+                  margin: 0,
+                  marginBottom: '24px',
+                }}
+              >
+                04
+              </p>
+              <p
+                style={{
+                  fontFamily: 'var(--type-mono)',
+                  fontSize: '12px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.18em',
+                  color: 'rgba(255, 255, 255, 0.65)',
+                  margin: 0,
+                  marginBottom: '18px',
+                }}
+              >
+                Book your lesson
+              </p>
+              <h2
+                style={{
+                  fontFamily: 'var(--type-display)',
+                  fontSize: 'clamp(32px, 5vw, 48px)',
+                  fontWeight: 600,
+                  letterSpacing: '-0.03em',
+                  lineHeight: 0.95,
+                  color: '#ffffff',
+                  margin: 0,
+                  marginBottom: '14px',
+                }}
+              >
+                Pick a path. We&rsquo;ll{' '}
+                <span style={{ fontStyle: 'italic', color: 'var(--gold)', fontWeight: 600 }}>
+                  confirm
+                </span>{' '}
+                within 1 hour.
+              </h2>
+              <p
+                style={{
+                  fontFamily: 'var(--type-body)',
+                  fontSize: '17px',
+                  lineHeight: 1.55,
+                  color: 'rgba(255, 255, 255, 0.75)',
+                  margin: 0,
+                  maxWidth: '580px',
+                  marginBottom: '32px',
+                }}
+              >
+                No phone-tag, no back-and-forth. Tell us what you need, hit send, and either Mick or Sidra will message you back to lock in a time.
+              </p>
+
+              {/* Trust bar */}
+              <div
+                style={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  gap: '16px',
+                  padding: '18px 0',
+                  borderTop: '1px solid rgba(255, 255, 255, 0.12)',
+                  borderBottom: '1px solid rgba(255, 255, 255, 0.12)',
+                  marginBottom: '32px',
+                }}
+              >
+                {[
+                  'Confirmed within 1 hour',
+                  'Free pick-up from your suburb',
+                  '127 Google reviews · 4.8★',
+                ].map((point) => (
+                  <span
+                    key={point}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      fontFamily: 'var(--type-mono)',
+                      fontSize: '12px',
+                      letterSpacing: '0.04em',
+                      color: 'rgba(255, 255, 255, 0.65)',
+                    }}
+                  >
+                    <span style={{ color: 'var(--gold)', fontWeight: 700 }} aria-hidden="true">
+                      ✓
+                    </span>
+                    {point}
+                  </span>
+                ))}
+              </div>
+
+              <p
+                style={{
+                  fontFamily: 'var(--type-body)',
+                  fontSize: '14px',
+                  lineHeight: 1.6,
+                  color: 'rgba(255, 255, 255, 0.7)',
+                  margin: 0,
+                }}
+              >
+                Prefer to talk? Call Mick on{' '}
+                <a
+                  href="tel:0469370978"
+                  style={{ color: 'var(--gold)', fontWeight: 500 }}
+                >
+                  0469 370 978
+                </a>{' '}
+                or Sidra on{' '}
+                <a
+                  href="tel:0451331140"
+                  style={{ color: 'var(--gold)', fontWeight: 500 }}
+                >
+                  0451 331 140
+                </a>
+                . Or message us on{' '}
+                <a
+                  href="https://wa.me/61469370978"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: 'var(--gold)', fontWeight: 500 }}
+                >
+                  WhatsApp →
+                </a>
+              </p>
+            </div>
+
+            {/* RIGHT COLUMN — form */}
+            <HomepageBookingForm />
+          </div>
+        </div>
+
+        <style>{`
+          @media (max-width: 768px) {
+            .book-grid {
+              grid-template-columns: 1fr !important;
+              gap: 32px !important;
+            }
+            .booking-form-card {
+              padding: 28px !important;
             }
           }
         `}</style>
@@ -1158,7 +1482,7 @@ export default function HomePage() {
                 </span>
               </div>
               <Link
-                href="/book"
+                href="#book"
                 style={{
                   display: 'inline-block',
                   background: 'var(--navy)',
@@ -1249,7 +1573,7 @@ export default function HomePage() {
               Free pick-up from home, school, work, or wherever you are. We plan lessons around your local test centre.
             </p>
             <Link
-              href="/book"
+              href="#book"
               style={{
                 display: 'inline-block',
                 background: 'var(--navy)',
@@ -1566,7 +1890,7 @@ export default function HomePage() {
             }}
           >
             <Link
-              href="/book"
+              href="#book"
               style={{
                 background: 'var(--gold)',
                 color: 'var(--navy-ink)',

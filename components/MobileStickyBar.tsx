@@ -49,7 +49,7 @@ export default function MobileStickyBar() {
           WhatsApp
         </a>
         <Link
-          href="/book"
+          href="/#book"
           style={{
             flex: 1,
             padding: '16px 8px',
