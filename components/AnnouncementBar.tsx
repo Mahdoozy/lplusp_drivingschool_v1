@@ -1,8 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
-const STORAGE_KEY = 'lplusp-announcement-ev-dismissed';
+const STORAGE_KEY = 'lplusp-announcement-10hr-dismissed';
 
 export default function AnnouncementBar() {
   const [visible, setVisible] = useState(false);
@@ -22,8 +23,10 @@ export default function AnnouncementBar() {
   return (
     <div className="bg-[#F5C132] text-[#0B1628] py-2.5 px-4 relative text-center">
       <p className="font-outfit text-sm font-medium pr-8">
-        New: EV Familiarisation Course now available —{' '}
-        <span className="font-semibold">Get confident with your electric car.</span>
+        This week — 10-hour package at $55/hr (save $50 vs casual).{' '}
+        <Link href="/book" className="font-semibold underline underline-offset-2">
+          Lock in your rate →
+        </Link>
       </p>
       <button
         onClick={dismiss}
