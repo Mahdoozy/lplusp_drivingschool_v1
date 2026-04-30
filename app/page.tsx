@@ -139,12 +139,12 @@ export default function HomePage() {
             margin: '0 auto',
             padding: '72px 32px 48px',
             display: 'grid',
-            gridTemplateColumns: '1.6fr 1fr',
+            gridTemplateColumns: '1.4fr 0.8fr 0.7fr',
             gap: '56px',
-            alignItems: 'end',
+            alignItems: 'start',
           }}
         >
-          {/* Left column */}
+          {/* Column 1 — Copy */}
           <div>
             <p
               style={{
@@ -198,6 +198,40 @@ export default function HomePage() {
             >
               Mick and Sidra have taught over {TRUST_STATS.studentsTaught.toLocaleString()} students to drive across North-West Sydney. Automatic cars, free pick-up, patient instructors who know every local test route by heart.
             </p>
+
+            {/* Macquarie Uni pick-up pill */}
+            <div
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                background: 'var(--paper)',
+                border: '1px solid var(--hairline)',
+                padding: '8px 14px',
+                marginBottom: '28px',
+              }}
+            >
+              <span
+                style={{
+                  width: '6px',
+                  height: '6px',
+                  background: 'var(--gold-deep)',
+                  borderRadius: '50%',
+                  flexShrink: 0,
+                }}
+                aria-hidden="true"
+              />
+              <span
+                style={{
+                  fontFamily: 'var(--type-mono)',
+                  fontSize: '12px',
+                  color: 'var(--navy-ink)',
+                  letterSpacing: '0.02em',
+                }}
+              >
+                Pick-up from Macquarie Uni campus
+              </span>
+            </div>
 
             <div
               className="hero-ctas"
@@ -261,7 +295,77 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Right column \u2014 stats panel */}
+          {/* Column 2 \u2014 Photo */}
+          <div className="hero-photo-col">
+            <div
+              className="hero-photo"
+              style={{
+                aspectRatio: '3 / 4',
+                borderTop: '3px solid var(--gold)',
+                background:
+                  'linear-gradient(180deg, var(--navy) 0%, var(--navy-ink) 100%)',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'var(--cream)',
+                padding: '24px',
+                gap: '12px',
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: 'var(--type-mono)',
+                  fontSize: '10px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.2em',
+                  color: 'rgba(250, 247, 242, 0.5)',
+                  margin: 0,
+                }}
+              >
+                Photo placeholder
+              </p>
+              <p
+                style={{
+                  fontFamily: 'var(--type-display)',
+                  fontSize: '28px',
+                  fontWeight: 600,
+                  color: 'var(--cream)',
+                  margin: 0,
+                  textAlign: 'center',
+                  lineHeight: 1.1,
+                }}
+              >
+                Mick &amp; Sidra
+              </p>
+              <p
+                style={{
+                  fontFamily: 'var(--type-mono)',
+                  fontSize: '11px',
+                  color: 'var(--gold)',
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  margin: 0,
+                }}
+              >
+                Your instructors
+              </p>
+            </div>
+            <p
+              style={{
+                fontFamily: 'var(--type-mono)',
+                fontSize: '11px',
+                color: 'var(--ink-60)',
+                letterSpacing: '0.08em',
+                marginTop: '12px',
+                marginBottom: 0,
+                textAlign: 'center',
+              }}
+            >
+              Mick &amp; Sidra · North Ryde
+            </p>
+          </div>
+
           <aside
             className="hero-stats"
             style={{
@@ -270,24 +374,25 @@ export default function HomePage() {
             }}
           >
             {[
-              { label: 'First-attempt pass rate', value: `${TRUST_STATS.firstAttemptPassRate}`, suffix: '%' },
-              { label: 'Students taught', value: `${TRUST_STATS.studentsTaught.toLocaleString()}+`, suffix: '' },
-              { label: 'Google reviews', value: `${TRUST_STATS.rating}`, suffix: ' \u2605' },
+              { label: 'Pass rate', value: `${TRUST_STATS.firstAttemptPassRate}`, suffix: '%' },
+              { label: 'Students taught', value: `${TRUST_STATS.studentsTaught.toLocaleString()}`, suffix: '+' },
+              { label: 'Reviews', value: `${TRUST_STATS.rating}`, suffix: '\u2605' },
+              { label: 'Best rate', value: '$55', suffix: '/hr' },
             ].map((row, i, arr) => (
               <div
                 key={row.label}
                 style={{
                   display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'baseline',
-                  padding: '20px 0',
+                  flexDirection: 'column',
+                  gap: '6px',
+                  padding: '18px 0',
                   borderBottom: i < arr.length - 1 ? '1px solid var(--hairline)' : 'none',
                 }}
               >
                 <span
                   style={{
                     fontFamily: 'var(--type-mono)',
-                    fontSize: '11px',
+                    fontSize: '10px',
                     textTransform: 'uppercase',
                     letterSpacing: '0.15em',
                     color: 'var(--ink-60)',
@@ -298,18 +403,16 @@ export default function HomePage() {
                 <span
                   style={{
                     fontFamily: 'var(--type-display)',
-                    fontSize: '32px',
+                    fontSize: '26px',
                     fontWeight: 700,
                     color: 'var(--navy-ink)',
                     lineHeight: 1,
                   }}
                 >
                   {row.value}
-                  {row.suffix && (
-                    <span style={{ color: row.suffix === '%' ? 'var(--gold-deep)' : 'var(--gold-deep)' }}>
-                      {row.suffix}
-                    </span>
-                  )}
+                  <span style={{ color: 'var(--gold-deep)', fontSize: '20px', marginLeft: '2px' }}>
+                    {row.suffix}
+                  </span>
                 </span>
               </div>
             ))}
@@ -326,6 +429,12 @@ export default function HomePage() {
             .hero-ctas > a:first-child {
               width: 100%;
               text-align: center;
+            }
+            .hero-photo-col {
+              max-width: 320px;
+              margin-left: auto;
+              margin-right: auto;
+              width: 100%;
             }
           }
         `}</style>
