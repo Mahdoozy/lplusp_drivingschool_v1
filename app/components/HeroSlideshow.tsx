@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 
 const SLIDES = [
-  '/Homepage%20Gallery/2023-12-03.jpg',
   '/Homepage%20Gallery/2025-02-03.jpg',
   '/Homepage%20Gallery/2026-03-31.jpg',
   '/Homepage%20Gallery/IMG_0064.jpg',
