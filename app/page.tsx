@@ -70,7 +70,7 @@ const matchmaker = [
     packageLabel: '10-hour pack',
     price: '$550',
     ctaLabel: 'Book now \u2192',
-    ctaHref: '#book',
+    ctaHref: '/#book',
   },
   {
     number: '02',
@@ -81,7 +81,7 @@ const matchmaker = [
     packageLabel: '6hr + test day',
     price: '$500',
     ctaLabel: 'Book now \u2192',
-    ctaHref: '#book',
+    ctaHref: '/#book',
   },
   {
     number: '03',
@@ -91,7 +91,7 @@ const matchmaker = [
     packageLabel: 'Mock test',
     price: '$65',
     ctaLabel: 'Book now \u2192',
-    ctaHref: '#book',
+    ctaHref: '/#book',
   },
 ];
 
@@ -108,7 +108,7 @@ const instructors = [
     quote: '\u201CMy job isn\u2019t to get you to pass once. It\u2019s to make sure you drive safely for the next fifty years.\u201D',
     phone: '0469 370 978',
     phoneHref: 'tel:0469370978',
-    bookHref: '#book',
+    bookHref: '/#book',
   },
   {
     initial: 'S',
@@ -123,7 +123,7 @@ const instructors = [
     quote: '\u201CSidra is a fantastic instructor \u2014 calm, patient and incredibly knowledgeable. I was nervous every lesson but she always put me at ease. Passed first attempt.\u201D \u2014 Priya M., Eastwood',
     phone: '0451 331 140',
     phoneHref: 'tel:0451331140',
-    bookHref: '#book',
+    bookHref: '/#book',
   },
 ];
 
@@ -246,7 +246,7 @@ export default function HomePage() {
               }}
             >
               <Link
-                href="#book"
+                href="/#book"
                 style={{
                   background: 'var(--navy)',
                   color: 'var(--cream)',
@@ -766,7 +766,7 @@ export default function HomePage() {
               </p>
 
               <Link
-                href="#book"
+                href="/#book"
                 style={{
                   marginTop: 'auto',
                   background: 'var(--navy)',
@@ -961,7 +961,7 @@ export default function HomePage() {
               </div>
 
               <Link
-                href="#book"
+                href="/#book"
                 style={{
                   marginTop: 'auto',
                   background: 'var(--gold)',
@@ -1123,7 +1123,7 @@ export default function HomePage() {
               </p>
 
               <Link
-                href="#book"
+                href="/#book"
                 style={{
                   marginTop: 'auto',
                   background: 'var(--navy)',
@@ -1482,7 +1482,7 @@ export default function HomePage() {
                 </span>
               </div>
               <Link
-                href="#book"
+                href="/#book"
                 style={{
                   display: 'inline-block',
                   background: 'var(--navy)',
@@ -1573,7 +1573,7 @@ export default function HomePage() {
               Free pick-up from home, school, work, or wherever you are. We plan lessons around your local test centre.
             </p>
             <Link
-              href="#book"
+              href="/#book"
               style={{
                 display: 'inline-block',
                 background: 'var(--navy)',
@@ -1890,7 +1890,7 @@ export default function HomePage() {
             }}
           >
             <Link
-              href="#book"
+              href="/#book"
               style={{
                 background: 'var(--gold)',
                 color: 'var(--navy-ink)',
