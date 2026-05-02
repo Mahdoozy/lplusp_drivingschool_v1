@@ -145,7 +145,7 @@ export default async function SuburbPage({ params }: Props) {
           {/* CTAs */}
           <div className="flex flex-wrap gap-4">
             <Link
-              href="/book"
+              href="/#book"
               className="font-outfit font-medium"
               style={{
                 background: 'var(--navy-ink)',
@@ -521,7 +521,7 @@ export default async function SuburbPage({ params }: Props) {
 
           <div style={{ marginTop: '2rem' }}>
             <Link
-              href="/book"
+              href="/#book"
               className="font-outfit font-medium"
               style={{
                 background: 'var(--navy-ink)',

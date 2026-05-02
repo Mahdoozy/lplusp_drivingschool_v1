@@ -67,7 +67,7 @@ export default function BlogIndexPage() {
             Free pick-up and drop-off across 24 Sydney suburbs.
           </p>
           <Link
-            href="/book"
+            href="/#book"
             className="inline-block font-outfit font-bold text-sm px-8 py-3.5 rounded-xl transition-colors"
             style={{ background: '#C9A84C', color: '#0B1C2E' }}
           >

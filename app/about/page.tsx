@@ -195,7 +195,7 @@ export default function AboutPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
-              href="/book"
+              href="/#book"
               className="font-outfit font-bold text-sm px-7 py-3.5 rounded-xl transition-colors text-center"
               style={{ background: '#F5C132', color: '#0B1628' }}
             >

@@ -125,7 +125,7 @@ export default function InstructorsPage() {
                 ))}
               </ul>
               <Link
-                href="/book"
+                href="/#book"
                 className="self-start font-outfit font-semibold text-sm px-6 py-2.5 rounded-lg transition-colors"
                 style={{ background: '#F5C842', color: '#0a0f1e' }}
               >
@@ -188,7 +188,7 @@ export default function InstructorsPage() {
                 ))}
               </ul>
               <Link
-                href="/book"
+                href="/#book"
                 className="self-start font-outfit font-semibold text-sm px-6 py-2.5 rounded-lg transition-colors"
                 style={{ background: '#F5C842', color: '#0a0f1e' }}
               >

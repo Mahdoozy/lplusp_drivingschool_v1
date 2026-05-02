@@ -213,7 +213,7 @@ export default function ServicesPage() {
                       <div className="text-gray-400 text-sm">{service.priceNote}</div>
                     </div>
                     <Link
-                      href="/book"
+                      href="/#book"
                       className="bg-[#FFD700] text-[#0f1623] font-bold px-6 py-3 rounded-lg text-center hover:bg-yellow-300 transition-colors w-fit"
                     >
                       Book Now

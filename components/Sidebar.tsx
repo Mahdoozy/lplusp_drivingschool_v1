@@ -20,7 +20,7 @@ export default function Sidebar() {
       <div className="sticky top-24 flex flex-col gap-3">
         {/* Book a Lesson */}
         <Link
-          href="/book"
+          href="/#book"
           className="w-full bg-[#FFD700] text-[#0f1623] font-bold py-3 px-4 rounded-xl text-center hover:bg-yellow-300 transition-colors text-sm"
         >
           Book a Lesson
@@ -63,7 +63,7 @@ export default function Sidebar() {
               <span className="text-[#FFD700] font-bold text-sm">{p.price}</span>
             </div>
           ))}
-          <Link href="/book" className="mt-2 text-center text-xs text-[#FFD700] hover:underline">
+          <Link href="/#book" className="mt-2 text-center text-xs text-[#FFD700] hover:underline">
             View all packages →
           </Link>
         </div>

@@ -65,7 +65,7 @@ export default function FemaleInstructorPage() {
                     Call Sidra — 0451 331 140
                   </a>
                   <Link
-                    href="/book"
+                    href="/#book"
                     className="inline-flex items-center justify-center bg-[#FFD700] text-[#0f1623] font-bold px-5 py-2.5 rounded-lg hover:bg-yellow-300 transition-colors text-sm"
                   >
                     Book with Sidra

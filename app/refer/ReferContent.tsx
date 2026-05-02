@@ -149,7 +149,7 @@ export default function ReferContent() {
         {/* Fine print */}
         <div className="text-center flex flex-col gap-1">
           <p className="font-sans text-[#7a8aaa] text-xs">Discount applied to next booking · Contact us to claim · Valid for 6 months</p>
-          <Link href="/book" className="font-sans text-sm text-[#3a4a6a] underline underline-offset-4 hover:text-[#0a0f1e] transition-colors">
+          <Link href="/#book" className="font-sans text-sm text-[#3a4a6a] underline underline-offset-4 hover:text-[#0a0f1e] transition-colors">
             Ready to book? →
           </Link>
         </div>

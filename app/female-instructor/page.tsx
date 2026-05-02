@@ -64,7 +64,7 @@ export default function FemaleInstructorPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
             <Link
-              href="/book?service=female-instructor"
+              href="/#book"
               className="font-outfit font-bold text-sm px-7 py-3.5 rounded-xl transition-colors text-center"
               style={{ background: '#F5C132', color: '#0B1628' }}
             >
@@ -129,7 +129,7 @@ export default function FemaleInstructorPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
-                href="/book?service=female-instructor"
+                href="/#book"
                 className="font-outfit font-bold text-sm px-6 py-3 rounded-xl transition-colors text-center"
                 style={{ background: '#F5C132', color: '#0B1628' }}
               >
@@ -280,7 +280,7 @@ export default function FemaleInstructorPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
-              href="/book?service=female-instructor"
+              href="/#book"
               className="font-outfit font-bold text-sm px-7 py-3.5 rounded-xl transition-colors"
               style={{ background: '#F5C132', color: '#0B1628' }}
             >

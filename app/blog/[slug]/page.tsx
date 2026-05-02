@@ -65,7 +65,7 @@ export default async function BlogPostPage({ params }: Props) {
             <p className="font-outfit text-white/50 text-sm">Free pick-up across 24 Sydney suburbs.</p>
           </div>
           <Link
-            href="/book"
+            href="/#book"
             className="flex-shrink-0 font-outfit font-bold text-sm px-7 py-3 rounded-xl transition-colors whitespace-nowrap"
             style={{ background: '#C9A84C', color: '#0B1C2E' }}
           >

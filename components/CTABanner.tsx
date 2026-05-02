@@ -27,7 +27,7 @@ export default function CTABanner({
         </h2>
         <p className="font-sans text-[#0a0f1e] text-lg font-medium opacity-80">{subtext}</p>
         <Link
-          href="/book"
+          href="/#book"
           className="font-syne font-bold text-white px-9 py-4 rounded hover:scale-[1.02] transition-all duration-200 shadow-lg"
           style={{ background: '#0a0f1e' }}
         >

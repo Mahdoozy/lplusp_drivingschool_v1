@@ -239,7 +239,7 @@ function PricingCard({
       </ul>
 
       <Link
-        href="/book#booking-form"
+        href="/#book"
         className="mt-2 font-sans font-semibold text-sm px-4 py-3 rounded text-center transition-all duration-200 bg-[#F5C842] text-[#0a0f1e] hover:bg-[#d4a91a]"
       >
         Book Now
