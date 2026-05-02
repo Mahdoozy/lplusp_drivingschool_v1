@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 const lessonTypes = [
@@ -24,9 +25,9 @@ interface FormData {
 }
 
 export default function HomepageBookingForm() {
+  const router = useRouter();
   const [sending, setSending] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [submitError, setSubmitError] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [form, setForm] = useState<FormData>({
     name: '',
     phone: '',
@@ -43,7 +44,7 @@ export default function HomepageBookingForm() {
     e.preventDefault();
     if (!form.name || !form.phone || !form.suburb || !form.type) return;
     setSending(true);
-    setSubmitError(false);
+    setSubmitError('');
     try {
       const res = await fetch('/api/book', {
         method: 'POST',
@@ -61,7 +62,7 @@ export default function HomepageBookingForm() {
           message: form.notes,
         }),
       });
-      if (!res.ok) throw new Error('Failed');
+      if (!res.ok) throw new Error('Booking failed');
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -71,10 +72,9 @@ export default function HomepageBookingForm() {
           currency: 'AUD',
         });
       }
-      setSubmitted(true);
+      router.push('/book/thank-you');
     } catch {
-      setSubmitError(true);
-    } finally {
+      setSubmitError('Something went wrong. Please try again or call Mick on 0469 370 978.');
       setSending(false);
     }
   }
@@ -100,53 +100,6 @@ export default function HomepageBookingForm() {
     color: 'var(--navy-ink)',
     outline: 'none',
   };
-
-  if (submitted) {
-    return (
-      <div
-        className="booking-form-card"
-        style={{
-          background: 'var(--cream)',
-          padding: '64px 40px',
-          color: 'var(--navy-ink)',
-          textAlign: 'center',
-          minHeight: '420px',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: '14px',
-        }}
-      >
-        <p
-          style={{
-            fontFamily: 'var(--type-display)',
-            fontSize: '24px',
-            fontWeight: 700,
-            color: 'var(--navy-ink)',
-            margin: 0,
-            lineHeight: 1.2,
-          }}
-        >
-          Got it. We&rsquo;ll be in touch within the hour.
-        </p>
-        <p
-          style={{
-            fontFamily: 'var(--type-body)',
-            fontSize: '14px',
-            color: 'var(--ink-60)',
-            margin: 0,
-          }}
-        >
-          Or call Mick on{' '}
-          <a href="tel:0469370978" style={{ color: 'var(--navy-ink)', fontWeight: 500 }}>
-            0469 370 978
-          </a>{' '}
-          if it&rsquo;s urgent.
-        </p>
-      </div>
-    );
-  }
 
   return (
     <div
@@ -183,6 +136,25 @@ export default function HomepageBookingForm() {
       >
         5 fields · 30 seconds
       </p>
+
+      {submitError && (
+        <p
+          role="alert"
+          style={{
+            fontFamily: 'var(--type-body)',
+            fontSize: '14px',
+            lineHeight: 1.5,
+            color: '#b3261e',
+            background: 'rgba(179, 38, 30, 0.08)',
+            border: '1px solid rgba(179, 38, 30, 0.25)',
+            padding: '12px 14px',
+            borderRadius: '2px',
+            margin: '0 0 18px',
+          }}
+        >
+          {submitError}
+        </p>
+      )}
 
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: '18px' }}>
@@ -266,23 +238,6 @@ export default function HomepageBookingForm() {
           />
         </div>
 
-        {submitError && (
-          <p
-            style={{
-              fontFamily: 'var(--type-body)',
-              fontSize: '14px',
-              color: '#b3261e',
-              margin: '0 0 12px',
-            }}
-          >
-            Something went wrong — please call Mick on{' '}
-            <a href="tel:0469370978" style={{ color: '#b3261e', textDecoration: 'underline' }}>
-              0469 370 978
-            </a>
-            .
-          </p>
-        )}
-
         <button
           type="submit"
           disabled={sending || !form.name || !form.phone || !form.suburb || !form.type}
@@ -303,7 +258,7 @@ export default function HomepageBookingForm() {
             marginTop: '8px',
           }}
         >
-          {sending ? 'Sending…' : 'Send my booking request →'}
+          {sending ? 'Sending...' : 'Send my booking request →'}
         </button>
 
         <p
