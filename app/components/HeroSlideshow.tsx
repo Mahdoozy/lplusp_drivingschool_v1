@@ -82,10 +82,10 @@ export default function HeroSlideshow() {
             position: 'absolute',
             left: 0,
             right: 0,
-            bottom: '14px',
+            bottom: '18px',
             display: 'flex',
             justifyContent: 'center',
-            gap: '6px',
+            gap: '8px',
             zIndex: 2,
           }}
         >
@@ -97,8 +97,8 @@ export default function HeroSlideshow() {
               aria-current={active === i ? 'true' : undefined}
               onClick={() => jumpTo(i)}
               style={{
-                width: '6px',
-                height: '6px',
+                width: '8px',
+                height: '8px',
                 borderRadius: '50%',
                 border: 'none',
                 padding: 0,

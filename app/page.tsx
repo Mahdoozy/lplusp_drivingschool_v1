@@ -313,7 +313,7 @@ export default function HomePage() {
               { label: 'Pass rate', value: `${TRUST_STATS.firstAttemptPassRate}`, suffix: '%' },
               { label: 'Students taught', value: `${TRUST_STATS.studentsTaught.toLocaleString()}`, suffix: '+' },
               { label: 'Reviews', value: `${TRUST_STATS.rating}`, suffix: '\u2605' },
-              { label: 'Best rate', value: '$55', suffix: '/hr' },
+              { label: 'Best rate', value: '$60', suffix: '/hr' },
             ].map((row, i, arr) => (
               <div
                 key={row.label}
@@ -371,6 +371,170 @@ export default function HomePage() {
               margin-left: auto;
               margin-right: auto;
               width: 100%;
+            }
+          }
+        `}</style>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════
+          SECTION 2b — 3-FOR-1 LOGBOOK STRIP
+          ══════════════════════════════════════════════════════════════════ */}
+      <section
+        style={{
+          background: 'var(--gold)',
+          color: 'var(--navy)',
+          padding: '28px 0',
+          borderTop: '1px solid rgba(13, 27, 62, 0.15)',
+          borderBottom: '1px solid rgba(13, 27, 62, 0.15)',
+        }}
+      >
+        <div
+          className="logbook-strip"
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            padding: '0 32px',
+            display: 'grid',
+            gridTemplateColumns: 'auto 1fr auto',
+            gap: '32px',
+            alignItems: 'center',
+          }}
+        >
+          {/* Column 1 — 10 = 30 */}
+          <div
+            className="logbook-equation"
+            style={{ display: 'flex', alignItems: 'baseline' }}
+          >
+            <span
+              style={{
+                fontFamily: 'var(--type-display)',
+                fontSize: 'clamp(72px, 9vw, 124px)',
+                fontWeight: 800,
+                letterSpacing: '-0.04em',
+                lineHeight: 0.9,
+                color: 'var(--navy)',
+              }}
+            >
+              10
+            </span>
+            <span
+              style={{
+                fontFamily: 'var(--type-mono)',
+                fontSize: 'clamp(28px, 3vw, 42px)',
+                color: 'var(--navy-deep)',
+                opacity: 0.4,
+                margin: '0 12px',
+                fontWeight: 400,
+              }}
+            >
+              =
+            </span>
+            <span
+              style={{
+                fontFamily: 'var(--type-display)',
+                fontSize: 'clamp(72px, 9vw, 124px)',
+                fontWeight: 800,
+                letterSpacing: '-0.04em',
+                lineHeight: 0.9,
+                color: 'var(--navy)',
+              }}
+            >
+              30
+            </span>
+          </div>
+
+          {/* Column 2 — text */}
+          <div className="logbook-text">
+            <p
+              style={{
+                fontFamily: 'var(--type-mono)',
+                fontSize: '11px',
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                color: 'var(--navy-deep)',
+                opacity: 0.65,
+                margin: 0,
+                marginBottom: '8px',
+              }}
+            >
+              NSW 3-for-1 logbook scheme
+            </p>
+            <p
+              style={{
+                fontFamily: 'var(--type-display)',
+                fontSize: 'clamp(20px, 2.5vw, 28px)',
+                fontWeight: 700,
+                letterSpacing: '-0.02em',
+                lineHeight: 1.15,
+                margin: 0,
+                marginBottom: '6px',
+                color: 'var(--navy)',
+              }}
+            >
+              Book 10 hours with us. Get{' '}
+              <span style={{ fontStyle: 'italic' }}>30 logbook hours.</span>
+            </p>
+            <p
+              style={{
+                fontFamily: 'var(--type-body)',
+                fontSize: '14px',
+                color: 'var(--navy-deep)',
+                opacity: 0.75,
+                lineHeight: 1.5,
+                margin: 0,
+                maxWidth: '460px',
+              }}
+            >
+              Every 1 hour with a licensed instructor counts as 3 logbook hours for under-25 learners — straight onto your 120-hour total. The fastest legal way to get test-ready.
+            </p>
+          </div>
+
+          {/* Column 3 — CTA */}
+          <Link
+            href="/#book"
+            className="logbook-cta"
+            style={{
+              background: 'var(--navy)',
+              color: 'var(--gold)',
+              padding: '16px 24px',
+              borderRadius: '2px',
+              fontFamily: 'var(--type-mono)',
+              fontSize: '13px',
+              textTransform: 'uppercase',
+              letterSpacing: '0.08em',
+              fontWeight: 500,
+              whiteSpace: 'nowrap',
+              textDecoration: 'none',
+            }}
+          >
+            Claim 30 hours →
+          </Link>
+        </div>
+
+        <style>{`
+          @media (max-width: 1080px) {
+            .logbook-strip {
+              grid-template-columns: auto 1fr !important;
+            }
+            .logbook-strip .logbook-cta {
+              grid-column: 1 / -1;
+              justify-self: start;
+            }
+          }
+          @media (max-width: 768px) {
+            .logbook-strip {
+              grid-template-columns: 1fr !important;
+              text-align: center;
+            }
+            .logbook-strip .logbook-equation {
+              justify-content: center;
+            }
+            .logbook-strip .logbook-text p {
+              margin-left: auto !important;
+              margin-right: auto !important;
+            }
+            .logbook-strip .logbook-cta {
+              justify-self: center;
             }
           }
         `}</style>
@@ -670,7 +834,7 @@ export default function HomePage() {
                     lineHeight: 1,
                   }}
                 >
-                  $60
+                  $70
                 </span>
                 <span
                   style={{
@@ -719,9 +883,9 @@ export default function HomePage() {
                 }}
               >
                 {[
-                  { label: '1 hour lesson', price: '$60', last: false },
-                  { label: '1.5 hours · room to build confidence', price: '$85', last: false },
-                  { label: '2 hours · deep practice + manoeuvres', price: '$110', last: true },
+                  { label: '1 hour lesson', price: '$70', last: false },
+                  { label: '1.5 hours · room to build confidence', price: '$100', last: false },
+                  { label: '2 hours · deep practice + manoeuvres', price: '$130', last: true },
                 ].map((row) => (
                   <li
                     key={row.label}
@@ -762,7 +926,7 @@ export default function HomePage() {
                   lineHeight: 1.5,
                 }}
               >
-                Rate varies slightly by suburb — typically $60–$75/hr. Final rate confirmed when you book.
+                Rate confirmed when you book. Final price may vary slightly by suburb.
               </p>
 
               <Link
@@ -810,7 +974,7 @@ export default function HomePage() {
                   marginBottom: '18px',
                 }}
               >
-                ★ Best value · save $50
+                ★ Best value · save $100
               </p>
               <h3
                 style={{
@@ -847,7 +1011,7 @@ export default function HomePage() {
                     lineHeight: 1,
                   }}
                 >
-                  $550
+                  $600
                 </span>
               </div>
               <p
@@ -861,7 +1025,7 @@ export default function HomePage() {
                   marginBottom: '20px',
                 }}
               >
-                = $55/hr · $5 cheaper per hour vs casual
+                = $60/hr · $10 cheaper per hour vs casual
               </p>
 
               <p
@@ -887,8 +1051,8 @@ export default function HomePage() {
                 }}
               >
                 {[
-                  { label: '10-hour package · BEST VALUE', price: '$550', last: false },
-                  { label: '5-hour package · save $25', price: '$275', last: true },
+                  { label: '10-hour package · BEST VALUE', price: '$600', last: false },
+                  { label: '5-hour package', price: '$325', last: true },
                 ].map((row) => (
                   <li
                     key={row.label}
@@ -924,39 +1088,70 @@ export default function HomePage() {
                 ))}
               </ul>
 
-              {/* 3-for-1 callout */}
+              {/* In-card logbook banner — bigger and bolder */}
               <div
                 style={{
-                  background: 'rgba(245, 200, 66, 0.08)',
-                  borderLeft: '2px solid var(--gold)',
-                  padding: '14px 16px',
+                  background: 'var(--gold)',
+                  color: 'var(--navy)',
+                  padding: '20px 18px',
                   marginBottom: '22px',
+                  borderRadius: '2px',
                 }}
               >
                 <span
                   style={{
                     display: 'block',
                     fontFamily: 'var(--type-mono)',
-                    fontSize: '11px',
+                    fontSize: '10px',
                     textTransform: 'uppercase',
-                    letterSpacing: '0.14em',
-                    color: 'var(--gold)',
-                    fontWeight: 500,
+                    letterSpacing: '0.2em',
+                    color: 'var(--navy-deep)',
+                    opacity: 0.65,
                     marginBottom: '6px',
                   }}
                 >
-                  3-for-1 logbook bonus
+                  3-for-1 logbook bonus · under 25
                 </span>
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'baseline',
+                    flexWrap: 'wrap',
+                    gap: '6px',
+                    fontFamily: 'var(--type-display)',
+                    fontSize: '28px',
+                    fontWeight: 800,
+                    letterSpacing: '-0.02em',
+                    lineHeight: 1,
+                    marginBottom: '8px',
+                  }}
+                >
+                  <span style={{ color: 'var(--navy)' }}>10 hrs</span>
+                  <span
+                    style={{
+                      fontFamily: 'var(--type-mono)',
+                      fontSize: '18px',
+                      opacity: 0.5,
+                      fontWeight: 400,
+                    }}
+                  >
+                    =
+                  </span>
+                  <span style={{ color: 'var(--navy)', fontWeight: 800 }}>
+                    30 logbook hrs
+                  </span>
+                </div>
                 <p
                   style={{
                     fontFamily: 'var(--type-body)',
-                    fontSize: '13px',
-                    lineHeight: 1.55,
-                    color: 'rgba(255, 255, 255, 0.92)',
+                    fontSize: '12px',
+                    color: 'var(--navy-deep)',
+                    opacity: 0.8,
+                    lineHeight: 1.45,
                     margin: 0,
                   }}
                 >
-                  Every 1 hr with us = 3 logbook hours for under 25s. The 10-hour package counts as 30 logbook hours toward your 120.
+                  Every hour with us counts as 3 logbook hours toward your 120. The 10-hour package gets you a quarter of the way there instantly.
                 </p>
               </div>
 
@@ -1078,7 +1273,7 @@ export default function HomePage() {
                 {[
                   { label: '6 hrs + test day · BEST VALUE', price: '$500', last: false },
                   { label: 'Test day package · use our car', price: '$170', last: false },
-                  { label: 'Mock test · full simulation', price: '$65', last: true },
+                  { label: 'Mock test · full simulation', price: '$80', last: true },
                 ].map((row) => (
                   <li
                     key={row.label}
@@ -1188,6 +1383,244 @@ export default function HomePage() {
             .pricing-cols > .pricing-col-featured {
               border-left: none !important;
               border-right: none !important;
+            }
+          }
+        `}</style>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════
+          SECTION 5a — OVERSEAS LICENCE CONVERSION
+          ══════════════════════════════════════════════════════════════════ */}
+      <section
+        className="overseas-section"
+        style={{
+          background: 'var(--navy)',
+          color: '#ffffff',
+          padding: 'var(--space-section) 0',
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+      >
+        <div
+          className="overseas-grid"
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            padding: '0 32px',
+            display: 'grid',
+            gridTemplateColumns: '1.2fr 1fr',
+            gap: '64px',
+            alignItems: 'center',
+            position: 'relative',
+            zIndex: 1,
+          }}
+        >
+          {/* LEFT — copy */}
+          <div>
+            <p
+              style={{
+                fontFamily: 'var(--type-mono)',
+                fontSize: '12px',
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                color: 'var(--gold)',
+                margin: 0,
+                marginBottom: '18px',
+              }}
+            >
+              For international drivers
+            </p>
+            <h2
+              style={{
+                fontFamily: 'var(--type-display)',
+                fontSize: 'clamp(36px, 5.5vw, 64px)',
+                fontWeight: 600,
+                letterSpacing: '-0.03em',
+                lineHeight: 0.95,
+                color: '#ffffff',
+                margin: 0,
+                marginBottom: '24px',
+              }}
+            >
+              Already driving overseas?{' '}
+              <span style={{ fontStyle: 'italic', color: 'var(--gold)', fontWeight: 600 }}>
+                Get your NSW licence — fast.
+              </span>
+            </h2>
+            <p
+              style={{
+                fontFamily: 'var(--type-body)',
+                fontSize: '18px',
+                lineHeight: 1.55,
+                color: 'rgba(255, 255, 255, 0.78)',
+                margin: 0,
+                marginBottom: '32px',
+                maxWidth: '520px',
+              }}
+            >
+              If you&rsquo;re holding a foreign licence in Sydney, the clock is ticking. After 3 months you legally need an Australian licence. We&rsquo;ve helped hundreds of overseas drivers convert &mdash; without restarting from scratch.
+            </p>
+
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, marginBottom: '32px' }}>
+              {[
+                <>We know exactly which countries qualify for direct conversion vs full test</>,
+                <>Pick-up from <strong>Macquarie University campus</strong> &amp; surrounding suburbs</>,
+                <>NSW road rules in plain English &mdash; no confusing jargon</>,
+                <>Test routes drilled until they&rsquo;re second nature</>,
+              ].map((node, i) => (
+                <li
+                  key={i}
+                  style={{
+                    fontFamily: 'var(--type-body)',
+                    fontSize: '15px',
+                    color: 'rgba(255, 255, 255, 0.92)',
+                    padding: '14px 0',
+                    borderBottom: '1px solid var(--on-navy-hairline)',
+                    display: 'flex',
+                    alignItems: 'baseline',
+                    gap: '14px',
+                  }}
+                >
+                  <span
+                    style={{
+                      color: 'var(--gold)',
+                      fontFamily: 'var(--type-mono)',
+                      fontWeight: 500,
+                      flexShrink: 0,
+                    }}
+                  >
+                    →
+                  </span>
+                  <span>{node}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div
+              style={{
+                display: 'flex',
+                gap: '12px',
+                alignItems: 'center',
+                flexWrap: 'wrap',
+              }}
+            >
+              <Link
+                href="/#book"
+                style={{
+                  background: 'var(--gold)',
+                  color: 'var(--navy-ink)',
+                  padding: '16px 24px',
+                  borderRadius: '2px',
+                  fontFamily: 'var(--type-mono)',
+                  fontSize: '13px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  fontWeight: 500,
+                  textDecoration: 'none',
+                }}
+              >
+                Book a conversion lesson →
+              </Link>
+              <Link
+                href="/overseas-licence-conversion"
+                style={{
+                  color: '#ffffff',
+                  fontFamily: 'var(--type-body)',
+                  fontSize: '14px',
+                  textDecoration: 'underline',
+                  textUnderlineOffset: '3px',
+                  padding: '16px 4px',
+                }}
+              >
+                Read the full guide
+              </Link>
+            </div>
+          </div>
+
+          {/* RIGHT — stat + quote panel */}
+          <aside
+            style={{
+              borderLeft: '3px solid var(--gold)',
+              padding: '24px 32px',
+            }}
+          >
+            <p
+              style={{
+                fontFamily: 'var(--type-display)',
+                fontSize: '96px',
+                fontWeight: 800,
+                color: 'var(--gold)',
+                lineHeight: 1,
+                letterSpacing: '-0.04em',
+                margin: 0,
+                marginBottom: '8px',
+              }}
+            >
+              200+
+            </p>
+            <p
+              style={{
+                fontFamily: 'var(--type-mono)',
+                fontSize: '11px',
+                letterSpacing: '0.15em',
+                color: 'rgba(255, 255, 255, 0.65)',
+                textTransform: 'uppercase',
+                margin: 0,
+                marginBottom: '32px',
+              }}
+            >
+              Overseas drivers converted since 1997
+            </p>
+            <p
+              style={{
+                fontFamily: 'var(--type-display)',
+                fontStyle: 'italic',
+                fontSize: '18px',
+                fontWeight: 600,
+                lineHeight: 1.4,
+                color: '#ffffff',
+                margin: 0,
+                marginBottom: '12px',
+              }}
+            >
+              &ldquo;Drove for 15 years in India. Mick made the NSW test feel familiar in 4 lessons. Passed first try.&rdquo;
+            </p>
+            <p
+              style={{
+                fontFamily: 'var(--type-mono)',
+                fontSize: '11px',
+                letterSpacing: '0.1em',
+                color: 'var(--gold)',
+                textTransform: 'uppercase',
+                margin: 0,
+              }}
+            >
+              Priya M. · Eastwood · Passed 2025
+            </p>
+          </aside>
+        </div>
+
+        <style>{`
+          .overseas-section::before {
+            content: "OVERSEAS · LICENCE · CONVERSION ·";
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            font-family: var(--type-display), serif;
+            font-size: 14vw;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            color: rgba(245, 200, 66, 0.05);
+            white-space: nowrap;
+            pointer-events: none;
+            line-height: 1;
+            z-index: 0;
+          }
+          @media (max-width: 1080px) {
+            .overseas-grid {
+              grid-template-columns: 1fr !important;
+              gap: 40px !important;
             }
           }
         `}</style>

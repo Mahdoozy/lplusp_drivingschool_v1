@@ -28,12 +28,17 @@
 :root {
   /* ── Editorial palette (suburb pages + light contexts) ── */
   --navy-ink:   #0a1530;
+  --navy-deep:  #08132c;
   --gold-deep:  #d9a91f;
   --cream:      #faf7f2;
   --paper:      #ffffff;
   --ink-60:     rgba(13, 27, 62, 0.6);
   --ink-40:     rgba(13, 27, 62, 0.4);
   --hairline:   rgba(13, 27, 62, 0.12);
+  --on-navy-hairline: rgba(255, 255, 255, 0.12);
+  /* Aliases used by editorial spec */
+  --ink:        var(--navy-ink);
+  --ink-soft:   var(--ink-60);
 
   /* ── Editorial design tokens (homepage redesign) ── */
   --type-display: var(--font-syne), serif;
